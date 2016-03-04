@@ -1,0 +1,26 @@
+Instalando o samba:
+
+1) apt-get install samba samba-common
+
+2) no final do arquivo
+[pasta-publica]
+   # aqui depende da seção securiy = share
+   path = /mnt/pasta-publica
+   guest ok = no
+   writeable  = yes
+   browseable = yes
+   public = yes
+   veto files = *.mp3/*.vbs/*.wma/*.avi/*.wav
+   default case = lower
+
+3) http://ubuntuforums.org/showthread.php?t=1723762
+     na pasta acima do arquivo :
+      ex.:        chmod -Rf 777 routes
+*************************************************
+
+
+
+
+
+
+
