@@ -17,45 +17,58 @@
   <script type="text/javascript" src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <script type="text/javascript" src="components/angular-cookies/angular-cookies.min.js"></script>
   <script type="text/javascript" src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  
+  <!-- Adicionado por causa da solução do formulario.js e do meus-servico.js
+  <script type="text/javascript" src="js/angular-resource.min.js"></script>
+  <script type="text/javascript" src="js/angular-route.min.js"></script>
+  -->
+  <script type="text/javascript" src="components/angular-resource.min.js"></script>
+  <script type="text/javascript" src="components/angular-route.min.js"></script>
+  
   <!-- endbuild -->
   
   
 
-  <!-- 
+  <!-- PARA ENVIAR PARA PRODUÇÃO
     Na hora de distribuir tem que fazer o seguinte na raiz da pasta ($ xxxx/rdash-teste):
     1) Apagar a pasta de build:
       rm -Rf dist/
 
-    2) apagar o arquivo minificado de produção
+    2) apagar o arquivo minificado de produção dentro da pasta src/js
       rm -Rf dashboard.min.js 
 
-    3) comentar as linhas de script abaixo: da module.js até a widget.js
+    3) (PARA PRODUCAO) comentar as linhas de script abaixo: da module.js até a widget.js
     
-    4) Liberar a linha do dashboard.min.js
+    4) (PARA PRODUCAO) Liberar a linha do dashboard.min.js
 
     5) gerar o build
       ./node_modules/.bin/gulp build
 
-    6) copiar o arquivo minificado da pasta dist para a pasta js para fazer um teste final  
+    6) copiar o arquivo minificado da pasta dist para a pasta ./src/js para fazer um teste final  
        cp dist/js/dashboard.min.js .
  -->
 
- <!-- <script type="text/javascript" src="js/dashboard.min.js"></script> -->
- <script type="text/javascript" src="js/dashboard.min.js"></script> 
+ <!--  <script type="text/javascript" src="js/dashboard.min.js"></script>-->
+ 
 
   <!-- Custom Scripts -->
-  <!-- 
+  <!--  -->
   <script type="text/javascript" src="js/module.js"></script>
   <script type="text/javascript" src="js/routes.js"></script>
+  <script type="text/javascript" src="js/services/meus-servicos.js"></script>
   <script type="text/javascript" src="js/controllers/master-ctrl.js"></script>
   <script type="text/javascript" src="js/controllers/alert-ctrl.js"></script>
+  <script type="text/javascript" src="js/controllers/foto-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/grupos-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/nomeacao-ctrl.js"></script>
   
   <script type="text/javascript" src="js/directives/loading.js"></script>
   <script type="text/javascript" src="js/directives/widget-body.js"></script>
   <script type="text/javascript" src="js/directives/widget-footer.js"></script>
   <script type="text/javascript" src="js/directives/widget-header.js"></script>
   <script type="text/javascript" src="js/directives/widget.js"></script>
-  -->
+ 
+  
 
 </head>
 <body ng-controller="MasterCtrl">
@@ -86,7 +99,7 @@
         
         <!-- este aqui vai cair no otherwise('/') lá no routes.js -->
         <li class="sidebar-list">
-          <a href="#/another">XXXXXX <span class="menu-icon fa fa-table"></span></a>
+          <a href="#/nomeacoes">Nomeações <span class="menu-icon fa fa-table"></span></a>
         </li>
       </ul>
 

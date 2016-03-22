@@ -21,6 +21,7 @@
     "gulp-wrap": "^0.11.0"
   },
   "dependencies": {
+    "nodemon": "^1.9.1",
     "serve": "^1.4.0"
   }
 }

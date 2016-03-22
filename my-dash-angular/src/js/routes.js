@@ -23,7 +23,13 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             })
             .state('formulario', {
                 url: '/formulario',
+                controller: 'FotoController',
                 templateUrl: 'templates/formulario.html'
+            })
+            .state('nomeacoes', {
+                url: '/nomeacoes',
+                controller: 'NomeacaoController',
+                templateUrl: 'templates/nomeacoes.html'
             })
             .state('tables', {
                 url: '/tables1',
