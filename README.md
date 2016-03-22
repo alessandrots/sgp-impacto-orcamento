@@ -24,10 +24,18 @@ Projeto basedo no Baseado no https://github.com/alessandrots/myNodeRestApi, tem 
 
 4) Teste a url da aplicação:
 
-Back-end: Teste a url:http://localhost:3001/sgp/astec/orcamento/grupos
-Front-End: http://localhost:3000/#/
+Back-end: 
+
+Teste a url:http://localhost:3001/sgp/astec/orcamento/grupos
+
+Front-End: 
+
+http://localhost:3000/#/
+
 Clique nos itens de menu:
+
 - Formulario: deve aparecer um forumulário com um combo preenchido com 3 valores
+
 - Nomeacoes: deve aparecer uma tabela com uma massa de valores e com paginação funcional
 
 
