@@ -1,25 +1,40 @@
 # sgp-impacto-orcamento
-git clone https://github.com/alessandrots/sgp-impacto-orcamento
 
-Para referenciar as supastas do projeto vou referenciar a partir do raiz do clone do projeto a variável: $path_orcamento
+*** Esses passos foram trabalhados no linux e no mac.
+0) Instale as seguintes ferramentas:
+* [NodeJS](http://nodejs.org/) (with [NPM](https://www.npmjs.org/))
+* [Bower](http://bower.io)
+* [Gulp](http://gulpjs.com)
 
-- Para startar o ANGULAR:
+1) git clone https://github.com/alessandrots/sgp-impacto-orcamento
+*** Para referenciar as supastas do projeto vou referenciar a partir do path raiz do clone do projeto: 
+path do projeto = $ sgp-impacto-orcamento>
+
+2) Para funcionar o módulo cliente (ANGULAR):
 Projeto baseado https://github.com/rdash/rdash-angular.git
-*** Tem um README em $path_orcamento/my-dash-angular
-$ cd /home/alessandrots/Projetos/my-dash-angular/src
-$ ../node_modules/.bin/serve -p 3000
+- Siga os passos em: $path_orcamento/my-dash-angular/README
 
-- Para startar o SERVER (node)
+3) Para funcionar o módulo server (NodeJs):
 Projeto basedo no Baseado no https://github.com/alessandrots/myNodeRestApi, tem README das urls configuradas.
-$ cd /home/alessandrots/Projetos/SGP/sgp-impacto-orcamento/server-json/mynoderest
-./node_modules/.bin/nodemon server.js 
-(vai startar na porta 3001)
+- Siga os passos em: $path_orcamento/server-json/mynoderest/README
+
+4) Teste a url da aplicação:
+Back-end: Teste a url:http://localhost:3001/sgp/astec/orcamento/grupos
+Front-End: http://localhost:3000/#/
+Clique nos itens de menu:
+- Formulario: deve aparecer um forumulário com um combo preenchido com 3 valores
+- Nomeacoes: deve aparecer uma tabela com uma massa de valores e com paginação funcional
 
 
-ATUALIZAÇÕES IMPORTANTES (desc):
+
+
+
+****************************************************************************************************************
+ATUALIZAÇÕES IMPORTANTES DO PROJETO(desc):
 2) 22/03/16
-Atualizado o README principal
-
+	Atualizado o README principal
+	Atualizado o README angular
+	Atualizado o README serve
 ****************************************************************************************************************
 1) 21/03/16
 ==>Angular

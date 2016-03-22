@@ -1,4 +1,63 @@
 # RDash rdash-angular
+##MEUS ENTENDIMENTOS - Alessandro Santos
+
+*** Para referenciar as supastas do projeto vou referenciar a partir do path raiz do clone do projeto: 
+path do projeto = $ sgp-impacto-orcamento>
+
+INICIALIZANDO O PROJETO:
+$ cd $path_orcamento/my-dash-angular
+$ npm install
+$ ./node_modules/.bin/bower install
+$ cp -Rf ./bower_components/ ./src/components
+
+
+Para RODAR o ANGULAR:
+Abra um terminal
+$ cd /home/alessandrots/Projetos/my-dash-angular/src
+$ ../node_modules/.bin/serve -p 3000
+
+
+***<b>(PODE VOLTAR AO PASSO 3 DO README principal)</b>
+
+*********************************************************************************************************************
+NA HORA DE DISTRIBUIR:
+<!-- 
+    Na hora de distribuir tem que fazer o seguinte na raiz da pasta ($ xxxx/rdash-teste):
+    1) Apagar a pasta de build:
+      rm -Rf dist/
+
+    2) apagar o arquivo minificado de produção
+      rm -Rf dashboard.min.js 
+
+    3) comentar as linhas de script abaixo: da module.js até a widget.js
+    
+    4) Liberar a linha do dashboard.min.js
+
+    5) gerar o build ($path_orcamento/my-dash-angular)
+      ./node_modules/.bin/gulp build
+
+    6) copiar o arquivo minificado da pasta dist para a pasta js para fazer um teste final  
+       cp dist/js/dashboard.min.js .
+-->
+
+ <!--  --> <script type="text/javascript" src="js/dashboard.min.js"></script>
+
+  <!-- Custom Scripts -->
+  <script type="text/javascript" src="js/module.js"></script>
+  <script type="text/javascript" src="js/routes.js"></script>
+  <script type="text/javascript" src="js/controllers/master-ctrl.js"></script>
+  <script type="text/javascript" src="js/controllers/alert-ctrl.js"></script>
+  
+  <script type="text/javascript" src="js/directives/loading.js"></script>
+  <script type="text/javascript" src="js/directives/widget-body.js"></script>
+  <script type="text/javascript" src="js/directives/widget-footer.js"></script>
+  <script type="text/javascript" src="js/directives/widget-header.js"></script>
+  <script type="text/javascript" src="js/directives/widget.js"></script>
+
+
+
+*********************************************************************************************************************
+
 ## Responsive, bloat free, bootstrap powered admin style dashboard!
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/rdash/rdash-angular?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -34,39 +93,3 @@ If you'd like to include any additional modules/packages not included with rdash
 * [Leonel Samayoa](https://github.com/lsamayoa)
 * [Mathew Goldsborough](https://github.com/mgoldsborough)
 * [Ricardo Pascua Jr](https://github.com/rdpascua)
-
-
-
-##MINHA PARTE - Alessandro Santos
-<!-- 
-    Na hora de distribuir tem que fazer o seguinte na raiz da pasta ($ xxxx/rdash-teste):
-    1) Apagar a pasta de build:
-      rm -Rf dist/
-
-    2) apagar o arquivo minificado de produção
-      rm -Rf dashboard.min.js 
-
-    3) comentar as linhas de script abaixo: da module.js até a widget.js
-    
-    4) Liberar a linha do dashboard.min.js
-
-    5) gerar o build
-      ./node_modules/.bin/gulp build
-
-    6) copiar o arquivo minificado da pasta dist para a pasta js para fazer um teste final  
-       cp dist/js/dashboard.min.js .
- -->
-
- <!-- <script type="text/javascript" src="js/dashboard.min.js"></script> -->
-
-  <!-- Custom Scripts -->
-  <script type="text/javascript" src="js/module.js"></script>
-  <script type="text/javascript" src="js/routes.js"></script>
-  <script type="text/javascript" src="js/controllers/master-ctrl.js"></script>
-  <script type="text/javascript" src="js/controllers/alert-ctrl.js"></script>
-  
-  <script type="text/javascript" src="js/directives/loading.js"></script>
-  <script type="text/javascript" src="js/directives/widget-body.js"></script>
-  <script type="text/javascript" src="js/directives/widget-footer.js"></script>
-  <script type="text/javascript" src="js/directives/widget-header.js"></script>
-  <script type="text/javascript" src="js/directives/widget.js"></script>

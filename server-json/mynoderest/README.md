@@ -1,10 +1,23 @@
 # myNodeRestApi
 
-npm install
+*** Para referenciar as supastas do projeto vou referenciar a partir do path raiz do clone do projeto: 
+path do projeto = $ sgp-impacto-orcamento>
 
-nodemon server.js
+INICIALIZANDO O PROJETO:
+$ cd $path_orcamento/server-json/mynoderest
+$ npm install
 
-**********************************
+Para RODAR o SERVER:
+Abra um terminal
+$ cd /home/alessandrots/Projetos/SGP/sgp-impacto-orcamento/server-json/mynoderest
+$ ./node_modules/.bin/nodemon server.js 
+(vai startar na porta 3001), 
+
+
+***</b>(PODE VOLTAR AO PASSO 4 DO README principal)</b>
+
+****************************************************************************************************************
+PARA MANIPULAR O JSON REMOTAMENTE
  O arquivo db.json está acessível na rede via samba no /etc/samba/samba.conf.
 
  Este arquivo é para ser alterado pela Anne para teste dos dados, no windows:
@@ -24,7 +37,7 @@ no final do arquivo
    default case = lower
 
 /etc/init.d/samba restart
-*********************************
+****************************************************************************************************************
 
 Alterar as rotas dentro da pasta routes
 
