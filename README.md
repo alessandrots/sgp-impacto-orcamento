@@ -1,24 +1,29 @@
 # sgp-impacto-orcamento
 
 *** Esses passos foram trabalhados no linux e no mac.
+
 0) Instale as seguintes ferramentas:
 * [NodeJS](http://nodejs.org/) (with [NPM](https://www.npmjs.org/))
 * [Bower](http://bower.io)
 * [Gulp](http://gulpjs.com)
 
 1) git clone https://github.com/alessandrots/sgp-impacto-orcamento
+
 *** Para referenciar as supastas do projeto vou referenciar a partir do path raiz do clone do projeto: 
 path do projeto = $ sgp-impacto-orcamento>
 
 2) Para funcionar o módulo cliente (ANGULAR):
+
 Projeto baseado https://github.com/rdash/rdash-angular.git
 - Siga os passos em: $path_orcamento/my-dash-angular/README
 
 3) Para funcionar o módulo server (NodeJs):
+
 Projeto basedo no Baseado no https://github.com/alessandrots/myNodeRestApi, tem README das urls configuradas.
 - Siga os passos em: $path_orcamento/server-json/mynoderest/README
 
 4) Teste a url da aplicação:
+
 Back-end: Teste a url:http://localhost:3001/sgp/astec/orcamento/grupos
 Front-End: http://localhost:3000/#/
 Clique nos itens de menu:
@@ -31,6 +36,7 @@ Clique nos itens de menu:
 
 ****************************************************************************************************************
 ATUALIZAÇÕES IMPORTANTES DO PROJETO(desc):
+
 2) 22/03/16
 	Atualizado o README principal
 	Atualizado o README angular
