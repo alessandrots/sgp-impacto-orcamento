@@ -39,9 +39,6 @@ Clique nos itens de menu:
 - Nomeacoes: deve aparecer uma tabela com uma massa de valores e com paginação funcional
 
 
-
-
-
 ****************************************************************************************************************
 ATUALIZAÇÕES IMPORTANTES DO PROJETO(desc):
 
