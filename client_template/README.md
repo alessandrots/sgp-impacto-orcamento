@@ -9,6 +9,12 @@
 
 2) $ npm install
 
-3) webpack.config.js: carrega todos os arquivos em memória. Webpack é um carregador de módulos.
+3) Webpack:  permite converter e combinar todos
+seus ativos de aplicativos em pacotes com uma configuração mínima.
+
+webpack.config.js: carrega todos os arquivos em memória. Webpack é um carregador de módulos.
+para rodar em desenv: $ npm run start
+
+webpack.prod.config.js: cria a pasta dist
 
 ****************************************************************************************************************

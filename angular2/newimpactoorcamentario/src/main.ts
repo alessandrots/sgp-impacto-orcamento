@@ -9,12 +9,12 @@ if (webpack.ENV === 'production') {
 }
 
 import ApplicationComponent from './app/components/application/application';
-import {ONLINE_AUCTION_SERVICES} from './app/services/services';
+// import {ONLINE_AUCTION_SERVICES} from './app/services/services';
 
 bootstrap(ApplicationComponent, [
   FORM_PROVIDERS,
   HTTP_PROVIDERS,
-  ROUTER_PROVIDERS,
+  ROUTER_PROVIDERS //,
 
-  ONLINE_AUCTION_SERVICES
+  // ONLINE_AUCTION_SERVICES
 ]).catch(console.error.bind(console));

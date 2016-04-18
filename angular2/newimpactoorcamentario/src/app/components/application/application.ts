@@ -1,10 +1,10 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, RouterOutlet} from 'angular2/router';
 import HomeComponent from '../home/home';
-import NavbarComponent from '../navbar/navbar';
-import FooterComponent from '../footer/footer';
-import SearchComponent from '../search/search';
-import ProductDetailComponent from '../product-detail/product-detail';
+// import NavbarComponent from '../navbar/navbar';
+// import FooterComponent from '../footer/footer';
+// import SearchComponent from '../search/search';
+// import ProductDetailComponent from '../product-detail/product-detail';
 
 // declare var require: any;//http://stackoverflow.com/questions/31173738/typescript-getting-error-ts2304-cannot-find-name-require/31263434#31263434
 /**
@@ -14,18 +14,18 @@ import ProductDetailComponent from '../product-detail/product-detail';
 */
 
 @Component({
-  selector: 'auction-application',
+  selector: 'orc-application',
   template: require('./application.html'),
   directives: [
     RouterOutlet,
-    NavbarComponent,
-    FooterComponent,
-    SearchComponent,
+    // NavbarComponent,
+    // FooterComponent,
+    // SearchComponent,
     HomeComponent
   ]
 })
 @RouteConfig([
   {path: '/', component: HomeComponent, as: 'Home'},
-  {path: '/products/:productId', component: ProductDetailComponent, as: 'ProductDetail'}
+  // {path: '/products/:productId', component: ProductDetailComponent, as: 'ProductDetail'}
 ])
 export default class ApplicationComponent {}
