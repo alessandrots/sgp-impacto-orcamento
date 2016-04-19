@@ -1,6 +1,8 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, RouterOutlet} from 'angular2/router';
 import HomeComponent from '../home/home';
+import HomeForm from '../homeForm/homeForm';
+
 // import NavbarComponent from '../navbar/navbar';
 // import FooterComponent from '../footer/footer';
 // import SearchComponent from '../search/search';
@@ -21,11 +23,17 @@ import HomeComponent from '../home/home';
     // NavbarComponent,
     // FooterComponent,
     // SearchComponent,
-    HomeComponent
+    // HomeComponent
+    // HomeForm
   ]
 })
 @RouteConfig([
-  {path: '/', component: HomeComponent, as: 'Home'},
-  // {path: '/products/:productId', component: ProductDetailComponent, as: 'ProductDetail'}
+  {path: '/', component: HomeComponent, as: 'Home', useAsDefault: true},
+  {path: '/formulario', component: HomeForm, as: 'HomeForm'}
 ])
+// @RouteConfig([
+//     {path: '/',        component: HomeComponent, as: 'Home'},
+//     {path: '/product', component: ProductDetailComponent, as: 'ProductDetail'  },
+//     {aux: '/chat', component: ChatComponent, as: 'Chat'}
+// ])
 export default class ApplicationComponent {}

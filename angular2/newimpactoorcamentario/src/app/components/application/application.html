@@ -9,28 +9,29 @@
               
               <ul class="sidebar">
                 <li class="sidebar-list">
-                  <a href="#/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+                  <a href="/">Inicial <span class="menu-icon fa fa-table"></span></a>
+                </li>                
+
+                <li class="sidebar-list">
+                  <a href="/formulario">Formulario <span class="menu-icon fa fa-pencil-square-o"></span></a>
                 </li>
 
                 <li class="sidebar-list">
-                  <a href="#/formulario">Formulario <span class="menu-icon fa fa-pencil-square-o"></span></a>
-                </li>
-
-                <li class="sidebar-list">
-                  <a href="#/tables1">Tables <span class="menu-icon fa fa-table"></span></a>
+                  <a href="/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
                 </li>
                 
                 <!-- este aqui vai cair no otherwise('/') lá no routes.js -->
                 <li class="sidebar-list">
-                  <a href="#/nomeacoes">Nomeações <span class="menu-icon fa fa-table"></span></a>
+                  <a href="/nomeacoes">Nomeações <span class="menu-icon fa fa-table"></span></a>
                 </li>
               </ul>
               
             </div>
             <!-- End Sidebar -->
+            
+            <!--
             <div id="content-wrapper">
               <div class="page-content">
-                      <!-- Header Bar -->
                       <div class="row header">
                         <div class="col-xs-12">
 
@@ -44,13 +45,12 @@
                           </div>
                         </div>
                       </div>
-                      <!-- End Header Bar -->
-                <!-- Main Content 
-                <div ui-view></div>
-                -->
-              </div><!-- End Page Content -->
-            </div><!-- End Content Wrapper -->
-          </div><!-- End Page Wrapper --> 
+            
+              </div>
+            </div>
+            -->
+
+      </div><!-- End Page Wrapper --> 
 
 
       <!-- -->
@@ -58,7 +58,7 @@
     </div>
 
     <div class="col-md-9">	
-    	<!-- Teixeira -->
+    	Teixeira
 
       <router-outlet></router-outlet>
     </div>
