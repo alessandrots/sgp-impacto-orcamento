@@ -4,9 +4,6 @@ import {FORM_PROVIDERS} from 'angular2/common';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 
-/**
- o webpack só é reconhecido se tiver a pasta typings_custom (angular2.d.ts, jquery.d.ts e webpack.d.ts) não é necessário
-*/
 if (webpack.ENV === 'production') {
   enableProdMode();
 }
@@ -18,5 +15,6 @@ bootstrap(ApplicationComponent, [
   FORM_PROVIDERS,
   HTTP_PROVIDERS,
   ROUTER_PROVIDERS //,
+
   // ONLINE_AUCTION_SERVICES
 ]).catch(console.error.bind(console));

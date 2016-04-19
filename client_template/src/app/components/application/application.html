@@ -1,17 +1,43 @@
-<!-- auction-navbar></auction-navbar -->
-
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-    	Alessandro
-      <auction-search></auction-search>
+     <!-- Alessandro -->
+     <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+              
+              <ul class="sidebar">
+                <li class="sidebar-list">
+                  <a href="/">Inicial <span class="menu-icon fa fa-table"></span></a>
+                </li>                
+
+                <li class="sidebar-list">
+                  <a href="/formulario">Formulario <span class="menu-icon fa fa-pencil-square-o"></span></a>
+                </li>
+
+                <li class="sidebar-list">
+                  <a href="/nomeacao">Nomeações <span class="menu-icon fa fa-table"></span></a>
+                </li>
+
+                <li class="sidebar-list">
+                  <a href="/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+                </li>
+                
+                
+              </ul>
+              
+            </div>
+            <!-- End Sidebar -->
+
+      </div><!-- End Page Wrapper --> 
+        
     </div>
 
-    <div class="col-md-9">
-    	Santos
+    <div class="col-md-9">	
+    	<!--area de dados -->
+
       <router-outlet></router-outlet>
     </div>
   </div>
 </div>
-
-<!-- auction-footer></auction-footer -->

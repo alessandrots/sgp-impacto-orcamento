@@ -1,6 +1,9 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, RouterOutlet} from 'angular2/router';
-// import HomeComponent from '../home/home';
+import HomeComponent from '../home/home';
+import HomeForm from '../homeForm/homeForm';
+import NomeacaoComponent from '../home/nomeacao';
+
 // import NavbarComponent from '../navbar/navbar';
 // import FooterComponent from '../footer/footer';
 // import SearchComponent from '../search/search';
@@ -14,18 +17,26 @@ import {RouteConfig, RouterOutlet} from 'angular2/router';
 */
 
 @Component({
-  selector: 'auction-application',
-  template: require('./application.html')//,não encontrou o require
-  // directives: [
-  //   RouterOutlet,
-  //   NavbarComponent,
-  //   FooterComponent,
-  //   SearchComponent,
-  //   HomeComponent
-  // ]
+  selector: 'orc-application',
+  template: require('./application.html'),
+  directives: [
+    RouterOutlet,
+    // NavbarComponent,
+    // FooterComponent,
+    // SearchComponent,
+    HomeComponent,
+    HomeForm,
+    NomeacaoComponent
+  ]
 })
 @RouteConfig([
-  // {path: '/', component: HomeComponent, as: 'Home'},
-  // {path: '/products/:productId', component: ProductDetailComponent, as: 'ProductDetail'}
+  {path: '/', component: HomeComponent, as: 'Home', useAsDefault: true},
+  {path: '/formulario', component: HomeForm, as: 'HomeForm'},
+  {path: '/nomeacao', component: NomeacaoComponent, as: 'Nomeacao'}
 ])
+// @RouteConfig([
+//     {path: '/',        component: HomeComponent, as: 'Home'},
+//     {path: '/product', component: ProductDetailComponent, as: 'ProductDetail'  },
+//     {aux: '/chat', component: ChatComponent, as: 'Chat'}
+// ])
 export default class ApplicationComponent {}

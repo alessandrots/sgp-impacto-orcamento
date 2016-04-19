@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, RouterOutlet} from 'angular2/router';
 import HomeComponent from '../home/home';
 import HomeForm from '../homeForm/homeForm';
+import NomeacaoComponent from '../home/nomeacao';
 
 // import NavbarComponent from '../navbar/navbar';
 // import FooterComponent from '../footer/footer';
@@ -23,13 +24,15 @@ import HomeForm from '../homeForm/homeForm';
     // NavbarComponent,
     // FooterComponent,
     // SearchComponent,
-    // HomeComponent
-    // HomeForm
+    HomeComponent,
+    HomeForm,
+    NomeacaoComponent
   ]
 })
 @RouteConfig([
   {path: '/', component: HomeComponent, as: 'Home', useAsDefault: true},
-  {path: '/formulario', component: HomeForm, as: 'HomeForm'}
+  {path: '/formulario', component: HomeForm, as: 'HomeForm'},
+  {path: '/nomeacao', component: NomeacaoComponent, as: 'Nomeacao'}
 ])
 // @RouteConfig([
 //     {path: '/',        component: HomeComponent, as: 'Home'},

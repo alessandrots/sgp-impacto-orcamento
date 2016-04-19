@@ -7,7 +7,7 @@ const ProvidePlugin      = require('webpack/lib/ProvidePlugin');
 
 const ENV  = process.env.NODE_ENV = 'development';
 const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 3100;
+const PORT = process.env.PORT || 3200;
 
 const metadata = {
   baseUrl: '/',
@@ -55,7 +55,7 @@ module.exports = {
   },
   plugins: [
     new CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity}),
-    new CopyWebpackPlugin([{from: './src/index.html', to: 'a.html'}]),
+    new CopyWebpackPlugin([{from: './src/index.html', to: 'index.html'}]),
     new DefinePlugin({'webpack': {'ENV': JSON.stringify(metadata.ENV)}}),
     new ProvidePlugin({jQuery: 'jquery', jquery: 'jquery', $: 'jquery'})
   ],
