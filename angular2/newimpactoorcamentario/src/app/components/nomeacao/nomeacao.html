@@ -1,0 +1,44 @@
+<div class="row">
+    <table border="1">
+    <tr>
+        <th>edital</th>
+        <th>ramo</th>
+        <th>uf</th>
+        <th>cargo</th>
+        <th>Cargo Decricao</th>
+        <th>nome</th>
+        <th>port</th>
+        <th>nomeacao_dt</th>
+        <th>exerccio</th>
+        <th>vaga</th>
+        <th>origem_vaga</th>
+        <th>desprovimento</th>
+        <th>lei_vaga</th>
+        <th>dt_port_sem_efeito</th>
+        <th>nr_portaria_sem_efeito</th>
+        <th>FIELD16</th>
+    </tr>
+
+    <tr *ngFor="#obj of result">
+        <td>{{obj.edital}}</td>
+        <td>{{obj.ramo}}</td>
+        <td>{{obj.uf}}</td>
+        <td>{{obj.cargo}}</td>
+        <td>{{obj.cargoDescricao}}</td>
+        <td>{{obj.nome}}</td>
+        <td>{{obj.port}}</td>
+        <td>{{obj.nomeacaoData}}</td>
+        <td>{{obj.dataExercicio}}</td>
+        <td>{{obj.vaga}}</td>
+        <td>{{obj.origemVaga}}</td>
+        <td>{{obj.desprovimento}}</td>
+        <td>{{obj.leiVaga}}</td>
+        <td>{{obj.dataPortariaSemEfeito}}</td>
+        <td>{{obj.numeroPortariaSemEfeito}}</td>
+        <td>{{obj.field16}}</td>
+    </tr>
+    
+    </table>
+</div>
+
+

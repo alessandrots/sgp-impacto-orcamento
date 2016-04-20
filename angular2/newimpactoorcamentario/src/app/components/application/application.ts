@@ -2,7 +2,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, RouterOutlet} from 'angular2/router';
 import HomeComponent from '../home/home';
 import HomeForm from '../homeForm/homeForm';
-import NomeacaoComponent from '../home/nomeacao';
+import NomeacaoComponent from '../nomeacao/nomeacao';
 
 // import NavbarComponent from '../navbar/navbar';
 // import FooterComponent from '../footer/footer';

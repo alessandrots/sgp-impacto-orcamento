@@ -6,8 +6,9 @@ const DefinePlugin       = require('webpack/lib/DefinePlugin');
 const ProvidePlugin      = require('webpack/lib/ProvidePlugin');
 
 const ENV  = process.env.NODE_ENV = 'development';
-const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 3200;
+//const HOST = process.env.HOST || 'localhost';
+const HOST = process.env.HOST || '10.224.126.253';
+const PORT = process.env.PORT || 8080;
 
 const metadata = {
   baseUrl: '/',
@@ -24,8 +25,8 @@ module.exports = {
     host: metadata.host,
     port: metadata.port,
     proxy: {
-      '/api/*': {
-        target: 'http://localhost:8000',
+      '/sgp/astec/*': {
+        target: 'http://localhost:3001',
         secure: false
       }
     }
