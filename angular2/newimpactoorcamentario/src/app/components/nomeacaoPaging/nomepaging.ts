@@ -2,9 +2,15 @@ import {Component} from 'angular2/core';
 import {NgFor} from 'angular2/common';
 import {Observable} from "rxjs/Observable";
 import {Http, Response} from 'angular2/http';
-import Nomeacao from './nomeacaoModel';
-
+import NomeacaoPag from './nomeModelPag';
 // import {Product, ProductService} from '../../services/product-service';
+
+/**
+TODO
+  1) Colocar a parte de paginação:
+   - http://michaelbromley.github.io/ng2-pagination/
+   - https://github.com/michaelbromley/ng2-pagination
+*/
 
 
 @Component({
@@ -14,15 +20,15 @@ import Nomeacao from './nomeacaoModel';
     NgFor
   ],
   // styles: [require('./home.css')],
-  template: require('./nomeacao.html')
+  template: require('./nomepaging.html')
   
 })
-export default class NomeacaoComponent {
+export default class NomeacaoComponentPag {
   // products: Observable<Product[]>;
-  result: Nomeacao[];
+  result: NomeacaoPag[];
 
   constructor(http: Http) {
-    console.log('NomeacaoComponent = http = ', http);
+    console.log('NomeacaoComponentPag = http = ', http);
 
      //se apontar para localhost dá pala qdo chamando de fora de outra máquina
      http.get('http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao')

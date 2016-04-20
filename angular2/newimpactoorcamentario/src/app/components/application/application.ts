@@ -3,6 +3,7 @@ import {RouteConfig, RouterOutlet} from 'angular2/router';
 import HomeComponent from '../home/home';
 import HomeForm from '../homeForm/homeForm';
 import NomeacaoComponent from '../nomeacao/nomeacao';
+import NomeacaoComponentPag from '../nomeacaoPaging/nomepaging';
 
 // import NavbarComponent from '../navbar/navbar';
 // import FooterComponent from '../footer/footer';
@@ -32,7 +33,8 @@ import NomeacaoComponent from '../nomeacao/nomeacao';
 @RouteConfig([
   {path: '/', component: HomeComponent, as: 'Home', useAsDefault: true},
   {path: '/formulario', component: HomeForm, as: 'HomeForm'},
-  {path: '/nomeacao', component: NomeacaoComponent, as: 'Nomeacao'}
+  {path: '/nomeacao', component: NomeacaoComponent, as: 'Nomeacao'},
+  {path: '/nomeacaopaging', component: NomeacaoComponentPag, as: 'NomeacaoPaging'}
 ])
 // @RouteConfig([
 //     {path: '/',        component: HomeComponent, as: 'Home'},
