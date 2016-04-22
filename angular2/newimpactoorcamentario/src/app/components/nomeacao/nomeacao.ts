@@ -8,14 +8,14 @@ import Nomeacao from './nomeacaoModel';
 
 
 @Component({
-  selector: 'orc-home-page',
+  selector: 'orc-nomeacao-page',
   providers: [],
   directives: [
     NgFor
   ],
   // styles: [require('./home.css')],
   template: require('./nomeacao.html')
-  
+
 })
 export default class NomeacaoComponent {
   // products: Observable<Product[]>;
@@ -25,10 +25,11 @@ export default class NomeacaoComponent {
     console.log('NomeacaoComponent = http = ', http);
 
      //se apontar para localhost dá pala qdo chamando de fora de outra máquina
-     http.get('http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao')
+     http.get('http://localhost:3001/sgp/astec/orcamento/nomeacao')
+    //  http.get('http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao')
       .map((res:Response) => res.json())
       .subscribe(
-        data => { 
+        data => {
           this.result = data;
           // console.log('data = ', this.result);
         },

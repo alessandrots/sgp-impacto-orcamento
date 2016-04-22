@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, RouterOutlet} from 'angular2/router';
+// import {RouteConfig, RouterOutlet} from 'angular2/router';
+import {Route, RouteConfig, RouterOutlet, ROUTER_DIRECTIVES} from 'angular2/router';
 import HomeComponent from '../home/home';
 import HomeForm from '../homeForm/homeForm';
 import NomeacaoComponent from '../nomeacao/nomeacao';
@@ -20,25 +21,17 @@ import NomeacaoComponentPag from '../nomeacaoPaging/nomepaging';
 @Component({
   selector: 'orc-application',
   template: require('./application.html'),
-  directives: [
-    RouterOutlet,
-    // NavbarComponent,
-    // FooterComponent,
-    // SearchComponent,
-    HomeComponent,
-    HomeForm,
-    NomeacaoComponent
-  ]
+  // directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  {path: '/', component: HomeComponent, as: 'Home', useAsDefault: true},
-  {path: '/formulario', component: HomeForm, as: 'HomeForm'},
-  {path: '/nomeacao', component: NomeacaoComponent, as: 'Nomeacao'},
-  {path: '/nomeacaopaging', component: NomeacaoComponentPag, as: 'NomeacaoPaging'}
+  new Route( {path: '/', component: HomeComponent, name: 'Home'}),
+  new Route( {path: '/HomeForm', component: HomeForm, name: 'HomeForm'}),
+  new Route( {path: '/Nomeacao', component: NomeacaoComponent, name: 'Nomeacao'}),
+  new Route( {path: '/NomeacaoPaging', component: NomeacaoComponentPag, name: 'NomeacaoPaging'})
 ])
 // @RouteConfig([
-//     {path: '/',        component: HomeComponent, as: 'Home'},
-//     {path: '/product', component: ProductDetailComponent, as: 'ProductDetail'  },
-//     {aux: '/chat', component: ChatComponent, as: 'Chat'}
+//   new Route({ path: '/',      component: Home,  name: 'Home'}),
+//   new Route({ path: '/about', component: About, name: 'About'})
 // ])
 export default class ApplicationComponent {}
