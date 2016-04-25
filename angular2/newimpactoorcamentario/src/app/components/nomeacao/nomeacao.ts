@@ -22,11 +22,10 @@ export default class NomeacaoComponent {
   result: Nomeacao[];
 
   constructor(http: Http) {
-    console.log('NomeacaoComponent = http = ', http);
+    console.log('Nomeacao http = ', http);
 
      //se apontar para localhost dá pala qdo chamando de fora de outra máquina
-     http.get('http://localhost:3001/sgp/astec/orcamento/nomeacao')
-    //  http.get('http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao')
+     http.get('/sgp/astec/orcamento/nomeacao')
       .map((res:Response) => res.json())
       .subscribe(
         data => {

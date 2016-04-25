@@ -7,8 +7,8 @@ const ProvidePlugin      = require('webpack/lib/ProvidePlugin');
 
 const ENV  = process.env.NODE_ENV = 'development';
 //const HOST = process.env.HOST || 'localhost';
-const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 8081;
+const HOST = process.env.HOST || '10.224.126.253';
+const PORT = process.env.PORT || 8080;
 
 const metadata = {
   baseUrl: '/',
@@ -26,7 +26,8 @@ module.exports = {
     port: metadata.port,
     proxy: {
       '/sgp/astec/*': {
-        target: 'http://localhost:3001',
+        // target: 'http://10.224.126.253:3001',
+        target: 'http://' + HOST + ':3001',
         secure: false
       }
     }

@@ -1,3 +1,7 @@
+<div class="is-text-centered">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+
 <div class="row">
     <table border="1">
     <tr>
@@ -19,7 +23,7 @@
         <th>FIELD16</th>
     </tr>
 
-    <tr *ngFor="#obj of result">
+    <tr *ngFor="#obj of result | paginate: { itemsPerPage: 10, currentPage: page }">
         <td>{{obj.edital}}</td>
         <td>{{obj.ramo}}</td>
         <td>{{obj.uf}}</td>
@@ -40,5 +44,7 @@
     
     </table>
 </div>
+
+
 
 
