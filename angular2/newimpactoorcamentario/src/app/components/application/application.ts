@@ -5,6 +5,7 @@ import HomeComponent from '../home/home';
 import HomeForm from '../homeForm/homeForm';
 import NomeacaoComponent from '../nomeacao/nomeacao';
 import NomeacaoComponentPag from '../nomeacaoPaging/nomepaging';
+import HomeFormNew from '../homeFormNew/homeForm2';
 
 // import NavbarComponent from '../navbar/navbar';
 // import FooterComponent from '../footer/footer';
@@ -28,7 +29,8 @@ import NomeacaoComponentPag from '../nomeacaoPaging/nomepaging';
   new Route( {path: '/', component: HomeComponent, name: 'Home'}),
   new Route( {path: '/HomeForm', component: HomeForm, name: 'HomeForm'}),
   new Route( {path: '/Nomeacao', component: NomeacaoComponent, name: 'Nomeacao'}),
-  new Route( {path: '/NomeacaoPaging', component: NomeacaoComponentPag, name: 'NomeacaoPaging'})
+  new Route( {path: '/NomeacaoPaging', component: NomeacaoComponentPag, name: 'NomeacaoPaging'}),
+  new Route( {path: '/HomeFormNew', component: HomeFormNew, name: 'HomeFormNew'}),
 ])
 // @RouteConfig([
 //   new Route({ path: '/',      component: Home,  name: 'Home'}),
