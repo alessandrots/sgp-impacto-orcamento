@@ -17,4 +17,10 @@ module.exports  = function(app) {
     res.json(dbJson['grupos']);
   });
 
+  app.get('/sgp/astec/orcamento/nomeacao/detalhe/:id', function(req, res, next) {
+     var idDiscente = req.params.idDiscente;
+     console.log('discentes/detalheDiscente = ', idDiscente);
+     res.json(dbJson['detalheDiscente']);
+   });
+
 };
