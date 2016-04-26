@@ -18,9 +18,9 @@ module.exports  = function(app) {
   });
 
   app.get('/sgp/astec/orcamento/nomeacao/detalhe/:id', function(req, res, next) {
-     var idDiscente = req.params.idDiscente;
-     console.log('discentes/detalheDiscente = ', idDiscente);
-     res.json(dbJson['detalheDiscente']);
+     var id = req.params.id;
+     console.log('nomeacao => detalhe = ', id);
+     res.json(dbJson['nomeacao']);
    });
 
 };
