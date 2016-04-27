@@ -1,14 +1,15 @@
 <div class="row">
     <table border="1">
         <tr>
-            <th>vaga</th>
-            <th>edital</th>
-            <th>ramo</th>
-            <th>uf</th>
-            <th>cargo</th>
+            <th>Vaga</th>
+            <th>Edital</th>
+            <th>Ramo</th>
+            <th>Uf</th>
+            <th>Cargo</th>
             <th>Cargo Decricao</th>
-            <th>nome</th>
-            <th>port</th>
+            <th>Nome</th>
+            <th>Portaria</th>
+            <!--
             <th>nomeacao_dt</th>
             <th>exercício</th>
             <th>origem_vaga</th>
@@ -17,6 +18,7 @@
             <th>dt_port_sem_efeito</th>
             <th>nr_portaria_sem_efeito</th>
             <th>FIELD16</th>
+            -->
         </tr>
 
         <tr *ngFor="#obj of result" (click)="gotoDetail(obj)">
@@ -28,6 +30,7 @@
             <td>{{obj.cargoDescricao}}</td>
             <td>{{obj.nome}}</td>
             <td>{{obj.port}}</td>
+            <!--
             <td>{{obj.nomeacaoData}}</td>
             <td>{{obj.dataExercicio}}</td>
             <td>{{obj.origemVaga}}</td>
@@ -36,6 +39,7 @@
             <td>{{obj.dataPortariaSemEfeito}}</td>
             <td>{{obj.numeroPortariaSemEfeito}}</td>
             <td>{{obj.field16}}</td>
+            -->
         </tr>
     
     </table>

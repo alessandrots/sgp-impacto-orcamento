@@ -48,7 +48,7 @@ export default class NomeacaoComponentPag {
       .subscribe(
         data => {
           this.result = data;
-          // console.error('DATA = ', this.result)
+          console.log('NomeacaoComponentPag ::: DATA = ', this.result)
         },
         error => console.error(error));
   }
