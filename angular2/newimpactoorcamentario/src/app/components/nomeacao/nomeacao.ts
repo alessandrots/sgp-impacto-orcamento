@@ -43,7 +43,6 @@ export default class NomeacaoComponent {
   gotoDetail(hero: Nomeacao) {
     console.log('hero.vaga = ', hero.vaga);
     let link = ['NomeacaoDetail', { vaga: hero.vaga }];
-    // this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
     this._router.navigate(link);
   }
 }
