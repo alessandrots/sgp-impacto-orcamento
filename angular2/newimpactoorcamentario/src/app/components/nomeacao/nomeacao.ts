@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {NgFor} from 'angular2/common';
 import {Observable} from "rxjs/Observable";
 import {Http, Response} from 'angular2/http';
+import { Router } from 'angular2/router';
 import Nomeacao from './nomeacaoModel';
 
 // import {Product, ProductService} from '../../services/product-service';
@@ -21,8 +22,9 @@ export default class NomeacaoComponent {
   // products: Observable<Product[]>;
   result: Nomeacao[];
 
-  constructor(http: Http) {
+  constructor(http: Http,  private _router: Router) {
     console.log('Nomeacao http = ', http);
+    console.log('Nomeacao _router = ', _router);
 
      //se apontar para localhost dá pala qdo chamando de fora de outra máquina
      http.get('/sgp/astec/orcamento/nomeacao')
@@ -35,5 +37,13 @@ export default class NomeacaoComponent {
         err => console.error('ERROR = ', err),
         () => console.log('done')
       );
+  }
+
+
+  gotoDetail(hero: Nomeacao) {
+    console.log('hero.vaga = ', hero.vaga);
+    let link = ['NomeacaoDetail', { vaga: hero.vaga }];
+    // this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
+    this._router.navigate(link);
   }
 }

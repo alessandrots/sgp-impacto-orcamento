@@ -19,8 +19,8 @@ module.exports  = function(app) {
 
   app.get('/sgp/astec/orcamento/nomeacao/detalhe/:id', function(req, res, next) {
      var id = req.params.id;
-     console.log('nomeacao => detalhe = ', id);
-     res.json(dbJson['nomeacao']);
+     console.log('***** nomeacao => detalhe = ', id);
+     res.json(dbJson['nomeacao'][0]);
    });
 
 };

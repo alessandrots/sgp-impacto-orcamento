@@ -33,7 +33,7 @@ import NomeacaoComponentDetail from '../nomeacaodetail/nomeacaodetail';
   new Route( {path: '/Nomeacao', component: NomeacaoComponent, name: 'Nomeacao'}),
   new Route( {path: '/NomeacaoPaging', component: NomeacaoComponentPag, name: 'NomeacaoPaging'}),
   new Route( {path: '/HomeFormNew', component: HomeFormNew, name: 'HomeFormNew'}),
-  new Route( {path: '/NomeacaoDetail/:id', component: NomeacaoComponentDetail, name: 'NomeacaoDetail'})
+  new Route( {path: '/NomeacaoDetail/:vaga', component: NomeacaoComponentDetail, name: 'NomeacaoDetail'})
 ])
 // @RouteConfig([
 //   new Route({ path: '/',      component: Home,  name: 'Home'}),
