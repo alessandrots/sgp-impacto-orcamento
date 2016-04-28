@@ -4,17 +4,15 @@
 path do projeto = $ sgp-impacto-orcamento>
 
 INICIALIZANDO O PROJETO:
-$ cd $path_orcamento/server-json/mynoderest
+$ cd $path_clone_orcamento/server-json/mynoderest
 $ npm install
 
 Para RODAR o SERVER:
 Abra um terminal
-$ cd /home/alessandrots/Projetos/SGP/sgp-impacto-orcamento/server-json/mynoderest
+$ cd $path_clone_orcamento/server-json/mynoderest
 $ ./node_modules/.bin/nodemon server.js 
 (vai startar na porta 3001), 
 
-
-***</b>(PODE VOLTAR AO PASSO 4 DO README principal)</b>
 
 ****************************************************************************************************************
 PARA MANIPULAR O JSON REMOTAMENTE
