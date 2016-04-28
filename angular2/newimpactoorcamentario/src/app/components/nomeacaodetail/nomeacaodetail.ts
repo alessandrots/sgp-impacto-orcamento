@@ -31,22 +31,8 @@ export default class NomeacaoComponentDetail implements OnInit {
     let id = +this._routeParams.get('vaga');
     console.log('id vaga = ', id);
 
-     //se apontar para localhost dá pala qdo chamando de fora de outra máquina
-     // this.http.get('/sgp/astec/orcamento/nomeacao/detalhe/1')
-     //  .map((res:Response) => res.json())
-     //  .subscribe(
-     //    data => {
-     //      this.obj = data;
-     //      console.log('NomeacaoDetail data = ', this.obj);
-     //    },
-     //    err => console.error('ERROR = ', err),
-     //    () => console.log('done')
-     //  );
-
-      // const id = parseInt(_routeParams.get('vaga'));
-
-      //SUBSTITUINDO por chamada ao serviço
-      this.orcService
+    //SUBSTITUINDO por chamada ao serviço
+    this.orcService
       .getImpactoById(id)
       .subscribe(
         data => {

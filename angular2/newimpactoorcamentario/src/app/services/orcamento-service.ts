@@ -32,15 +32,21 @@ export class OrcamentoService {
 
   constructor(private http: Http) {}
 
+  /**
+  * Retorna um impacto em específico
+  **/
   getImpactoById(vaga: number): Observable<Impacto> {
-    console.log('getImpactoById ==> vaga = ', vaga);
+    console.log('service ::: getImpactoById ==> vaga = ', vaga);
     
     return this.http.get('/sgp/astec/orcamento/nomeacao/detalhe/'+vaga)
       .map(response => response.json());  
   }
 
+  /**
+  * Retorna o array de impacto
+  **/
   getAllImpacto(): Observable<Impacto[]> {
-    console.log('getAllImpacto ==>  ');
+    console.log('service ::: getAllImpacto ==>  ');
     
     return this.http.get('/sgp/astec/orcamento/nomeacao')
       .map(response => response.json());

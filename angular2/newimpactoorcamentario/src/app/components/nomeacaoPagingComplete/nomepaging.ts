@@ -39,22 +39,8 @@ export default class NomeacaoComponentPagAll {
     console.log('NomeacaoComponentPagAll _router = ', _router);
     console.log('NomeacaoComponentPagAll http = ', http);
 
-    // const id = parseInt(params.get('vaga'));
-
-     //se apontar para localhost dá pala qdo chamando de fora de outra máquina
-    //  http.get('http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao')
-     // http.get('/sgp/astec/orcamento/nomeacao')
-     //  .map((res:Response) => res.json())
-     //  .subscribe(
-     //    data => {
-     //      this.result = data;
-     //    },
-     //    err => console.error('ERROR = ', err),
-     //    () => console.log('done')
-     //  );
-
-      //SUBSTITUINDO por chamada ao serviço
-      orcService
+    //SUBSTITUINDO por chamada ao serviço
+    orcService
       .getAllImpacto()
       .subscribe(
         data => {
@@ -71,7 +57,7 @@ export default class NomeacaoComponentPagAll {
   }
 
   onPageChange(number: number) {
-        console.log('change to page', number);
-        this.config.currentPage = number;
+      console.log('change to page', number);
+      this.config.currentPage = number;
   }
 }

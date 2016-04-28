@@ -34,7 +34,7 @@ module.exports  = function(app) {
         return chain.vaga == id;
      });
 
-     console.log('***** nomeacao => result = ', result);
+     // console.log('***** nomeacao => result = ', result);
 
      res.json(result[0]);
    });
