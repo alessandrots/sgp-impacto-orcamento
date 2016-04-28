@@ -1,0 +1,48 @@
+<div class="row">
+    <table border="1">
+        <tr>
+            <th>Vaga</th>
+            <th>Edital</th>
+            <th>Ramo</th>
+            <th>Uf</th>
+            <th>Cargo</th>
+            <th>Cargo Decricao</th>
+            <th>Nome</th>
+            <th>Portaria</th>
+            <!--
+            <th>nomeacao_dt</th>
+            <th>exercício</th>
+            <th>origem_vaga</th>
+            <th>desprovimento</th>
+            <th>lei_vaga</th>
+            <th>dt_port_sem_efeito</th>
+            <th>nr_portaria_sem_efeito</th>
+            <th>FIELD16</th>
+            -->
+        </tr>
+
+        <tr *ngFor="#obj of result" (click)="gotoDetail(obj)">
+            <td><H1>{{obj.vaga}}</H1></td>
+            <td>{{obj.edital}}</td>
+            <td>{{obj.ramo}}</td>
+            <td>{{obj.uf}}</td>
+            <td>{{obj.cargo}}</td>
+            <td>{{obj.cargoDescricao}}</td>
+            <td>{{obj.nome}}</td>
+            <td>{{obj.port}}</td>
+            <!--
+            <td>{{obj.nomeacaoData}}</td>
+            <td>{{obj.dataExercicio}}</td>
+            <td>{{obj.origemVaga}}</td>
+            <td>{{obj.desprovimento}}</td>
+            <td>{{obj.leiVaga}}</td>
+            <td>{{obj.dataPortariaSemEfeito}}</td>
+            <td>{{obj.numeroPortariaSemEfeito}}</td>
+            <td>{{obj.field16}}</td>
+            -->
+        </tr>
+    
+    </table>
+</div>
+
+

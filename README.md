@@ -44,7 +44,7 @@ Teste a url:http://<<IP>>:3001/<path servicos>
 
 <h2> 6) Para RODAR o CLIENT </h2>
 - $ cd $path_clone_orcamento/angular2/newimpactoorcamentario
-- $ npm install
+- $ npm run start
   
 Testando a app no browser (chrome/firefox):
 - http://<<IP>>:8080/#/
@@ -79,8 +79,26 @@ NVM no linux
 - Baixei o arquivo: https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh
 -  chmod +x install.sh
 -  No profile do home (vim ~/.bashrc) adicionar as três linhas abaixo:
-- export NVM_DIR="$HOME/.nvm"
-- [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-- export NVM_NODEJS_ORG_MIRROR=http://nodejs.org/dist
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_NODEJS_ORG_MIRROR=http://nodejs.org/dist
 - Rodar o comando: $ nvm ls -remote command results in "N/A"
+************************************************************************************************
+==> Entendimentos do webpack
+
+-  1) Rodando npm install, este comando tem que criar a pasta typings e a node_modules.
+
+-  2) Para startar o serviço para teste no ambiente de desenvolvimento. 
+$ npm run start (roda a configuração definida no arquivo webpack.config.js)
+
+-  3) O fluxo de funcionamento é index.html => main.ts que é o bootstrap da app e aí carrega a app/componente/ApplicationComponent.
+
+-  4) Na pasta src os arquivos main e vendor são usados pelo webpack no ambiente desenv em memória ao carregar a aplicação.
+
+-  5) Para  produção é rodar o comando: (que aí serão gerados os arquivos físicos main e vendor e feito um bundle nos dois.)
+$ npm run build 
+("webpack --config webpack.prod.config.js --progress --profile --colors --display-error-details --display-cached")
+isto vai criar uma pasta dist e os arquivos main e vendor serão agreagados num só.
+
+************************************************************************************************
 

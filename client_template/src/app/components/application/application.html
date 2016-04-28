@@ -6,37 +6,47 @@
 
             <!-- Sidebar -->
             <div id="sidebar-wrapper">
-              
+
               <ul class="sidebar">
                 <li class="sidebar-list">
-                  <a href="/">Inicial <span class="menu-icon fa fa-table"></span></a>
+                  <a [routerLink]="['Home']">Inicial</a>
                 </li>                
 
                 <li class="sidebar-list">
-                  <a href="/formulario">Formulario <span class="menu-icon fa fa-pencil-square-o"></span></a>
+                  <a [routerLink]="['/HomeFormNew']">Form NEW <span class="menu-icon fa fa-pencil-square-o"></span></a>
                 </li>
 
                 <li class="sidebar-list">
-                  <a href="/nomeacao">Nomeações <span class="menu-icon fa fa-table"></span></a>
+                  <a [routerLink]="['/Nomeacao']">Nomeações <span class="menu-icon fa fa-table"></span></a>
                 </li>
 
                 <li class="sidebar-list">
-                  <a href="/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+                  <a [routerLink]="['/NomeacaoPaging']">Nomeações Paginação/Service<span class="menu-icon fa fa-table"></span></a>
                 </li>
-                
-                
+
+                <li class="sidebar-list">
+                  <a [routerLink]="['/NomeacaoPagingAll']">Nomeações Paginação/Filtro <span class="menu-icon fa fa-table"></span></a>
+                </li>
+
+                <li class="sidebar-list">
+                  <a [routerLink]="['/HomeForm']">Varios Formularios <span class="menu-icon fa fa-pencil-square-o"></span></a>
+                </li>
+
+                <li class="sidebar-list">
+                  Dashboard
+                </li>
+
               </ul>
-              
+
             </div>
             <!-- End Sidebar -->
 
-      </div><!-- End Page Wrapper --> 
-        
+      </div><!-- End Page Wrapper -->
+
     </div>
 
-    <div class="col-md-9">	
+    <div class="col-md-9">
     	<!--area de dados -->
-
       <router-outlet></router-outlet>
     </div>
   </div>
