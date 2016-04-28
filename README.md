@@ -27,7 +27,6 @@ Projeto basedo no https://github.com/alessandrots/myNodeRestApi, tem README das 
 - Abra o arquivo webpack.config.js
 - Na linha 10 coloque seu IP ou localhost:
 (const HOST = process.env.HOST || '10.224.126.253';).
-
 - Esse IP vai ser o mesmo do módulo server, se o server for rodar em outro IP então tem que mudar a linha:
 - target: 'http://' + HOST + ':3001'
 
@@ -38,7 +37,7 @@ Abra um terminal
 
 5.1) Teste a url da servidor:
 Back-end:
-Teste a url:http://<IP>:3001/<path servicos> 
+Teste a url:http://<<IP>>:3001/<path servicos> 
   ex.: 
   - http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao/
   - http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao/detalhe/66
@@ -48,7 +47,7 @@ Teste a url:http://<IP>:3001/<path servicos>
 - $ npm install
   
 Testando a app no browser (chrome/firefox):
-- http://<IP>:8080/#/
+- http://<<IP>>:8080/#/
 - http://10.224.126.253:8080
 
   *** Importante instalar a extensão no chrome para evitar problemas de CORS:
@@ -77,10 +76,11 @@ Testando a app no browser (chrome/firefox):
 
 ==> Outros pontos:
 NVM no linux
-1) Baixei o arquivo: https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh
-2) chmod +x install.sh
-3) no meu diretório…export NVM_DIR="$HOME/.nvm"
- [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-5) export NVM_NODEJS_ORG_MIRROR=http://nodejs.org/dist…
-nvm ls-remote command results in "N/A"
+- Baixei o arquivo: https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh
+-  chmod +x install.sh
+-  No profile do home (vim ~/.bashrc) adicionar as três linhas abaixo:
+- export NVM_DIR="$HOME/.nvm"
+- [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+- export NVM_NODEJS_ORG_MIRROR=http://nodejs.org/dist
+- Rodar o comando: $ nvm ls -remote command results in "N/A"
 
