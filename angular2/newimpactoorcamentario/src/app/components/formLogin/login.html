@@ -1,0 +1,51 @@
+<div  [hidden]="submitted">
+  <div> <h1>Cadastro Usuario</h1></div>
+  <form [ngFormModel]="formModel" (ngSubmit)="onSubmit()" novalidate>
+    <div>
+      Username:
+      <input type="text" ngControl="username">
+      <span [hidden]="!formModel.hasError('required', 'username')">Username is required</span>
+    </div>
+
+    <div>
+      SSN:
+      <input type="text" ngControl="ssn">
+      <span [hidden]="!formModel.hasError('ssn', 'ssn')">SSN is invalid</span>
+    </div>
+
+    <div ngControlGroup="passwordsGroup">
+      <div>
+        Password:
+        <input type="password" ngControl="password">
+        <span [hidden]="!formModel.hasError('minlength', ['passwordsGroup', 'password'])">Password is too short</span>
+      </div>
+
+      <div>
+        Confirm password:
+        <input type="password" ngControl="pconfirm">
+        <span [hidden]="!formModel.hasError('equal', 'passwordsGroup')">Passwords must be the same</span>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h1>Você enviou os seguintes dados:</h1>
+    <div class="row">
+      <div class="col-xs-3">Username</div>
+      <div class="col-xs-9  pull-left">{{ formModel.value.username }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">SSN</div>
+      <div class="col-xs-9 pull-left">{{ formModel.value.ssn }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Password</div>
+      <div class="col-xs-9 pull-left">{{ formModel.value.passwordsGroup.password }}</div>
+    </div>
+    
+    <br>
+    <button class="btn btn-default" (click)="submitted=false">Edit</button>
+</div>
