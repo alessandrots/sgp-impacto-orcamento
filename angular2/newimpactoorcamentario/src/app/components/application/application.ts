@@ -8,6 +8,7 @@ import NomeacaoComponentPag from '../nomeacaoPaging/nomepaging';
 import HomeFormNew from '../homeFormNew/homeForm2';
 import NomeacaoComponentDetail from '../nomeacaodetail/nomeacaodetail';
 import NomeacaoComponentPagAll from '../nomeacaoPagingComplete/nomepaging';
+import LoginComponent from '../formLogin/login';
 
 
 /**
@@ -29,7 +30,8 @@ import NomeacaoComponentPagAll from '../nomeacaoPagingComplete/nomepaging';
   new Route( {path: '/NomeacaoPaging', component: NomeacaoComponentPag, name: 'NomeacaoPaging'}),
   new Route( {path: '/HomeFormNew', component: HomeFormNew, name: 'HomeFormNew'}),
   new Route( {path: '/NomeacaoDetail/:vaga', component: NomeacaoComponentDetail, name: 'NomeacaoDetail'}),
-  new Route( {path: '/NomeacaoPagingAll', component: NomeacaoComponentPagAll, name: 'NomeacaoPagingAll'})
+  new Route( {path: '/NomeacaoPagingAll', component: NomeacaoComponentPagAll, name: 'NomeacaoPagingAll'}),
+  new Route( {path: '/Login', component: LoginComponent, name: 'Login'})
 ])
 
 export default class ApplicationComponent {}
