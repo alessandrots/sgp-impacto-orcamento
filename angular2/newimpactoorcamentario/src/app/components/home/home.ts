@@ -19,6 +19,6 @@ export default class HomeComponent {
   // products: Observable<Product[]>;
 
   constructor() {
-    console.log('HomeComponent');
+    console.log('HomeComponent ALESSANDROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO');
   }
 }

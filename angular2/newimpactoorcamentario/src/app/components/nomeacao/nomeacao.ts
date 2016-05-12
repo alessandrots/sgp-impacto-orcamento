@@ -20,16 +20,15 @@ export default class NomeacaoComponent {
   result: Nomeacao[];
 
   constructor(http: Http,  private _router: Router, orcService: OrcamentoService) {
-    console.log('Nomeacao http = ', http);
-    console.log('Nomeacao _router = ', _router);
-
+    // console.log('Nomeacao http = ', http);
+    // console.log('Nomeacao _router = ', _router);
      //SUBSTITUINDO por chamada ao serviço
      orcService
       .getAllImpacto()
       .subscribe(
         data => {
           this.result = data;
-          // console.log('NomeacaoComponent ::: DATA = ', this.result)
+          console.log('NomeacaoComponent ::: DATA = ', this.result)
         },
         error => console.error(error));
   }
