@@ -101,25 +101,31 @@ $ npm run build
 isto vai criar uma pasta dist e os arquivos main e vendor serão agreagados num só.
 
 ************************************************************************************************
-===> DEPLOY EM PRODUÇÃO:
-1) $ npm install após git clone
-2) Indo para o módulo client
+<h2>===> DEPLOY EM PRODUÇÃO:</h2>
+-  1) $ npm install após git clone
+
+-  2) Indo para o módulo client
 	$ cd $PATH_CLONE/sgp-impacto-orcamento/angular2/newimpactoorcamentario
-3) Limpar os builds anteriores
+
+-  3) Limpar os builds anteriores
 	$ rm -Rf dist
 	$ rm -Rf ../server
-4) Buildar o cliente 
+
+-  4) Buildar o cliente 
   	$ npm run build
 	$ npm run predeploy
 	$ npm run deploy
-5) Limpando server e módulo client
+
+-  5) Limpando server e módulo client
 	$ cd /home/alessandrots/Projetos/java/produtos-web (Path Projeto Java)
 	$ rm -Rf target
 	$ rm -Rf src/main/webapp/public/
-6) Atualizando módulo client
+
+-  6) Atualizando módulo client
 	$ cd $PATH_CLONE/sgp-impacto-orcamento/angular2/newimpactoorcamentario
 	$ cp -Rf ../server/build/public/ /home/alessandrots/Projetos/java/produtos-web/src/main/webapp/public
-7) Para rodar simulando em Produção
+
+-  7) Para rodar simulando em Produção
  	$ mvn package
  	$ mvn jetty:run
 ************************************************************************************************
