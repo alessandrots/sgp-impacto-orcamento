@@ -38,7 +38,7 @@ export class OrcamentoService {
   getImpactoById(vaga: number): Observable<Impacto> {
     console.log('service ::: getImpactoById ==> vaga = ', vaga);
     
-    return this.http.get('http://localhost:3001/sgp/astec/orcamento/nomeacao/detalhe/'+vaga)
+    return this.http.get('http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao/detalhe/'+vaga)
       .map(response => response.json());  
   }
 
@@ -48,7 +48,7 @@ export class OrcamentoService {
   getAllImpacto(): Observable<Impacto[]> {
     console.log('service ::: getAllImpacto ==>  ');
     
-    return this.http.get('http://localhost:3001/sgp/astec/orcamento/nomeacao')
+    return this.http.get('http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao')
       .map(response => response.json());
   }
 }
