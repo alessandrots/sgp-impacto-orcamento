@@ -36,8 +36,8 @@ export default class NomeacaoComponentPagAll {
    };
 
   constructor(http: Http,  private _router: Router, orcService: OrcamentoService) {
-    console.log('NomeacaoComponentPagAll _router = ', _router);
-    console.log('NomeacaoComponentPagAll http = ', http);
+    //console.log('NomeacaoComponentPagAll _router = ', _router);
+    //console.log('NomeacaoComponentPagAll http = ', http);
 
     //SUBSTITUINDO por chamada ao serviço
     orcService
@@ -45,7 +45,8 @@ export default class NomeacaoComponentPagAll {
       .subscribe(
         data => {
           this.result = data;
-          // console.log('NomeacaoComponentPag ::: DATA = ', this.result)
+          // console.log('NomeacaoComponentPagAll ::: DATA = ', this.result)
+          // console.log('NomeacaoComponentPagAll ::: DATA = ', this.result);
         },
         error => console.error(error));
   }

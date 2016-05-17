@@ -1,5 +1,6 @@
 <div class="is-text-centered">
-    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+     <!-- <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div> -->
+    <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
 </div>
 
 <div class="row">
@@ -22,8 +23,8 @@
         <th>nr_portaria_sem_efeito</th>
         <th>FIELD16</th>
     </tr>
-
-    <tr *ngFor="#obj of result | paginate: { itemsPerPage: 10, currentPage: page }" (click)="gotoDetail(obj)">
+    
+    <tr *ngFor="#obj of result | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }" (click)="gotoDetail(obj)">
         <td><H1>{{obj.vaga}}</H1></td>
         <td>{{obj.edital}}</td>
         <td>{{obj.ramo}}</td>

@@ -1,0 +1,18 @@
+<h2> 0) Rodando o projeto JAVA:</h2> 
+* [JDK 1.7]
+* [JETTY]
+* [MAVEN]
+* [TOMCAT]
+
+<h2> 1) Limpar Projeto, Compilar, testar e RODAR o SERVER </h2>
+ $ mvn clean 
+ $ mvn eclipse:eclipse
+ $ mvn compile 
+ $ mvn test 
+ $ mvn package
+ $ mvn jetty:run
+
+CROSS ORIGIN
+
+http://crunchify.com/what-is-cross-origin-resource-sharing-cors-how-to-add-it-to-your-java-jersey-web-server/
+
