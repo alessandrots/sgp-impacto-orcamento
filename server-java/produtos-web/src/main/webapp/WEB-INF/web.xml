@@ -4,7 +4,8 @@
     version="3.0">
    <display-name>produtos-web</display-name>
    
-   <!-- Para o JETTY -->
+   <!-- Para o JETTY-->
+   <!--
    <filter>
        <filter-name>cross-origin</filter-name>
        <filter-class>org.eclipse.jetty.servlets.CrossOriginFilter</filter-class>
@@ -14,7 +15,8 @@
        <filter-name>cross-origin</filter-name>
        <url-pattern>/*</url-pattern>
    </filter-mapping>
-   
+    -->
+    
    <!-- Para o Tomcat -->
    <!-- 
    <filter>

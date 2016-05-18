@@ -4,15 +4,24 @@
 * [MAVEN]
 * [TOMCAT]
 
-<h2> 1) Limpar Projeto, Compilar, testar e RODAR o SERVER </h2>
+<h2> 1) Limpar Projeto, Compilar, testar </h2>
  $ mvn clean 
  $ mvn eclipse:eclipse
  $ mvn compile 
  $ mvn test 
- $ mvn package
- $ mvn jetty:run
+ $ mvn package 
+ 
+<h2> 2) RODAR o SERVER no TOMCAT</h2>
+ $ mvn tomcat7:deploy
+	http://<IP>:8080/produtos-web-1.0-SNAPSHOT
 
-CROSS ORIGIN
+ $ mvn tomcat7:undeploy	
+ 
+<h3> 2) RODAR o SERVER no JETTY</h2>
+ $ mvn jetty:run
+	http://<IP>:9090/produtos-web-1.0-SNAPSHOT
+
+CROSS ORIGIN (já configurado no server)
 
 http://crunchify.com/what-is-cross-origin-resource-sharing-cors-how-to-add-it-to-your-java-jersey-web-server/
 
