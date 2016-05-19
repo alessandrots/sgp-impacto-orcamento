@@ -7,185 +7,96 @@
   <version>1.0-SNAPSHOT</version>
   <name>produtos-web Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    <!--
-    <dependency>
-        <groupId>br.com.caelum</groupId>
-        <artifactId>vraptor</artifactId>
-        <version>3.5.0</version>
-    </dependency>
+  
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>4.11</version>
+	      <scope>test</scope>
+	    </dependency>
     
-    <dependency>
-        <groupId>br.com.caelum.maven</groupId>
-        <artifactId>produtos</artifactId>
-        <version>1.0-SNAPSHOT</version>
-  </dependency>
-  -->
-  <!-- http://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlets -->
-  <dependency>
-      <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-servlets</artifactId>
-      <version>9.3.8.v20160314</version>
-  </dependency>
+		  <!-- http://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlets -->
+		  <dependency>
+		      <groupId>org.eclipse.jetty</groupId>
+		      <artifactId>jetty-servlets</artifactId>
+		      <version>9.3.8.v20160314</version>
+		  </dependency>
   
   </dependencies>
   
-  
-  <!-- <build>
-		<finalName>produtos-web</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>tomcat-maven-plugin</artifactId>
-				<configuration>
-					<url>http://localhost:8080/manager/text</url>
-					<server>mytomcat</server>
-					<path>/produtos-web</path>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<inherited>true</inherited>
-				<configuration>
-					<classpathContainers>
-						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
-						<classpathContainer>org.eclipse.jdt.USER_LIBRARY/TOMCAT_6.0.14_LIBRARY</classpathContainer>
-					</classpathContainers>
-				</configuration>
-			</plugin>
-			
-			
-	        <plugin>
-	          <artifactId>maven-compiler-plugin</artifactId>
-	            <configuration>
-	              <source>1.8</source>
-	              <target>1.8</target>
-	            </configuration>
-	        </plugin>
-		</plugins>
-	</build> -->
-	
-<!-- 
-	mvn clean
-	mvn package (gerar war, só compilar => mvn compile)
-	
-	***Tomcat 7
-	mvn tomcat7:deploy
-	mvn tomcat7:undeploy
-	
-	***Jetty
-	mvn jetty:run
- -->	
-	
 
-<!-- PARA FUNCIONAR O TOMCAT7 -->	
-<build>
-    <directory>${project.basedir}/target</directory>
-    
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <executions>
-                <execution>
-                    <id>install</id>
-                    <phase>install</phase>
-                    <goals>
-                        <goal>sources</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-        
-        <!-- Maven Tomcat Plugin
-        
-        	http://stackoverflow.com/questions/15410914/tomcatdeploy-cannot-invoke-tomcat-manager-connection-refused 
-        	http://www.mkyong.com/maven/how-to-deploy-maven-based-war-file-to-tomcat/
-        
-        -->
-        <plugin>
-            <groupId>org.apache.tomcat.maven</groupId>
-            <artifactId>tomcat7-maven-plugin</artifactId>
-            <version>2.2</version>
-            <!--settings.xml (maven) and tomcat-users.xml  (aqui tem q ser o manager-script)-->            
-            <configuration>
-		        <url>http://localhost:8080/manager/text</url>
-		        <server>mytomcat</server>
-		        <path>/produtos-web-1.0-SNAPSHOT</path>
-		        <username>test</username>
-		        <password>test</password>
-		    </configuration>
-        </plugin>
-        
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>2.3</version>
-            <configuration>
-                <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
-            </configuration>
-        </plugin>
-        
-        
-        <!-- JETTY
-        	http://www.mkyong.com/maven/maven-jetty-plugin-examples/ 
-        	http://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlets
-         -->
-        <plugin>
-            <groupId>org.mortbay.jetty</groupId>
-            <artifactId>jetty-maven-plugin</artifactId>
-            <configuration>
-		         <scanIntervalSeconds>10</scanIntervalSeconds>
-		         <webApp>
-				     <contextPath>/produtos-web-1.0-SNAPSHOT</contextPath>
-				</webApp>
-		         <connectors>
-		            <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-		               <port>9090</port>
-		               <maxIdleTime>60000</maxIdleTime>
-		            </connector>
-		          </connectors>
-    		</configuration>
-        </plugin>
-        
-        <!-- http://stackoverflow.com/questions/7715260/java-compiler-level-does-not-match-the-version-of-the-installed-java-project-fac -->
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-              <source>1.8</source>
-              <target>1.8</target>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
-  
-  
-<!-- PARA FUNCIONAR O JETTY -->  
-<!--   <build>
-        <finalName>produtos-web</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <configuration>
-	            <scanIntervalSeconds>10</scanIntervalSeconds>
-	            <connectors>
-	               <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-	                  <port>9090</port>
-	                  <maxIdleTime>60000</maxIdleTime>
-	               </connector>
-	             </connectors>
-        		</configuration>
-            </plugin>
-        
-        
+	<!-- PARA FUNCIONAR O TOMCAT7 -->	
+	<build>
+	    <directory>${project.basedir}/target</directory>
+	    
+	    <plugins>
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-dependency-plugin</artifactId>
+	            <executions>
+	                <execution>
+	                    <id>install</id>
+	                    <phase>install</phase>
+	                    <goals>
+	                        <goal>sources</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	        </plugin>
+	        
+	        <!-- Maven Tomcat Plugin
+	        	http://stackoverflow.com/questions/15410914/tomcatdeploy-cannot-invoke-tomcat-manager-connection-refused 
+	        	http://www.mkyong.com/maven/how-to-deploy-maven-based-war-file-to-tomcat/
+	        	
+	        	settings.xml (maven) and tomcat-users.xml  (aqui tem q ser o manager-script)
+	        -->
+	        <plugin>
+	            <groupId>org.apache.tomcat.maven</groupId>
+	            <artifactId>tomcat7-maven-plugin</artifactId>
+	            <version>2.2</version>
+	            <!---->            
+	            <configuration>
+			        <url>http://localhost:8080/manager/text</url>
+			        <server>mytomcat</server>
+			        <path>/produtos-web-1.0-SNAPSHOT</path>
+			        <username>test</username>
+			        <password>test</password>
+			    </configuration>
+	        </plugin>
+	        
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-war-plugin</artifactId>
+	            <version>2.3</version>
+	            <configuration>
+	                <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
+	            </configuration>
+	        </plugin>
+	        
+	        <!--  Maven JETTY Plugin
+	        	http://www.mkyong.com/maven/maven-jetty-plugin-examples/ 
+	        	http://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlets
+	         -->
+	        <plugin>
+	            <groupId>org.mortbay.jetty</groupId>
+	            <artifactId>jetty-maven-plugin</artifactId>
+	            <configuration>
+			         <scanIntervalSeconds>10</scanIntervalSeconds>
+			         <webApp>
+					     <contextPath>/produtos-web-1.0-SNAPSHOT</contextPath>
+					</webApp>
+			         <connectors>
+			            <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+			               <port>9090</port>
+			               <maxIdleTime>60000</maxIdleTime>
+			            </connector>
+			          </connectors>
+	    		</configuration>
+	        </plugin>
+	        
+	        <!-- http://stackoverflow.com/questions/7715260/java-compiler-level-does-not-match-the-version-of-the-installed-java-project-fac -->
 	        <plugin>
 	          <artifactId>maven-compiler-plugin</artifactId>
 	            <configuration>
@@ -193,7 +104,8 @@
 	              <target>1.8</target>
 	            </configuration>
 	        </plugin>
-      </plugins>
-    </build>
- -->  
+	    </plugins>
+	</build>
+  
+  
 </project>
