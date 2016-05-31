@@ -29,6 +29,109 @@
 	   <url-pattern>/*</url-pattern>
    </filter-mapping>
   -->
+  
+  <display-name>Alessandro Servlet</display-name>
+  <description>
+     Test Servlet
+  </description>
+  
+  <servlet>
+	<servlet-name>jersey-serlvet</servlet-name>
+	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+	<init-param>
+		<param-name>com.sun.jersey.config.property.packages</param-name>
+		<param-value>br.com.caelum.app.rest</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+ </servlet>
+	
+ <servlet-mapping>
+	<servlet-name>jersey-serlvet</servlet-name>
+	<url-pattern>/ns/rest/*</url-pattern>
+</servlet-mapping>
+  
+  <!-- <servlet>
+    <servlet-name>Resteasy</servlet-name>
+    <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+  </servlet>
+	
+    <listener>
+        <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+    </listener> -->
+  
+  <!-- Configuracaoo do filtro basico da aplicacaoo para o Spring Security -->
+  <!-- O nome do filtro eh importante:
+	  ele aponta para o nome de um bean de mesmo nome que serah criado internamente pelo
+	  Spring Security para lidar com a seguranca de requisicoes. -->
+<!--	  
+  <filter>	  
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  
+  <filter-mapping>
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <url-pattern>/*</url-pattern>
+  </filter-mapping>
+    -->
+  
+  <servlet>
+    <servlet-name>project</servlet-name>
+    <servlet-class>br.com.caelum.core.server.ProjectServlet</servlet-class>
+  </servlet>
+    
+  <servlet-mapping>
+    	<servlet-name>project</servlet-name>
+        <url-pattern>/project/*</url-pattern>
+  </servlet-mapping>
+  
+ <!--  <servlet-mapping>
+    <servlet-name>Resteasy</servlet-name>
+    <url-pattern>/ns/rest/*</url-pattern>
+  </servlet-mapping> -->
+  
+  <listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+	
+  <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:/module-core-spring.xml</param-value>
+  </context-param>
+  
+   <!-- <context-param>
+    <param-name>resteasy.servlet.mapping.prefix</param-name>
+    <param-value>/ns/rest</param-value>
+  </context-param>
+  <context-param>
+    <param-name>resteasy.scan</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>resteasy.resources</param-name>
+    <param-value>br.com.caelum.app.rest.ServicoRest</param-value>
+  </context-param>
+  <context-param>
+    <param-name>resteasy.providers</param-name>
+    <param-value>br.com.caelum.app.rest.NegocioExceptionMapper</param-value>
+  </context-param> -->
+  
+   <!-- 
+   <resource-ref>
+      <description>DB Connection</description>
+      <res-ref-name>jdbc/OutlineDS</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+   </resource-ref>
+   -->
+   
+   <resource-ref>
+      <description>DB Connection</description>
+      <res-ref-name>jdbc/SGPAdmDS</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+   </resource-ref>
+  
      
    <welcome-file-list>  
 	   <welcome-file>index.html</welcome-file> 
