@@ -37,18 +37,29 @@ public class ServicoRest {
 	HttpServletRequest request;
 	
 	@GET
-	@Path("/{param}")
+	@Path("/getMsg/{param}")
+	/**
+	 * http://localhost:8080/produtos/ns/rest/servicos/getMsg/alessandro
+	 * @param msg
+	 * @return
+	 */
 	public Response getMsg(@PathParam("param") String msg) {
- 
 		String output = "Jersey say : " + msg;
- 
 		return Response.status(200).entity(output).build();
 	}
 	
 	@GET
-	@Path("/getAll")
+	@Path("/getAllByPath/{param1}/{param2}/{param3}")
 	@Produces("text/json;charset=UTF-8")
-	public void getAll(@QueryParam("param1") Integer param1, @QueryParam("param2") Integer param2, @QueryParam("param3") Integer param3) {
+	/**
+	 * http://localhost:8080/produtos/ns/rest/servicos/getAllByPath/1/2/3
+	 * 
+	 * @param param1
+	 * @param param2
+	 * @param param3
+	 * @return
+	 */
+	public Response getAllByPath(@PathParam("param1") Integer param1, @PathParam("param2") Integer param2, @PathParam("param3") Integer param3) {
 		Integer matricula = 4566;
 		
 		init();
@@ -76,6 +87,39 @@ public class ServicoRest {
 //		this.tarefaFacade.prepararParaRealizar(presenter);
 //
 //		return presenter;
+		
+		String output = "Jersey say : " + " param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3;
+		return Response.status(200).entity(output).build();
+	}
+	
+	@GET
+	@Path("/getAllByQuery")
+	@Produces("text/json;charset=UTF-8")
+	/**
+	 * http://localhost:8080/produtos/ns/rest/servicos/getAllByQuery?param1=4&param2=5&param3=6
+	 * 
+	 * @param param1
+	 * @param param2
+	 * @param param3
+	 * @return
+	 */
+	public Response getAllByQuery(@QueryParam("param1") Integer param1, @QueryParam("param2") Integer param2, @QueryParam("param3") Integer param3) {
+		Integer matricula = 4566;
+		
+		init();
+		
+		this.myFacade = getMyFacade();
+//
+//		if (matricula == null) {// testar
+//			throw new RestException("Parametro matricula informado nulo.");
+//		}
+		
+		System.out.println(" param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3);
+		
+		this.myFacade.prepararParaRealizar(param1, param3);
+		
+		String output = "Jersey say : " + " param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3;
+		return Response.status(200).entity(output).build();
 	}
 	
 	public void init() {
