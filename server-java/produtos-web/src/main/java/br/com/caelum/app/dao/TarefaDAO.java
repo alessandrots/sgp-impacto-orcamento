@@ -1,5 +1,6 @@
 package br.com.caelum.app.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -38,6 +39,53 @@ public class TarefaDAO extends HibernateDAOImpl<Tarefa> {
 		}
 		
 		return listaTarefa;
+	}
+
+	public List recuperarNomeacoesEntreDatas(Date dataInicio, Date dataFinal) {
+		System.out.println("DAO ==> recuperarNomeacoesEntreDatas !!!");
+		StringBuilder hql = new StringBuilder();
+		hql.append("SELECT d ");
+		hql.append("FROM Concursado d ");
+		hql.append("WHERE d.numeroPortaria is not null ");
+		hql.append("AND d.dataNomeacao BETWEEN :dataInicio AND :dataFinal");
+		
+		Query query = getSession().createQuery(hql.toString());
+		query.setParameter("dataInicio", dataInicio);
+		query.setParameter("dataFinal", dataFinal);
+		
+		List lista = query.list();
+		
+		if (lista != null && lista.size() > 0){
+			System.out.println("recuperarNomeacoesEntreDatas ==> Tamanho da lista = " + lista.size());
+		} else {
+			System.out.println("recuperarNomeacoesEntreDatas ==>  lista vazia ");
+		}
+		
+		return lista;
+		
+	}
+	
+	public List recuperarRemocoesEntreDatas(Date dataMaxima) {
+		System.out.println("DAO ==> recuperarRemocoesEntreDatas !!!");
+		StringBuilder hql = new StringBuilder();
+		hql.append("SELECT d ");
+		hql.append("FROM ConcursoRemocao d ");
+		hql.append("WHERE d.dataRemocaoGravacao >:dataMaxima ");
+		hql.append("ORDER BY d.dataRemocaoGravacao desc ");
+		
+		Query query = getSession().createQuery(hql.toString());
+		query.setParameter("dataMaxima", dataMaxima);
+		
+		List lista = query.list();
+		
+		if (lista != null && lista.size() > 0){
+			System.out.println("recuperarNomeacoesEntreDatas ==> Tamanho da lista = " + lista.size());
+		} else {
+			System.out.println("recuperarNomeacoesEntreDatas ==>  lista vazia ");
+		}
+		
+		return lista;
+		
 	}
 
 	

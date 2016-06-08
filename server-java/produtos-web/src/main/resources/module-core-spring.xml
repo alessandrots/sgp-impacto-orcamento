@@ -24,7 +24,5 @@
 	<import resource="classpath:/module-component-spring.xml"/>
 	<import resource="classpath:/module-connection-spring.xml"/>
 <!-- 	<import resource="classpath:/module-security-spring.xml"/> -->
-	
-	<!-- <jee:jndi-lookup id="tabularium-ds" jndi-name="java:sisdocDatasource"/> -->
 
 </beans>

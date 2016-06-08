@@ -1,5 +1,7 @@
 package br.com.caelum.app.rest;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,19 +16,19 @@ import org.springframework.stereotype.Component;
 
 import br.com.caelum.app.facade.MyFacade;
 import br.com.caelum.core.server.SpringManager;
+import br.com.caelum.util.Util;
 
 @Path("/servicos")
 
-/**Classe para objetos do tipo Funcion�rios, onde ser�o contidos, valores e m�todos para o mesmo.
+/**Classe para objetos do tipo Funcionários, onde serão contidos, valores e métodos para o mesmo.
 
  * @author alessandrots
 
  * @version 1.00
 
- * @since Release 01 da aplica��o
+ * @since Release 01 da aplicação
 
  */
-
 @Component("serviceTest")
 public class ServicoRest {
 	
@@ -119,6 +121,55 @@ public class ServicoRest {
 		this.myFacade.prepararParaRealizar(param1, param3);
 		
 		String output = "Jersey say : " + " param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3;
+		return Response.status(200).entity(output).build();
+	}
+	
+	@GET
+	@Path("/getConcursadoByQuery")
+	@Produces("text/json;charset=UTF-8")
+	/**
+	 * http://localhost:8080/produtos/ns/rest/servicos/getConcursadoByQuery?dataInicial=01/01/2015&dataFinal=31/05/2015
+	 * 
+	 * @param dataInicial
+	 * @param param2
+	 * @return Response
+	 */
+	public Response getConcursadoByQuery(@QueryParam("dataInicial") String dataInicial, @QueryParam("dataFinal") String dataFinal) {
+		init();
+		
+		this.myFacade = getMyFacade();
+		
+		Date dtini = Util.newInstance().convertDataStringToDate(dataInicial);
+		Date dtfim = Util.newInstance().convertDataStringToDate(dataFinal);
+		
+		this.myFacade.recuperarNomeacoesEntreDatas(dtini, dtfim);
+		
+		String output = "Jersey say : " + " dataInicial : " + dataInicial + " - dataFinal : " + dataFinal;
+		
+		return Response.status(200).entity(output).build();
+	}
+	
+	@GET
+	@Path("/getRemocoesByQuery")
+	@Produces("text/json;charset=UTF-8")
+	/**
+	 * http://localhost:8080/produtos/ns/rest/servicos/getRemocoesByQuery?dataMaxima=01/01/2015
+	 * 
+	 * @param dataInicial
+	 * @param param2
+	 * @return Response
+	 */
+	public Response getRemocoesByQuery(@QueryParam("dataMaxima") String dataMaxima) {
+		init();
+		
+		this.myFacade = getMyFacade();
+		
+		Date dt = Util.newInstance().convertDataStringToDate(dataMaxima);
+		
+		this.myFacade.recuperarRemocoesEntreDatas(dt);
+		
+		String output = "Jersey say : " + " dataInicial : " + dataMaxima;
+		
 		return Response.status(200).entity(output).build();
 	}
 	

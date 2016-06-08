@@ -1,6 +1,10 @@
 package br.com.caelum.app.facade;
 
+import java.util.Date;
+import java.util.Properties;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +15,10 @@ public class MyFacade {
 	
 	@Autowired
 	private TarefaDAO tarefaDAO;
+	
+	@Autowired
+	@Qualifier("impactoOrcProperties")
+	private Properties impactoOrcProperties;
 
 //	private Usuario autenticado;
 	
@@ -23,6 +31,24 @@ public class MyFacade {
 		String tmp  = "";
 		
 		this.tarefaDAO.prepararParaRealizar("teste");
+		
+		return tmp;
+	}
+	
+	@Transactional
+	public String recuperarNomeacoesEntreDatas(Date dataInicio, Date dataFinal) {
+		String tmp  = "";
+		
+		this.tarefaDAO.recuperarNomeacoesEntreDatas(dataInicio, dataFinal);
+		
+		return tmp;
+	}
+	
+	@Transactional
+	public String recuperarRemocoesEntreDatas(Date dataMaxima) {
+		String tmp  = "";
+		System.out.println(" Properties referência = " + impactoOrcProperties);
+		this.tarefaDAO.recuperarRemocoesEntreDatas(dataMaxima);
 		
 		return tmp;
 	}
