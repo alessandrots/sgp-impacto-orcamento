@@ -14,13 +14,13 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
-	<!-- <context:annotation-config /> 
+	<!-- http://stackoverflow.com/questions/7414794/difference-between-contextannotation-config-vs-contextcomponent-scan -->
+	<context:annotation-config />
 	<context:component-scan base-package="br.com.caelum.app.dao" />
 	<context:component-scan base-package="br.com.caelum.app.facade" />
 	<context:component-scan base-package="br.com.caelum.app.service" />
 	<context:component-scan base-package="br.com.caelum.core.db" />
 	<context:component-scan base-package="br.com.caelum.app.security" />
-	 -->
 	
 	<util:properties id="impactoOrcProperties" location="classpath:/impactoOrc.properties" />
 	

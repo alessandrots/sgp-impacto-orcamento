@@ -14,15 +14,10 @@
 		
 	<context:annotation-config />
 
-
-	<!-- 
-	<jee:jndi-lookup id="outline-ds" jndi-name="jdbc/OutlineDS"/>
-	-->
-	
 	<jee:jndi-lookup id="sgpadm-ds" jndi-name="jdbc/SGPAdmDS"/>
 	
-	<import resource="classpath:/module-component-spring.xml"/>
 	<import resource="classpath:/module-connection-spring.xml"/>
+	<import resource="classpath:/module-component-spring.xml"/>
 <!-- 	<import resource="classpath:/module-security-spring.xml"/> -->
 
 </beans>

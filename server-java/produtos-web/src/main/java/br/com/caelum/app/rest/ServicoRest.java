@@ -76,19 +76,6 @@ public class ServicoRest {
 		
 		this.myFacade.prepararParaRealizar(param1, param3);
 
-//		TarefaPresenter presenter = new TarefaPresenter();
-//		presenter.setCodigo("1");
-//		presenter.setNome("Retornando Dados da Silva");
-//		presenter.setDataInicio("15/06/2013");
-//		presenter.setDataTermino("17/06/2013");
-//		presenter.setDataEntrega("19/06/2013");
-//		presenter.setCodigo("6");
-//		
-//		this.tarefaFacade = getFacade();
-////		System.out.println(haMaisDeTantosDiasInt + " - " + haMaisDeTantosDiasExt);
-//		this.tarefaFacade.prepararParaRealizar(presenter);
-//
-//		return presenter;
 		
 		String output = "Jersey say : " + " param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3;
 		return Response.status(200).entity(output).build();

@@ -74,7 +74,7 @@
 	 $ mvn tomcat7:undeploy	
 	 
 ************************************************************************
-<h2> 2) RODAR a aplicação no JETTY</h2>		
+<h2> 3) RODAR a aplicação no JETTY</h2>		
 	<h3> 3.1) Configuração no POM</h3>
 	 <!--  Maven JETTY Plugin
 		http://www.mkyong.com/maven/maven-jetty-plugin-examples/ 
@@ -108,4 +108,27 @@
 	http://crunchify.com/what-is-cross-origin-resource-sharing-cors-how-to-add-it-to-your-java-jersey-web-server/
 	
 ************************************************************************	
+<h2> 4) Configuração de Conexão de Banco: no arquivo server/context.xml</h2>	
+<b> ***  Os campos username e password tiveram os seus valores suprimidos </b>
 
+ *** BANCO SP PRODUCAO
+<!--  
+jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=db01)(HOST=db02)(HOST=db03)(PORT=1521))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=app.domain.net)))	
+
+    <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" 
+	maxActive="3" maxIdle="0" maxWait="30000" minEvictableIdleTimeMillis="7200000" 
+	name="jdbc/SGPAdmDS" scope="Shareable" type="javax.sql.DataSource" 
+	url="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=adm-bd-prod1-vip.pgr.mpf.gov.br)(HOST=adm-bd-prod2-vip.pgr.mpf.gov.br)(PORT=1521))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=ADM)))" 
+	username="" password=""/>
+-->	
+
+ *** BANCO SP DESENVOLVIMENTO
+ <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver"
+ maxActive="3" maxIdle="0" maxWait="30000" minEvictableIdleTimeMillis="7200000"
+ name="jdbc/SGPAdmDS" username="" password="" 
+ scope="Shareable" type="javax.sql.DataSource" 
+ url="jdbc:oracle:thin:@admd-bd-desenv.pgr.mpf.gov.br:1521:admd"/>
+	
+	<!-- url="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=admd-bd-desenv.pgr.mpf.gov.br)(PORT=1521))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=admd)))"/> -->
+	
+		

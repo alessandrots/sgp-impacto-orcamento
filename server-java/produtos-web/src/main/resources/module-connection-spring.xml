@@ -28,16 +28,6 @@
 				<prop key="hibernate.connection.release_mode">auto</prop>
 			</props>
 		</property>
-		
-				<!-- http://stackoverflow.com/questions/9756925/why-is-annotatedclasses-needed-if-there-is-entity
-		<property name="annotatedClasses">
-			<array>
-				<value>br.com.caelum.app.domain.Pessoa</value>
-				<value>br.com.caelum.app.domain.Concursado</value>
-				<value>br.com.caelum.app.domain.ConcursoRemocao</value>
-			</array>
-		</property>
-				-->
 	</bean>
 	
 	
@@ -53,13 +43,6 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-	<!-- http://stackoverflow.com/questions/7414794/difference-between-contextannotation-config-vs-contextcomponent-scan -->
-	<context:annotation-config />
-	<context:component-scan base-package="br.com.caelum.app.dao" />
-	<context:component-scan base-package="br.com.caelum.app.facade" />
-	<context:component-scan base-package="br.com.caelum.app.service" />
-	<context:component-scan base-package="br.com.caelum.core.db" />
-	<context:component-scan base-package="br.com.caelum.app.security" />
 	
 	<aop:aspectj-autoproxy/>
 	
