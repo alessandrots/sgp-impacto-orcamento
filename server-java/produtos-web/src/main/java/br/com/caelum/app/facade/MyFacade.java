@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.caelum.app.dao.ConcursadoDAO;
+import br.com.caelum.app.dao.ConcursoRemocaoDAO;
 import br.com.caelum.app.dao.TarefaDAO;
 
 @Component("myFacade")
@@ -15,6 +17,12 @@ public class MyFacade {
 	
 	@Autowired
 	private TarefaDAO tarefaDAO;
+	
+	@Autowired
+	private ConcursadoDAO concursadoDAO;
+	
+	@Autowired
+	private ConcursoRemocaoDAO concursoRemocaoDAO;
 	
 	@Autowired
 	@Qualifier("impactoOrcProperties")
@@ -40,7 +48,7 @@ public class MyFacade {
 	public String recuperarNomeacoesEntreDatas(Date dataInicio, Date dataFinal) {
 		String tmp  = "";
 		
-		this.tarefaDAO.recuperarNomeacoesEntreDatas(dataInicio, dataFinal);
+		this.concursadoDAO.recuperarNomeacoesEntreDatas(dataInicio, dataFinal);
 		
 		return tmp;
 	}
@@ -49,7 +57,7 @@ public class MyFacade {
 	public String recuperarRemocoesEntreDatas(Date dataMaxima) {
 		String tmp  = "";
 		System.out.println(" Properties referência = " + impactoOrcProperties);
-		this.tarefaDAO.recuperarRemocoesEntreDatas(dataMaxima);
+		this.concursoRemocaoDAO.recuperarRemocoesEntreDatas(dataMaxima);
 		
 		return tmp;
 	}
@@ -61,6 +69,36 @@ public class MyFacade {
 	public void setTarefaDAO(TarefaDAO tarefaDAO) {
 		this.tarefaDAO = tarefaDAO;
 	}
+
+	/**
+	 * @return the concursadoDAO
+	 */
+	public ConcursadoDAO getConcursadoDAO() {
+		return concursadoDAO;
+	}
+
+	/**
+	 * @param concursadoDAO the concursadoDAO to set
+	 */
+	public void setConcursadoDAO(ConcursadoDAO concursadoDAO) {
+		this.concursadoDAO = concursadoDAO;
+	}
+
+	/**
+	 * @return the concursoRemocaoDAO
+	 */
+	public ConcursoRemocaoDAO getConcursoRemocaoDAO() {
+		return concursoRemocaoDAO;
+	}
+
+	/**
+	 * @param concursoRemocaoDAO the concursoRemocaoDAO to set
+	 */
+	public void setConcursoRemocaoDAO(ConcursoRemocaoDAO concursoRemocaoDAO) {
+		this.concursoRemocaoDAO = concursoRemocaoDAO;
+	}
+	
+	
 	
 	/**
 	 * @param autenticado the autenticado to set
