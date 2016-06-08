@@ -113,22 +113,21 @@
 
  *** BANCO SP PRODUCAO
 <!--  
-jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=db01)(HOST=db02)(HOST=db03)(PORT=1521))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=app.domain.net)))	
-
-    <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" 
-	maxActive="3" maxIdle="0" maxWait="30000" minEvictableIdleTimeMillis="7200000" 
-	name="jdbc/SGPAdmDS" scope="Shareable" type="javax.sql.DataSource" 
-	url="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=adm-bd-prod1-vip.pgr.mpf.gov.br)(HOST=adm-bd-prod2-vip.pgr.mpf.gov.br)(PORT=1521))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=ADM)))" 
-	username="" password=""/>
--->	
+jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)
+(HOST=db01)(HOST=db02)(HOST=db03)
+(PORT=1521))(LOAD_BALANCE=on))
+(CONNECT_DATA=(SERVICE_NAME=app.domain.net)))	
+-->
+<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" 
+maxActive="3" maxIdle="0" maxWait="30000" minEvictableIdleTimeMillis="7200000" 
+name="jdbc/SGPAdmDS" scope="Shareable" type="javax.sql.DataSource" 
+url="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=adm-bd-prod1-vip.pgr.mpf.gov.br)(HOST=adm-bd-prod2-vip.pgr.mpf.gov.br)(PORT=1521))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=ADM)))" 
+username="" password=""/>
+	
 
  *** BANCO SP DESENVOLVIMENTO
- <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver"
- maxActive="3" maxIdle="0" maxWait="30000" minEvictableIdleTimeMillis="7200000"
- name="jdbc/SGPAdmDS" username="" password="" 
- scope="Shareable" type="javax.sql.DataSource" 
- url="jdbc:oracle:thin:@admd-bd-desenv.pgr.mpf.gov.br:1521:admd"/>
-	
-	<!-- url="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=admd-bd-desenv.pgr.mpf.gov.br)(PORT=1521))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=admd)))"/> -->
-	
-		
+<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver"
+maxActive="3" maxIdle="0" maxWait="30000" minEvictableIdleTimeMillis="7200000"
+name="jdbc/SGPAdmDS" username="" password="" 
+scope="Shareable" type="javax.sql.DataSource" 
+url="jdbc:oracle:thin:@admd-bd-desenv.pgr.mpf.gov.br:1521:admd"/>

@@ -20,7 +20,7 @@ import org.json.simple.JSONValue;
 import br.com.caelum.app.service.IService;
 
 /**
- * TODO - botar o projeto todo no padrão maven e colocar as dependências.
+ *  - botar o projeto  no padrão maven e colocar as dependências.
  * 
  * @author alessandrots
  *
@@ -61,7 +61,7 @@ public class ProjectServlet extends HttpServlet {
 				String pathURL 		= req.getPathInfo().substring(1);				
 				String servFunc[] 	= pathURL.split("/");
 				
-				//TODO tratamentos
+				// tratamentos
 				if (servFunc.length < 2 ){
 					throw new RuntimeException("Impossível carregar e executar o serviço e/ou a funcionalidade.");
 				}
@@ -69,10 +69,10 @@ public class ProjectServlet extends HttpServlet {
 				//classe de serviço
 				String defServico 		 = servFunc[0];
 				
-				//método negocial
+				//mé negocial
 				String defFuncionalidade = servFunc[1];
 				
-				//TODO - spring
+				// - spring
 				IService servico = carregarServico(defServico);
 				
 				//Criado o domain de camada de apresentação
@@ -86,13 +86,13 @@ public class ProjectServlet extends HttpServlet {
 //					servico.setUsuarioAutenticado((AuthenticationOutline)seguranca);
 				}
 				
-				//TODO - o serviço vai executar sempre o método execute e dentro dele vai executar
+				// - o serviço vai executar sempre o mé execute e dentro dele vai executar
 				//a funcionalidade passada como segundo parâmetro
 				executarFuncionalidade(servico, defFuncionalidade, jsonDados, resp);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			//TODO - definir a página de retorno, tratamento de exceção
+			// - definir a página de retorno, tratamento de exceção
 		}		
 		//RequestDispatcher reqd = req.getRequestDispatcher("/pages/resultado.jsp");
 		//reqd.forward(req, resp);
@@ -100,10 +100,10 @@ public class ProjectServlet extends HttpServlet {
 	
 	/**
 	 * 
-	 * TODO - spring
+	 *  - spring
 	 *  - carregar o service específico, de acordo com a primeira parte do path
 	 *  	cadTarefas(servico)/add(funcionalidade)
-	 *  	cadTarefas/load	// TODO Auto-generated method stub
+	 *  	cadTarefas/load	//  Auto-generated method stub
 	 *  
 	 *  - neste caso vai gerar o serviço associado ao cadTarefas
 	 *   
@@ -137,17 +137,17 @@ public class ProjectServlet extends HttpServlet {
 	}
 
 	/**
-	 * Aqui o serviço vai executar um método padrão(tipo execute) e com base na funcionalidade vai carregar o método específico.
+	 * Aqui o serviço vai executar um mé padrão(tipo execute) e com base na funcionalidade vai carregar o mé específico.
 	 * 
-	 * No caso do path: cadTarefas/add, a segunda parte (add) vai ser o método a ser acionado na classe que herda de IService.
+	 * No caso do path: cadTarefas/add, a segunda parte (add) vai ser o mé a ser acionado na classe que herda de IService.
 	 * 
-	 * TODO o ideal é que tenha um método que traga o retorno da pesquisạ, ou o método execute vai dar um return,
+	 * o ideal é que tenha um mé que traga o retorno da pesquisạ, ou o mé execute vai dar um return,
 	 * ou vai ter um classe pai com um getRetorno ou já envio de volta um JSon. Talvez a última seja a melhor soluçã�?.
 	 * 
-	 * TODO tem que ver o tratamento de exceção
+	 * tem que ver o tratamento de exceção
 	 * 
 	 * @param servico
-	 * @param resp TODO
+	 * @param resp
 	 * @param objPresenter
 	 * @param funcionalidade
 	 */
@@ -156,11 +156,11 @@ public class ProjectServlet extends HttpServlet {
 		servico.setJSon(dados);
 		
 		try {
-			//Criando o método execute e definindo o tipo do parâmetro de entrada
-			//TODO colocar a string execute numa classe constante
+			//Criando o mé execute e definindo o tipo do parâmetro de entrada
+			// colocar a string execute numa classe constante
 			Method method = servico.getClass().getMethod("execute", String.class);
 			
-			//Chamando o método execute, passando o parâmetro acao(que é o método a ser chamado)
+			//Chamando o mé execute, passando o parâmetro acao(que é o mé a ser chamado)
 			method.invoke(servico, new Object[]{defFuncionalidade});
 			
 			enviarResposta(resp, servico.getResposta());
@@ -189,9 +189,10 @@ public class ProjectServlet extends HttpServlet {
 	 * @param req
 	 * @return String
 	 */
+	@SuppressWarnings("unchecked")
 	private String gerarJsonViaRequest(HttpServletRequest req) {		
 		//Obtendo um map dos parâmetros
-		Map requestParams = req.getParameterMap();
+		Map<String, String> requestParams = req.getParameterMap();
 		
 		String jSonGerado = null;
 		
@@ -205,7 +206,7 @@ public class ProjectServlet extends HttpServlet {
 				String type = ite.next();
 				
 				if (!type.equalsIgnoreCase("model")){
-					//TODO - tratar qdo vier vários valores por um parâmetro com %2C
+					// - tratar qdo vier vários valores por um parâmetro com %2C
 					mpAtributos.put(type, req.getParameter(type));
 				} else{
 					//vem do atributo de request -> model
@@ -221,19 +222,20 @@ public class ProjectServlet extends HttpServlet {
 		return jSonGerado;
 	}	
 	
-	private void exibirParametros(HttpServletRequest req) {
-		Map requestParams = req.getParameterMap();
-		
-		if (requestParams != null && requestParams.size() > 0){
-			System.out.println(requestParams.keySet() + " = " + requestParams);
-			Iterator<String> ite = requestParams.keySet().iterator();
-			
-			while (ite.hasNext()) {
-				String type = ite.next();
-				System.out.println(" map - param = " + type + " value = " + req.getParameter(type));	
-			}
-		}
-	}
+//	@SuppressWarnings("unchecked")
+//	private void exibirParametros(HttpServletRequest req) {
+//		Map requestParams = req.getParameterMap();
+//		
+//		if (requestParams != null && requestParams.size() > 0){
+//			System.out.println(requestParams.keySet() + " = " + requestParams);
+//			Iterator<String> ite = requestParams.keySet().iterator();
+//			
+//			while (ite.hasNext()) {
+//				String type = ite.next();
+//				System.out.println(" map - param = " + type + " value = " + req.getParameter(type));	
+//			}
+//		}
+//	}
 	
 	private void enviarResposta(HttpServletResponse resp, String jsonObject) {
 		PrintWriter out = null;

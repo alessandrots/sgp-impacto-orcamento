@@ -133,7 +133,7 @@ public class EngineJDBC {
 			ps.setString(4, DigestUtils.sha256Hex("123456"));
 			
 			//Adicionando linha
-			int linha = ps.executeUpdate();
+			ps.executeUpdate();
 
 			conexao.commit();
 			
@@ -145,7 +145,7 @@ public class EngineJDBC {
 
 	public static void main(String[] args) {
 		
-		EngineJDBC e = EngineJDBC.getInstancia();
+		EngineJDBC.getInstancia();
 		
 //		recuperarTodosTesteTmp();//OK
 		
@@ -159,38 +159,5 @@ public class EngineJDBC {
 
 	
 	
-	/**
-	SQLs importantes :
-	select * from negocio.tb_usuario
-	
-	select * from negocio.tb_tipo_recurso
-	
-	select * from negocio.tb_recurso
-	
-	select * from negocio.tb_calendario
-	
-	select * from negocio.tb_tarefa
-	
-	--
-	delete from negocio.tb_tarefa
-	
-	delete from negocio.tb_calendario
-	
-	insert into negocio.tb_calendario (dia_domingo, dia_segunda, dia_terca,dia_quarta,dia_quinta,dia_sexta,dia_sabado,irecurso)
-	values (0,8,8,8,8,8,0, 1) 
-	
-	insert into negocio.tb_calendario (dia_domingo, dia_segunda, dia_terca,dia_quarta,dia_quinta,dia_sexta,dia_sabado,irecurso)
-	values (0,8,0,0,0,0,0, 1)	
-	--
-	
-	 select cal.*
-	 from negocio.tb_calendario cal
-	 inner join negocio.tb_recurso rec
-	 on cal.irecurso = rec.icodigo
-	 inner join negocio.tb_usuario usu
-	 on rec.iusuario = usu.icodigo
-	 where usu.susername = 'alessandrots' 
-  
-*/
 	
 }

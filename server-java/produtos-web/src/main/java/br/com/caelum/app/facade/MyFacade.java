@@ -30,7 +30,8 @@ public class MyFacade {
 	public String prepararParaRealizar(Integer param1, Integer param3) {
 		String tmp  = "";
 		
-		this.tarefaDAO.prepararParaRealizar("teste");
+//		this.tarefaDAO.prepararParaRealizar("teste");
+		System.out.println("prepararParaRealizar");
 		
 		return tmp;
 	}

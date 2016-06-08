@@ -6,6 +6,8 @@ import java.util.List;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
+import br.com.caelum.app.domain.Concursado;
+import br.com.caelum.app.domain.ConcursoRemocao;
 import br.com.caelum.app.domain.Tarefa;
 import br.com.caelum.core.db.HibernateDAOImpl;
 
@@ -23,25 +25,26 @@ public class TarefaDAO extends HibernateDAOImpl<Tarefa> {
 		return Tarefa.class;
 	}	
 	
-	public List prepararParaRealizar(String nomeTarefa) {
-		System.out.println("DAO ==> Preparando para Realizar!!!");
-		StringBuilder hql = new StringBuilder();
-		hql.append("select d from Pessoa d");
-		
-		Query query = getSession().createQuery(hql.toString());
-		
-		List listaTarefa = query.list();
-		
-		if (listaTarefa != null && listaTarefa.size() > 0){
-			System.out.println("Tamanho da lista = " + listaTarefa.size());
-		} else {
-			System.out.println(" lista vazia ");
-		}
-		
-		return listaTarefa;
-	}
+//	public List prepararParaRealizar(String nomeTarefa) {
+//		System.out.println("DAO ==> Preparando para Realizar!!!");
+//		StringBuilder hql = new StringBuilder();
+//		hql.append("select d from Pessoa d");
+//		
+//		Query query = getSession().createQuery(hql.toString());
+//		
+//		List listaTarefa = query.list();
+//		
+//		if (listaTarefa != null && listaTarefa.size() > 0){
+//			System.out.println("Tamanho da lista = " + listaTarefa.size());
+//		} else {
+//			System.out.println(" lista vazia ");
+//		}
+//		
+//		return listaTarefa;
+//	}
 
-	public List recuperarNomeacoesEntreDatas(Date dataInicio, Date dataFinal) {
+	@SuppressWarnings("unchecked")
+	public List<Concursado> recuperarNomeacoesEntreDatas(Date dataInicio, Date dataFinal) {
 		System.out.println("DAO ==> recuperarNomeacoesEntreDatas !!!");
 		StringBuilder hql = new StringBuilder();
 		hql.append("SELECT d ");
@@ -53,7 +56,7 @@ public class TarefaDAO extends HibernateDAOImpl<Tarefa> {
 		query.setParameter("dataInicio", dataInicio);
 		query.setParameter("dataFinal", dataFinal);
 		
-		List lista = query.list();
+		List<Concursado> lista = query.list();
 		
 		if (lista != null && lista.size() > 0){
 			System.out.println("recuperarNomeacoesEntreDatas ==> Tamanho da lista = " + lista.size());
@@ -65,7 +68,8 @@ public class TarefaDAO extends HibernateDAOImpl<Tarefa> {
 		
 	}
 	
-	public List recuperarRemocoesEntreDatas(Date dataMaxima) {
+	@SuppressWarnings("unchecked")
+	public List<ConcursoRemocao> recuperarRemocoesEntreDatas(Date dataMaxima) {
 		System.out.println("DAO ==> recuperarRemocoesEntreDatas !!!");
 		StringBuilder hql = new StringBuilder();
 		hql.append("SELECT d ");
@@ -76,7 +80,7 @@ public class TarefaDAO extends HibernateDAOImpl<Tarefa> {
 		Query query = getSession().createQuery(hql.toString());
 		query.setParameter("dataMaxima", dataMaxima);
 		
-		List lista = query.list();
+		List<ConcursoRemocao> lista = query.list();
 		
 		if (lista != null && lista.size() > 0){
 			System.out.println("recuperarNomeacoesEntreDatas ==> Tamanho da lista = " + lista.size());

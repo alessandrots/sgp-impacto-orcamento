@@ -1,16 +1,11 @@
 package br.com.caelum.app.security;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.transaction.annotation.Transactional;
-
-import br.com.caelum.app.domain.Usuario;
 
 public class AuthenticationProviderImpl implements AuthenticationProvider  {
 	
@@ -19,30 +14,30 @@ public class AuthenticationProviderImpl implements AuthenticationProvider  {
 
 	@Transactional
 	public Authentication authenticate(Authentication auth)	throws AuthenticationException {
-		UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) auth;
-		String username = token.getName();
-		String senha    = token.getCredentials() != null ? token.getCredentials().toString() : null;
+		return null;
+//		UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) auth;
+//		String username = token.getName();
+//		String senha    = token.getCredentials() != null ? token.getCredentials().toString() : null;
+//		
+//		Usuario usuario = null;//getUsuarioDAO().getUsuario(username, senha);
 		
-		Usuario usuario = null;//getUsuarioDAO().getUsuario(username, senha);
+//		if (usuario == null) {
+//			return null;
+//		}
 		
-		if (usuario == null) {
-			return null;
-		}
-		
-//		TODO
+//		Código comentado
 //		List<PermissaoUsuario> permissoes = getDaoPermissao().getPermissoesUsuario(usuario);
 //		SFAuthentication resultado = new SFAuthentication(usuario, permissoes);
-		
-		List<PermissaoUsuario> permissoes = new ArrayList<PermissaoUsuario>();
-		PermissaoUsuario permissaoUsuario = new PermissaoUsuario();
-		permissaoUsuario.setId(1);
-		permissaoUsuario.setRole("ROLE_MEMBRO");
-		permissoes.add(permissaoUsuario);
-		
-		AuthenticationOutline resultado = new AuthenticationOutline(usuario, permissoes);
-		resultado.setAuthenticated(usuario != null);
-		
-		return resultado;
+//		List<PermissaoUsuario> permissoes = new ArrayList<PermissaoUsuario>();
+//		PermissaoUsuario permissaoUsuario = new PermissaoUsuario();
+//		permissaoUsuario.setId(1);
+//		permissaoUsuario.setRole("ROLE_MEMBRO");
+//		permissoes.add(permissaoUsuario);
+//		
+//		AuthenticationOutline resultado = new AuthenticationOutline(usuario, permissoes);
+//		resultado.setAuthenticated(usuario != null);
+//		
+//		return resultado;
 	}
 
 	public boolean supports(Class<?> authentication) {

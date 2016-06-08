@@ -62,7 +62,7 @@ public class ServicoRest {
 	 * @return
 	 */
 	public Response getAllByPath(@PathParam("param1") Integer param1, @PathParam("param2") Integer param2, @PathParam("param3") Integer param3) {
-		Integer matricula = 4566;
+//		Integer matricula = 4566;
 		
 		init();
 		
@@ -93,7 +93,7 @@ public class ServicoRest {
 	 * @return
 	 */
 	public Response getAllByQuery(@QueryParam("param1") Integer param1, @QueryParam("param2") Integer param2, @QueryParam("param3") Integer param3) {
-		Integer matricula = 4566;
+//		Integer matricula = 4566;
 		
 		init();
 		
