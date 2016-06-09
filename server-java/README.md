@@ -3,6 +3,7 @@
 * [JETTY]
 * [MAVEN]
 * [TOMCAT]
+* [ECLIPSE MARS]
 
 ************************************************************************
  <h2> 1) Limpar Projeto, Carregar libs, Compilar, Buildar (Independente de Server) </h2>
@@ -97,27 +98,32 @@
 		</configuration>
 	</plugin>	
 	
-	<h3> 3.2) RODAR o SERVER no JETTY</h2>
+	<h3> 3.2) Configurando datasource</h2>
+	Em WEB-INF/jetty-env.xml: Definido as conexões de desenvolvimento e produção
+	
+	<h3> 3.3) RODAR o SERVER no JETTY</h2>
 	 $ mvn jetty:run
-		http://<IP>:9090/produtos-web-1.0-SNAPSHOT
+		http://<IP>:9090/produtos
 		ex.: http://localhost:9090/produtos-web-1.0-SNAPSHOT/
+		
+************************************************************************		
+Maven Tomcat Plugin
+http://stackoverflow.com/questions/15410914/tomcatdeploy-cannot-invoke-tomcat-manager-connection-refused 
+http://www.mkyong.com/maven/how-to-deploy-maven-based-war-file-to-tomcat/
+settings.xml (maven) and tomcat-users.xml  (aqui tem q ser o manager-script)
+
+http://tomcat.apache.org/maven-plugin-trunk/tomcat7-maven-plugin/plugin-info.html		
 		
 ************************************************************************		
  *** (OBS) ==> já configurado no server, no módulo JSON
  <h2> RODAR a aplicação no JETTY</h2>	
-	http://crunchify.com/what-is-cross-origin-resource-sharing-cors-how-to-add-it-to-your-java-jersey-web-server/
-	
+	http://crunchify.com/what-is-cross-origin-resource-sharing-cors-how-to-add-it-to-your-java-jersey-web-server/	
 ************************************************************************	
 <h2> 4) Configuração de Conexão de Banco: no arquivo server/context.xml</h2>	
 <b> ***  Os campos username e password tiveram os seus valores suprimidos </b>
 
- *** BANCO SP PRODUCAO
-<!--  
-jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)
-(HOST=db01)(HOST=db02)(HOST=db03)
-(PORT=1521))(LOAD_BALANCE=on))
-(CONNECT_DATA=(SERVICE_NAME=app.domain.net)))	
--->
+*** BANCO SP PRODUCAO
+http://stackoverflow.com/questions/4832056/java-jdbc-how-to-connect-to-oracle-using-service-name-instead-of-sid
 <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" 
 maxActive="3" maxIdle="0" maxWait="30000" minEvictableIdleTimeMillis="7200000" 
 name="jdbc/SGPAdmDS" scope="Shareable" type="javax.sql.DataSource" 
@@ -125,9 +131,33 @@ url="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=a
 username="" password=""/>
 	
 
- *** BANCO SP DESENVOLVIMENTO
+*** BANCO SP DESENVOLVIMENTO
 <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver"
 maxActive="3" maxIdle="0" maxWait="30000" minEvictableIdleTimeMillis="7200000"
 name="jdbc/SGPAdmDS" username="" password="" 
 scope="Shareable" type="javax.sql.DataSource" 
 url="jdbc:oracle:thin:@admd-bd-desenv.pgr.mpf.gov.br:1521:admd"/>
+
+************************************************************************
+<h2> 4) Configuração do Web Deployment Assembly </h2>	
+http://stackoverflow.com/questions/6210757/java-lang-classnotfoundexception-org-springframework-web-context-contextloaderl
+
+************************************************************************
+
+************************************************************************
+
+************************************************************************
+
+************************************************************************
+
+************************************************************************
+
+************************************************************************
+
+************************************************************************
+
+************************************************************************
+
+************************************************************************
+
+************************************************************************

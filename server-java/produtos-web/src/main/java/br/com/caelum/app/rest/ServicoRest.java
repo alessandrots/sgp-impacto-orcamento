@@ -115,7 +115,11 @@ public class ServicoRest {
 	@Path("/getConcursadoByQuery")
 	@Produces("text/json;charset=UTF-8")
 	/**
+	 * TOMCAT:
 	 * http://localhost:8080/produtos/ns/rest/servicos/getConcursadoByQuery?dataInicial=01/01/2015&dataFinal=31/05/2015
+	 * 
+	 * JETTY:
+	 * http://localhost:9090/produtos/ns/rest/servicos/getConcursadoByQuery?dataInicial=01/01/2015&dataFinal=31/05/2015
 	 * 
 	 * @param dataInicial
 	 * @param param2
@@ -140,7 +144,11 @@ public class ServicoRest {
 	@Path("/getRemocoesByQuery")
 	@Produces("text/json;charset=UTF-8")
 	/**
+	 * TOMCAT:
 	 * http://localhost:8080/produtos/ns/rest/servicos/getRemocoesByQuery?dataMaxima=01/01/2015
+	 * 
+	 * JETTY:
+	 * http://localhost:9090/produtos/ns/rest/servicos/getRemocoesByQuery?dataMaxima=01/01/2015
 	 * 
 	 * @param dataInicial
 	 * @param param2

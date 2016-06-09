@@ -1,0 +1,29 @@
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+<!-- https://www.eclipse.org/jetty/documentation/9.3.0.v20150612/jetty-env-xml.html -->
+    <New id="dsDesenvolvimento" class="org.eclipse.jetty.plus.jndi.Resource">
+    	<Arg></Arg>
+        <Arg>jdbc/SGPAdmDS</Arg>
+        <Arg>
+            <New class="com.mchange.v2.c3p0.ComboPooledDataSource">
+                <Set name="driverClass">oracle.jdbc.driver.OracleDriver</Set>
+                 <Set name="jdbcUrl">jdbc:oracle:thin:@admd-bd-desenv.pgr.mpf.gov.br:1521:admd</Set>
+                 <Set name="user">sp</Set>
+                 <Set name="password">D1516</Set>
+            </New>
+        </Arg>
+    </New>
+    <!-- definir user e pwd para producao
+    <New id="dsProducao" class="org.eclipse.jetty.plus.jndi.Resource">
+    	<Arg></Arg>
+        <Arg>jdbc/SGPAdmDS</Arg>
+        <Arg>
+            <New class="com.mchange.v2.c3p0.ComboPooledDataSource">
+                <Set name="driverClass">oracle.jdbc.driver.OracleDriver</Set>
+                 <Set name="jdbcUrl">jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=adm-bd-prod1-vip.pgr.mpf.gov.br)(HOST=adm-bd-prod2-vip.pgr.mpf.gov.br)(PORT=1521))(LOAD_BALANCE=on))(CONNECT_DATA=(SERVICE_NAME=ADM)))</Set>
+                 <Set name="user"></Set>
+                 <Set name="password"></Set>
+            </New>
+        </Arg>
+    </New>
+    -->
+</Configure> 
