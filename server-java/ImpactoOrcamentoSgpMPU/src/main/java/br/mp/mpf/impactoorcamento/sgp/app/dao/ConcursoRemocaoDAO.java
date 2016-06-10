@@ -19,7 +19,7 @@ public class ConcursoRemocaoDAO extends HibernateDAOImpl<ConcursoRemocao> {
 	
 	@SuppressWarnings("unchecked")
 	public List<ConcursoRemocao> recuperarRemocoesEntreDatas(Date dataMaxima) {
-		System.out.println("DAO ==> recuperarRemocoesEntreDatas !!!");
+//		System.out.println("DAO ==> recuperarRemocoesEntreDatas !!!");
 		StringBuilder hql = new StringBuilder();
 		hql.append("SELECT d ");
 		hql.append("FROM ConcursoRemocao d ");

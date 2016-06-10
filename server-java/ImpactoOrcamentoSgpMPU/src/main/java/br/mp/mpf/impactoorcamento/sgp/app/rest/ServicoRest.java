@@ -14,7 +14,8 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.mp.mpf.impactoorcamento.sgp.app.facade.MyFacade;
+import br.mp.mpf.impactoorcamento.sgp.app.facade.ConcursadoFacade;
+import br.mp.mpf.impactoorcamento.sgp.app.facade.ConcursoRemocaoFacade;
 import br.mp.mpf.impactoorcamento.sgp.core.server.SpringManager;
 import br.mp.mpf.impactoorcamento.sgp.util.Util;
 
@@ -33,7 +34,10 @@ import br.mp.mpf.impactoorcamento.sgp.util.Util;
 public class ServicoRest {
 	
 	@Autowired	 
-	private MyFacade myFacade;
+	private ConcursoRemocaoFacade concursoRemocaoFacade;
+	
+	@Autowired	 
+	private ConcursadoFacade concursadoFacade;
 	
 	@Context
 	HttpServletRequest request;
@@ -50,66 +54,66 @@ public class ServicoRest {
 		return Response.status(200).entity(output).build();
 	}
 	
-	@GET
-	@Path("/getAllByPath/{param1}/{param2}/{param3}")
-	@Produces("text/json;charset=UTF-8")
-	/**
-	 * http://localhost:8080/produtos/ns/rest/servicos/getAllByPath/1/2/3
-	 * 
-	 * @param param1
-	 * @param param2
-	 * @param param3
-	 * @return
-	 */
-	public Response getAllByPath(@PathParam("param1") Integer param1, @PathParam("param2") Integer param2, @PathParam("param3") Integer param3) {
-//		Integer matricula = 4566;
-		
-		init();
-		
-		this.myFacade = getMyFacade();
+//	@GET
+//	@Path("/getAllByPath/{param1}/{param2}/{param3}")
+//	@Produces("text/json;charset=UTF-8")
+//	/**
+//	 * http://localhost:8080/produtos/ns/rest/servicos/getAllByPath/1/2/3
+//	 * 
+//	 * @param param1
+//	 * @param param2
+//	 * @param param3
+//	 * @return
+//	 */
+//	public Response getAllByPath(@PathParam("param1") Integer param1, @PathParam("param2") Integer param2, @PathParam("param3") Integer param3) {
+////		Integer matricula = 4566;
+//		
+//		init();
+//		
+//		this.myFacade = getMyFacade();
+////
+////		if (matricula == null) {// testar
+////			throw new RestException("Parametro matricula informado nulo.");
+////		}
+//		
+//		System.out.println(" param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3);
+//		
+//		this.myFacade.prepararParaRealizar(param1, param3);
 //
-//		if (matricula == null) {// testar
-//			throw new RestException("Parametro matricula informado nulo.");
-//		}
-		
-		System.out.println(" param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3);
-		
-		this.myFacade.prepararParaRealizar(param1, param3);
-
-		
-		String output = "Jersey say : " + " param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3;
-		return Response.status(200).entity(output).build();
-	}
-	
-	@GET
-	@Path("/getAllByQuery")
-	@Produces("text/json;charset=UTF-8")
-	/**
-	 * http://localhost:8080/produtos/ns/rest/servicos/getAllByQuery?param1=4&param2=5&param3=6
-	 * 
-	 * @param param1
-	 * @param param2
-	 * @param param3
-	 * @return
-	 */
-	public Response getAllByQuery(@QueryParam("param1") Integer param1, @QueryParam("param2") Integer param2, @QueryParam("param3") Integer param3) {
-//		Integer matricula = 4566;
-		
-		init();
-		
-		this.myFacade = getMyFacade();
-//
-//		if (matricula == null) {// testar
-//			throw new RestException("Parametro matricula informado nulo.");
-//		}
-		
-		System.out.println(" param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3);
-		
-		this.myFacade.prepararParaRealizar(param1, param3);
-		
-		String output = "Jersey say : " + " param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3;
-		return Response.status(200).entity(output).build();
-	}
+//		
+//		String output = "Jersey say : " + " param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3;
+//		return Response.status(200).entity(output).build();
+//	}
+//	
+//	@GET
+//	@Path("/getAllByQuery")
+//	@Produces("text/json;charset=UTF-8")
+//	/**
+//	 * http://localhost:8080/produtos/ns/rest/servicos/getAllByQuery?param1=4&param2=5&param3=6
+//	 * 
+//	 * @param param1
+//	 * @param param2
+//	 * @param param3
+//	 * @return
+//	 */
+//	public Response getAllByQuery(@QueryParam("param1") Integer param1, @QueryParam("param2") Integer param2, @QueryParam("param3") Integer param3) {
+////		Integer matricula = 4566;
+//		
+//		init();
+//		
+//		this.myFacade = getMyFacade();
+////
+////		if (matricula == null) {// testar
+////			throw new RestException("Parametro matricula informado nulo.");
+////		}
+//		
+//		System.out.println(" param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3);
+//		
+//		this.myFacade.prepararParaRealizar(param1, param3);
+//		
+//		String output = "Jersey say : " + " param1 : " + param1 + " - param2 : " + param2 + " - param3 : " + param3;
+//		return Response.status(200).entity(output).build();
+//	}
 	
 	@GET
 	@Path("/getConcursadoByQuery")
@@ -128,12 +132,12 @@ public class ServicoRest {
 	public Response getConcursadoByQuery(@QueryParam("dataInicial") String dataInicial, @QueryParam("dataFinal") String dataFinal) {
 		init();
 		
-		this.myFacade = getMyFacade();
+		this.concursadoFacade = getConcursadoFacade();
 		
 		Date dtini = Util.newInstance().convertDataStringToDate(dataInicial);
 		Date dtfim = Util.newInstance().convertDataStringToDate(dataFinal);
 		
-		this.myFacade.recuperarNomeacoesEntreDatas(dtini, dtfim);
+		this.concursadoFacade.recuperarNomeacoesEntreDatas(dtini, dtfim);
 		
 		String output = "Jersey say : " + " dataInicial : " + dataInicial + " - dataFinal : " + dataFinal;
 		
@@ -157,11 +161,11 @@ public class ServicoRest {
 	public Response getRemocoesByQuery(@QueryParam("dataMaxima") String dataMaxima) {
 		init();
 		
-		this.myFacade = getMyFacade();
+		this.concursoRemocaoFacade = getConcursoRemocaoFacade();
 		
 		Date dt = Util.newInstance().convertDataStringToDate(dataMaxima);
 		
-		this.myFacade.recuperarRemocoesEntreDatas(dt);
+		this.concursoRemocaoFacade.recuperarRemocoesEntreDatas(dt);
 		
 		String output = "Jersey say : " + " dataInicial : " + dataMaxima;
 		
@@ -172,8 +176,12 @@ public class ServicoRest {
 		SpringManager.getInstancia().setServletContext(request.getSession().getServletContext());
 	}
 
-	public MyFacade getMyFacade() {
-		return SpringManager.getInstancia().getBean("myFacade");
+	public ConcursoRemocaoFacade getConcursoRemocaoFacade() {
+		return SpringManager.getInstancia().getBean("concursoRemocaoFacade");
+	}
+	
+	public ConcursadoFacade getConcursadoFacade() {
+		return SpringManager.getInstancia().getBean("concursadoFacade");
 	}
 
 }

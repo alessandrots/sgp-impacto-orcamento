@@ -16,12 +16,12 @@
 
 	<!-- http://stackoverflow.com/questions/7414794/difference-between-contextannotation-config-vs-contextcomponent-scan -->
 	<context:annotation-config />
-	<context:component-scan base-package="br.com.caelum.app.dao" />
-	<context:component-scan base-package="br.com.caelum.app.facade" />
-	<context:component-scan base-package="br.com.caelum.app.service" />
-	<context:component-scan base-package="br.com.caelum.core.db" />
-	<context:component-scan base-package="br.com.caelum.app.security" />
+	<context:component-scan base-package="br.mp.mpf.impactoorcamento.sgp.app.dao" />
+	<context:component-scan base-package="br.mp.mpf.impactoorcamento.sgp.app.facade" />
+	<context:component-scan base-package="br.mp.mpf.impactoorcamento.sgp.app.service" />
+	<context:component-scan base-package="br.mp.mpf.impactoorcamento.sgp.core.db" />
+	<context:component-scan base-package="br.mp.mpf.impactoorcamento.sgp.app.security" />
 	
-	<util:properties id="impactoOrcProperties" location="classpath:/impactoOrc.properties" />
+	<util:properties id="impactoOrcProperties" location="classpath:/impacto.properties" />
 	
 </beans>

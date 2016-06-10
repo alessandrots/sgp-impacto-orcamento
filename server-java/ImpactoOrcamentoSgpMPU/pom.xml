@@ -2,10 +2,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.mp.mpf.impactoorcamento.sgp</groupId>
-  <artifactId>ImpactoOrcamentoSgpMPU</artifactId>
-  <packaging>jar</packaging>
-  <version>0.0.1.0-SNAPSHOT</version>
-  <name>ImpactoOrcamentoSgpMPU</name>
+  <artifactId>impactorcamentosgpmpu</artifactId>
+  <packaging>war</packaging>
+  <!-- <version>0.0.1.0-SNAPSHOT</version> -->
+  <version>0.0.1.0</version>
+  <name>impactorcamentosgpmpu</name>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -14,8 +15,9 @@
 		<tiles.versao>2.2.2</tiles.versao>
 		<spring.security.versao>3.1.3.RELEASE</spring.security.versao>
 		<servlet-version>2.5</servlet-version>
-		<name-war>produtos</name-war>
-		<version-war>${version}</version-war>
+		<name-war>impactorcamentosgpmpu</name-war>
+		<!-- <name-war>${project.name}</name-war> -->
+		<!-- <version-war>${project.version}</version-war> -->
  </properties>
   
   <dependencies>
@@ -204,7 +206,7 @@
 	
 	<build>
 	    <directory>${project.basedir}/target</directory>
-	    <!-- <finalName> ${name-war}-${version-war}</finalName> -->
+	    <finalName> ${name-war}</finalName>
 	    
 	    <plugins>
 	        <plugin>
@@ -240,7 +242,7 @@
 			        <url>http://localhost:8080/manager/text</url>
 			        <server>mytomcat</server>
 			        <!-- <path>/produtos-web-1.0-SNAPSHOT</path> -->
-			        <path>/produtos</path>
+			        <path>/impactorcamentosgpmpu</path>
 			        <username>test</username>
 			        <password>test</password>
 			    </configuration>
@@ -259,7 +261,7 @@
 	                        <directory>${project.basedir}/src/main/resources</directory>
 	                    </resource>
 	                </webResources>
-	                <warName>${name-war}-${version-war}</warName>
+	                 <warName>impactorcamentosgpmpu</warName>
 	            </configuration>
 	        </plugin>
 	        
@@ -275,7 +277,7 @@
 	            <configuration>
 			         <scanIntervalSeconds>10</scanIntervalSeconds>
 			         <webApp>
-					     <contextPath>/produtos</contextPath>
+					     <contextPath>/impactorcamentosgpmpu</contextPath>
 					</webApp>
 			         <connectors>
 			            <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">

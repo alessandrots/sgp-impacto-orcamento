@@ -42,7 +42,7 @@
 	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
 	<init-param>
 		<param-name>com.sun.jersey.config.property.packages</param-name>
-		<param-value>br.com.caelum.app.rest</param-value>
+		<param-value>br.mp.mpf.impactoorcamento.sgp.app.rest</param-value>
 	</init-param>
 	<load-on-startup>1</load-on-startup>
  </servlet>
@@ -70,7 +70,7 @@
   
   <servlet>
     <servlet-name>project</servlet-name>
-    <servlet-class>br.com.caelum.core.server.ProjectServlet</servlet-class>
+    <servlet-class>br.mp.mpf.impactoorcamento.sgp.core.server.ProjectServlet</servlet-class>
   </servlet>
     
   <servlet-mapping>

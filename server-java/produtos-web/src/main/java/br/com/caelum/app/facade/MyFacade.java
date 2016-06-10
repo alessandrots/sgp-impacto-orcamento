@@ -58,7 +58,6 @@ public class MyFacade {
 		String tmp  = "";
 		System.out.println(" Properties referência = " + impactoOrcProperties);
 		this.concursoRemocaoDAO.recuperarRemocoesEntreDatas(dataMaxima);
-		
 		return tmp;
 	}
 	
