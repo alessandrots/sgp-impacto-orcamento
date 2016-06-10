@@ -22,6 +22,6 @@
 	<context:component-scan base-package="br.mp.mpf.impactoorcamento.sgp.core.db" />
 	<context:component-scan base-package="br.mp.mpf.impactoorcamento.sgp.app.security" />
 	
-	<util:properties id="impactoOrcProperties" location="classpath:/impacto.properties" />
+	<util:properties id="impactoOrcamentoProperties" location="classpath:/impacto.properties" />
 	
 </beans>
