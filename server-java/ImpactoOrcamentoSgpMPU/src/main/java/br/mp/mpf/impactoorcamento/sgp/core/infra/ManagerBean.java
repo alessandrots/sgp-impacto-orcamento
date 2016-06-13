@@ -1,4 +1,4 @@
-package br.mp.mpf.impactoorcamento.sgp.core.app;
+package br.mp.mpf.impactoorcamento.sgp.core.infra;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
@@ -9,7 +9,7 @@ import br.mp.mpf.impactoorcamento.sgp.app.facade.ConcursadoFacade;
 import br.mp.mpf.impactoorcamento.sgp.app.facade.ConcursoRemocaoFacade;
 import br.mp.mpf.impactoorcamento.sgp.core.server.SpringManager;
 
-public class PrincipalRestful {
+public class ManagerBean {
 	
 	@Autowired	 
 	private ConcursadoFacade concursadoFacade;

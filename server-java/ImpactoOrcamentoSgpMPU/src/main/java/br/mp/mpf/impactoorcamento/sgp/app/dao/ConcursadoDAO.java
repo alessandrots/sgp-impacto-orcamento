@@ -7,7 +7,7 @@ import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import br.mp.mpf.impactoorcamento.sgp.app.domain.Concursado;
-import br.mp.mpf.impactoorcamento.sgp.core.db.HibernateDAOImpl;
+import br.mp.mpf.impactoorcamento.sgp.core.infra.db.HibernateDAOImpl;
 
 @Repository
 public class ConcursadoDAO extends HibernateDAOImpl<Concursado> {
@@ -32,11 +32,11 @@ public class ConcursadoDAO extends HibernateDAOImpl<Concursado> {
 		
 		List<Concursado> lista = query.list();
 		
-		if (lista != null && lista.size() > 0){
-			System.out.println("recuperarNomeacoesEntreDatas ==> Tamanho da lista = " + lista.size());
-		} else {
-			System.out.println("recuperarNomeacoesEntreDatas ==>  lista vazia ");
-		}
+//		if (lista != null && lista.size() > 0){
+//			System.out.println("recuperarNomeacoesEntreDatas ==> Tamanho da lista = " + lista.size());
+//		} else {
+//			System.out.println("recuperarNomeacoesEntreDatas ==>  lista vazia ");
+//		}
 		
 		return lista;
 		

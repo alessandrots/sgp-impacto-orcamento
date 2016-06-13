@@ -4,17 +4,17 @@
   <groupId>br.mp.mpf.impactoorcamento.sgp</groupId>
   <artifactId>impactorcamentosgpmpu</artifactId>
   <packaging>war</packaging>
-  <!-- <version>0.0.1.0-SNAPSHOT</version> -->
-  <version>0.0.1.0</version>
+  <version>0.0.1.0-SNAPSHOT</version>
+  <!-- <version>0.0.1.0</version> -->
   <name>impactorcamentosgpmpu</name>
   <url>http://maven.apache.org</url>
   
+  <!-- http://stackoverflow.com/questions/30729125/arrayoutofboundsexception-on-bean-creation-while-using-java-8-constructs -->
   <properties>
  		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.versao>3.1.2.RELEASE</spring.versao>
-		<tiles.versao>2.2.2</tiles.versao>
-		<spring.security.versao>3.1.3.RELEASE</spring.security.versao>
-		<servlet-version>2.5</servlet-version>
+		<spring.versao>4.3.0.RELEASE</spring.versao>
+		<spring.security.versao>4.1.0.RELEASE</spring.security.versao>
+		<servlet-version>3.1.0</servlet-version>
 		<name-war>impactorcamentosgpmpu</name-war>
 		<!-- <name-war>${project.name}</name-war> -->
 		<!-- <version-war>${project.version}</version-war> -->
@@ -46,9 +46,8 @@
 	    
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
+    		<artifactId>javax.servlet-api</artifactId>
+    		<version>3.1.0</version>
 		</dependency>
 
 		<dependency>

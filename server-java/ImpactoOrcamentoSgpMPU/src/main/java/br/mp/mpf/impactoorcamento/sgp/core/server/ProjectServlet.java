@@ -17,8 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONValue;
 
-import br.mp.mpf.impactoorcamento.sgp.app.service.IService;
-
 /**
  *  - botar o projeto  no padrão maven e colocar as dependências.
  * 
@@ -191,8 +189,8 @@ public class ProjectServlet extends HttpServlet {
 	 */
 	@SuppressWarnings("unchecked")
 	private String gerarJsonViaRequest(HttpServletRequest req) {		
-		//Obtendo um map dos parâmetros
-		Map<String, String> requestParams = req.getParameterMap();
+		//Obtendo um map dos parâmetros TODO o value mudou de String para String[]
+		Map<String, String[]> requestParams = req.getParameterMap();
 		
 		String jSonGerado = null;
 		

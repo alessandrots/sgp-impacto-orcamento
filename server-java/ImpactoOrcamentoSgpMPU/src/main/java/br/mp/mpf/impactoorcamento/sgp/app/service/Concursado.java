@@ -1,4 +1,4 @@
-package br.mp.mpf.impactoorcamento.sgp.app.rest;
+package br.mp.mpf.impactoorcamento.sgp.app.service;
 /**
  * Classe para objetos do tipo Funcionários, onde serão contidos, valores e métodos para o mesmo.
 
@@ -20,12 +20,12 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
-import br.mp.mpf.impactoorcamento.sgp.core.app.PrincipalRestful;
+import br.mp.mpf.impactoorcamento.sgp.core.infra.ManagerBean;
 import br.mp.mpf.impactoorcamento.sgp.util.Util;
 
 @Path("/concursadoService")
 @Component("concursadoService")
-public class ConcursadoService extends PrincipalRestful {
+public class Concursado extends ManagerBean {
 		
 		@GET
 		@Path("/getConcursadoPorDatas")

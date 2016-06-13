@@ -1,4 +1,4 @@
-package br.mp.mpf.impactoorcamento.sgp.app.service;
+package br.mp.mpf.impactoorcamento.sgp.core.server;
 
 public interface IService {
 

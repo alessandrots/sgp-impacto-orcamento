@@ -1,4 +1,4 @@
-package br.mp.mpf.impactoorcamento.sgp.app.rest;
+package br.mp.mpf.impactoorcamento.sgp.app.service.error;
 
 import java.util.HashMap;
 import java.util.Map;

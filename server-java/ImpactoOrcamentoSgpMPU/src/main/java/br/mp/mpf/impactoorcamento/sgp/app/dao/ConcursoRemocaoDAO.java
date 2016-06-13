@@ -7,7 +7,7 @@ import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import br.mp.mpf.impactoorcamento.sgp.app.domain.ConcursoRemocao;
-import br.mp.mpf.impactoorcamento.sgp.core.db.HibernateDAOImpl;
+import br.mp.mpf.impactoorcamento.sgp.core.infra.db.HibernateDAOImpl;
 
 @Repository
 public class ConcursoRemocaoDAO extends HibernateDAOImpl<ConcursoRemocao> {

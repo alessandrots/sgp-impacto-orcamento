@@ -1,4 +1,4 @@
-package br.mp.mpf.impactoorcamento.sgp.core.app;
+package br.mp.mpf.impactoorcamento.sgp.core.infra;
 
 import java.util.Properties;
 
@@ -9,7 +9,7 @@ import br.mp.mpf.impactoorcamento.sgp.app.dao.ConcursadoDAO;
 import br.mp.mpf.impactoorcamento.sgp.app.dao.ConcursoRemocaoDAO;
 import br.mp.mpf.impactoorcamento.sgp.app.domain.Usuario;
 
-public class PrincipalFacade {
+public class Facade {
 
 	@Autowired
 	private ConcursoRemocaoDAO concursoRemocaoDAO;

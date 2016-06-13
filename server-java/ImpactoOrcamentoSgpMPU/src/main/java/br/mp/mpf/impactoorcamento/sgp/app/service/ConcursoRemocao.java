@@ -1,4 +1,4 @@
-package br.mp.mpf.impactoorcamento.sgp.app.rest;
+package br.mp.mpf.impactoorcamento.sgp.app.service;
 /**
  * Classe para objetos do tipo Funcionários, onde serão contidos, valores e métodos para o mesmo.
 
@@ -20,18 +20,12 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
-import br.mp.mpf.impactoorcamento.sgp.core.app.PrincipalRestful;
+import br.mp.mpf.impactoorcamento.sgp.core.infra.ManagerBean;
 import br.mp.mpf.impactoorcamento.sgp.util.Util;
 
 @Path("/concursoRemocaoService")
 @Component("concursoRemocaoService")
-public class ConcursoRemocaoService extends PrincipalRestful {
-		
-//		@Autowired	 
-//		private ConcursoRemocaoFacade concursoRemocaoFacade;
-//		
-//		@Context
-//		HttpServletRequest request;
+public class ConcursoRemocao extends ManagerBean {
 		
 		@GET
 		@Path("/getRemocoesPorDatas")
@@ -57,15 +51,4 @@ public class ConcursoRemocaoService extends PrincipalRestful {
 			return Response.status(200).entity(output).build();
 		}
 		
-//		public void init() {
-//			SpringManager.getInstancia().setServletContext(request.getSession().getServletContext());
-//		}
-//
-//		public ConcursoRemocaoFacade getConcursoRemocaoFacade() {
-//			return SpringManager.getInstancia().getBean("concursoRemocaoFacade");
-//		}
-//		
-//		public ConcursadoFacade getConcursadoFacade() {
-//			return SpringManager.getInstancia().getBean("concursadoFacade");
-//		}
 }

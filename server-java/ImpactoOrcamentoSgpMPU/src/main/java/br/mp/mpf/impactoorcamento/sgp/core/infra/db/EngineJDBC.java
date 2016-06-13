@@ -1,4 +1,4 @@
-package br.mp.mpf.impactoorcamento.sgp.core.db;
+package br.mp.mpf.impactoorcamento.sgp.core.infra.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
