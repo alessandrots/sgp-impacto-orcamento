@@ -20,12 +20,12 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
-import br.mp.mpf.impactoorcamento.sgp.core.infra.ManagerBean;
+import br.mp.mpf.impactoorcamento.sgp.core.infra.BeanManager;
 import br.mp.mpf.impactoorcamento.sgp.util.Util;
 
 @Path("/concursadoService")
 @Component("concursadoService")
-public class Concursado extends ManagerBean {
+public class Concursado extends BeanManager {
 		
 		@GET
 		@Path("/getConcursadoPorDatas")

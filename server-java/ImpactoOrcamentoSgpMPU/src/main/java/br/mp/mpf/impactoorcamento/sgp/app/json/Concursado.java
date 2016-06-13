@@ -15,11 +15,11 @@ public class Concursado implements JSon {
 	private String cargoDescricao;
 	private String nome;
 	private String numeroPortaria;
-	private Date dataNomeacao;
-	private Date dataExercicio;
+	private String dataNomeacao;
+	private String dataExercicio;
 	private Long numeroVaga;	
 	private String origemVaga;
-	private Date dataDesprovimento;
+	private String dataDesprovimento;
 	private Long leiVaga;
 	private String dataPortariaSemEfeito;
 	private Long nrPortariaSemEfeito;
@@ -111,25 +111,25 @@ public class Concursado implements JSon {
 	/**
 	 * @return the dataNomeacao
 	 */
-	public Date getDataNomeacao() {
+	public String getDataNomeacao() {
 		return dataNomeacao;
 	}
 	/**
 	 * @param dataNomeacao the dataNomeacao to set
 	 */
-	public void setDataNomeacao(Date dataNomeacao) {
+	public void setDataNomeacao(String dataNomeacao) {
 		this.dataNomeacao = dataNomeacao;
 	}
 	/**
 	 * @return the dataExercicio
 	 */
-	public Date getDataExercicio() {
+	public String getDataExercicio() {
 		return dataExercicio;
 	}
 	/**
 	 * @param dataExercicio the dataExercicio to set
 	 */
-	public void setDataExercicio(Date dataExercicio) {
+	public void setDataExercicio(String dataExercicio) {
 		this.dataExercicio = dataExercicio;
 	}
 	/**
@@ -159,13 +159,13 @@ public class Concursado implements JSon {
 	/**
 	 * @return the dataDesprovimento
 	 */
-	public Date getDataDesprovimento() {
+	public String getDataDesprovimento() {
 		return dataDesprovimento;
 	}
 	/**
 	 * @param dataDesprovimento the dataDesprovimento to set
 	 */
-	public void setDataDesprovimento(Date dataDesprovimento) {
+	public void setDataDesprovimento(String dataDesprovimento) {
 		this.dataDesprovimento = dataDesprovimento;
 	}
 	/**

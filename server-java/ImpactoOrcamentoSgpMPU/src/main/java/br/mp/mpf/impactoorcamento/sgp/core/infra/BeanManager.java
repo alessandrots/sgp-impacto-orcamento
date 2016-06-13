@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.mp.mpf.impactoorcamento.sgp.app.facade.ConcursadoFacade;
 import br.mp.mpf.impactoorcamento.sgp.app.facade.ConcursoRemocaoFacade;
-import br.mp.mpf.impactoorcamento.sgp.core.server.SpringManager;
 
-public class ManagerBean {
+public class BeanManager {
 	
 	@Autowired	 
 	private ConcursadoFacade concursadoFacade;

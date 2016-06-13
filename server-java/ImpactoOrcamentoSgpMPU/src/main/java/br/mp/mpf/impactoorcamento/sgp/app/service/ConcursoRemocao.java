@@ -20,12 +20,12 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
-import br.mp.mpf.impactoorcamento.sgp.core.infra.ManagerBean;
+import br.mp.mpf.impactoorcamento.sgp.core.infra.BeanManager;
 import br.mp.mpf.impactoorcamento.sgp.util.Util;
 
 @Path("/concursoRemocaoService")
 @Component("concursoRemocaoService")
-public class ConcursoRemocao extends ManagerBean {
+public class ConcursoRemocao extends BeanManager {
 		
 		@GET
 		@Path("/getRemocoesPorDatas")

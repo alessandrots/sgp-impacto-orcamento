@@ -1,4 +1,4 @@
-package br.mp.mpf.impactoorcamento.sgp.core.server;
+package br.mp.mpf.impactoorcamento.sgp.core.infra;
 
 import javax.servlet.ServletContext;
 

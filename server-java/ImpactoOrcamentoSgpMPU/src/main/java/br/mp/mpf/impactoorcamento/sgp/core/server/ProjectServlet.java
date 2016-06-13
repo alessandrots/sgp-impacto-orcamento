@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONValue;
 
+import br.mp.mpf.impactoorcamento.sgp.core.infra.SpringManager;
+
 /**
  *  - botar o projeto  no padrão maven e colocar as dependências.
  * 
