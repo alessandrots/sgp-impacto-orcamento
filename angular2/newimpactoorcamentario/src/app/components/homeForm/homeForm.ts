@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {NgForm}    from 'angular2/common';
+import {Component} from '@angular/core';
+import {NgForm}    from '@angular/common';
 import {Hero}    from './homeModel';//aqui nesse caso teve q vir entre {}, se for um só da pasta não deve vir entre chaves
 
 @Component({

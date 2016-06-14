@@ -1,10 +1,10 @@
-import {Component, Input} from 'angular2/core';
-import {NgFor} from 'angular2/common';
+import {Component, Input} from '@angular/core';
+import {NgFor} from '@angular/common';
 // import {Observable} from "rxjs/Observable";
-import {Http, Response} from 'angular2/http';
+import {Http, Response} from '@angular/http';
 import {PaginatePipe, PaginationControlsCmp, PaginationService} from '../../../../node_modules/ng2-pagination';
 import NomeacaoPag from './nomeModelPag';
-import { Router } from 'angular2/router';
+import { Router } from '@angular/router';
 import {Impacto, OrcamentoService} from '../../services/orcamento-service';
 import {Observable} from 'rxjs';
 
@@ -85,8 +85,8 @@ export default class NomeacaoComponentPag {
   }
 
   gotoDetail(hero: NomeacaoPag) {
-    console.log('hero.vaga = ', hero.vaga);
-    let link = ['NomeacaoDetail', { vaga: hero.vaga }];
+    console.log('NomeacaoComponentPag ==> vaga = ', hero.vaga);
+    let link = ['/NomeacaoDetail', hero.vaga];
     this._router.navigate(link);
   }
 }

@@ -2,17 +2,16 @@
 //Para funcionar no IE 10, 11
 import 'es6-shim/es6-shim.min';
 
-//import 'systemjs/dist/system-polyfills'
-
-//import 'angular2/es6/prod/src/testing/shims_for_IE';
 
 // Polyfills
-import 'angular2/bundles/angular2-polyfills';
+//import '@angular/bundles/@angular-polyfills';
 
 // Angular modules
-import 'angular2/platform/browser';
-import 'angular2/http';
-import 'angular2/router';
+import 'zone.js/dist/zone';
+import 'reflect-metadata/Reflect.js';
+import '@angular/platform-browser-dynamic';
+import '@angular/http';
+import '@angular/router';
 
 // RxJS
 import 'rxjs';

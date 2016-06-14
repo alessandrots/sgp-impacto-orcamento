@@ -1,8 +1,8 @@
-import {Component} from 'angular2/core';
-import {NgFor} from 'angular2/common';
+import {Component} from '@angular/core';
+import {NgFor} from '@angular/common';
 import {Observable} from "rxjs/Observable";
-import {Http, Response} from 'angular2/http';
-import { Router } from 'angular2/router';
+import {Http, Response} from '@angular/http';
+import { Router } from '@angular/router';
 import Nomeacao from './nomeacaoModel';
 import {OrcamentoService} from '../../services/orcamento-service';
 
@@ -28,15 +28,15 @@ export default class NomeacaoComponent {
       .subscribe(
         data => {
           this.result = data;
-          console.log('NomeacaoComponent ::: DATA = ', this.result)
+          //console.log('NomeacaoComponent ::: DATA = ', this.result)
         },
         error => console.error(error));
   }
 
 
   gotoDetail(hero: Nomeacao) {
-    console.log('hero.vaga = ', hero.vaga);
-    let link = ['NomeacaoDetail', { vaga: hero.vaga }];
+    console.log('NomeacaoComponent ==> vaga = ', hero.vaga);
+    let link = ['/NomeacaoDetail', hero.vaga];
     this._router.navigate(link);
   }
 }

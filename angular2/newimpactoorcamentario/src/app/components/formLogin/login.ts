@@ -1,6 +1,6 @@
-import {bootstrap} from 'angular2/platform/browser';
-import {Directive, Component} from 'angular2/core';
-import {Control, ControlGroup, Validators, FormBuilder, FORM_DIRECTIVES} from 'angular2/common';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {Directive, Component} from '@angular/core';
+import {Control, ControlGroup, Validators, FormBuilder, FORM_DIRECTIVES} from '@angular/common';
 
 /**
  * Returns `true` if Control's value represents a valid SSN,

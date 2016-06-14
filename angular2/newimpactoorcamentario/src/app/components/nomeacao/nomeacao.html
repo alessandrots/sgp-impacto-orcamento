@@ -21,7 +21,7 @@
             -->
         </tr>
 
-        <tr *ngFor="#obj of result" (click)="gotoDetail(obj)">
+        <tr *ngFor="let obj of result" (click)="gotoDetail(obj)">
             <td><H1>{{obj.vaga}}</H1></td>
             <td>{{obj.edital}}</td>
             <td>{{obj.ramo}}</td>

@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
-// import {RouteConfig, RouterOutlet} from 'angular2/router';
-import {Route, RouteConfig, RouterOutlet, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component} from '@angular/core';
+// import {RouteConfig, RouterOutlet} from '@angular/router';
+import {Routes, ROUTER_DIRECTIVES} from '@angular/router';
 import HomeComponent from '../home/home';
 import HomeForm from '../homeForm/homeForm';
 import NomeacaoComponent from '../nomeacao/nomeacao';
@@ -14,24 +14,24 @@ import LoginComponent from '../formLogin/login';
 /**
  declare var require: any;//http://stackoverflow.com/questions/31173738/typescript-getting-error-ts2304-cannot-find-name-require/31263434#31263434
  é importante ter essa linha acima para funcionar o require na linha abaixo no template
- **** ENTRETANTO se tiver a pasta typings_custom (angular2.d.ts, jquery.d.ts e webpack.d.ts) não é necessário
+ **** ENTRETANTO se tiver a pasta typings_custom (@angular.d.ts, jquery.d.ts e webpack.d.ts) não é necessário
 */
 
 @Component({
   selector: 'orc-application',
   template: require('./application.html'),
-  // directives: [ROUTER_DIRECTIVES]
   directives: [ROUTER_DIRECTIVES]
 })
-@RouteConfig([
-  new Route( {path: '/', component: HomeComponent, name: 'Home'}),
-  new Route( {path: '/HomeForm', component: HomeForm, name: 'HomeForm'}),
-  new Route( {path: '/Nomeacao', component: NomeacaoComponent, name: 'Nomeacao'}),
-  new Route( {path: '/NomeacaoPaging', component: NomeacaoComponentPag, name: 'NomeacaoPaging'}),
-  new Route( {path: '/HomeFormNew', component: HomeFormNew, name: 'HomeFormNew'}),
-  new Route( {path: '/NomeacaoDetail/:vaga', component: NomeacaoComponentDetail, name: 'NomeacaoDetail'}),
-  new Route( {path: '/NomeacaoPagingAll', component: NomeacaoComponentPagAll, name: 'NomeacaoPagingAll'}),
-  new Route( {path: '/Login', component: LoginComponent, name: 'Login'})
+
+@Routes([
+    {path: '/', component: HomeComponent},
+    {path: '/HomeForm', component: HomeForm},
+    {path: '/Nomeacao', component: NomeacaoComponent},
+    {path: '/NomeacaoPaging', component: NomeacaoComponentPag},
+    {path: '/HomeFormNew', component: HomeFormNew},
+    {path: '/NomeacaoDetail/:vaga', component: NomeacaoComponentDetail},
+    {path: '/NomeacaoPagingAll', component: NomeacaoComponentPagAll},
+    {path: '/Login', component: LoginComponent}
 ])
 
 export default class ApplicationComponent {}
