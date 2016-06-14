@@ -85,8 +85,8 @@ export default class NomeacaoComponentPag {
   }
 
   gotoDetail(hero: NomeacaoPag) {
-    console.log('hero.vaga = ', hero.vaga);
-    let link = ['NomeacaoDetail', { vaga: hero.vaga }];
+    console.log('NomeacaoComponentPag ==> vaga = ', hero.vaga);
+    let link = ['/NomeacaoDetail', hero.vaga];
     this._router.navigate(link);
   }
 }

@@ -28,15 +28,15 @@ export default class NomeacaoComponent {
       .subscribe(
         data => {
           this.result = data;
-          console.log('NomeacaoComponent ::: DATA = ', this.result)
+          //console.log('NomeacaoComponent ::: DATA = ', this.result)
         },
         error => console.error(error));
   }
 
 
   gotoDetail(hero: Nomeacao) {
-    console.log('hero.vaga = ', hero.vaga);
-    let link = ['NomeacaoDetail', { vaga: hero.vaga }];
+    console.log('NomeacaoComponent ==> vaga = ', hero.vaga);
+    let link = ['/NomeacaoDetail', hero.vaga];
     this._router.navigate(link);
   }
 }

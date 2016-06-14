@@ -4,7 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {Http, Response} from '@angular/http';
 import {PaginatePipe, PaginationControlsCmp, PaginationService, IPaginationInstance} from '../../../../node_modules/ng2-pagination';
 import NomeacaoPag from '../nomeacaoPaging/nomeModelPag';
-//import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 import {Impacto, OrcamentoService} from '../../services/orcamento-service';
 import {StringFilterPipe} from "../util/string-filter-pipe";
 
@@ -35,8 +35,8 @@ export default class NomeacaoComponentPagAll {
         currentPage: 1
    };
 
-  // constructor(http: Http,  private _router: Router, orcService: OrcamentoService) {
-  constructor(http: Http,  orcService: OrcamentoService) {  
+  constructor(http: Http,  private _router: Router, orcService: OrcamentoService) {
+  // constructor(http: Http,  orcService: OrcamentoService) {  
     //console.log('NomeacaoComponentPagAll _router = ', _router);
     //console.log('NomeacaoComponentPagAll http = ', http);
 
@@ -53,13 +53,13 @@ export default class NomeacaoComponentPagAll {
   }
 
   gotoDetail(hero: NomeacaoPag) {
-    console.log('hero.vaga = ', hero.vaga);
-    let link = ['NomeacaoDetail', { vaga: hero.vaga }];
-    //this._router.navigate(link);
+    console.log('NomeacaoComponentPagAll ==> vaga = ', hero.vaga);
+    let link = ['/NomeacaoDetail', hero.vaga];
+    this._router.navigate(link);
   }
 
   onPageChange(number: number) {
-      console.log('change to page', number);
-      this.config.currentPage = number;
+    console.log('change to page', number);
+    this.config.currentPage = number;
   }
 }

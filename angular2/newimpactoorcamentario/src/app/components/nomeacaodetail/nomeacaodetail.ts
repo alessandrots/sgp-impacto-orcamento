@@ -2,7 +2,7 @@ import {Component, Input, OnInit } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {Http, Response} from '@angular/http';
 import Nomeacao from '../nomeacao/nomeacaoModel';
-//import { RouteParams } from '@angular/router';
+import {RouteSegment} from '@angular/router';
 import {Impacto, OrcamentoService} from '../../services/orcamento-service';
 // import NomeacaoComponentDetail from '../nomeacaodetail/nomeacaodetail';
 // import {Product, ProductService} from '../../services/product-service';
@@ -20,17 +20,18 @@ export default class NomeacaoComponentDetail implements OnInit {
   // result: Nomeacao[];
   @Input() obj: Nomeacao;
   orcService: OrcamentoService;
+  params: RouteSegment;
 
   // constructor(private http: Http, private _routeParams: RouteParams, orcService: OrcamentoService) {
-  constructor(private http: Http, orcService: OrcamentoService) {  
+  constructor(private http: Http, orcService: OrcamentoService, params: RouteSegment) { 
+    this.params = params; 
     console.log('NomeacaoDetail http = ', http);
     this.orcService = orcService;
-    
   }
 
   ngOnInit() {
-    // let id = +this._routeParams.get('vaga');
-    let id = 0;
+    let id = +this.params.getParam('vaga');
+    // let id = 0;
     console.log('id vaga = ', id);
 
     //SUBSTITUINDO por chamada ao serviço
