@@ -1,8 +1,8 @@
-import {Component} from 'angular2/core';
-import {NgFor} from 'angular2/common';
+import {Component} from '@angular/core';
+import {NgFor} from '@angular/common';
 import {Observable} from "rxjs/Observable";
-import {Http, Response} from 'angular2/http';
-import { Router } from 'angular2/router';
+import {Http, Response} from '@angular/http';
+import { Router } from '@angular/router';
 import Nomeacao from './nomeacaoModel';
 import {OrcamentoService} from '../../services/orcamento-service';
 
