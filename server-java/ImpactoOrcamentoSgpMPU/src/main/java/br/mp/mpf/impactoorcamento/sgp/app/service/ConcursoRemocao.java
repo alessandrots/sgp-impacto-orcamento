@@ -44,9 +44,11 @@ public class ConcursoRemocao extends BeanManager {
 			
 			Date dt = Util.newInstance().convertDataStringToDate(dataMaxima);
 			
-			this.getConcursoRemocaoFacade().recuperarRemocoesEntreDatas(dt);
+			String output  = this.getConcursoRemocaoFacade().recuperarRemocoesEntreDatas(dt);
 			
-			String output = "Jersey say : " + " dataInicial : " + dataMaxima;
+//			System.out.println(" Lista ConcursoRemocaoJSon = " + tmp);
+			
+//			String output = "JSON : " + " dataInicial : " + dataMaxima;
 			
 			return Response.status(200).entity(output).build();
 		}

@@ -1,8 +1,6 @@
 package br.mp.mpf.impactoorcamento.sgp.app.json;
 
-import java.sql.Date;
-
-public class Concursado implements JSon {
+public class ConcursadoJSon implements JSon {
 	
 	/**
 	 * 

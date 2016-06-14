@@ -1,8 +1,6 @@
 package br.mp.mpf.impactoorcamento.sgp.app.json;
 
-import java.sql.Date;
-
-public class ConcursoRemocao implements JSon {
+public class ConcursoRemocaoJSon implements JSon {
 
 	/**
 	 * 
@@ -20,10 +18,10 @@ public class ConcursoRemocao implements JSon {
 	private String unidadeDestino;
 	private Long lei;
 	private String motivo;
-	private Date dataDesprovimento;
-	private Date dataPublicacao;
+	private String dataDesprovimento;
+	private String dataPublicacao;
 	private String ultimoOcupante;
-	private Date dataRemocaoGravacao;
+	private String dataRemocaoGravacao;
 	/**
 	 * @return the numeroVaga
 	 */
@@ -159,25 +157,25 @@ public class ConcursoRemocao implements JSon {
 	/**
 	 * @return the dataDesprovimento
 	 */
-	public Date getDataDesprovimento() {
+	public String getDataDesprovimento() {
 		return dataDesprovimento;
 	}
 	/**
 	 * @param dataDesprovimento the dataDesprovimento to set
 	 */
-	public void setDataDesprovimento(Date dataDesprovimento) {
+	public void setDataDesprovimento(String dataDesprovimento) {
 		this.dataDesprovimento = dataDesprovimento;
 	}
 	/**
 	 * @return the dataPublicacao
 	 */
-	public Date getDataPublicacao() {
+	public String getDataPublicacao() {
 		return dataPublicacao;
 	}
 	/**
 	 * @param dataPublicacao the dataPublicacao to set
 	 */
-	public void setDataPublicacao(Date dataPublicacao) {
+	public void setDataPublicacao(String dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
 	}
 	/**
@@ -195,13 +193,13 @@ public class ConcursoRemocao implements JSon {
 	/**
 	 * @return the dataRemocaoGravacao
 	 */
-	public Date getDataRemocaoGravacao() {
+	public String getDataRemocaoGravacao() {
 		return dataRemocaoGravacao;
 	}
 	/**
 	 * @param dataRemocaoGravacao the dataRemocaoGravacao to set
 	 */
-	public void setDataRemocaoGravacao(Date dataRemocaoGravacao) {
+	public void setDataRemocaoGravacao(String dataRemocaoGravacao) {
 		this.dataRemocaoGravacao = dataRemocaoGravacao;
 	}
 

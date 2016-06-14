@@ -46,9 +46,9 @@ public class Concursado extends BeanManager {
 			Date dtini = Util.newInstance().convertDataStringToDate(dataInicial);
 			Date dtfim = Util.newInstance().convertDataStringToDate(dataFinal);
 			
-			this.getConcursadoFacade().recuperarNomeacoesEntreDatas(dtini, dtfim);
+			String output = this.getConcursadoFacade().recuperarNomeacoesEntreDatas(dtini, dtfim);
 			
-			String output = "Jersey say : " + " dataInicial : " + dataInicial + " - dataFinal : " + dataFinal;
+//			String output = "Jersey say : " + " dataInicial : " + dataInicial + " - dataFinal : " + dataFinal;
 			
 			return Response.status(200).entity(output).build();
 		}

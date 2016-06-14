@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import br.mp.mpf.impactoorcamento.sgp.app.domain.Domain;
+import br.mp.mpf.impactoorcamento.sgp.app.json.JSon;
 
 public class EngineJson {
 
@@ -33,7 +34,23 @@ public class EngineJson {
 		return gson.toJson(objeto);
 	}
 	
-	public String serializarColecao(Collection<Domain> colecao) {
+//	public String serializarColecaoDomain(Collection<Domain> colecao) {
+//		return gson.toJson(colecao);
+//	}
+//	
+//	public String serializarListaDomain(List<Domain> lista) {
+//		return gson.toJson(lista);
+//	}
+//	
+//	public String serializarColecaoTo(Collection<JSon> colecao) {
+//		return gson.toJson(colecao);
+//	}
+//	
+//	public String serializarListaTo(List<JSon> lista) {
+//		return gson.toJson(lista);
+//	}
+	
+	public String serializarColecao(Collection colecao) {
 		return gson.toJson(colecao);
 	}
 	
@@ -41,7 +58,7 @@ public class EngineJson {
 		return gson.toJson(lista);
 	}
 	
-	public Collection<Domain> deSerializarColecao(String json) {
+	public Collection<Domain> deserializarColecao(String json) {
 		Type collectionType = new TypeToken<Collection<Domain>>(){}.getType();
 		Collection<Domain> colecao = gson.fromJson(json, collectionType);
 		return colecao;

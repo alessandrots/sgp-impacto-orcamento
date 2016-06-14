@@ -9,7 +9,7 @@ public class Util {
 	
 	private static Util instancia;
 //	private static ArrayList<String> listaUUID;
-	public static final String DATE_FORMAT = "dd/MM/yyyy";
+	private static final String DATE_FORMAT = "dd/MM/yyyy";
 	private static final String TIME_FORMAT = "kk:mm:ssssss";
 	
 	private static final String DATE_TIME_FORMAT = "dd/MM/yyyy kk:mm:ss";
@@ -33,8 +33,24 @@ public class Util {
 		return dataHoraFmt;
 	}
 	
+	public String gerarDataHoraFormatada(Date data, String formato) {
+		char formatoCh = 'D';
+		
+		if (formato == null || formato.equalsIgnoreCase("")) {
+			formatoCh = '\u0000';
+		} else {
+			formatoCh = formato.charAt(0);
+		}
+		
+		return this.gerarDataHoraFormatada(data, formatoCh);
+	}
+	
 	public String gerarDataHoraFormatada(Date data, char formato) {
 		String dataHoraFmt = null;
+		
+		if (formato == '\u0000') {
+			formato ='D';
+		}
 		
 		if (data != null) {
 			SimpleDateFormat fmt = new SimpleDateFormat(Character.toUpperCase(formato) == 'T' ? TIME_FORMAT : DATE_FORMAT);

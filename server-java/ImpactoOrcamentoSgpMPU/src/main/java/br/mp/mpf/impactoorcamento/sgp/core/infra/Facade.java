@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import br.mp.mpf.impactoorcamento.sgp.app.dao.ConcursadoDAO;
 import br.mp.mpf.impactoorcamento.sgp.app.dao.ConcursoRemocaoDAO;
+import br.mp.mpf.impactoorcamento.sgp.app.domain.Domain;
 import br.mp.mpf.impactoorcamento.sgp.app.domain.Usuario;
+import br.mp.mpf.impactoorcamento.sgp.app.json.JSon;
 
-public class Facade {
+public abstract class Facade {
 
 	@Autowired
 	private ConcursoRemocaoDAO concursoRemocaoDAO;
@@ -77,6 +79,23 @@ public class Facade {
 	 */
 	public void setImpactoOrcProperties(Properties impactoOrcProperties) {
 		this.orcamentoProperties = impactoOrcProperties;
+	}
+	
+	public abstract JSon copyProperties(Domain domain);
+	
+	public JSon convertJson(Domain domain) {
+//		String  json = null;
+		JSon to = null;
+		
+		if (domain != null){
+			to = copyProperties(domain);
+		}
+		
+//		if (to != null) {
+//			json = EngineJson.getInstancia().serializarObjeto(to);
+//		}
+		
+		return to;
 	}
 	
 	
