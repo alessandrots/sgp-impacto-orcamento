@@ -29,6 +29,10 @@ module.exports = {
         target: 'http://' + HOST + ':3001',
         secure: false
       }
+      //  '/ns/rest/*': {
+      //   target: 'http://' + HOST + ':8080',
+      //   secure: false
+      // }
     }
   },
   devtool: 'source-map',
