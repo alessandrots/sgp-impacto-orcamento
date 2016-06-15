@@ -35,7 +35,7 @@ export class ConcursadoService {
   getAllConcursadoEntredatas(): Observable<Concursado[]> {
     console.log('service ::: getAllConcursadoEntredatas ==>  ');
     
-    return this.http.get('http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015')
+    return this.http.get('http://10.224.126.253:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015')
       .map(response => response.json());
   }
 }
