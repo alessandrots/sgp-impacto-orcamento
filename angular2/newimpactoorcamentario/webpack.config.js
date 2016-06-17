@@ -26,10 +26,13 @@ module.exports = {
     port: metadata.port,
     proxy: {
       '/sgp/astec/*': {
-        // target: 'http://10.224.126.253:3001',
         target: 'http://' + HOST + ':3001',
         secure: false
       }
+      //  '/ns/rest/*': {
+      //   target: 'http://' + HOST + ':8080',
+      //   secure: false
+      // }
     }
   },
   devtool: 'source-map',

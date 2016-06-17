@@ -1,11 +1,10 @@
-// import {BidService} from './bid-service';
-// import {ProductService} from './product-service';
-// import {WebSocketService} from './websocket-service';
+//import ParentService from './service-parent';
 import {OrcamentoService} from './orcamento-service';
+import {ConcursadoService} from './concursado-service';
+import {ConcursoRemocaoService} from './concurso-remocao-service';
 
 export const ONLINE_AUCTION_SERVICES = [
-  // BidService,
-  // ProductService,
-  // WebSocketService,
-  OrcamentoService
+  OrcamentoService,
+  ConcursadoService,
+  ConcursoRemocaoService
 ];

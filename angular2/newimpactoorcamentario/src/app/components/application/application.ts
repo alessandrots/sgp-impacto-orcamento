@@ -9,7 +9,9 @@ import HomeFormNew from '../homeFormNew/homeForm2';
 import NomeacaoComponentDetail from '../nomeacaodetail/nomeacaodetail';
 import NomeacaoComponentPagAll from '../nomeacaoPagingComplete/nomepaging';
 import LoginComponent from '../formLogin/login';
-
+import ConcursadoComponente from '../concursado/concursado';
+import ConcursadoDetailComponente from '../concursado/concursado-detail';
+import ConcursoRemocaoComponente from '../concursoRemocao/concursoRemocao';
 
 /**
  declare var require: any;//http://stackoverflow.com/questions/31173738/typescript-getting-error-ts2304-cannot-find-name-require/31263434#31263434
@@ -31,7 +33,10 @@ import LoginComponent from '../formLogin/login';
     {path: '/HomeFormNew', component: HomeFormNew},
     {path: '/NomeacaoDetail/:vaga', component: NomeacaoComponentDetail},
     {path: '/NomeacaoPagingAll', component: NomeacaoComponentPagAll},
-    {path: '/Login', component: LoginComponent}
+    {path: '/Login', component: LoginComponent},
+    {path: '/ConcursadoComponente', component: ConcursadoComponente},
+    {path: '/ConcursadoDetailComponente/:inscricao', component: ConcursadoDetailComponente},
+    {path: '/RemocaoComponente', component: ConcursoRemocaoComponente}
 ])
 
 export default class ApplicationComponent {}

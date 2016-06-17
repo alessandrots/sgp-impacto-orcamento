@@ -2,13 +2,13 @@ import {Component, Input} from '@angular/core';
 import {NgFor} from '@angular/common';
 import {Http, Response} from '@angular/http';
 import {PaginatePipe, PaginationControlsCmp, PaginationService} from '../../../../node_modules/ng2-pagination';
-import NomeacaoPag from './nomeModelPag';
+import ConcursoRemocaoModel from './concurso-remocao-model';
 import { Router } from '@angular/router';
-import {Impacto, OrcamentoService} from '../../services/orcamento-service';
+import {ConcursoRemocao, ConcursoRemocaoService} from '../../services/concurso-remocao-service';
 import {Observable} from 'rxjs';
 
 interface IServerResponse {
-    items: NomeacaoPag[];
+    items: ConcursoRemocaoModel[];
     total: number;
 }
 
@@ -20,26 +20,25 @@ interface IServerResponse {
   ],
   pipes: [PaginatePipe],
   providers: [PaginationService],
-  // styles: [require('./home.css')],
-  template: require('./nomepaging.html')
+  template: require('./concursoRemocao.html')
 
 })
-export default class NomeacaoComponentPag {
-  result: Observable<NomeacaoPag[]>;
-  @Input('data') resultAll: NomeacaoPag[] = [];
-  impacto: Impacto;
+export default class ConcursoRemocaoComponente {
+  result: Observable<ConcursoRemocaoModel[]>;
+  @Input('data') resultAll: ConcursoRemocaoModel[] = [];
+  impacto: ConcursoRemocao;
   total: number;
   p: number = 1;
   loading: boolean;
   
 
-  constructor(http: Http,  private _router: Router, orcService: OrcamentoService) {
-    console.log('NomeacaotPaging Construtor');
+  constructor(http: Http,  private _router: Router, mainService: ConcursoRemocaoService) {
+    // console.log('ConcursoRemocaoComponente Construtor');
     var me = this;
     
     //SUBSTITUINDO por chamada ao serviço
-    orcService
-      .getAllImpacto()
+    mainService
+      .getAllConcursoRemocaoPorDatas()
       .subscribe(
         data => {
           this.resultAll = data;
@@ -53,7 +52,7 @@ export default class NomeacaoComponentPag {
   /**
    * Faz a lógica de paginação.
    */
-  serverCall(meals: NomeacaoPag[], page: number): Observable<IServerResponse> {
+  serverCall(meals: ConcursoRemocaoModel[], page: number): Observable<IServerResponse> {
       const perPage = 10;
       const start = (page - 1) * perPage;
       const end = start + perPage;
@@ -67,11 +66,11 @@ export default class NomeacaoComponentPag {
 
   getPage(page: number) {
       this.loading = true;
-      // console.log('NomeacaoComponentPag ::: tamanho array  = ', this.resultAll.length);
-      console.log('NomeacaoComponentPag ::: page: number = ', page);
+      // console.log('ConcursoRemocaoComponente ::: tamanho array  = ', this.resultAll.length);
+      // console.log('ConcursoRemocaoComponente ::: page: number = ', page);
       this.result = this.serverCall(this.resultAll, page)
             .do(res => {
-                console.log('getPage = ', res);
+                // console.log('getPage = ', res);
                 this.total = res.total;
                 this.p = page;
                 this.loading = false;
@@ -79,9 +78,9 @@ export default class NomeacaoComponentPag {
             .map(res => res.items);
   }
 
-  gotoDetail(hero: NomeacaoPag) {
-    console.log('NomeacaoComponentPag ==> vaga = ', hero.vaga);
-    let link = ['/NomeacaoDetail', hero.vaga];
-    this._router.navigate(link);
+  gotoDetail(hero: ConcursoRemocaoModel) {
+    // console.log('ConcursoRemocaoComponente ==> inscricao = ', hero.inscricao);
+    // let link = ['/NomeacaoDetail', hero.inscricao];
+    // this._router.navigate(link);
   }
 }
