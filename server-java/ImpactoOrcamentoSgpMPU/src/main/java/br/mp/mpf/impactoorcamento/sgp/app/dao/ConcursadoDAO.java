@@ -19,7 +19,6 @@ public class ConcursadoDAO extends HibernateDAOImpl<Concursado> {
 	
 	@SuppressWarnings("unchecked")
 	public List<Concursado> recuperarNomeacoesEntreDatas(Date dataInicio, Date dataFinal) {
-//		System.out.println("DAO ==> recuperarNomeacoesEntreDatas !!!");
 		StringBuilder hql = new StringBuilder();
 		hql.append("SELECT d ");
 		hql.append("FROM Concursado d ");
@@ -31,15 +30,24 @@ public class ConcursadoDAO extends HibernateDAOImpl<Concursado> {
 		query.setParameter("dataFinal", dataFinal);
 		
 		List<Concursado> lista = query.list();
-		
-//		if (lista != null && lista.size() > 0){
-//			System.out.println("recuperarNomeacoesEntreDatas ==> Tamanho da lista = " + lista.size());
-//		} else {
-//			System.out.println("recuperarNomeacoesEntreDatas ==>  lista vazia ");
-//		}
-		
+
 		return lista;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Concursado> recuperarNomeacaoPorInscricao(Long inscricao) {
+		StringBuilder hql = new StringBuilder();
+		hql.append("SELECT d ");
+		hql.append("FROM Concursado d ");
+		hql.append("WHERE d.inscricao = :inscricao ");
+		hql.append("ORDER by d.dataNomeacao DESC ");
 		
+		Query query = getSession().createQuery(hql.toString());
+		query.setParameter("inscricao", inscricao);
+		
+		List<Concursado> lista = query.list();
+
+		return lista;
 	}
 
 }

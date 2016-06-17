@@ -25,10 +25,8 @@ public class ConcursadoFacade extends Facade {
 	public String recuperarNomeacoesEntreDatas(Date dataInicio, Date dataFinal) {
 		String tmp  = "";
 		List<ConcursadoJSon> lista = new ArrayList<ConcursadoJSon>();
-//		System.out.println(" ConcursadoFacade Properties referência = " + this.getOrcamentoProperties());
 		
 		this.getConcursadoDAO().recuperarNomeacoesEntreDatas(dataInicio, dataFinal).forEach((concursado)->{
-//			System.out.println("concursoRemocao: " + ToStringBuilder.reflectionToString(concursado, ToStringStyle.SHORT_PREFIX_STYLE));
 			lista.add((ConcursadoJSon)convertJson(concursado));
 		});
 		
@@ -36,6 +34,23 @@ public class ConcursadoFacade extends Facade {
 		
 		return tmp;
 	}	
+	
+	
+	@Transactional
+	public String recuperarNomeacaoPorInscricao(Long inscricao) {
+		String tmp  = "";
+		List<ConcursadoJSon> lista = new ArrayList<ConcursadoJSon>();
+		
+		this.getConcursadoDAO().recuperarNomeacaoPorInscricao(inscricao).forEach((concursado)->{
+			lista.add((ConcursadoJSon)convertJson(concursado));
+		});
+		
+		if (lista != null && lista.size() > 0) {
+			tmp = EngineJson.getInstancia().serializarObjeto(lista.get(0));
+		}
+		
+		return tmp;
+	}
 	
 	public ConcursadoJSon copyProperties(Domain d) {
 		Concursado domain = (Concursado)d;

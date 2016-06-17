@@ -8,7 +8,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import br.mp.mpf.impactoorcamento.sgp.app.domain.Domain;
-import br.mp.mpf.impactoorcamento.sgp.app.json.JSon;
 
 public class EngineJson {
 

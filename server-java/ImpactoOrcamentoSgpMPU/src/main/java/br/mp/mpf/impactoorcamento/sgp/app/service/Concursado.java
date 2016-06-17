@@ -14,6 +14,7 @@ import java.util.Date;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
@@ -48,7 +49,29 @@ public class Concursado extends BeanManager {
 			
 			String output = this.getConcursadoFacade().recuperarNomeacoesEntreDatas(dtini, dtfim);
 			
-//			String output = "Jersey say : " + " dataInicial : " + dataInicial + " - dataFinal : " + dataFinal;
+			return Response.status(200).entity(output).build();
+		}
+		
+		
+		@GET
+		@Path("/recuperarNomeacaoPorInscricao/{inscricao}")
+		@Produces("text/json;charset=UTF-8")
+		/**
+		 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursadoService/recuperarNomeacaoPorInscricao/10107111
+		 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursadoService/recuperarNomeacaoPorInscricao/10107111
+		 * 
+		 * @param inscricao
+		 * @return Response
+		 */
+		public Response recuperarNomeacaoPorInscricao(@PathParam("inscricao") Long inscricao) {
+			init();
+			
+			getConcursadoFacade();
+			
+			System.out.println(" inscricao : " + inscricao);
+			
+			String output = this.getConcursadoFacade().recuperarNomeacaoPorInscricao(inscricao);
+			
 			
 			return Response.status(200).entity(output).build();
 		}

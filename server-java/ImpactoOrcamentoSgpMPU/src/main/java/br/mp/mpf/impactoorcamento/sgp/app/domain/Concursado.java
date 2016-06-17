@@ -50,8 +50,6 @@ public class Concursado implements Comparable<Concursado>, Serializable, Domain 
 	private String numeroEdital;
 	@Column(name="UF_NOMEACAO", length=2)
 	private String ufNomeacao;
-//	@Transient
-//	private String ramo;
 	@Column(name="CARGO", length=8)
 	private String cargo;
 	@Column(name="CARGO_DS", nullable=false, length=60)
