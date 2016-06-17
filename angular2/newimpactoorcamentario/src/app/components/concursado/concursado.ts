@@ -77,10 +77,12 @@ export default class ConcursadoComponente {
             })
             .map(res => res.items);
   }
-
+// 
   gotoDetail(hero: ConcursadoModel) {
-    console.log('ConcursadoComponente ==> inscricao = ', hero.inscricao);
-    // let link = ['/NomeacaoDetail', hero.inscricao];
+    console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
+    let link = ['/ConcursadoDetailComponente', hero.inscricao];
+    this._router.navigate(link);
+    // let link = ['/NomeacaoDetail', hero.vaga];
     // this._router.navigate(link);
   }
 }

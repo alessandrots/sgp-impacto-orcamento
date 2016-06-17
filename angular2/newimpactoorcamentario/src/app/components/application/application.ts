@@ -10,6 +10,7 @@ import NomeacaoComponentDetail from '../nomeacaodetail/nomeacaodetail';
 import NomeacaoComponentPagAll from '../nomeacaoPagingComplete/nomepaging';
 import LoginComponent from '../formLogin/login';
 import ConcursadoComponente from '../concursado/concursado';
+import ConcursadoDetailComponente from '../concursado/concursado-detail';
 import ConcursoRemocaoComponente from '../concursoRemocao/concursoRemocao';
 
 /**
@@ -34,6 +35,7 @@ import ConcursoRemocaoComponente from '../concursoRemocao/concursoRemocao';
     {path: '/NomeacaoPagingAll', component: NomeacaoComponentPagAll},
     {path: '/Login', component: LoginComponent},
     {path: '/ConcursadoComponente', component: ConcursadoComponente},
+    {path: '/ConcursadoDetailComponente/:inscricao', component: ConcursadoDetailComponente},
     {path: '/RemocaoComponente', component: ConcursoRemocaoComponente}
 ])
 

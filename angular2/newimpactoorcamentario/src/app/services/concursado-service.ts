@@ -1,6 +1,7 @@
+import ParentService from './service-parent';
 import {EventEmitter, Injectable} from '@angular/core';
 import {Http, URLSearchParams} from '@angular/http';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 export class Concursado {
@@ -24,18 +25,27 @@ export class Concursado {
 }
 
 @Injectable()
-export class ConcursadoService {
+export class ConcursadoService  {//extends ParentService {
   searchEvent: EventEmitter<any> = new EventEmitter();
+  parentService: ParentService;
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+    // super('dev');
+    this.parentService= new ParentService('dev');
+  }
 
   /**
   * Retorna o array de impacto
   **/
   getAllConcursadoEntredatas(): Observable<Concursado[]> {
     console.log('service ::: getAllConcursadoEntredatas ==>  ');
-    
     return this.http.get('http://10.224.126.253:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015')
+      .map(response => response.json());
+  }
+
+  getConcursadoPorId(inscricao:number): Observable<Concursado> {
+    console.log('service ::: getAllConcursadoEntredatas ==>  ');
+    return this.http.get('http://10.224.126.253:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorInscricao/'+ inscricao)
       .map(response => response.json());
   }
 }

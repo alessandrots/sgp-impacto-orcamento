@@ -40,6 +40,41 @@ Spring Security para lidar com a seguranca de requisicoes.
 	  <url-pattern>/*</url-pattern>
   </filter-mapping>
 -->
+
+  <!-- TOMCAT CORS -->
+  <filter>
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+
+  <!-- JETTY CORS  -->
+  <filter>
+   <filter-name>cross-origin</filter-name>
+   <filter-class>org.eclipse.jetty.servlets.CrossOriginFilter</filter-class>
+   <init-param>
+       <param-name>allowedOrigins</param-name>
+       <param-value>*</param-value>
+   </init-param>
+   <init-param>
+       <param-name>allowedMethods</param-name>
+       <param-value>GET,POST,OPTIONS,DELETE,PUT,HEAD</param-value>
+   </init-param>
+   <init-param>
+       <param-name>allowedHeaders</param-name>
+       <param-value>origin, content-type, accept, authorization</param-value>
+   </init-param>
+ </filter>
+ <filter-mapping>
+     <filter-name>cross-origin</filter-name>
+     <url-pattern>*</url-pattern>
+ </filter-mapping>
+
+  
   
   <servlet>
     <servlet-name>sgpImpactoOrcamentoServlet</servlet-name>

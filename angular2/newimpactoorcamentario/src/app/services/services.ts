@@ -1,3 +1,4 @@
+//import ParentService from './service-parent';
 import {OrcamentoService} from './orcamento-service';
 import {ConcursadoService} from './concursado-service';
 import {ConcursoRemocaoService} from './concurso-remocao-service';

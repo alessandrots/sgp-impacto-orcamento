@@ -21,8 +21,8 @@
         <th>leiVaga</th>
     </tr>
     
-    <tr *ngFor="let obj of result | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }" (click)="gotoDetail(obj)">
-        <td><H1>{{obj.inscricao}}</H1></td>
+    <tr *ngFor="let obj of result | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }">
+        <td (click)="gotoDetail(obj)"><H1>{{obj.inscricao}}</H1></td>
         <td>{{obj.numeroEdital}}</td>
         <td>{{obj.ufNomeacao}}</td>
         <td>{{obj.cargo}}</td>
