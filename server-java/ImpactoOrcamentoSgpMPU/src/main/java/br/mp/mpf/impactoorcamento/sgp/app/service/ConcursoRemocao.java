@@ -46,9 +46,25 @@ public class ConcursoRemocao extends BeanManager {
 			
 			String output  = this.getConcursoRemocaoFacade().recuperarRemocoesEntreDatas(dt);
 			
-//			System.out.println(" Lista ConcursoRemocaoJSon = " + tmp);
+			return Response.status(200).entity(output).build();
+		}
+		
+		@GET
+		@Path("/recuperarRemocoesPorVaga/{numeroVaga}")
+		@Produces("text/json;charset=UTF-8")
+		/**
+		 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/40
+		 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/40
+		 * 
+		 * @param dataMaxima
+		 * @return Response
+		 */
+		public Response recuperarRemocoesPorVaga(@QueryParam("numeroVaga") Long numeroVaga) {
+			init();
 			
-//			String output = "JSON : " + " dataInicial : " + dataMaxima;
+			getConcursoRemocaoFacade();
+			
+			String output  = this.getConcursoRemocaoFacade().recuperarRemocoesPorVaga(numeroVaga);
 			
 			return Response.status(200).entity(output).build();
 		}
