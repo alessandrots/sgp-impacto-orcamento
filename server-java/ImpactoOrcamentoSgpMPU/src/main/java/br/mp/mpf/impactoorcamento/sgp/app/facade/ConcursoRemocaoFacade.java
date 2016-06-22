@@ -26,10 +26,21 @@ public class ConcursoRemocaoFacade extends Facade {
 		String tmp  = "";
 		List<ConcursoRemocaoJSon> lista = new ArrayList<ConcursoRemocaoJSon>();
 		
-//		System.out.println(" ConcursoRemocaoFacade Properties referência = " + this.getOrcamentoProperties());
-//		this.getConcursoRemocaoDAO().recuperarRemocoesEntreDatas(dataMaxima);
 		this.getConcursoRemocaoDAO().recuperarRemocoesEntreDatas(dataMaxima).forEach((concursoR)->{
-//			System.out.println("concursoRemocao: " + ToStringBuilder.reflectionToString(concursoR, ToStringStyle.SHORT_PREFIX_STYLE));
+			lista.add((ConcursoRemocaoJSon)convertJson(concursoR));
+		});
+		
+		tmp = EngineJson.getInstancia().serializarLista(lista);
+		
+		return tmp;
+	}
+	
+	@Transactional
+	public String recuperarRemocoesPorVaga(Long numeroVaga) {
+		String tmp  = "";
+		List<ConcursoRemocaoJSon> lista = new ArrayList<ConcursoRemocaoJSon>();
+		
+		this.getConcursoRemocaoDAO().recuperarRemocoesPorVaga(numeroVaga).forEach((concursoR)->{
 			lista.add((ConcursoRemocaoJSon)convertJson(concursoR));
 		});
 		
