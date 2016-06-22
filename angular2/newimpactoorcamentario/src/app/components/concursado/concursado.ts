@@ -30,12 +30,12 @@ export default class ConcursadoComponente {
   total: number;
   p: number = 1;
   loading: boolean;
-  
+
 
   constructor(http: Http,  private _router: Router, mainService: ConcursadoService) {
     // console.log('ConcursadoComponente Construtor');
     var me = this;
-    
+
     //SUBSTITUINDO por chamada ao serviço
     mainService
       .getAllConcursadoEntredatas()
@@ -61,7 +61,7 @@ export default class ConcursadoComponente {
           .of({
               items: meals.slice(start, end),
               total: meals.length
-          });//.delay(1000); 
+          });//.delay(1000);
   }
 
   getPage(page: number) {
@@ -77,12 +77,10 @@ export default class ConcursadoComponente {
             })
             .map(res => res.items);
   }
-// 
+
   gotoDetail(hero: ConcursadoModel) {
     console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
     let link = ['/ConcursadoDetailComponente', hero.inscricao];
     this._router.navigate(link);
-    // let link = ['/NomeacaoDetail', hero.vaga];
-    // this._router.navigate(link);
   }
 }

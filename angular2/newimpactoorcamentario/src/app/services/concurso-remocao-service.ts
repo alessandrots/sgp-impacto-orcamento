@@ -35,6 +35,12 @@ export class ConcursoRemocaoService {
     return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDatas?dataMaxima=01/01/2015')
       .map(response => response.json());
   }
+
+  getConcursoRemocaoPorVaga(vaga:number): Observable<ConcursoRemocao> {
+    console.log('service ::: getConcursoRemocaoPorVaga ==>  ');
+    return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/'+ vaga)
+      .map(response => response.json());
+  }
 }
 
 /**
