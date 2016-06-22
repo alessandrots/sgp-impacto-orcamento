@@ -30,12 +30,6 @@ public class ConcursoRemocaoDAO extends HibernateDAOImpl<ConcursoRemocao> {
 		
 		List<ConcursoRemocao> lista = query.list();
 		
-//		if (lista != null && lista.size() > 0){
-//			System.out.println("recuperarNomeacoesEntreDatas ==> Tamanho da lista = " + lista.size());
-//		} else {
-//			System.out.println("recuperarNomeacoesEntreDatas ==>  lista vazia ");
-//		}
-		
 		return lista;
 	}
 	
@@ -51,12 +45,6 @@ public class ConcursoRemocaoDAO extends HibernateDAOImpl<ConcursoRemocao> {
 		query.setParameter("numeroVaga", numeroVaga);
 		
 		List<ConcursoRemocao> lista = query.list();
-		
-//		if (lista != null && lista.size() > 0){
-//			System.out.println("recuperarNomeacoesEntreDatas ==> Tamanho da lista = " + lista.size());
-//		} else {
-//			System.out.println("recuperarNomeacoesEntreDatas ==>  lista vazia ");
-//		}
 		
 		return lista;
 	}

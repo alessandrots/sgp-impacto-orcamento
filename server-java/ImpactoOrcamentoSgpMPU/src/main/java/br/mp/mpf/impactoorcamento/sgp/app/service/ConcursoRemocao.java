@@ -14,6 +14,7 @@ import java.util.Date;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
@@ -59,7 +60,7 @@ public class ConcursoRemocao extends BeanManager {
 		 * @param dataMaxima
 		 * @return Response
 		 */
-		public Response recuperarRemocoesPorVaga(@QueryParam("numeroVaga") Long numeroVaga) {
+		public Response recuperarRemocoesPorVaga(@PathParam("numeroVaga") Long numeroVaga) {
 			init();
 			
 			getConcursoRemocaoFacade();
