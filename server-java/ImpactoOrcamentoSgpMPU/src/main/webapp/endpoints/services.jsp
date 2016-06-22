@@ -52,7 +52,7 @@
 	    <td>Concurso de Remoção por Número Vaga</td>
 	    <td>GET by PathParam</td>
 	    <td>/numeroVaga (codigo)</td>
-	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/40">recuperarRemocoesPorVaga/40</a></td>
+	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/61742">recuperarRemocoesPorVaga/61742</a></td>
 	  </tr>
   </table>
 </body>
