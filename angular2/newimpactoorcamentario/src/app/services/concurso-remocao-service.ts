@@ -15,10 +15,10 @@ export class ConcursoRemocao {
     public unidadeDestino:string,
     public lei:string,
     public motivo:string,
-    public ultimoOcupante:string) { 
+    public ultimoOcupante:string) {
       console.log(' Model ConcursoRemocao...');
   }
-  
+
 }
 
 @Injectable()
@@ -32,7 +32,7 @@ export class ConcursoRemocaoService {
   **/
   getAllConcursoRemocaoPorDatas(): Observable<ConcursoRemocao[]> {
     console.log('service ::: getAllConcursoRemocaoEntredatas ==>  ');
-    return this.http.get('http://10.224.126.253:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDatas?dataMaxima=01/01/2015')
+    return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDatas?dataMaxima=01/01/2015')
       .map(response => response.json());
   }
 }
