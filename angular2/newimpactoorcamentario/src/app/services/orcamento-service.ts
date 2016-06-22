@@ -20,10 +20,10 @@ export class Impacto {
     public leiVaga: string,
     public dataPortariaSemEfeito: string,
     public numeroPortariaSemEfeito: string,
-    public field16: string) { 
+    public field16: string) {
       console.log(' Model Impacto...');
   }
-  
+
 }
 
 @Injectable()
@@ -37,9 +37,9 @@ export class OrcamentoService {
   **/
   getImpactoById(vaga: number): Observable<Impacto> {
     console.log('service ::: getImpactoById ==> vaga = ', vaga);
-    
-    return this.http.get('http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao/detalhe/'+vaga)
-      .map(response => response.json());  
+
+    return this.http.get('http://10.224.123.134:3001/sgp/astec/orcamento/nomeacao/detalhe/'+vaga)
+      .map(response => response.json());
   }
 
   /**
@@ -47,8 +47,8 @@ export class OrcamentoService {
   **/
   getAllImpacto(): Observable<Impacto[]> {
     console.log('service ::: getAllImpacto ==>  ');
-    
-    return this.http.get('http://10.224.126.253:3001/sgp/astec/orcamento/nomeacao')
+
+    return this.http.get('http://10.224.123.134:3001/sgp/astec/orcamento/nomeacao')
       .map(response => response.json());
   }
 }
