@@ -15,8 +15,8 @@
 	</head>
 <body>
   <%
-    String PathParam_ = request.getContextPathParam();
-    System.out.println("PathParam =  " + PathParam_);
+    String path = request.getContextPath();
+    System.out.println("path =  " + path);
   %>  
   <br>	
   <table style="width:100%">
