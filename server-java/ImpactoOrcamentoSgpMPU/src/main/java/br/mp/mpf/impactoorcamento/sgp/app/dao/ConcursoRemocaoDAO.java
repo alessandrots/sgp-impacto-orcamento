@@ -19,6 +19,11 @@ public class ConcursoRemocaoDAO extends HibernateDAOImpl<ConcursoRemocao> {
 	}
 	
 	@SuppressWarnings("unchecked")
+	/**
+	 * 
+	 * @param dataMaxima
+	 * @return List<ConcursoRemocao>
+	 */
 	public List<ConcursoRemocao> recuperarRemocoesEntreDatas(Date dataMaxima) {
 		StringBuilder hql = new StringBuilder();
 		hql.append("SELECT d ");
@@ -35,6 +40,11 @@ public class ConcursoRemocaoDAO extends HibernateDAOImpl<ConcursoRemocao> {
 	}
 	
 	@SuppressWarnings("unchecked")
+	/**
+	 * 
+	 * @param numeroVaga
+	 * @return List<ConcursoRemocao>
+	 */
 	public List<ConcursoRemocao> recuperarRemocoesPorVaga(Long numeroVaga) {
 		StringBuilder hql = new StringBuilder();
 		hql.append("SELECT d ");
@@ -51,24 +61,15 @@ public class ConcursoRemocaoDAO extends HibernateDAOImpl<ConcursoRemocao> {
 	}
 	
 	@SuppressWarnings("unchecked")
+	/**
+	 * http://stackoverflow.com/questions/8491796/hibernate-group-by-criteria-object
+	 * @return List<Object[]>
+	 */
 	public List<Object[]> recuperarDatasRemocoes() {
-		System.out.println("recuperarDatasRemocoes");
-//		
-//		StringBuilder hql = new StringBuilder();
-//		hql.append("SELECT count(*) ");
-//		hql.append("FROM  ");
-//		hql.append(" (SELECT p.dataRemocaoGravacao ");
-//		hql.append("  FROM ConcursoRemocao p  ");
-//		hql.append("  GROUP BY p.dataRemocaoGravacao ");
-//		hql.append("  ORDER BY p.dataRemocaoGravacao desc ) ");
 		List<Object[]> lista = getSession().createCriteria(ConcursoRemocao.class)
 			.setProjection(Projections.projectionList()
 			.add(Projections.groupProperty("dataRemocaoGravacao"))
 			.add(Projections.count("dataRemocaoGravacao"))).list();
-			
-		
-//		Query query = getSession().createQuery(hql.toString());
-//		List<ConcursoRemocao> lista = query.list();
 		
 		return lista;
 	}

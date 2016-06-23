@@ -53,13 +53,10 @@ public class ConcursoRemocaoFacade extends Facade {
 	public String recuperarDatasRemocoes() {
 		String tmp  = "";
 		List<ConcursoRemocaoJSon> lista = new ArrayList<ConcursoRemocaoJSon>();
-//		ConcursoRemocaoJSon objeto = null;
 		
 		this.getConcursoRemocaoDAO().recuperarDatasRemocoes().forEach((arrayGroupCount)->{
-//			lista.add((ConcursoRemocaoJSon)convertJson(concursoR));
 			ConcursoRemocaoJSon objeto = new ConcursoRemocaoJSon();
 			for (int i = 0; i< arrayGroupCount.length; i ++ ){
-				System.out.println("recuperarDatasRemocoes = " + arrayGroupCount[i]);
 				if (i == 0){
 					objeto.setDataRemocaoGravacao(Util.newInstance().gerarDataHoraFormatada((Date)arrayGroupCount[0]));
 				} else {
