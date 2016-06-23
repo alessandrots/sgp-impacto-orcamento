@@ -22,6 +22,9 @@ public class ConcursoRemocaoJSon implements JSon {
 	private String dataPublicacao;
 	private String ultimoOcupante;
 	private String dataRemocaoGravacao;
+	
+	private Long totalRemocao;
+	
 	/**
 	 * @return the numeroVaga
 	 */
@@ -202,5 +205,19 @@ public class ConcursoRemocaoJSon implements JSon {
 	public void setDataRemocaoGravacao(String dataRemocaoGravacao) {
 		this.dataRemocaoGravacao = dataRemocaoGravacao;
 	}
+	/**
+	 * @return the totalRemocao
+	 */
+	public Long getTotalRemocao() {
+		return totalRemocao;
+	}
+	/**
+	 * @param totalRemocao the totalRemocao to set
+	 */
+	public void setTotalRemocao(Long totalRemocao) {
+		this.totalRemocao = totalRemocao;
+	}
+	
+	
 
 }

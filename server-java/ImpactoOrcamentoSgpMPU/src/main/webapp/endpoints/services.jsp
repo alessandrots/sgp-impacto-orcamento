@@ -59,6 +59,13 @@
 	    <td>/numeroVaga (codigo)</td>
 	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/61742">recuperarRemocoesPorVaga/61742</a></td>
 	  </tr>
+	  
+	  <tr>
+	    <td>Datas dos Concursos de Remoção Por Quantitativo Vaga</td>
+	    <td> - </td>
+	    <td> - </td>
+	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarDatasRemocoes">recuperarDatasRemocoes</a></td>
+	  </tr>
   </table>
 </body>
 </html>

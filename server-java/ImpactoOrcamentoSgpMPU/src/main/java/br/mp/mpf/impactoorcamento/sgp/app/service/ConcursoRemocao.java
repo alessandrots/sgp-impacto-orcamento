@@ -70,4 +70,24 @@ public class ConcursoRemocao extends BeanManager {
 			return Response.status(200).entity(output).build();
 		}
 		
+		
+		@GET
+		@Path("/recuperarDatasRemocoes")
+		@Produces("text/json;charset=UTF-8")
+		/**
+		 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarDatasRemocoes
+		 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarDatasRemocoes
+		 * 
+		 * @return Response
+		 */
+		public Response recuperarDatasRemocoes() {
+			init();
+			
+			getConcursoRemocaoFacade();
+			
+			String output  = this.getConcursoRemocaoFacade().recuperarDatasRemocoes();
+			
+			return Response.status(200).entity(output).build();
+		}
+		
 }

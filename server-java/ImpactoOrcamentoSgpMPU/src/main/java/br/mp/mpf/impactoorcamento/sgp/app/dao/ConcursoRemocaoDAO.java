@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.criterion.Projections;
 import org.springframework.stereotype.Repository;
 
 import br.mp.mpf.impactoorcamento.sgp.app.domain.ConcursoRemocao;
@@ -45,6 +46,29 @@ public class ConcursoRemocaoDAO extends HibernateDAOImpl<ConcursoRemocao> {
 		query.setParameter("numeroVaga", numeroVaga);
 		
 		List<ConcursoRemocao> lista = query.list();
+		
+		return lista;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Object[]> recuperarDatasRemocoes() {
+		System.out.println("recuperarDatasRemocoes");
+//		
+//		StringBuilder hql = new StringBuilder();
+//		hql.append("SELECT count(*) ");
+//		hql.append("FROM  ");
+//		hql.append(" (SELECT p.dataRemocaoGravacao ");
+//		hql.append("  FROM ConcursoRemocao p  ");
+//		hql.append("  GROUP BY p.dataRemocaoGravacao ");
+//		hql.append("  ORDER BY p.dataRemocaoGravacao desc ) ");
+		List<Object[]> lista = getSession().createCriteria(ConcursoRemocao.class)
+			.setProjection(Projections.projectionList()
+			.add(Projections.groupProperty("dataRemocaoGravacao"))
+			.add(Projections.count("dataRemocaoGravacao"))).list();
+			
+		
+//		Query query = getSession().createQuery(hql.toString());
+//		List<ConcursoRemocao> lista = query.list();
 		
 		return lista;
 	}

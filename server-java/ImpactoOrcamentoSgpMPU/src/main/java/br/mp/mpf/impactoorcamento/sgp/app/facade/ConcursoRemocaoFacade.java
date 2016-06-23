@@ -49,6 +49,31 @@ public class ConcursoRemocaoFacade extends Facade {
 		return tmp;
 	}
 	
+	@Transactional
+	public String recuperarDatasRemocoes() {
+		String tmp  = "";
+		List<ConcursoRemocaoJSon> lista = new ArrayList<ConcursoRemocaoJSon>();
+//		ConcursoRemocaoJSon objeto = null;
+		
+		this.getConcursoRemocaoDAO().recuperarDatasRemocoes().forEach((arrayGroupCount)->{
+//			lista.add((ConcursoRemocaoJSon)convertJson(concursoR));
+			ConcursoRemocaoJSon objeto = new ConcursoRemocaoJSon();
+			for (int i = 0; i< arrayGroupCount.length; i ++ ){
+				System.out.println("recuperarDatasRemocoes = " + arrayGroupCount[i]);
+				if (i == 0){
+					objeto.setDataRemocaoGravacao(Util.newInstance().gerarDataHoraFormatada((Date)arrayGroupCount[0]));
+				} else {
+					objeto.setTotalRemocao((Long)arrayGroupCount[1]);
+				}
+			}
+			lista.add(objeto);
+		});
+		
+		tmp = EngineJson.getInstancia().serializarLista(lista);
+		
+		return tmp;
+	}
+	
 	public ConcursoRemocaoJSon copyProperties(Domain d) {
 		ConcursoRemocao domain = (ConcursoRemocao)d;
 		ConcursoRemocaoJSon to = new ConcursoRemocaoJSon();
