@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.springframework.stereotype.Repository;
 
@@ -63,13 +64,15 @@ public class ConcursoRemocaoDAO extends HibernateDAOImpl<ConcursoRemocao> {
 	@SuppressWarnings("unchecked")
 	/**
 	 * http://stackoverflow.com/questions/8491796/hibernate-group-by-criteria-object
+	 * http://stackoverflow.com/questions/9734405/how-to-apply-order-on-hibernate-projection-result
+	 * 
 	 * @return List<Object[]>
 	 */
 	public List<Object[]> recuperarDatasRemocoes() {
 		List<Object[]> lista = getSession().createCriteria(ConcursoRemocao.class)
 			.setProjection(Projections.projectionList()
-			.add(Projections.groupProperty("dataRemocaoGravacao"))
-			.add(Projections.count("dataRemocaoGravacao"))).list();
+			.add(Projections.groupProperty("dataRemocaoGravacao"), "data")
+			.add(Projections.count("dataRemocaoGravacao"))).addOrder(Order.desc(("data"))).list();
 		
 		return lista;
 	}
