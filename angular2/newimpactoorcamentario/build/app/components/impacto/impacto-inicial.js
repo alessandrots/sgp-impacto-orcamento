@@ -51,8 +51,8 @@ var ImpactoInicialComponente = (function () {
         })
             .map(function (res) { return res.items; });
     };
-    ImpactoInicialComponente.prototype.gotoDetail = function (hero) {
-        console.log('ConcursoRemocaoComponente ==> inscricao = ', hero.numeroVaga);
+    ImpactoInicialComponente.prototype.gotoDetail = function () {
+        console.log('ConcursoRemocaoComponente ==> dataRemocaoGravacao = ', this.dataRemocaoGravacao);
     };
     __decorate([
         core_1.Input('data'), 

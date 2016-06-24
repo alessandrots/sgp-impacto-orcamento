@@ -4,17 +4,30 @@
 
 <div class="row">
     <table border="1">
-    <tr>
-        <th>Data Gravação Remoção</th>
-        <th>Participantes Remoção</th>
-    </tr>
+      <tr>
+          <th>Data Gravação Remoção</th>
+          <th>Participantes Remoção</th>
+      </tr>
 
-    <tr *ngFor="let obj of result | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }" (click)="gotoDetail(obj)">
-        <td>
-            <input type="radio" name="dataRemocaoGravacao" value="{{obj.dataRemocaoGravacao}}"> {{obj.dataRemocaoGravacao}}<br>
-        </td>
-        <td>{{obj.totalRemocao}}</td>
-    </tr>
+      <tr *ngFor="let obj of result | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }" >
+          <td>
+              <input  type="radio"
+                      name="dataRemocaoGravacao"
+                      [ngModel]="dataRemocaoGravacao"
+                      (ng-model)="dataRemocaoGravacao=$event"
+                      value="{{obj.dataRemocaoGravacao}}">
+              {{obj.dataRemocaoGravacao}}<br>
+          </td>
+          <td>{{obj.totalRemocao}}</td>
+      </tr>
+      <button type="button" (click)="gotoDetail()">Click Me!</button>
+
+      <!-- <input type="text" class="form-control" required
+        [(ngModel)]="model.name"
+          ngControl="name"  #name="ngForm" >
+
+
+         -->
 
     </table>
 </div>

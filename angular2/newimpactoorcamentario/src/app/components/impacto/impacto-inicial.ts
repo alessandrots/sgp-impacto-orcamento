@@ -26,7 +26,7 @@ interface IServerResponse {
 export default class ImpactoInicialComponente {
   result: Observable<ConcursoRemocaoModel[]>;
   @Input('data') resultAll: ConcursoRemocaoModel[] = [];
-  impacto: ConcursoRemocao;
+  dataRemocaoGravacao: string;
   total: number;
   p: number = 1;
   loading: boolean;
@@ -35,6 +35,7 @@ export default class ImpactoInicialComponente {
   constructor(http: Http,  private _router: Router, mainService: ConcursoRemocaoService) {
     // console.log('ConcursoRemocaoComponente Construtor');
     var me = this;
+    // this.impacto = new ConcursoRemocaoModel();
 
     //SUBSTITUINDO por chamada ao serviço
     mainService
@@ -77,8 +78,8 @@ export default class ImpactoInicialComponente {
             .map(res => res.items);
   }
 
-  gotoDetail(hero: ConcursoRemocaoModel) {
-    console.log('ConcursoRemocaoComponente ==> inscricao = ', hero.numeroVaga);
+  gotoDetail() {
+    console.log('ConcursoRemocaoComponente ==> dataRemocaoGravacao = ', this.dataRemocaoGravacao);
     // let link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
     // this._router.navigate(link);
   }

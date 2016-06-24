@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
 var ConcursoRemocao = (function () {
-    function ConcursoRemocao(numeroVaga, cargoDescricao, ramoOrigem, ufOrigem, unidadeOrigem, ramoDestino, ufDestino, unidadeDestino, lei, motivo, ultimoOcupante) {
+    function ConcursoRemocao(numeroVaga, cargoDescricao, ramoOrigem, ufOrigem, unidadeOrigem, ramoDestino, ufDestino, unidadeDestino, lei, motivo, ultimoOcupante, dataRemocaoGravacao, totalRemocao) {
         this.numeroVaga = numeroVaga;
         this.cargoDescricao = cargoDescricao;
         this.ramoOrigem = ramoOrigem;
@@ -24,6 +24,8 @@ var ConcursoRemocao = (function () {
         this.lei = lei;
         this.motivo = motivo;
         this.ultimoOcupante = ultimoOcupante;
+        this.dataRemocaoGravacao = dataRemocaoGravacao;
+        this.totalRemocao = totalRemocao;
         console.log(' Model ConcursoRemocao...');
     }
     return ConcursoRemocao;
