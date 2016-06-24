@@ -30,12 +30,12 @@ export default class ConcursoRemocaoComponente {
   total: number;
   p: number = 1;
   loading: boolean;
-  
+
 
   constructor(http: Http,  private _router: Router, mainService: ConcursoRemocaoService) {
     // console.log('ConcursoRemocaoComponente Construtor');
     var me = this;
-    
+
     //SUBSTITUINDO por chamada ao serviço
     mainService
       .getAllConcursoRemocaoPorDatas()
@@ -61,7 +61,7 @@ export default class ConcursoRemocaoComponente {
           .of({
               items: meals.slice(start, end),
               total: meals.length
-          });//.delay(1000); 
+          });//.delay(1000);
   }
 
   getPage(page: number) {
@@ -79,8 +79,8 @@ export default class ConcursoRemocaoComponente {
   }
 
   gotoDetail(hero: ConcursoRemocaoModel) {
-    // console.log('ConcursoRemocaoComponente ==> inscricao = ', hero.inscricao);
-    // let link = ['/NomeacaoDetail', hero.inscricao];
-    // this._router.navigate(link);
+    console.log('ConcursoRemocaoComponente ==> inscricao = ', hero.numeroVaga);
+    let link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
+    this._router.navigate(link);
   }
 }

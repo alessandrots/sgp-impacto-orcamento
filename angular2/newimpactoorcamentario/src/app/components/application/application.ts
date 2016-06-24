@@ -12,6 +12,8 @@ import LoginComponent from '../formLogin/login';
 import ConcursadoComponente from '../concursado/concursado';
 import ConcursadoDetailComponente from '../concursado/concursado-detail';
 import ConcursoRemocaoComponente from '../concursoRemocao/concursoRemocao';
+import ConcursoRemocaoDetailComponente from '../concursoRemocao/concursoRemocao-detail';
+
 
 /**
  declare var require: any;//http://stackoverflow.com/questions/31173738/typescript-getting-error-ts2304-cannot-find-name-require/31263434#31263434
@@ -36,6 +38,7 @@ import ConcursoRemocaoComponente from '../concursoRemocao/concursoRemocao';
     {path: '/Login', component: LoginComponent},
     {path: '/ConcursadoComponente', component: ConcursadoComponente},
     {path: '/ConcursadoDetailComponente/:inscricao', component: ConcursadoDetailComponente},
+    {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursadoDetailComponente},
     {path: '/RemocaoComponente', component: ConcursoRemocaoComponente}
 ])
 
