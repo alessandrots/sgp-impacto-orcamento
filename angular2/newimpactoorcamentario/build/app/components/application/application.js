@@ -21,6 +21,8 @@ var login_1 = require('../formLogin/login');
 var concursado_1 = require('../concursado/concursado');
 var concursado_detail_1 = require('../concursado/concursado-detail');
 var concursoRemocao_1 = require('../concursoRemocao/concursoRemocao');
+var concursoRemocao_detail_1 = require('../concursoRemocao/concursoRemocao-detail');
+var impacto_inicial_1 = require('../impacto/impacto-inicial');
 var ApplicationComponent = (function () {
     function ApplicationComponent() {
     }
@@ -41,8 +43,9 @@ var ApplicationComponent = (function () {
             { path: '/Login', component: login_1.default },
             { path: '/ConcursadoComponente', component: concursado_1.default },
             { path: '/ConcursadoDetailComponente/:inscricao', component: concursado_detail_1.default },
-            { path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: concursado_detail_1.default },
-            { path: '/RemocaoComponente', component: concursoRemocao_1.default }
+            { path: '/RemocaoComponente', component: concursoRemocao_1.default },
+            { path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: concursoRemocao_detail_1.default },
+            { path: '/ImpactoInicialComponente', component: impacto_inicial_1.default }
         ]), 
         __metadata('design:paramtypes', [])
     ], ApplicationComponent);

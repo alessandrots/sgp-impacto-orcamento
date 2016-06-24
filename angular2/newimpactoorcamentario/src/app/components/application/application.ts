@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-// import {RouteConfig, RouterOutlet} from '@angular/router';
 import {Routes, ROUTER_DIRECTIVES} from '@angular/router';
 import HomeComponent from '../home/home';
 import HomeForm from '../homeForm/homeForm';
@@ -13,6 +12,7 @@ import ConcursadoComponente from '../concursado/concursado';
 import ConcursadoDetailComponente from '../concursado/concursado-detail';
 import ConcursoRemocaoComponente from '../concursoRemocao/concursoRemocao';
 import ConcursoRemocaoDetailComponente from '../concursoRemocao/concursoRemocao-detail';
+import ImpactoInicialComponente from '../impacto/impacto-inicial';
 
 
 /**
@@ -38,8 +38,9 @@ import ConcursoRemocaoDetailComponente from '../concursoRemocao/concursoRemocao-
     {path: '/Login', component: LoginComponent},
     {path: '/ConcursadoComponente', component: ConcursadoComponente},
     {path: '/ConcursadoDetailComponente/:inscricao', component: ConcursadoDetailComponente},
-    {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursadoDetailComponente},
-    {path: '/RemocaoComponente', component: ConcursoRemocaoComponente}
+    {path: '/RemocaoComponente', component: ConcursoRemocaoComponente},
+    {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursoRemocaoDetailComponente},
+    {path: '/ImpactoInicialComponente', component: ImpactoInicialComponente}
 ])
 
 export default class ApplicationComponent {}

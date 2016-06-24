@@ -13,7 +13,7 @@ interface IServerResponse {
 
 @Component({
   selector: 'orc-nomeacao-paginator-page',
-  template: require('./concursado-detail.html')
+  template: require('./concursoRemocao-detail.html')
 
 })
 
@@ -32,14 +32,14 @@ export default class ConcursoRemocaoDetailComponente {
 
   ngOnInit() {
     let id = +this.params.getParam('numeroVaga');
-    console.log('ConcursoRemocaoDetailComponente inscricao = ', id);
+    console.log('ConcursoRemocaoDetailComponente numeroVaga = ', id);
 
     //SUBSTITUINDO por chamada ao serviço
     this.mainService
       .getConcursoRemocaoPorVaga(id)
       .subscribe(
         data => {
-          this.obj = data;
+          this.obj = data[0];
           console.log('this.obj = ', this.obj);
         },
         error => console.error(error));

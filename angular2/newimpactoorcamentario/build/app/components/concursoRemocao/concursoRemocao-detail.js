@@ -22,11 +22,11 @@ var ConcursoRemocaoDetailComponente = (function () {
     ConcursoRemocaoDetailComponente.prototype.ngOnInit = function () {
         var _this = this;
         var id = +this.params.getParam('numeroVaga');
-        console.log('ConcursoRemocaoDetailComponente inscricao = ', id);
+        console.log('ConcursoRemocaoDetailComponente numeroVaga = ', id);
         this.mainService
             .getConcursoRemocaoPorVaga(id)
             .subscribe(function (data) {
-            _this.obj = data;
+            _this.obj = data[0];
             console.log('this.obj = ', _this.obj);
         }, function (error) { return console.error(error); });
     };
@@ -37,7 +37,7 @@ var ConcursoRemocaoDetailComponente = (function () {
     ConcursoRemocaoDetailComponente = __decorate([
         core_1.Component({
             selector: 'orc-nomeacao-paginator-page',
-            template: require('./concursado-detail.html')
+            template: require('./concursoRemocao-detail.html')
         }), 
         __metadata('design:paramtypes', [http_1.Http, router_1.RouteSegment, concurso_remocao_service_1.ConcursoRemocaoService])
     ], ConcursoRemocaoDetailComponente);
