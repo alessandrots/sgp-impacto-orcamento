@@ -37,9 +37,9 @@ var ConcursoRemocaoService = (function () {
         this.searchEvent = new core_1.EventEmitter();
         this.urlBase = 'http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/';
     }
-    ConcursoRemocaoService.prototype.getAllConcursoRemocaoPorDatas = function () {
+    ConcursoRemocaoService.prototype.getAllConcursoRemocaoPorDatas = function (data) {
         console.log('service ::: getAllConcursoRemocaoEntredatas ==>  ');
-        return this.http.get(this.urlBase + 'getRemocoesPorDatas?dataMaxima=01/01/2015')
+        return this.http.get(this.urlBase + 'getRemocoesPorDatas?dataMaxima=' + data)
             .map(function (response) { return response.json(); });
     };
     ConcursoRemocaoService.prototype.getConcursoRemocaoPorVaga = function (vaga) {

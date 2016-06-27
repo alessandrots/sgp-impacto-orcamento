@@ -36,11 +36,13 @@ export class ConcursoRemocaoService {
 
   /**
   * Retorna o array de impacto
+  * http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/
+  getRemocoesPorDatas?dataMaxima=01/01/2015
   **/
-  getAllConcursoRemocaoPorDatas(): Observable<ConcursoRemocao[]> {
+  getAllConcursoRemocaoPorDatas(data:string): Observable<ConcursoRemocao[]> {
     console.log('service ::: getAllConcursoRemocaoEntredatas ==>  ');
     // return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDatas?dataMaxima=01/01/2015');
-    return this.http.get(this.urlBase + 'getRemocoesPorDatas?dataMaxima=01/01/2015')
+    return this.http.get(this.urlBase + 'getRemocoesPorDatas?dataMaxima='+ data)
       .map(response => response.json());
   }
 
@@ -56,7 +58,9 @@ export class ConcursoRemocaoService {
     // return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarDatasRemocoes')
     return this.http.get(this.urlBase + 'recuperarDatasRemocoes')
       .map(response => response.json());
-  }l
+  }
+
+
 }
 
 /**

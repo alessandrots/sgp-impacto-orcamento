@@ -3,7 +3,7 @@ import {NgFor} from '@angular/common';
 import {Http, Response} from '@angular/http';
 import {PaginatePipe, PaginationControlsCmp, PaginationService} from '../../../../node_modules/ng2-pagination';
 import ConcursoRemocaoModel from './concurso-remocao-model';
-import { Router } from '@angular/router';
+import { Router, RouteSegment} from '@angular/router';
 import {ConcursoRemocao, ConcursoRemocaoService} from '../../services/concurso-remocao-service';
 import {Observable} from 'rxjs';
 
@@ -30,15 +30,24 @@ export default class ConcursoRemocaoComponente {
   total: number;
   p: number = 1;
   loading: boolean;
+  params: RouteSegment;
+  mainService: ConcursoRemocaoService;
 
 
-  constructor(http: Http,  private _router: Router, mainService: ConcursoRemocaoService) {
-    // console.log('ConcursoRemocaoComponente Construtor');
+  constructor(http: Http,  private _router: Router, mainService: ConcursoRemocaoService, params: RouteSegment) {
+    console.log('ConcursoRemocaoComponente Construtor');
     var me = this;
+    this.params = params;
+    this.mainService = mainService;
+  }
 
+  ngOnInit() {
+    console.log('ConcursoRemocaoComponente ngOnInit');
+    var me = this;
+    let data = this.params.getParam('data');
     //SUBSTITUINDO por chamada ao serviço
-    mainService
-      .getAllConcursoRemocaoPorDatas()
+    this.mainService
+      .getAllConcursoRemocaoPorDatas(data)
       .subscribe(
         data => {
           this.resultAll = data;

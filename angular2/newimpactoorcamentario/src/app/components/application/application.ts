@@ -38,7 +38,7 @@ import ImpactoInicialComponente from '../impacto/impacto-inicial';
     {path: '/Login', component: LoginComponent},
     {path: '/ConcursadoComponente', component: ConcursadoComponente},
     {path: '/ConcursadoDetailComponente/:inscricao', component: ConcursadoDetailComponente},
-    {path: '/RemocaoComponente', component: ConcursoRemocaoComponente},
+    {path: '/RemocaoComponente/:data', component: ConcursoRemocaoComponente},
     {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursoRemocaoDetailComponente},
     {path: '/ImpactoInicialComponente', component: ImpactoInicialComponente}
 ])
