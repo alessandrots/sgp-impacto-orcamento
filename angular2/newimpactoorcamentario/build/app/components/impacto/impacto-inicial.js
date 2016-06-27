@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var common_2 = require('@angular/common');
 var http_1 = require('@angular/http');
 var ng2_pagination_1 = require('../../../../node_modules/ng2-pagination');
 var router_1 = require('@angular/router');
@@ -22,6 +23,10 @@ var ImpactoInicialComponente = (function () {
         this.resultAll = [];
         this.p = 1;
         var me = this;
+        var fb = new common_1.FormBuilder();
+        this.formModel = fb.group({
+            'dataRemocaoGravacao': ['', common_1.Validators.required]
+        });
         mainService
             .getDatasRemocoes()
             .subscribe(function (data) {
@@ -52,7 +57,9 @@ var ImpactoInicialComponente = (function () {
             .map(function (res) { return res.items; });
     };
     ImpactoInicialComponente.prototype.gotoDetail = function () {
-        console.log('ConcursoRemocaoComponente ==> dataRemocaoGravacao = ', this.dataRemocaoGravacao);
+    };
+    ImpactoInicialComponente.prototype.onSubmit = function () {
+        console.log('this.dataRemocaoGravacao = ', this.dataRemocaoGravacao);
     };
     __decorate([
         core_1.Input('data'), 
@@ -62,8 +69,9 @@ var ImpactoInicialComponente = (function () {
         core_1.Component({
             selector: 'orc-impacto-inicial-page',
             directives: [
-                common_1.NgFor,
-                ng2_pagination_1.PaginationControlsCmp
+                common_2.NgFor,
+                ng2_pagination_1.PaginationControlsCmp,
+                common_1.FORM_DIRECTIVES
             ],
             pipes: [ng2_pagination_1.PaginatePipe],
             providers: [ng2_pagination_1.PaginationService],

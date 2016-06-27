@@ -1,10 +1,12 @@
-import {Component, Input} from '@angular/core';
+import {Directive, Component, Input} from '@angular/core';
+import {Control, ControlGroup, Validators, FormBuilder, FORM_DIRECTIVES} from '@angular/common';
 import {NgFor} from '@angular/common';
 import {Http, Response} from '@angular/http';
 import {PaginatePipe, PaginationControlsCmp, PaginationService} from '../../../../node_modules/ng2-pagination';
 import ConcursoRemocaoModel from '../concursoRemocao/concurso-remocao-model';
 import { Router } from '@angular/router';
 import {ConcursoRemocao, ConcursoRemocaoService} from '../../services/concurso-remocao-service';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {Observable} from 'rxjs';
 
 interface IServerResponse {
@@ -16,7 +18,8 @@ interface IServerResponse {
   selector: 'orc-impacto-inicial-page',
   directives: [
     NgFor,
-    PaginationControlsCmp
+    PaginationControlsCmp,
+    FORM_DIRECTIVES
   ],
   pipes: [PaginatePipe],
   providers: [PaginationService],
@@ -30,12 +33,18 @@ export default class ImpactoInicialComponente {
   total: number;
   p: number = 1;
   loading: boolean;
-
+  formModel: ControlGroup;
+  submitted: boolean;
 
   constructor(http: Http,  private _router: Router, mainService: ConcursoRemocaoService) {
     // console.log('ConcursoRemocaoComponente Construtor');
     var me = this;
     // this.impacto = new ConcursoRemocaoModel();
+
+    const fb = new FormBuilder();
+    this.formModel = fb.group({
+      'dataRemocaoGravacao': ['', Validators.required]
+    });
 
     //SUBSTITUINDO por chamada ao serviço
     mainService
@@ -79,8 +88,17 @@ export default class ImpactoInicialComponente {
   }
 
   gotoDetail() {
-    console.log('ConcursoRemocaoComponente ==> dataRemocaoGravacao = ', this.dataRemocaoGravacao);
+    // console.log('ConcursoRemocaoComponente ==> dataRemocaoGravacao = ', this.dataRemocaoGravacao);
     // let link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
     // this._router.navigate(link);
+  }
+
+  onSubmit() {
+    console.log('this.dataRemocaoGravacao = ', this.dataRemocaoGravacao);
+    // if (this.formModel.valid) {
+    //   console.log('this.formModel = ', this.formModel);
+    //   this.submitted = true;
+    //   // console.log('this.formModel = ', this.formModel.dataRemocaoGravacao.value);
+    // }
   }
 }

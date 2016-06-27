@@ -3,6 +3,7 @@
 </div>
 
 <div class="row">
+  <form [ngFormModel]="formModel" (ngSubmit)="onSubmit()" novalidate>
     <table border="1">
       <tr>
           <th>Data Gravação Remoção</th>
@@ -12,22 +13,17 @@
       <tr *ngFor="let obj of result | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }" >
           <td>
               <input  type="radio"
+                      ngControl="dataRemocaoGravacao"
                       name="dataRemocaoGravacao"
-                      [ngModel]="dataRemocaoGravacao"
-                      (ng-model)="dataRemocaoGravacao=$event"
-                      value="{{obj.dataRemocaoGravacao}}">
-              {{obj.dataRemocaoGravacao}}<br>
+                      (click)="dataRemocaoGravacao = obj.dataRemocaoGravacao">
+                      {{obj.dataRemocaoGravacao}}<br>
+              <!-- <span [hidden]="!formModel.hasError('required', 'dataRemocaoGravacao')">Data de Remoção is required</span> -->
           </td>
           <td>{{obj.totalRemocao}}</td>
       </tr>
-      <button type="button" (click)="gotoDetail()">Click Me!</button>
-
-      <!-- <input type="text" class="form-control" required
-        [(ngModel)]="model.name"
-          ngControl="name"  #name="ngForm" >
-
-
-         -->
+      <!-- <button type="button" (click)="gotoDetail()">Click Me!</button> -->
+      <button type="submit">Submit</button>
 
     </table>
+  </form>
 </div>
