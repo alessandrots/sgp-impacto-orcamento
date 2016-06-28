@@ -8,7 +8,7 @@ import {Control, ControlGroup, Validators, FormBuilder, FORM_DIRECTIVES} from '@
  */
 function ssnValidator(control: Control): {[key: string]: any} {
   const value: string = control.value || '';
-  const valid = value.match(/^\d{9}$/);
+  const valid = value.match(/^\d{3}$/);
   return valid ? null : {ssn: true};
 }
 
@@ -44,9 +44,10 @@ export default class LoginComponent {
   }
 
   onSubmit() {
+    // console.log('documento.formModel.dataRemocaoGravacao = ', document.form[0].dataRemocaoGravacao);
     if (this.formModel.valid) {
       console.log('this.formModel = ', this.formModel);
-      this.submitted = true; 
+      this.submitted = true;
       console.log('this.formModel = ', this.formModel.value);
     }
   }

@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-// import {RouteConfig, RouterOutlet} from '@angular/router';
 import {Routes, ROUTER_DIRECTIVES} from '@angular/router';
 import HomeComponent from '../home/home';
 import HomeForm from '../homeForm/homeForm';
@@ -12,6 +11,9 @@ import LoginComponent from '../formLogin/login';
 import ConcursadoComponente from '../concursado/concursado';
 import ConcursadoDetailComponente from '../concursado/concursado-detail';
 import ConcursoRemocaoComponente from '../concursoRemocao/concursoRemocao';
+import ConcursoRemocaoDetailComponente from '../concursoRemocao/concursoRemocao-detail';
+import ImpactoInicialComponente from '../impacto/impacto-inicial';
+
 
 /**
  declare var require: any;//http://stackoverflow.com/questions/31173738/typescript-getting-error-ts2304-cannot-find-name-require/31263434#31263434
@@ -36,7 +38,9 @@ import ConcursoRemocaoComponente from '../concursoRemocao/concursoRemocao';
     {path: '/Login', component: LoginComponent},
     {path: '/ConcursadoComponente', component: ConcursadoComponente},
     {path: '/ConcursadoDetailComponente/:inscricao', component: ConcursadoDetailComponente},
-    {path: '/RemocaoComponente', component: ConcursoRemocaoComponente}
+    {path: '/RemocaoComponente/:dia/:mes/:ano', component: ConcursoRemocaoComponente},
+    {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursoRemocaoDetailComponente},
+    {path: '/ImpactoInicialComponente', component: ImpactoInicialComponente}
 ])
 
 export default class ApplicationComponent {}

@@ -15,7 +15,9 @@ export class ConcursoRemocao {
     public unidadeDestino:string,
     public lei:string,
     public motivo:string,
-    public ultimoOcupante:string) {
+    public ultimoOcupante:string,
+    public dataRemocaoGravacao:string,
+    public totalRemocao:string) {
       console.log(' Model ConcursoRemocao...');
   }
 
@@ -24,23 +26,41 @@ export class ConcursoRemocao {
 @Injectable()
 export class ConcursoRemocaoService {
   searchEvent: EventEmitter<any> = new EventEmitter();
+  private urlBase: string;
+  // private http: Http;
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+    // this.http = http;
+    this.urlBase = 'http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/';
+  }
 
   /**
   * Retorna o array de impacto
+  * http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/
+  getRemocoesPorDatas?dataMaxima=01/01/2015
   **/
-  getAllConcursoRemocaoPorDatas(): Observable<ConcursoRemocao[]> {
+  getAllConcursoRemocaoPorDatas(data:string): Observable<ConcursoRemocao[]> {
     console.log('service ::: getAllConcursoRemocaoEntredatas ==>  ');
-    return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDatas?dataMaxima=01/01/2015')
+    // return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDatas?dataMaxima=01/01/2015');
+    return this.http.get(this.urlBase + 'getRemocoesPorDatas?dataMaxima='+ data)
       .map(response => response.json());
   }
 
   getConcursoRemocaoPorVaga(vaga:number): Observable<ConcursoRemocao> {
     console.log('service ::: getConcursoRemocaoPorVaga ==>  ');
-    return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/'+ vaga)
+    // return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/'+ vaga)
+    return this.http.get(this.urlBase + 'recuperarRemocoesPorVaga/'+ vaga)
       .map(response => response.json());
   }
+
+  getDatasRemocoes(): Observable<ConcursoRemocao[]> {
+    console.log('service ::: getDatasRemocoes ==>  ');
+    // return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarDatasRemocoes')
+    return this.http.get(this.urlBase + 'recuperarDatasRemocoes')
+      .map(response => response.json());
+  }
+
+
 }
 
 /**

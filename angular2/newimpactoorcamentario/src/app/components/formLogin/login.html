@@ -25,6 +25,14 @@
         <input type="password" ngControl="pconfirm">
         <span [hidden]="!formModel.hasError('equal', 'passwordsGroup')">Passwords must be the same</span>
       </div>
+
+    </div>
+
+    <div>
+      <input  type="radio"
+              name="dataRemocaoGravacao"
+              value="22/04/2015">22/04/2015
+      <span [hidden]="!formModel.hasError('required', 'dataRemocaoGravacao')">dataRemocaoGravacao is required</span>
     </div>
 
     <button type="submit">Submit</button>
@@ -45,7 +53,7 @@
       <div class="col-xs-3">Password</div>
       <div class="col-xs-9 pull-left">{{ formModel.value.passwordsGroup.password }}</div>
     </div>
-    
+
     <br>
     <button class="btn btn-default" (click)="submitted=false">Edit</button>
 </div>
