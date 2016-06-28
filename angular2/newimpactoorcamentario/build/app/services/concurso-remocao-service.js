@@ -47,6 +47,10 @@ var ConcursoRemocaoService = (function () {
         return this.http.get(this.urlBase + 'recuperarRemocoesPorVaga/' + vaga)
             .map(function (response) { return response.json(); });
     };
+    ConcursoRemocaoService.prototype.getRemocoesPorDiaMesAno = function (dia, mes, ano) {
+        return this.http.get(this.urlBase + 'getRemocoesPorDiaMesAno/' + dia + '/' + mes + '/' + ano)
+            .map(function (response) { return response.json(); });
+    };
     ConcursoRemocaoService.prototype.getDatasRemocoes = function () {
         console.log('service ::: getDatasRemocoes ==>  ');
         return this.http.get(this.urlBase + 'recuperarDatasRemocoes')

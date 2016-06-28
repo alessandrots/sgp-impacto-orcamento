@@ -27,11 +27,15 @@ var ConcursoRemocaoComponente = (function () {
     }
     ConcursoRemocaoComponente.prototype.ngOnInit = function () {
         var _this = this;
-        console.log('ConcursoRemocaoComponente ngOnInit');
         var me = this;
-        var data = this.params.getParam('data');
+        var dia = this.params.getParam('dia');
+        var mes = this.params.getParam('mes');
+        var ano = this.params.getParam('ano');
+        console.log('ConcursoRemocaoComponente dia = ', dia);
+        console.log('ConcursoRemocaoComponente mes = ', mes);
+        console.log('ConcursoRemocaoComponente ano = ', ano);
         this.mainService
-            .getAllConcursoRemocaoPorDatas(data)
+            .getRemocoesPorDiaMesAno(dia, mes, ano)
             .subscribe(function (data) {
             _this.resultAll = data;
             _this.total = data.length;

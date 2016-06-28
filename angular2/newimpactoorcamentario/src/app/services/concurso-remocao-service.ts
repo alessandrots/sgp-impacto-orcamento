@@ -53,13 +53,19 @@ export class ConcursoRemocaoService {
       .map(response => response.json());
   }
 
+  getRemocoesPorDiaMesAno(dia:string, mes:string, ano:string): Observable<ConcursoRemocao[]> {
+    // console.log('service ::: getRemocoesPorDiaMesAno ==>  = ', diaMesAno);
+    // return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/'+ vaga)
+    return this.http.get(this.urlBase + 'getRemocoesPorDiaMesAno/'+ dia + '/' + mes + '/' + ano)
+      .map(response => response.json());
+  }
+
   getDatasRemocoes(): Observable<ConcursoRemocao[]> {
     console.log('service ::: getDatasRemocoes ==>  ');
     // return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarDatasRemocoes')
     return this.http.get(this.urlBase + 'recuperarDatasRemocoes')
       .map(response => response.json());
   }
-
 
 }
 
