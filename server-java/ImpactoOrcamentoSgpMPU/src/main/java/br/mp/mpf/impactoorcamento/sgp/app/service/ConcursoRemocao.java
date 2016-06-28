@@ -32,16 +32,40 @@ public class ConcursoRemocao extends BeanManager {
 		@Path("/getRemocoesPorDatas")
 		@Produces("text/json;charset=UTF-8")
 		/**
-		 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDatas?dataMaxima=01/01/2015
-		 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDatas?dataMaxima=01/01/2015
+		 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDataCompleta?dataMaxima=01/01/2015
+		 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDataCompleta?dataMaxima=01/01/2015
 		 * 
 		 * @param dataMaxima
 		 * @return Response
 		 */
-		public Response getRemocoesPorDatas(@QueryParam("dataMaxima") String dataMaxima) {
+		public Response getRemocoesPorDataCompleta(@QueryParam("dataMaxima") String dataMaxima) {
 			init();
 			
 			getConcursoRemocaoFacade();
+			
+			Date dt = Util.newInstance().convertDataStringToDate(dataMaxima);
+			
+			String output  = this.getConcursoRemocaoFacade().recuperarRemocoesEntreDatas(dt);
+			
+			return Response.status(200).entity(output).build();
+		}
+		
+		@GET
+		@Path("/getRemocoesPorDiaMesAno/{dia}/{mes}/{ano}")
+		@Produces("text/json;charset=UTF-8")
+		/**
+		 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDiaMesAno/01/01/2015
+		 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDiaMesAno/01/01/2015
+		 * 
+		 * @param dataMaxima
+		 * @return Response
+		 */
+		public Response getRemocoesPorDiaMesAno(@PathParam("dia") String dia, @PathParam("mes") String mes, @PathParam("ano") String ano) {
+			init();
+			
+			getConcursoRemocaoFacade();
+			
+			String dataMaxima = dia + "/"+ mes + "/"+ ano;
 			
 			Date dt = Util.newInstance().convertDataStringToDate(dataMaxima);
 			
