@@ -8,15 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var router_1 = require('@angular/router');
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var common_2 = require('@angular/common');
 var http_1 = require('@angular/http');
 var ng2_pagination_1 = require('../../../../node_modules/ng2-pagination');
-var router_2 = require('@angular/router');
+var router_1 = require('@angular/router');
 var concurso_remocao_service_1 = require('../../services/concurso-remocao-service');
-var concursoRemocao_1 = require('../concursoRemocao/concursoRemocao');
 var rxjs_1 = require('rxjs');
 var ImpactoInicialComponente = (function () {
     function ImpactoInicialComponente(http, _router, mainService) {
@@ -59,12 +57,12 @@ var ImpactoInicialComponente = (function () {
     ImpactoInicialComponente.prototype.gotoDetail = function () {
     };
     ImpactoInicialComponente.prototype.mySubmit = function (data_) {
-        var me = this, data;
+        var me = this, dataArr;
         console.log('data_ = ', data_);
         if (data_) {
-            data = data_.split(' ');
-            console.log('ImpactoInicialComponente data = ', data);
-            var link = ['/RemocaoComponente', data[0]];
+            dataArr = data_.split(' ');
+            console.log('ImpactoInicialComponente data = ', dataArr[0].split('/').join(''));
+            var link = ['/RemocaoComponente', dataArr[0]];
             this._router.navigate(link);
         }
     };
@@ -83,11 +81,8 @@ var ImpactoInicialComponente = (function () {
             pipes: [ng2_pagination_1.PaginatePipe],
             providers: [ng2_pagination_1.PaginationService],
             template: require('./impacto-inicial.html')
-        }),
-        router_1.Routes([
-            { path: '/RemocaoComponente/:data', component: concursoRemocao_1.default }
-        ]), 
-        __metadata('design:paramtypes', [http_1.Http, router_2.Router, concurso_remocao_service_1.ConcursoRemocaoService])
+        }), 
+        __metadata('design:paramtypes', [http_1.Http, router_1.Router, concurso_remocao_service_1.ConcursoRemocaoService])
     ], ImpactoInicialComponente);
     return ImpactoInicialComponente;
 }());

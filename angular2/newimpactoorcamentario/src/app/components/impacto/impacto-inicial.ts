@@ -29,9 +29,9 @@ interface IServerResponse {
 
 })
 
-@Routes([
-    {path: '/RemocaoComponente/:data', component: ConcursoRemocaoComponente}
-])
+// @Routes([
+//     {path: '/RemocaoComponente/:data', component: ConcursoRemocaoComponente}
+// ])
 
 export default class ImpactoInicialComponente {
   result: Observable<ConcursoRemocaoModel[]>;
@@ -84,8 +84,6 @@ export default class ImpactoInicialComponente {
 
   getPage(page: number) {
       this.loading = true;
-      // console.log('ConcursoRemocaoComponente ::: tamanho array  = ', this.resultAll.length);
-      // console.log('ConcursoRemocaoComponente ::: page: number = ', page);
       this.result = this.serverCall(this.resultAll, page)
             .do(res => {
                 // console.log('getPage = ', res);
@@ -103,33 +101,14 @@ export default class ImpactoInicialComponente {
   }
 
   mySubmit(data_) {
-    var me=this, data;
-    // console.log('this.dataRemocaoGravacao = ', this.dataRemocaoGravacao);
+    var me=this, dataArr;
     console.log('data_ = ', data_);
 
-    // if (this.formModel.valid) {
-    //   console.log('this.formModel = ', this.formModel);
-    //   this.submitted = true;
-    //   // console.log('this.formModel = ', this.formModel.dataRemocaoGravacao.value);
-    // }
-
-
-    // if (me.dataRemocaoGravacao) {
     if (data_) {
-      // data = me.dataRemocaoGravacao.split(' ');
-      data = data_.split(' ');
-      console.log('ImpactoInicialComponente data = ', data);
-      let link = ['/RemocaoComponente',data[0]];
+      dataArr = data_.split(' ');
+      console.log('ImpactoInicialComponente data = ', dataArr[0].split('/').join(''));
+      let link = ['/RemocaoComponente',dataArr[0]];//dataArr[0].split('/').join('')];
       this._router.navigate(link);
-
-      // me.mainService
-      //   .getAllConcursoRemocaoPorDatas(data[0])
-      //   .subscribe(
-      //     data => {
-      //       console.log('getAllConcursoRemocaoPorDatas ==> data.length = ', data.length);;
-      //     },
-      //     error => console.error(error));
     }
-
   }
 }

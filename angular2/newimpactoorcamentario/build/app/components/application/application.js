@@ -43,7 +43,7 @@ var ApplicationComponent = (function () {
             { path: '/Login', component: login_1.default },
             { path: '/ConcursadoComponente', component: concursado_1.default },
             { path: '/ConcursadoDetailComponente/:inscricao', component: concursado_detail_1.default },
-            { path: '/RemocaoComponente/:data', component: concursoRemocao_1.default },
+            { path: '/RemocaoComponente/:dia/:mes/:ano', component: concursoRemocao_1.default },
             { path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: concursoRemocao_detail_1.default },
             { path: '/ImpactoInicialComponente', component: impacto_inicial_1.default }
         ]), 
