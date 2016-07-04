@@ -3,12 +3,13 @@ package br.mp.mpf.impactoorcamento.sgp.util;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Properties;
 
 public class Util {
 	
 	private static Util instancia;
-//	private static ArrayList<String> listaUUID;
 	private static final String DATE_FORMAT = "dd/MM/yyyy";
 	private static final String TIME_FORMAT = "kk:mm:ssssss";
 	
@@ -194,6 +195,35 @@ public class Util {
 		Calendar c = Calendar.getInstance();
 		c.setTime(data);		
 		return c;
+	}
+	
+	
+	public void recuperarCargosASerFiltradosFromProperties(Properties impactoOrcamentoProperties, HashMap<String, String> mapaCargos) {
+		String[] arrCargosParaSeremFiltrados = null;
+		
+		if (impactoOrcamentoProperties.containsKey(Constantes.KEY_PROPS_CARGOS_FILTRADOS_CONCURSADO)) {
+			String key = (String)impactoOrcamentoProperties.get(Constantes.KEY_PROPS_CARGOS_FILTRADOS_CONCURSADO);
+			
+			if (key != null) {
+				arrCargosParaSeremFiltrados = key.split(":");
+				if (arrCargosParaSeremFiltrados != null && arrCargosParaSeremFiltrados.length > 0) {
+					mapaCargos = new HashMap<String,String>();
+					for (String cargo : arrCargosParaSeremFiltrados) {
+						mapaCargos.put(cargo.toUpperCase(), cargo.toUpperCase());
+					}
+				}
+			}
+		}
+	}
+	
+	public boolean verificarChaveASerFiltradoNoMapa (String chaveParaPesquisa, HashMap<String, String> mapa) {
+		if (mapa !=null) {
+			if (mapa.containsKey(chaveParaPesquisa.toUpperCase())) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 	

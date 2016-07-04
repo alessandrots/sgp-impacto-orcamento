@@ -25,8 +25,8 @@ public class MyFacade {
 	private ConcursoRemocaoDAO concursoRemocaoDAO;
 	
 	@Autowired
-	@Qualifier("impactoOrcProperties")
-	private Properties impactoOrcProperties;
+	@Qualifier("impactoOrcamentoProperties")
+	private Properties impactoOrcamentoProperties;
 
 //	private Usuario autenticado;
 	

@@ -52,6 +52,18 @@ public class ConcursadoFacade extends Facade {
 		return tmp;
 	}
 	
+	
+	@Transactional
+	public List<ConcursadoJSon> recuperarNomeacoesEntreDataInicialRemocaoEDataAtual(Date dataInicialRemocao, Date dataAtualPesquisa) {
+		List<ConcursadoJSon> lista = new ArrayList<ConcursadoJSon>();
+		
+		this.getConcursadoDAO().recuperarNomeacoesEntreDatas(dataInicialRemocao, dataAtualPesquisa).forEach((concursado)->{
+			lista.add((ConcursadoJSon)convertJson(concursado));
+		});
+		
+		return lista;
+	}
+	
 	public ConcursadoJSon copyProperties(Domain d) {
 		Concursado domain = (Concursado)d;
 		ConcursadoJSon to = new ConcursadoJSon();

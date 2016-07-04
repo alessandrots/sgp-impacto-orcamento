@@ -114,4 +114,6 @@ public class ConcursoRemocao extends BeanManager {
 			return Response.status(200).entity(output).build();
 		}
 		
+		
+		
 }

@@ -7,11 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.mp.mpf.impactoorcamento.sgp.app.facade.ConcursadoFacade;
 import br.mp.mpf.impactoorcamento.sgp.app.facade.ConcursoRemocaoFacade;
+import br.mp.mpf.impactoorcamento.sgp.app.facade.ImpactoOrcamentoFacade;
 
 public class BeanManager {
 	
 	@Autowired	 
 	private ConcursadoFacade concursadoFacade;
+	
+	@Autowired	 
+	private ImpactoOrcamentoFacade impactoOrcamentoFacade;
 	
 	@Autowired	 
 	private ConcursoRemocaoFacade concursoRemocaoFacade;
@@ -35,5 +39,13 @@ public class BeanManager {
 			this.concursadoFacade = SpringManager.getInstancia().getBean("concursadoFacade");
 		}
 		return this.concursadoFacade;
+	}
+	
+	
+	public ImpactoOrcamentoFacade getImpactoOrcamentoFacade() {
+		if (this.impactoOrcamentoFacade == null) {
+			this.impactoOrcamentoFacade = SpringManager.getInstancia().getBean("impactoOrcamentoFacade");
+		}
+		return this.impactoOrcamentoFacade;
 	}
 }
