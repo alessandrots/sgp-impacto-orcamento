@@ -42,12 +42,19 @@ export default class ConcursoRemocaoComponente {
   }
 
   ngOnInit() {
-    console.log('ConcursoRemocaoComponente ngOnInit');
+
     var me = this;
-    let data = this.params.getParam('data');
+    let dia = this.params.getParam('dia');
+    let mes = this.params.getParam('mes');
+    let ano = this.params.getParam('ano');
+    console.log('ConcursoRemocaoComponente dia = ', dia);
+    console.log('ConcursoRemocaoComponente mes = ', mes);
+    console.log('ConcursoRemocaoComponente ano = ', ano);
+
     //SUBSTITUINDO por chamada ao serviço
     this.mainService
-      .getAllConcursoRemocaoPorDatas(data)
+      // .getAllConcursoRemocaoPorDatas(data)
+      .getRemocoesPorDiaMesAno(dia, mes, ano)
       .subscribe(
         data => {
           this.resultAll = data;
