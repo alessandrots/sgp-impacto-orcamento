@@ -1,10 +1,9 @@
 import {Routes, ROUTER_DIRECTIVES} from '@angular/router';
 import {Directive, Component, Input} from '@angular/core';
 import {Http, Response} from '@angular/http';
-import ConcursoRemocaoModel from '../concursoRemocao/concurso-remocao-model';
+import ConcursadoModel from '../concursado/concursado-model';
 import { Router } from '@angular/router';
-import {ConcursoRemocao, ConcursoRemocaoService} from '../../services/concurso-remocao-service';
-import ConcursoRemocaoComponente from '../concursoRemocao/concursoRemocao';
+import {Concursado, ConcursadoService} from '../../services/concursado-service';
 import {Observable} from 'rxjs';
 import {
   Control,
@@ -26,10 +25,10 @@ import {
 export default class ImpactoInicialComponente2 {
 
   formModel: ControlGroup;
-  mainService: ConcursoRemocaoService;
-  // categories: string[];
+  mainService: ConcursadoService;
+  @Input('data') resultAll: ConcursadoModel[] = [];
 
-  constructor(http: Http,  private _router: Router, mainService: ConcursoRemocaoService) {
+  constructor(http: Http,  private _router: Router, mainService: ConcursadoService) {
     // console.log('ConcursoRemocaoComponente Construtor');
     var me = this;
     // this.impacto = new ConcursoRemocaoModel();
@@ -59,8 +58,24 @@ export default class ImpactoInicialComponente2 {
 
   onSearch() {
     if (this.formModel.valid) {
-      // this.productService.searchEvent.emit(this.formModel.value);
-      console.log('this.formModel = ', this.formModel);
+      // this.mainService.searchEvent.emit(this.formModel.value);
+      // console.log('this.formModel = ', this.formModel);
+      this.mainService
+        .getAllConcursadoEntredatas()
+        .subscribe(
+          data => {
+            this.resultAll = data;
+            // this.total = data.length;
+            // me.getPage(1);
+            /*
+                Fazer a chamada para a funcao especifica,
+                passando as datas como string.. via query path
+                
+            */
+            console.log('this.resultAll = ', this.resultAll);
+          },
+          error => console.error(error));
+      console.log('this.mainService.searchEvent = ', this.mainService.searchEvent);
     }
   }
 

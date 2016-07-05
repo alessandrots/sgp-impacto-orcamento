@@ -24,6 +24,11 @@ export class Concursado {
 
 }
 
+export interface SearchParams {
+  dataInicial: string;
+  dataFinal: string;
+}
+
 @Injectable()
 export class ConcursadoService  {//extends ParentService {
   searchEvent: EventEmitter<any> = new EventEmitter();
@@ -31,7 +36,13 @@ export class ConcursadoService  {//extends ParentService {
 
   constructor(private http: Http) {
     // super('dev');
-    this.parentService= new ParentService('dev');
+    // this.parentService= new ParentService('dev');
+  }
+
+  search(params: SearchParams): Observable<Concursado[]> {
+    console.log('ConcursadoService ==> search = ', params);
+    return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015')
+      .map(response => response.json());
   }
 
   /**

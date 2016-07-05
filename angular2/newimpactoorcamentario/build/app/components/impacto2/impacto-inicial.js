@@ -11,11 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var router_1 = require('@angular/router');
-var concurso_remocao_service_1 = require('../../services/concurso-remocao-service');
+var concursado_service_1 = require('../../services/concursado-service');
 var common_1 = require('@angular/common');
 var ImpactoInicialComponente2 = (function () {
     function ImpactoInicialComponente2(http, _router, mainService) {
         this._router = _router;
+        this.resultAll = [];
         var me = this;
         me.mainService = mainService;
         var fb = new common_1.FormBuilder();
@@ -25,10 +26,21 @@ var ImpactoInicialComponente2 = (function () {
         });
     }
     ImpactoInicialComponente2.prototype.onSearch = function () {
+        var _this = this;
         if (this.formModel.valid) {
-            console.log('this.formModel = ', this.formModel);
+            this.mainService
+                .getAllConcursadoEntredatas()
+                .subscribe(function (data) {
+                _this.resultAll = data;
+                console.log('this.resultAll = ', _this.resultAll);
+            }, function (error) { return console.error(error); });
+            console.log('this.mainService.searchEvent = ', this.mainService.searchEvent);
         }
     };
+    __decorate([
+        core_1.Input('data'), 
+        __metadata('design:type', Array)
+    ], ImpactoInicialComponente2.prototype, "resultAll", void 0);
     ImpactoInicialComponente2 = __decorate([
         core_1.Component({
             selector: 'orc-impacto-inicial-page',
@@ -36,7 +48,7 @@ var ImpactoInicialComponente2 = (function () {
             directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES],
             template: require('./impacto-inicial.html')
         }), 
-        __metadata('design:paramtypes', [http_1.Http, router_1.Router, concurso_remocao_service_1.ConcursoRemocaoService])
+        __metadata('design:paramtypes', [http_1.Http, router_1.Router, concursado_service_1.ConcursadoService])
     ], ImpactoInicialComponente2);
     return ImpactoInicialComponente2;
 }());
