@@ -25,7 +25,7 @@ interface IServerResponse {
   ],
   pipes: [PaginatePipe],
   providers: [PaginationService],
-  template: require('./impacto-inicial.html')
+  template: require('./impacto-inicial2.html')
 
 })
 
@@ -40,6 +40,8 @@ export default class ImpactoInicialComponente {
   total: number;
   p: number = 1;
   loading: boolean;
+  dataInicial:  string;
+  dataFinal: string;
   // formModel: ControlGroup;
   // submitted: boolean;
   mainService: ConcursoRemocaoService
@@ -111,4 +113,37 @@ export default class ImpactoInicialComponente {
       this._router.navigate(link);
     }
   }
+
+  mySubmitText(event, dtIni, dtFim) {
+    var me=this, dataArr;
+    console.log('event = ', event);
+    console.log('dataInicial  = ', this.parseDateString(dtIni.value));
+    console.log('dataFinal    = ', this.parseDateString(dtFim.value));
+
+
+
+    // if (data_) {
+    //   dataArr = data_.split(' ');
+    //   console.log('ImpactoInicialComponente data = ', dataArr[0].split('/').join(''));
+    //   let link = ['/RemocaoComponente',dataArr[0]];//dataArr[0].split('/').join('')];
+    //   this._router.navigate(link);
+    // }
+  }
+
+  parseDateString(date) {
+       //date = date.replace('T','-');
+       console.log('date    = ', date);
+       var parts = date.split('-'), timeParts;
+       if (parts.indexOf(':') != -1){
+          timeParts = parts[3].split(':');
+       }
+
+
+      // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
+      return new Date(parts[0], parts[1]-1, parts[2], 0,0);
+        // timeParts[0], timeParts[1]);     // Note: months are 0-based
+
+    }
+
+  // console.log('mySubmitText DATE');
 }

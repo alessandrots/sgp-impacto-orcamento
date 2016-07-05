@@ -66,6 +66,20 @@ var ImpactoInicialComponente = (function () {
             this._router.navigate(link);
         }
     };
+    ImpactoInicialComponente.prototype.mySubmitText = function (event, dtIni, dtFim) {
+        var me = this, dataArr;
+        console.log('event = ', event);
+        console.log('dataInicial  = ', this.parseDateString(dtIni.value));
+        console.log('dataFinal    = ', this.parseDateString(dtFim.value));
+    };
+    ImpactoInicialComponente.prototype.parseDateString = function (date) {
+        console.log('date    = ', date);
+        var parts = date.split('-'), timeParts;
+        if (parts.indexOf(':') != -1) {
+            timeParts = parts[3].split(':');
+        }
+        return new Date(parts[0], parts[1] - 1, parts[2], 0, 0);
+    };
     __decorate([
         core_1.Input('data'), 
         __metadata('design:type', Array)
@@ -80,7 +94,7 @@ var ImpactoInicialComponente = (function () {
             ],
             pipes: [ng2_pagination_1.PaginatePipe],
             providers: [ng2_pagination_1.PaginationService],
-            template: require('./impacto-inicial.html')
+            template: require('./impacto-inicial2.html')
         }), 
         __metadata('design:paramtypes', [http_1.Http, router_1.Router, concurso_remocao_service_1.ConcursoRemocaoService])
     ], ImpactoInicialComponente);

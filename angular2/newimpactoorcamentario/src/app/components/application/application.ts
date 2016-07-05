@@ -13,6 +13,7 @@ import ConcursadoDetailComponente from '../concursado/concursado-detail';
 import ConcursoRemocaoComponente from '../concursoRemocao/concursoRemocao';
 import ConcursoRemocaoDetailComponente from '../concursoRemocao/concursoRemocao-detail';
 import ImpactoInicialComponente from '../impacto/impacto-inicial';
+import ImpactoInicialComponente2 from '../impacto2/impacto-inicial';
 
 
 /**
@@ -40,7 +41,8 @@ import ImpactoInicialComponente from '../impacto/impacto-inicial';
     {path: '/ConcursadoDetailComponente/:inscricao', component: ConcursadoDetailComponente},
     {path: '/RemocaoComponente/:dia/:mes/:ano', component: ConcursoRemocaoComponente},
     {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursoRemocaoDetailComponente},
-    {path: '/ImpactoInicialComponente', component: ImpactoInicialComponente}
+    {path: '/ImpactoInicialComponente', component: ImpactoInicialComponente},
+    {path: '/ImpactoInicialComponente2', component: ImpactoInicialComponente2}
 ])
 
 export default class ApplicationComponent {}

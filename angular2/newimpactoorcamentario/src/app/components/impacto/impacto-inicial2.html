@@ -1,0 +1,20 @@
+<div class="row">
+  <!-- <form [ngFormModel]="formModel" novalidate> -->
+    <table border="1">
+      <tr>
+          <th>Data Gravação Remoção</th>
+      </tr>
+
+      <tr>
+          <td>
+                <input #dataInicial type="date">
+                <input #dataFinal   type="date">
+                      <!--  (click)="dataRemocaoGravacao = obj.dataRemocaoGravacao">-->
+              <!-- <span [hidden]="!formModel.hasError('required', 'dataRemocaoGravacao')">Data de Remoção is required</span> -->
+          </td>
+      </tr>
+      <!-- <button type="button" (click)="gotoDetail()">Click Me!</button> -->
+      <button type="enviar" (click)="mySubmitText($event, dataInicial, dataFinal)">Submit</button>
+    </table>
+  <!-- </form> -->
+</div>
