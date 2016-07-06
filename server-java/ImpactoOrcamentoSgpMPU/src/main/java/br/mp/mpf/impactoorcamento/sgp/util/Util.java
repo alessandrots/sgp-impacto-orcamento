@@ -153,19 +153,31 @@ public class Util {
 	}
 	
 	public Date convertDataStringToDate(String data) {
-		String[] params = data.split("/");
-		
+		String[] params = null;
 		int dia, mes, ano;
-		
-		dia = Integer.parseInt(params[0]);
-		mes = Integer.parseInt(params[1]);
-		ano = Integer.parseInt(params[2]);
-		
 		Calendar c = Calendar.getInstance();
-		c.set(Calendar.DATE, dia);
-		c.set(Calendar.MONTH, mes-1);
-		c.set(Calendar.YEAR, ano);
 		
+		if(data.indexOf("/") != -1){
+			 params = data.split("/");
+			 dia = Integer.parseInt(params[0]);
+			 mes = Integer.parseInt(params[1]);
+			 ano = Integer.parseInt(params[2]);
+			 
+			 c.set(Calendar.DATE, dia);
+			 c.set(Calendar.MONTH, mes-1);
+			 c.set(Calendar.YEAR, ano);
+		} else if(data.indexOf("-") != -1){
+			 params = data.split("-");
+			 ano = Integer.parseInt(params[0]);
+			 mes = Integer.parseInt(params[1]);
+			 dia = Integer.parseInt(params[2]);
+			 c.set(Calendar.DATE, dia);
+			 c.set(Calendar.MONTH, mes-1);
+			 c.set(Calendar.YEAR, ano);
+		} else {
+			c.setTime(new Date());
+		}
+				
 		return c.getTime();
 	}
 	
