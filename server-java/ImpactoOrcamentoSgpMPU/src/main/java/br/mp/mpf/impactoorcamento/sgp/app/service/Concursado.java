@@ -42,14 +42,17 @@ public class Concursado extends BeanManager {
 		public Response getConcursadoPorDatas(@QueryParam("dataInicial") String dataInicial, @QueryParam("dataFinal") String dataFinal) {
 			init();
 			
-//			http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=2014-03-03&dataFinal=2015-08-03 500 (Internal Server Error)
-			
 			getConcursadoFacade();
 			
 			Date dtini = Util.newInstance().convertDataStringToDate(dataInicial);
 			Date dtfim = Util.newInstance().convertDataStringToDate(dataFinal);
 			
 			String output = this.getConcursadoFacade().recuperarNomeacoesEntreDatas(dtini, dtfim);
+			
+			if(output != null && output.length() > 0){
+				System.out.println("\n\n getConcursadoPorDatas OUTPUT = " + output.length() + "\n\n");
+			}
+			
 			
 			return Response.status(200).entity(output).build();
 		}
