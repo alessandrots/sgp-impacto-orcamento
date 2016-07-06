@@ -2,7 +2,6 @@ package br.mp.mpf.impactoorcamento.sgp.app.service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,8 +9,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import br.mp.mpf.impactoorcamento.sgp.app.json.ConcursadoJSon;
@@ -25,9 +22,9 @@ import br.mp.mpf.impactoorcamento.sgp.util.Util;
 @Component("impactoOrcamentoService")
 public class ImpactoOrcamento extends BeanManager {
 	
-	@Autowired
-	@Qualifier("impactoOrcamentoProperties")
-	private Properties impactoOrcamentoProperties;
+//	@Autowired
+//	@Qualifier("impactoOrcamentoProperties")
+//	private Properties impactoOrcamentoProperties;
 
 	@GET
 	@Path("/realizarImpactoRemocaoComConcursados/{dia}/{mes}/{ano}")

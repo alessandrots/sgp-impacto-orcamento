@@ -8,6 +8,7 @@ import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import br.mp.mpf.impactoorcamento.sgp.app.domain.Domain;
 import br.mp.mpf.impactoorcamento.sgp.app.json.ConcursadoJSon;
@@ -29,7 +30,7 @@ import br.mp.mpf.impactoorcamento.sgp.util.Util;
  * @author alessandroteixeira
  *
  */
-
+@Component("impactoOrcamentoFacade")
 public class ImpactoOrcamentoFacade extends Facade {
 	
 	@Autowired
