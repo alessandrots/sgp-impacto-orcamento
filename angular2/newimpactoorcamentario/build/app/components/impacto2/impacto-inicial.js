@@ -27,9 +27,11 @@ var ImpactoInicialComponente2 = (function () {
     }
     ImpactoInicialComponente2.prototype.onSearch = function () {
         var _this = this;
+        var dataInicial, dataFinal;
         if (this.formModel.valid) {
+            console.log('this.formModel = ', this.formModel);
             this.mainService
-                .getAllConcursadoEntredatas()
+                .getConcursadosPorDatas(this.formModel._value.dataInicial, this.formModel._value.dataFinal)
                 .subscribe(function (data) {
                 _this.resultAll = data;
                 console.log('this.resultAll = ', _this.resultAll);

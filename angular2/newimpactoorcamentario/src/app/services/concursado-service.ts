@@ -50,7 +50,16 @@ export class ConcursadoService  {//extends ParentService {
   **/
   getAllConcursadoEntredatas(): Observable<Concursado[]> {
     console.log('service ::: getAllConcursadoEntredatas ==>  ');
-    return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015')
+    return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getAllConcursados')
+      .map(response => response.json());
+  }
+
+  /**
+  * Retorna o array de impacto
+  **/
+  getConcursadosPorDatas(dataInicial:string, dataFinal:string): Observable<Concursado[]> {
+    console.log('service ::: getConcursadosPorDatas ==> dataInicial= ', dataInicial + ' dataFinal= ', dataFinal);
+    return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial='+ dataInicial +'&dataFinal='+dataFinal)
       .map(response => response.json());
   }
 
