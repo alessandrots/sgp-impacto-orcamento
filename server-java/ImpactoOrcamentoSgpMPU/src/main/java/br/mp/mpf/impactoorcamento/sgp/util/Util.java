@@ -157,7 +157,7 @@ public class Util {
 		int dia, mes, ano;
 		Calendar c = Calendar.getInstance();
 		
-		if(data.indexOf("/") != -1){
+		if(data != null && data.indexOf("/") != -1){
 			 params = data.split("/");
 			 dia = Integer.parseInt(params[0]);
 			 mes = Integer.parseInt(params[1]);
@@ -166,7 +166,7 @@ public class Util {
 			 c.set(Calendar.DATE, dia);
 			 c.set(Calendar.MONTH, mes-1);
 			 c.set(Calendar.YEAR, ano);
-		} else if(data.indexOf("-") != -1){
+		} else if(data != null && data.indexOf("-") != -1){
 			 params = data.split("-");
 			 ano = Integer.parseInt(params[0]);
 			 mes = Integer.parseInt(params[1]);

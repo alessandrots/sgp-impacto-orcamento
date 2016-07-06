@@ -58,21 +58,17 @@ public class ImpactoOrcamento extends BeanManager {
 	}
 	
 	@GET
-	@Path("/realizarImpactoRemocaoComConcursados/{dia}/{mes}/{ano}")
+	@Path("/realizarImpactoRemocaoComConcursadosEntreDatas")
 	@Produces("text/json;charset=UTF-8")
 	/**
-	 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/impactoOrcamentoService/realizarImpactoRemocaoComConcursados/01/01/2015
-	 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/impactoOrcamentoService/realizarImpactoRemocaoComConcursados/01/01/2015
+	 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/impactoOrcamentoService/realizarImpactoRemocaoComConcursadosEntreDatas?dataInicial=01/01/2015&dataFinal=31/05/2015
+	 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/impactoOrcamentoService/realizarImpactoRemocaoComConcursadosEntreDatas?dataInicial=01/01/2015&dataFinal=31/05/2015
 	 * 
 	 * @param dataMaxima
 	 * @return Response
 	 */
-	public Response realizarImpactoRemocaoComConcursados(@QueryParam("dataInicial") String dataInicial, @QueryParam("dataFinal") String dataFinal) {
+	public Response realizarImpactoRemocaoComConcursadosEntreDatas(@QueryParam("dataInicial") String dataInicial, @QueryParam("dataFinal") String dataFinal) {
 		init();
-		
-		
-//		Date dtInicialRemocao = Util.newInstance().convertDataStringToDate(dataInicialRemocao);
-//		Date dataAtual = Util.newInstance().getActualDate().getTime();
 		
 		Date dtini = Util.newInstance().convertDataStringToDate(dataInicial);
 		Date dtfim = Util.newInstance().convertDataStringToDate(dataFinal);
