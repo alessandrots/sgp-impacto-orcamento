@@ -57,21 +57,19 @@ export default class ImpactoInicialComponente2 {
   }
 
   onSearch() {
+    let dataInicial, dataFinal;
     if (this.formModel.valid) {
       // this.mainService.searchEvent.emit(this.formModel.value);
-      // console.log('this.formModel = ', this.formModel);
+      console.log('this.formModel = ', this.formModel);
       this.mainService
-        .getAllConcursadoEntredatas()
+        .getConcursadosPorDatas(this.formModel._value.dataInicial,
+                                this.formModel._value.dataFinal)
         .subscribe(
           data => {
             this.resultAll = data;
             // this.total = data.length;
             // me.getPage(1);
-            /*
-                Fazer a chamada para a funcao especifica,
-                passando as datas como string.. via query path
-                
-            */
+
             console.log('this.resultAll = ', this.resultAll);
           },
           error => console.error(error));

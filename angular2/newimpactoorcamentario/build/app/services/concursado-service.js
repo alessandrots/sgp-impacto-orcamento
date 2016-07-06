@@ -43,7 +43,12 @@ var ConcursadoService = (function () {
     };
     ConcursadoService.prototype.getAllConcursadoEntredatas = function () {
         console.log('service ::: getAllConcursadoEntredatas ==>  ');
-        return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015')
+        return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getAllConcursados')
+            .map(function (response) { return response.json(); });
+    };
+    ConcursadoService.prototype.getConcursadosPorDatas = function (dataInicial, dataFinal) {
+        console.log('service ::: getConcursadosPorDatas ==> dataInicial= ', dataInicial + ' dataFinal= ', dataFinal);
+        return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=' + dataInicial + '&dataFinal=' + dataFinal)
             .map(function (response) { return response.json(); });
     };
     ConcursadoService.prototype.getConcursadoPorId = function (inscricao) {
