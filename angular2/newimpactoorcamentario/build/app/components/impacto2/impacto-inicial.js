@@ -12,13 +12,17 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var router_1 = require('@angular/router');
 var concursado_service_1 = require('../../services/concursado-service');
+var rxjs_1 = require('rxjs');
 var common_1 = require('@angular/common');
+var ng2_pagination_1 = require('../../../../node_modules/ng2-pagination');
 var ImpactoInicialComponente2 = (function () {
     function ImpactoInicialComponente2(http, _router, mainService) {
         this._router = _router;
         this.resultAll = [];
+        this.p = 1;
         var me = this;
         me.mainService = mainService;
+        this.total = 0;
         var fb = new common_1.FormBuilder();
         this.formModel = fb.group({
             'dataInicial': [null, common_1.Validators.required],
@@ -28,16 +32,39 @@ var ImpactoInicialComponente2 = (function () {
     ImpactoInicialComponente2.prototype.onSearch = function () {
         var _this = this;
         var dataInicial, dataFinal;
+        var me = this;
         if (this.formModel.valid) {
-            console.log('this.formModel = ', this.formModel);
             this.mainService
                 .getConcursadosPorDatas(this.formModel._value.dataInicial, this.formModel._value.dataFinal)
                 .subscribe(function (data) {
                 _this.resultAll = data;
                 console.log('this.resultAll = ', _this.resultAll);
+                _this.total = data.length;
+                me.getPage(1);
             }, function (error) { return console.error(error); });
             console.log('this.mainService.searchEvent = ', this.mainService.searchEvent);
         }
+    };
+    ImpactoInicialComponente2.prototype.serverCall = function (meals, page) {
+        var perPage = 10;
+        var start = (page - 1) * perPage;
+        var end = start + perPage;
+        return rxjs_1.Observable
+            .of({
+            items: meals.slice(start, end),
+            total: meals.length
+        });
+    };
+    ImpactoInicialComponente2.prototype.getPage = function (page) {
+        var _this = this;
+        this.loading = true;
+        this.result = this.serverCall(this.resultAll, page)
+            .do(function (res) {
+            _this.total = res.total;
+            _this.p = page;
+            _this.loading = false;
+        })
+            .map(function (res) { return res.items; });
     };
     __decorate([
         core_1.Input('data'), 
@@ -46,8 +73,9 @@ var ImpactoInicialComponente2 = (function () {
     ImpactoInicialComponente2 = __decorate([
         core_1.Component({
             selector: 'orc-impacto-inicial-page',
-            providers: [common_1.FORM_PROVIDERS],
-            directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES],
+            providers: [common_1.FORM_PROVIDERS, ng2_pagination_1.PaginationService],
+            directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES, common_1.NgFor, ng2_pagination_1.PaginationControlsCmp],
+            pipes: [ng2_pagination_1.PaginatePipe],
             template: require('./impacto-inicial.html')
         }), 
         __metadata('design:paramtypes', [http_1.Http, router_1.Router, concursado_service_1.ConcursadoService])
