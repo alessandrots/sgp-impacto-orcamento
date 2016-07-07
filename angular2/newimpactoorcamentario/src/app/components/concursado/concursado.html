@@ -20,7 +20,7 @@
         <th>dataDesprovimento</th>
         <th>leiVaga</th>
     </tr>
-    
+
     <tr *ngFor="let obj of result | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }">
         <td (click)="gotoDetail(obj)"><H1>{{obj.inscricao}}</H1></td>
         <td>{{obj.numeroEdital}}</td>
@@ -36,10 +36,6 @@
         <td>{{obj.dataDesprovimento}}</td>
         <td>{{obj.leiVaga}}</td>
     </tr>
-    
+
     </table>
 </div>
-
-
-
-
