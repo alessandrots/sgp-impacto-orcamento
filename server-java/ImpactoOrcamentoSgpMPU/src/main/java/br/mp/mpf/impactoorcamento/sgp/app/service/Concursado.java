@@ -27,6 +27,32 @@ import br.mp.mpf.impactoorcamento.sgp.util.Util;
 @Path("/concursadoService")
 @Component("concursadoService")
 public class Concursado extends BeanManager {
+	
+		@GET
+		@Path("/getAllConcursados")
+		@Produces("text/json;charset=UTF-8")
+		/**
+		 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getAllConcursados
+		 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursadoService/getAllConcursados
+		 * 
+		 * @return Response
+		 */
+		public Response getAllConcursados() {
+			init();
+			
+			getConcursadoFacade();
+			
+//			Date dtini = Util.newInstance().convertDataStringToDate(dataInicial);
+//			Date dtfim = Util.newInstance().convertDataStringToDate(dataFinal);
+			
+			String output = this.getConcursadoFacade().recuperarNomeacoesEntreDatas(null, null);
+			
+			if(output != null && output.length() > 0){
+				System.out.println("\n\n getAllConcursados OUTPUT = " + output.length() + "\n\n");
+			}
+			
+			return Response.status(200).entity(output).build();
+		}
 		
 		@GET
 		@Path("/getConcursadoPorDatas")
@@ -53,7 +79,6 @@ public class Concursado extends BeanManager {
 				System.out.println("\n\n getConcursadoPorDatas OUTPUT = " + output.length() + "\n\n");
 			}
 			
-			
 			return Response.status(200).entity(output).build();
 		}
 		
@@ -76,7 +101,6 @@ public class Concursado extends BeanManager {
 			System.out.println(" inscricao : " + inscricao);
 			
 			String output = this.getConcursadoFacade().recuperarNomeacaoPorInscricao(inscricao);
-			
 			
 			return Response.status(200).entity(output).build();
 		}

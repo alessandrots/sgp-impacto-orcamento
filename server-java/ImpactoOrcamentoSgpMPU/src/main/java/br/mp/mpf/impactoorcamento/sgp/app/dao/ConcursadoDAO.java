@@ -23,11 +23,17 @@ public class ConcursadoDAO extends HibernateDAOImpl<Concursado> {
 		hql.append("SELECT d ");
 		hql.append("FROM Concursado d ");
 		hql.append("WHERE d.numeroPortaria is not null ");
-		hql.append("AND d.dataNomeacao BETWEEN :dataInicio AND :dataFinal");
+		
+		if (dataInicio != null && dataFinal != null) {
+			hql.append("AND d.dataNomeacao BETWEEN :dataInicio AND :dataFinal");
+		}
 		
 		Query query = getSession().createQuery(hql.toString());
-		query.setParameter("dataInicio", dataInicio);
-		query.setParameter("dataFinal", dataFinal);
+		
+		if (dataInicio != null && dataFinal != null) {
+			query.setParameter("dataInicio", dataInicio);
+			query.setParameter("dataFinal", dataFinal);
+		}
 		
 		List<Concursado> lista = query.list();
 
