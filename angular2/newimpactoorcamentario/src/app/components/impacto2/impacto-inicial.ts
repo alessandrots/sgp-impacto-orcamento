@@ -108,6 +108,12 @@ export default class ImpactoInicialComponente2 {
         })
         .map(res => res.items);
   }
+
+  gotoDetail(hero: ConcursadoModel) {
+    console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
+    let link = ['/ConcursadoDetailComponente', hero.inscricao];
+    this._router.navigate(link);
+  }
 }
 
 

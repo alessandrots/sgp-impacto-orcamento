@@ -66,6 +66,11 @@ var ImpactoInicialComponente2 = (function () {
         })
             .map(function (res) { return res.items; });
     };
+    ImpactoInicialComponente2.prototype.gotoDetail = function (hero) {
+        console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
+        var link = ['/ConcursadoDetailComponente', hero.inscricao];
+        this._router.navigate(link);
+    };
     __decorate([
         core_1.Input('data'), 
         __metadata('design:type', Array)
