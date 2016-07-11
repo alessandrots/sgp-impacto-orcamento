@@ -38,7 +38,7 @@ export default class ConcursadoComponente {
 
     //SUBSTITUINDO por chamada ao serviço
     mainService
-      .getAllConcursadoEntredatas()
+      .getAllConcursados()
       .subscribe(
         data => {
           this.resultAll = data;

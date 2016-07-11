@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var router_1 = require('@angular/router');
-var concursado_service_1 = require('../../services/concursado-service');
+var impacto_service_1 = require('../../services/impacto-service');
 var rxjs_1 = require('rxjs');
 var common_1 = require('@angular/common');
 var ng2_pagination_1 = require('../../../../node_modules/ng2-pagination');
@@ -35,7 +35,7 @@ var ImpactoInicialComponente2 = (function () {
         var me = this;
         if (this.formModel.valid) {
             this.mainService
-                .getConcursadosPorDatas(this.formModel._value.dataInicial, this.formModel._value.dataFinal)
+                .getImpactoPorDatas(this.formModel._value.dataInicial, this.formModel._value.dataFinal)
                 .subscribe(function (data) {
                 _this.resultAll = data;
                 console.log('this.resultAll = ', _this.resultAll);
@@ -66,6 +66,11 @@ var ImpactoInicialComponente2 = (function () {
         })
             .map(function (res) { return res.items; });
     };
+    ImpactoInicialComponente2.prototype.gotoDetail = function (hero) {
+        console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
+        var link = ['/ConcursadoDetailComponente', hero.inscricao];
+        this._router.navigate(link);
+    };
     __decorate([
         core_1.Input('data'), 
         __metadata('design:type', Array)
@@ -78,7 +83,7 @@ var ImpactoInicialComponente2 = (function () {
             pipes: [ng2_pagination_1.PaginatePipe],
             template: require('./impacto-inicial.html')
         }), 
-        __metadata('design:paramtypes', [http_1.Http, router_1.Router, concursado_service_1.ConcursadoService])
+        __metadata('design:paramtypes', [http_1.Http, router_1.Router, impacto_service_1.ImpactoService])
     ], ImpactoInicialComponente2);
     return ImpactoInicialComponente2;
 }());

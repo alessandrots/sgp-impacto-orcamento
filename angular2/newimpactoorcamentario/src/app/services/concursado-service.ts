@@ -48,7 +48,7 @@ export class ConcursadoService  {//extends ParentService {
   /**
   * Retorna o array de impacto
   **/
-  getAllConcursadoEntredatas(): Observable<Concursado[]> {
+  getAllConcursados(): Observable<Concursado[]> {
     console.log('service ::: getAllConcursadoEntredatas ==>  ');
     return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getAllConcursados')
       .map(response => response.json());

@@ -3,7 +3,9 @@ import {Directive, Component, Input} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import ConcursadoModel from '../concursado/concursado-model';
 import { Router } from '@angular/router';
-import {Concursado, ConcursadoService} from '../../services/concursado-service';
+//import {Concursado, ConcursadoService} from '../../services/concursado-service';
+import {ImpactoService} from '../../services/impacto-service';
+import {Concursado} from '../../services/concursado-service';
 import {Observable} from 'rxjs';
 import {
   Control,
@@ -38,7 +40,8 @@ interface IServerResponse {
 export default class ImpactoInicialComponente2 {
 
   formModel: ControlGroup;
-  mainService: ConcursadoService;
+  // mainService: ConcursadoService;
+  mainService: ImpactoService;
   result: Observable<ConcursadoModel[]>;
   @Input('data') resultAll: ConcursadoModel[] = [];
   impacto: Concursado;
@@ -46,7 +49,8 @@ export default class ImpactoInicialComponente2 {
   p: number = 1;
   loading: boolean;
 
-  constructor(http: Http,  private _router: Router, mainService: ConcursadoService) {
+  // constructor(http: Http,  private _router: Router, mainService: ConcursadoService) {
+  constructor(http: Http,  private _router: Router, mainService: ImpactoService) {
     var me = this;
     me.mainService = mainService;
     this.total = 0;
@@ -66,8 +70,8 @@ export default class ImpactoInicialComponente2 {
       // this.mainService.searchEvent.emit(this.formModel.value);
       // console.log('this.formModel = ', this.formModel);
       this.mainService
-        .getConcursadosPorDatas(this.formModel._value.dataInicial,
-                                this.formModel._value.dataFinal)
+        .getImpactoPorDatas(this.formModel._value.dataInicial,
+                            this.formModel._value.dataFinal)
         .subscribe(
           data => {
             this.resultAll = data;
@@ -107,6 +111,12 @@ export default class ImpactoInicialComponente2 {
             this.loading = false;
         })
         .map(res => res.items);
+  }
+
+  gotoDetail(hero: ConcursadoModel) {
+    console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
+    let link = ['/ConcursadoDetailComponente', hero.inscricao];
+    this._router.navigate(link);
   }
 }
 
