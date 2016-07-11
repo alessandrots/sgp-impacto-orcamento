@@ -29,23 +29,23 @@ import br.mp.mpf.impactoorcamento.sgp.util.Util;
 public class ConcursoRemocao extends BeanManager {
 		
 		@GET
-		@Path("/getRemocoesPorDatas")
+		@Path("/getRemocoesPorDataInicialCompleta")
 		@Produces("text/json;charset=UTF-8")
 		/**
-		 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDataCompleta?dataMaxima=01/01/2015
-		 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDataCompleta?dataMaxima=01/01/2015
+		 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDataInicialCompleta?dataInicialRemocao=01/01/2015
+		 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDataInicialCompleta?dataInicialRemocao=01/01/2015
 		 * 
-		 * @param dataMaxima
+		 * @param dataInicialRemocao
 		 * @return Response
 		 */
-		public Response getRemocoesPorDataCompleta(@QueryParam("dataMaxima") String dataMaxima) {
+		public Response getRemocoesPorDataInicialCompleta(@QueryParam("dataInicialRemocao") String dataInicialRemocao) {
 			init();
 			
 			getConcursoRemocaoFacade();
 			
-			Date dt = Util.newInstance().convertDataStringToDate(dataMaxima);
+			Date dt = Util.newInstance().convertDataStringToDate(dataInicialRemocao);
 			
-			String output  = this.getConcursoRemocaoFacade().recuperarRemocoesEntreDatas(dt);
+			String output  = this.getConcursoRemocaoFacade().recuperarRemocoesAPartirDataInicialRemocaoParaJson(dt);
 			
 			return Response.status(200).entity(output).build();
 		}
@@ -69,7 +69,7 @@ public class ConcursoRemocao extends BeanManager {
 			
 			Date dt = Util.newInstance().convertDataStringToDate(dataMaxima);
 			
-			String output  = this.getConcursoRemocaoFacade().recuperarRemocoesEntreDatas(dt);
+			String output  = this.getConcursoRemocaoFacade().recuperarRemocoesAPartirDataInicialRemocaoParaJson(dt);
 			
 			return Response.status(200).entity(output).build();
 		}

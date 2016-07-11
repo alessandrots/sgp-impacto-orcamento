@@ -58,6 +58,7 @@ public class ImpactoOrcamentoFacade extends Facade {
 		Util.newInstance().recuperarCargosASerFiltradosFromProperties(impactoOrcamentoProperties, me.mapaCargos);
 
 		//Gerar a lista de remoção
+		//Esse filtro pode ser feito no banco.
 		this.transformarListaRemocaoParaMapa(listaConcursoRemocao);
 		
 		//a lista de concursado vai comparar o número da vaga com a vaga de remoção existente neste mapa
@@ -135,33 +136,5 @@ public class ImpactoOrcamentoFacade extends Facade {
 			}
 		});
 	}
-
-//	private void recuperarCargosASerFiltradosFromProperties() {
-//		String[] arrCargosParaSeremFiltrados = null;
-//		
-//		if (impactoOrcamentoProperties.containsKey(Constantes.KEY_PROPS_CARGOS_FILTRADOS_CONCURSADO)) {
-//			String key = (String)impactoOrcamentoProperties.get(Constantes.KEY_PROPS_CARGOS_FILTRADOS_CONCURSADO);
-//			
-//			if (key != null) {
-//				arrCargosParaSeremFiltrados = key.split(":");
-//				if (arrCargosParaSeremFiltrados != null && arrCargosParaSeremFiltrados.length > 0) {
-//					this.mapaCargos = new HashMap<String,String>();
-//					for (String cargo : arrCargosParaSeremFiltrados) {
-//						this.mapaCargos.put(cargo.toUpperCase(), cargo.toUpperCase());
-//					}
-//				}
-//			}
-//		}
-//	}
 	
-//	private boolean verificarChaveASerFiltradoNoMapa (String chaveParaPesquisa, HashMap<String, String> mapa) {
-//		if (mapa !=null) {
-//			if (mapa.containsKey(chaveParaPesquisa.toUpperCase())) {
-//				return true;
-//			}
-//		}
-//		
-//		return false;
-//	}
-
 }

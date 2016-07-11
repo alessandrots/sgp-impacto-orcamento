@@ -61,8 +61,8 @@ public class ImpactoOrcamento extends BeanManager {
 	@Path("/realizarImpactoRemocaoComConcursadosEntreDatas")
 	@Produces("text/json;charset=UTF-8")
 	/**
-	 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/impactoOrcamentoService/realizarImpactoRemocaoComConcursadosEntreDatas?dataInicial=01/01/2015&dataFinal=31/05/2015
-	 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/impactoOrcamentoService/realizarImpactoRemocaoComConcursadosEntreDatas?dataInicial=01/01/2015&dataFinal=31/05/2015
+	 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/impactoOrcamentoService/realizarImpactoRemocaoComConcursadosEntreDatas?dataInicial=01/01/2015&dataFinal=31/06/2015
+	 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/impactoOrcamentoService/realizarImpactoRemocaoComConcursadosEntreDatas?dataInicial=01/01/2015&dataFinal=31/06/2015
 	 * 
 	 * @param dataMaxima
 	 * @return Response

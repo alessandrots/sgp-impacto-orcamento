@@ -22,13 +22,14 @@ public class ConcursoRemocaoFacade extends Facade {
 	}
 	
 	@Transactional
-	public String recuperarRemocoesEntreDatas(Date dataMaxima) {
+	public String recuperarRemocoesAPartirDataInicialRemocaoParaJson(Date dataInicialRemocao) {
 		String tmp  = "";
-		List<ConcursoRemocaoJSon> lista = new ArrayList<ConcursoRemocaoJSon>();
-		
-		this.getConcursoRemocaoDAO().recuperarRemocoesEntreDatas(dataMaxima).forEach((concursoR)->{
-			lista.add((ConcursoRemocaoJSon)convertJson(concursoR));
-		});
+		List<ConcursoRemocaoJSon> lista = null;
+//		
+//		this.getConcursoRemocaoDAO().recuperarRemocoesEntreDatas(dataMaxima).forEach((concursoR)->{
+//			lista.add((ConcursoRemocaoJSon)convertJson(concursoR));
+//		});
+		lista = this.recuperarRemocoesAPartirDataInicialRemocao(dataInicialRemocao);
 		
 		tmp = EngineJson.getInstancia().serializarLista(lista);
 		
