@@ -52,7 +52,7 @@ var ConcursadoService = (function () {
             .map(function (response) { return response.json(); });
     };
     ConcursadoService.prototype.getConcursadoPorId = function (inscricao) {
-        console.log('service ::: getAllConcursadoEntredatas ==>  ');
+        console.log('service ::: getConcursadoPorId ==>  ', inscricao);
         return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/recuperarNomeacaoPorInscricao/' + inscricao)
             .map(function (response) { return response.json(); });
     };

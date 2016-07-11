@@ -64,7 +64,7 @@ export class ConcursadoService  {//extends ParentService {
   }
 
   getConcursadoPorId(inscricao:number): Observable<Concursado> {
-    console.log('service ::: getAllConcursadoEntredatas ==>  ');
+    console.log('service ::: getConcursadoPorId ==>  ', inscricao);
     return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/recuperarNomeacaoPorInscricao/'+ inscricao)
       .map(response => response.json());
   }
