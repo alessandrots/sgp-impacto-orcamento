@@ -50,7 +50,7 @@
 	    <td>Listagem de Concursos de Remoção</td>
 	    <td>GET by QueryParam</td>
 	    <td>?dataMaxima (dd/mm/yyyy)</td>
-	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDatas?dataMaxima=01/01/2015">getRemocoesPorDatas?dataMaxima=01/01/2015</a></td>
+	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDataInicialCompleta?dataInicialRemocao=01/01/2015">getRemocoesPorDataInicialCompleta?dataInicialRemocao=01/01/2015</a></td>
 	  </tr>
 	  
 	  <tr>
