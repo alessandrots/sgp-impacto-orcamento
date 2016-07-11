@@ -20,7 +20,8 @@ public class ConcursadoDAO extends HibernateDAOImpl<Concursado> {
 	@SuppressWarnings("unchecked")
 	public List<Concursado> recuperarNomeacoesEntreDatas(Date dataInicio, Date dataFinal) {
 		/**
-		 * 	Query base
+		 * 	Query base:(Recuperando somente o último concursado, ou seja o mais recente que entrou e assumiu a vaga (exercicio preenchido)) 
+		 * 
 		 select conc.vaga_sq, conc.nomeacao_dt, conc.cargo_ds, conc.nome, conc.uf_nomeacao, conc.dt_port_nomeacao_assinatura, conc.inscricao, conc.nome
 		 from sp.gps_vw_concursado conc
 		 where conc.vaga_sq = 11708
@@ -36,9 +37,10 @@ public class ConcursadoDAO extends HibernateDAOImpl<Concursado> {
 		hql.append("SELECT d ");
 		hql.append("FROM Concursado d ");
 		hql.append("WHERE d.numeroPortaria is not null ");
+		hql.append(" AND d.dataExercicio is not null ");
 		
 		if (dataInicio != null && dataFinal != null) {
-			hql.append("AND d.dataNomeacao BETWEEN :dataInicio AND :dataFinal");
+			hql.append(" AND d.dataNomeacao BETWEEN :dataInicio AND :dataFinal");
 		}
 		
 		hql.append(" AND d.dataNomeacao = ");
