@@ -106,8 +106,10 @@ public class ImpactoOrcamentoFacade extends Facade {
 					if(dtDesprovimento.compareTo(dataRemocaoGravacao) != 0){
 						concursadoJSon.setDataDesprovimento(concursoRemocaoJSon.getDataRemocaoGravacao());
 					}
+					
+					listaFinal.add(concursadoJSon);
 				}
-				listaFinal.add(concursadoJSon);
+//				listaFinal.add(concursadoJSon);
 			}
 		});
 	}
