@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
 var Concursado = (function () {
-    function Concursado(inscricao, numeroEdital, ufNomeacao, cargo, cargoDescricao, nome, numeroPortaria, dataNomeacao, dataExercicio, numeroVaga, origemVaga, dataDesprovimento, leiVaga) {
+    function Concursado(inscricao, numeroEdital, ufNomeacao, cargo, cargoDescricao, nome, numeroPortaria, dataNomeacao, dataExercicio, numeroVaga, origemVaga, dataDesprovimento, leiVaga, dataInicial, dataFinal, page) {
         this.inscricao = inscricao;
         this.numeroEdital = numeroEdital;
         this.ufNomeacao = ufNomeacao;
@@ -26,6 +26,9 @@ var Concursado = (function () {
         this.origemVaga = origemVaga;
         this.dataDesprovimento = dataDesprovimento;
         this.leiVaga = leiVaga;
+        this.dataInicial = dataInicial;
+        this.dataFinal = dataFinal;
+        this.page = page;
         console.log(' Model Concursado...');
     }
     return Concursado;

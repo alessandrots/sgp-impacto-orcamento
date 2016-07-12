@@ -34,12 +34,16 @@ export default class ConcursoRemocaoDetailComponente {
     let id = +this.params.getParam('numeroVaga');
     console.log('ConcursoRemocaoDetailComponente numeroVaga = ', id);
 
-    //SUBSTITUINDO por chamada ao serviço
+    // console.log('ngOnInit this.params = ', this.params.parameters);
+    // let id = +this.params.parameters['numeroVaga'];
+    // console.log('ConcursoRemocaoDetailComponente numeroVaga = ', id);
+
+    // SUBSTITUINDO por chamada ao serviço
     this.mainService
       .getConcursoRemocaoPorVaga(id)
       .subscribe(
         data => {
-          console.log('this.obj = ', this.obj);
+          // console.log('this.obj = ', this.obj);
           this.obj = data[0];
 
         },

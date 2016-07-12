@@ -18,7 +18,10 @@ export class Concursado {
     public numeroVaga: string,
     public origemVaga: string,
     public dataDesprovimento: string,
-    public leiVaga: string) {
+    public leiVaga: string,
+    public dataInicial : string,
+    public dataFinal: string,
+    public page:number) {
       console.log(' Model Concursado...');
   }
 

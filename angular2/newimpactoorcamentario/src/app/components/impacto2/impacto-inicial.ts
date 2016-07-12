@@ -2,7 +2,7 @@ import {Routes, ROUTER_DIRECTIVES} from '@angular/router';
 import {Directive, Component, Input} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import ConcursadoModel from '../concursado/concursado-model';
-import { Router } from '@angular/router';
+import {Router, RouteSegment} from '@angular/router';
 //import {Concursado, ConcursadoService} from '../../services/concursado-service';
 import {ImpactoService} from '../../services/impacto-service';
 import {Concursado} from '../../services/concursado-service';
@@ -40,30 +40,46 @@ interface IServerResponse {
 export default class ImpactoInicialComponente2 {
 
   formModel: ControlGroup;
-  // mainService: ConcursadoService;
   mainService: ImpactoService;
   result: Observable<ConcursadoModel[]>;
   @Input('data') resultAll: ConcursadoModel[] = [];
-  impacto: Concursado;
+  // impacto: Concursado;
+  // concursadoModel: ConcursadoModel;
+  dataInicial:string;
+  dataFinal:string;
   total: number;
   p: number = 1;
   loading: boolean;
+  params: RouteSegment;
 
   // constructor(http: Http,  private _router: Router, mainService: ConcursadoService) {
-  constructor(http: Http,  private _router: Router, mainService: ImpactoService) {
-    var me = this;
-    me.mainService = mainService;
-    this.total = 0;
+  constructor(http: Http,
+    private _router: Router,
+    params: RouteSegment,
+    mainService: ImpactoService) {
+        var me = this;
+        me.mainService = mainService;
+        this.total = 0;
+        this.params = params;
 
-    const fb = new FormBuilder();
-    this.formModel = fb.group({
-      'dataInicial': [null, Validators.required],
-      'dataFinal': [null, Validators.required]
-    });
+        const fb = new FormBuilder();
+        this.formModel = fb.group({
+          'dataInicial': [null, Validators.required],
+          'dataFinal': [null, Validators.required]
+        });
+  }
+
+  ngOnInit() {
+    if (this.params){
+        console.log('ImpactoInicialComponente2 ngOnInit this.params = ',
+        this.params.parameters);
+    }
+    //SUBSTITUINDO por chamada ao serviço
+    this.onSearch();
   }
 
   onSearch() {
-    let dataInicial, dataFinal;
+    // let dataInicial, dataFinal;
     var me=this;
 
     if (this.formModel.valid) {
@@ -81,6 +97,23 @@ export default class ImpactoInicialComponente2 {
           },
           error => console.error(error));
       console.log('this.mainService.searchEvent = ', this.mainService.searchEvent);
+    } else if (this.params.parameters['dataInicial'] &&
+               this.params.parameters['dataFinal']) {
+          console.log('ELSE onSearch ');
+          this.dataInicial = this.params.parameters['dataInicial'];
+          this.dataFinal = this.params.parameters['dataFinal'];
+          
+          this.mainService
+            .getImpactoPorDatas(this.params.parameters['dataInicial'],
+                                this.params.parameters['dataFinal'])
+            .subscribe(
+              data => {
+                this.resultAll = data;
+                console.log('this.resultAll = ', this.resultAll);
+                this.total = data.length;
+                me.getPage(this.params.parameters['page']);
+              },
+              error => console.error(error));
     }
   }
 
@@ -114,10 +147,13 @@ export default class ImpactoInicialComponente2 {
   }
 
   gotoDetail(hero: ConcursadoModel) {
-    console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
-    // let link = ['/ConcursadoDetailComponente', hero.inscricao];
-    // {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursoRemocaoDetailComponente},
-    let link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
+    console.log('this.p page = ', this.p);
+    console.log('dataInicial = ', this.formModel._value.dataInicial +
+                        '\n dataFinal =' + this.formModel._value.dataFinal);
+    hero.page = this.p;
+    hero.dataInicial = this.formModel._value.dataInicial;
+    hero.dataFinal = this.formModel._value.dataFinal;
+    let link = ['/ConcursadoDetailComponenteX', hero];
     this._router.navigate(link);
   }
 }

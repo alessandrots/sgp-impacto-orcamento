@@ -9,6 +9,7 @@
            placeholder="Data Inicial"
            class="form-control"
            type="date"
+           [(ngModel)]="dataInicial"
            ngControl="dataInicial">
     <span class="help-block"
           [class.hidden]="!formModel.hasError('required', 'dataInicial')">
@@ -23,6 +24,7 @@
            placeholder="Data Final"
            class="form-control"
            type="date"
+           [(ngModel)]="dataFinal"
            ngControl="dataFinal">
     <span class="help-block"
           [class.hidden]="!formModel.hasError('required', 'dataFinal')">
@@ -46,20 +48,20 @@
   <div class="row">
       <table border="1">
       <tr>
+          <th>Vaga</th>
           <th>Edital</th>
           <th>Cargo</th>
           <th>Data de Nomeação</th>
           <th>Data de Exercício</th>
-          <th>Vaga</th>
           <th>Origem da Vaga</th>
       </tr>
 
       <tr *ngFor="let obj of result | async | paginate: { id: 'server', itemsPerPage: 20, currentPage: p, totalItems: total }">
-          <td (click)="gotoDetail(obj)"><H2>{{obj.numeroEdital}}</H2></td>
+          <td (click)="gotoDetail(obj)"><H2>{{obj.numeroVaga}}</H2></td>
+          <td>{{obj.numeroEdital}}</td>
           <td>{{obj.cargoDescricao}}</td>
           <td>{{obj.dataNomeacao}}</td>
           <td>{{obj.dataExercicio}}</td>
-          <td>{{obj.numeroVaga}}</td>
           <td>{{obj.origemVaga}}</td>
       </tr>
 

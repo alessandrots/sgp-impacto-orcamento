@@ -16,22 +16,28 @@ var rxjs_1 = require('rxjs');
 var common_1 = require('@angular/common');
 var ng2_pagination_1 = require('../../../../node_modules/ng2-pagination');
 var ImpactoInicialComponente2 = (function () {
-    function ImpactoInicialComponente2(http, _router, mainService) {
+    function ImpactoInicialComponente2(http, _router, params, mainService) {
         this._router = _router;
         this.resultAll = [];
         this.p = 1;
         var me = this;
         me.mainService = mainService;
         this.total = 0;
+        this.params = params;
         var fb = new common_1.FormBuilder();
         this.formModel = fb.group({
             'dataInicial': [null, common_1.Validators.required],
             'dataFinal': [null, common_1.Validators.required]
         });
     }
+    ImpactoInicialComponente2.prototype.ngOnInit = function () {
+        if (this.params) {
+            console.log('ImpactoInicialComponente2 ngOnInit this.params = ', this.params.parameters);
+        }
+        this.onSearch();
+    };
     ImpactoInicialComponente2.prototype.onSearch = function () {
         var _this = this;
-        var dataInicial, dataFinal;
         var me = this;
         if (this.formModel.valid) {
             this.mainService
@@ -43,6 +49,20 @@ var ImpactoInicialComponente2 = (function () {
                 me.getPage(1);
             }, function (error) { return console.error(error); });
             console.log('this.mainService.searchEvent = ', this.mainService.searchEvent);
+        }
+        else if (this.params.parameters['dataInicial'] &&
+            this.params.parameters['dataFinal']) {
+            console.log('ELSE onSearch ');
+            this.dataInicial = this.params.parameters['dataInicial'];
+            this.dataFinal = this.params.parameters['dataFinal'];
+            this.mainService
+                .getImpactoPorDatas(this.params.parameters['dataInicial'], this.params.parameters['dataFinal'])
+                .subscribe(function (data) {
+                _this.resultAll = data;
+                console.log('this.resultAll = ', _this.resultAll);
+                _this.total = data.length;
+                me.getPage(_this.params.parameters['page']);
+            }, function (error) { return console.error(error); });
         }
     };
     ImpactoInicialComponente2.prototype.serverCall = function (meals, page) {
@@ -67,8 +87,13 @@ var ImpactoInicialComponente2 = (function () {
             .map(function (res) { return res.items; });
     };
     ImpactoInicialComponente2.prototype.gotoDetail = function (hero) {
-        console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
-        var link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
+        console.log('this.p page = ', this.p);
+        console.log('dataInicial = ', this.formModel._value.dataInicial +
+            '\n dataFinal =' + this.formModel._value.dataFinal);
+        hero.page = this.p;
+        hero.dataInicial = this.formModel._value.dataInicial;
+        hero.dataFinal = this.formModel._value.dataFinal;
+        var link = ['/ConcursadoDetailComponenteX', hero];
         this._router.navigate(link);
     };
     __decorate([
@@ -83,7 +108,7 @@ var ImpactoInicialComponente2 = (function () {
             pipes: [ng2_pagination_1.PaginatePipe],
             template: require('./impacto-inicial.html')
         }), 
-        __metadata('design:paramtypes', [http_1.Http, router_1.Router, impacto_service_1.ImpactoService])
+        __metadata('design:paramtypes', [http_1.Http, router_1.Router, router_1.RouteSegment, impacto_service_1.ImpactoService])
     ], ImpactoInicialComponente2);
     return ImpactoInicialComponente2;
 }());

@@ -1,6 +1,9 @@
 export default class ConcursadoModel {
 /**
   se tiver varias classes num arquivo, uma tem q ser default
+  this.formModel._value.dataInicial
+  this.formModel._value.dataFinal
+
 */
   constructor(
     public inscricao:string,
@@ -15,7 +18,10 @@ export default class ConcursadoModel {
     public numeroVaga: string,
     public origemVaga: string,
     public dataDesprovimento: string,
-    public leiVaga: string) { 
+    public leiVaga: string,
+    public dataInicial : string,
+    public dataFinal: string,
+    public page:number) {
   		console.log('ConcursadoModel Hero');
    }
 
