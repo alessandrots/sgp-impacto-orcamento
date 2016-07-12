@@ -43,7 +43,7 @@ var ConcursoRemocaoService = (function () {
             .map(function (response) { return response.json(); });
     };
     ConcursoRemocaoService.prototype.getConcursoRemocaoPorVaga = function (vaga) {
-        console.log('service ::: getConcursoRemocaoPorVaga ==>  ');
+        console.log('service ::: getConcursoRemocaoPorVaga ==>  vaga = ', vaga);
         return this.http.get(this.urlBase + 'recuperarRemocoesPorVaga/' + vaga)
             .map(function (response) { return response.json(); });
     };

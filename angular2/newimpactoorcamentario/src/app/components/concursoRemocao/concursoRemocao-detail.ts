@@ -39,8 +39,9 @@ export default class ConcursoRemocaoDetailComponente {
       .getConcursoRemocaoPorVaga(id)
       .subscribe(
         data => {
-          this.obj = data[0];
           console.log('this.obj = ', this.obj);
+          this.obj = data[0];
+
         },
         error => console.error(error));
   }

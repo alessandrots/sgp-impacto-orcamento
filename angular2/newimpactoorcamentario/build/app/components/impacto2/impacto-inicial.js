@@ -68,7 +68,7 @@ var ImpactoInicialComponente2 = (function () {
     };
     ImpactoInicialComponente2.prototype.gotoDetail = function (hero) {
         console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
-        var link = ['/ConcursadoDetailComponente', hero.inscricao];
+        var link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
         this._router.navigate(link);
     };
     __decorate([

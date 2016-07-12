@@ -26,8 +26,8 @@ var ConcursoRemocaoDetailComponente = (function () {
         this.mainService
             .getConcursoRemocaoPorVaga(id)
             .subscribe(function (data) {
-            _this.obj = data[0];
             console.log('this.obj = ', _this.obj);
+            _this.obj = data[0];
         }, function (error) { return console.error(error); });
     };
     __decorate([

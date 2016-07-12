@@ -115,7 +115,9 @@ export default class ImpactoInicialComponente2 {
 
   gotoDetail(hero: ConcursadoModel) {
     console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
-    let link = ['/ConcursadoDetailComponente', hero.inscricao];
+    // let link = ['/ConcursadoDetailComponente', hero.inscricao];
+    // {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursoRemocaoDetailComponente},
+    let link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
     this._router.navigate(link);
   }
 }

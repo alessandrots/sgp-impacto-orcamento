@@ -47,7 +47,7 @@ export class ConcursoRemocaoService {
   }
 
   getConcursoRemocaoPorVaga(vaga:number): Observable<ConcursoRemocao> {
-    console.log('service ::: getConcursoRemocaoPorVaga ==>  ');
+    console.log('service ::: getConcursoRemocaoPorVaga ==>  vaga = ', vaga);
     // return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/'+ vaga)
     return this.http.get(this.urlBase + 'recuperarRemocoesPorVaga/'+ vaga)
       .map(response => response.json());
