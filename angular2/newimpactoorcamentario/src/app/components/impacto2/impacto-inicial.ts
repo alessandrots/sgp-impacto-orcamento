@@ -23,6 +23,8 @@ import {PaginatePipe,
   PaginationService}
   from '../../../../node_modules/ng2-pagination';
 
+import {NgSwitch, NgSwitchWhen} from '@angular/common';
+import {LoadingIndicator, LoadingPage} from '../loading/load-page';
 
 interface IServerResponse {
     items: ConcursadoModel[];
@@ -32,12 +34,16 @@ interface IServerResponse {
 @Component({
   selector: 'orc-impacto-inicial-page',
   providers: [FORM_PROVIDERS, PaginationService],
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgFor,PaginationControlsCmp],
+  directives: [CORE_DIRECTIVES,
+               FORM_DIRECTIVES,
+               NgFor,
+               PaginationControlsCmp,
+               LoadingIndicator],
   pipes: [PaginatePipe],
   template: require('./impacto-inicial.html')
 })
 
-export default class ImpactoInicialComponente2 {
+export default class ImpactoInicialComponente2 extends LoadingPage {
 
   formModel: ControlGroup;
   mainService: ImpactoService;
@@ -49,14 +55,16 @@ export default class ImpactoInicialComponente2 {
   dataFinal:string;
   total: number;
   p: number = 1;
-  loading: boolean;
+  // loading: boolean;
   params: RouteSegment;
 
   // constructor(http: Http,  private _router: Router, mainService: ConcursadoService) {
-  constructor(http: Http,
-    private _router: Router,
-    params: RouteSegment,
-    mainService: ImpactoService) {
+  constructor(http: Http, private _router: Router,
+    params: RouteSegment, mainService: ImpactoService) {
+
+        //para o loading(true or false)
+        super(false);
+
         var me = this;
         me.mainService = mainService;
         this.total = 0;
@@ -81,39 +89,48 @@ export default class ImpactoInicialComponente2 {
   onSearch() {
     // let dataInicial, dataFinal;
     var me=this;
+    // console.log('this.params.parameters --> dataInicial = ', this.params.parameters['dataInicial']);
+    // console.log('this.params.parameters --> dataFinal = ', this.params.parameters['dataFinal']);
 
     if (this.formModel.valid) {
       // this.mainService.searchEvent.emit(this.formModel.value);
       // console.log('this.formModel = ', this.formModel);
+      me.standby();
+
       this.mainService
         .getImpactoPorDatas(this.formModel._value.dataInicial,
                             this.formModel._value.dataFinal)
         .subscribe(
           data => {
             this.resultAll = data;
-            console.log('this.resultAll = ', this.resultAll);
+            // console.log('this.resultAll = ', this.resultAll);
             this.total = data.length;
             me.getPage(1);
+            me.ready();
           },
           error => console.error(error));
       console.log('this.mainService.searchEvent = ', this.mainService.searchEvent);
     } else if (this.params.parameters['dataInicial'] &&
                this.params.parameters['dataFinal']) {
-          console.log('ELSE onSearch ');
+          // console.log('ELSE onSearch ');
+          me.standby();
           this.dataInicial = this.params.parameters['dataInicial'];
           this.dataFinal = this.params.parameters['dataFinal'];
-          
+
           this.mainService
             .getImpactoPorDatas(this.params.parameters['dataInicial'],
                                 this.params.parameters['dataFinal'])
             .subscribe(
               data => {
                 this.resultAll = data;
-                console.log('this.resultAll = ', this.resultAll);
+                // console.log('this.resultAll = ', this.resultAll);
                 this.total = data.length;
                 me.getPage(this.params.parameters['page']);
+                me.ready();
               },
               error => console.error(error));
+    } else {
+      me.ready();
     }
   }
 
@@ -133,7 +150,7 @@ export default class ImpactoInicialComponente2 {
   }
 
   getPage(page: number) {
-      this.loading = true;
+      // this.loading = true;
       // console.log('ConcursadoComponente ::: tamanho array  = ', this.resultAll.length);
       // console.log('ConcursadoComponente ::: page: number = ', page);
       this.result = this.serverCall(this.resultAll, page)
@@ -147,9 +164,9 @@ export default class ImpactoInicialComponente2 {
   }
 
   gotoDetail(hero: ConcursadoModel) {
-    console.log('this.p page = ', this.p);
-    console.log('dataInicial = ', this.formModel._value.dataInicial +
-                        '\n dataFinal =' + this.formModel._value.dataFinal);
+    // console.log('this.p page = ', this.p);
+    // console.log('dataInicial = ', this.formModel._value.dataInicial +
+                        // '\n dataFinal =' + this.formModel._value.dataFinal);
     hero.page = this.p;
     hero.dataInicial = this.formModel._value.dataInicial;
     hero.dataFinal = this.formModel._value.dataFinal;

@@ -24,9 +24,7 @@ var ConcursadoDetailComponente = (function () {
     }
     ConcursadoDetailComponente.prototype.ngOnInit = function () {
         var _this = this;
-        console.log('ngOnInit this.params = ', this.params.parameters);
         var id = +this.params.parameters['inscricao'];
-        console.log('ConcursadoDetailComponente inscricao = ', id);
         this.mainService
             .getConcursadoPorId(id)
             .subscribe(function (data) {
@@ -38,10 +36,6 @@ var ConcursadoDetailComponente = (function () {
         this.dataInicial = this.params.parameters['dataInicial'];
         this.dataFinal = this.params.parameters['dataFinal'];
         this.concursadoModel = new concursado_model_1.default(null, null, null, null, null, null, null, null, null, null, null, null, null, this.dataInicial, this.dataFinal, this.page);
-        console.log('this.p page = ', this.page +
-            '\n dataInicial = ' + this.dataInicial +
-            '\n dataFinal =' + this.dataFinal);
-        console.log('this.impactoInicial = ', this.impactoInicial);
         var link = ['/ImpactoInicialComponente2', this.concursadoModel];
         this._router.navigate(link);
     };
