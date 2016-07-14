@@ -1,41 +1,44 @@
-<div class="is-text-centered">
-     <!-- <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div> -->
-    <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+<div class="row" *ngIf="loading == true">
+  <loading-indicator></loading-indicator>
 </div>
 
-<div class="row">
-    <table border="1">
-    <tr>
-        <th>numeroVaga</th>
-        <th>cargoDescricao</th>
-        <th>ramoOrigem</th>
-        <th>ufOrigem</th>
-        <th>unidadeOrigem</th>
-        <th>ramoDestino</th>
-        <th>ufDestino</th>
-        <th>unidadeDestino</th>
-        <th>lei</th>
-        <th>motivo</th>
-        <th>ultimoOcupante</th>
-    </tr>
-    
-    <tr *ngFor="let obj of result | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }" (click)="gotoDetail(obj)">
-        <td><H1>{{obj.numeroVaga}}</H1></td>
-        <td>{{obj.cargoDescricao}}</td>
-        <td>{{obj.ramoOrigem}}</td>
-        <td>{{obj.ufOrigem}}</td>
-        <td>{{obj.unidadeOrigem}}</td>
-        <td>{{obj.ramoDestino}}</td>
-        <td>{{obj.ufDestino}}</td>
-        <td>{{obj.unidadeDestino}}</td>
-        <td>{{obj.lei}}</td>
-        <td>{{obj.motivo}}</td>
-        <td>{{obj.ultimoOcupante}}</td>
-    </tr>
-    
-    </table>
+<div class="row" *ngIf="loading == false">
+  <div class="row" *ngIf="total > 0">
+    <div class="is-text-centered">
+        <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+    </div>
+
+    <div class="row">
+        <table border="1">
+        <tr>
+            <th>numeroVaga</th>
+            <th>cargoDescricao</th>
+            <th>ramoOrigem</th>
+            <th>ufOrigem</th>
+            <th>unidadeOrigem</th>
+            <th>ramoDestino</th>
+            <th>ufDestino</th>
+            <th>unidadeDestino</th>
+            <th>lei</th>
+            <th>motivo</th>
+            <th>ultimoOcupante</th>
+        </tr>
+
+        <tr *ngFor="let obj of result | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems: total }" (click)="gotoDetail(obj)">
+            <td><H1>{{obj.numeroVaga}}</H1></td>
+            <td>{{obj.cargoDescricao}}</td>
+            <td>{{obj.ramoOrigem}}</td>
+            <td>{{obj.ufOrigem}}</td>
+            <td>{{obj.unidadeOrigem}}</td>
+            <td>{{obj.ramoDestino}}</td>
+            <td>{{obj.ufDestino}}</td>
+            <td>{{obj.unidadeDestino}}</td>
+            <td>{{obj.lei}}</td>
+            <td>{{obj.motivo}}</td>
+            <td>{{obj.ultimoOcupante}}</td>
+        </tr>
+
+        </table>
+    </div>
+  </div>
 </div>
-
-
-
-

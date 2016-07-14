@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15,19 +20,23 @@ var ng2_pagination_1 = require('../../../../node_modules/ng2-pagination');
 var router_1 = require('@angular/router');
 var concursado_service_1 = require('../../services/concursado-service');
 var rxjs_1 = require('rxjs');
-var ConcursadoComponente = (function () {
+var load_page_1 = require('../loading/load-page');
+var ConcursadoComponente = (function (_super) {
+    __extends(ConcursadoComponente, _super);
     function ConcursadoComponente(http, _router, mainService) {
         var _this = this;
+        _super.call(this, true);
         this._router = _router;
         this.resultAll = [];
         this.p = 1;
         var me = this;
         mainService
-            .getAllConcursados()
+            .getConcursadosPorDatas('01/01/2014', '01/07/2015')
             .subscribe(function (data) {
             _this.resultAll = data;
             _this.total = data.length;
             me.getPage(1);
+            me.ready();
         }, function (error) { return console.error(error); });
     }
     ConcursadoComponente.prototype.serverCall = function (meals, page) {
@@ -42,7 +51,6 @@ var ConcursadoComponente = (function () {
     };
     ConcursadoComponente.prototype.getPage = function (page) {
         var _this = this;
-        this.loading = true;
         this.result = this.serverCall(this.resultAll, page)
             .do(function (res) {
             _this.total = res.total;
@@ -65,7 +73,8 @@ var ConcursadoComponente = (function () {
             selector: 'orc-nomeacao-paginator-page',
             directives: [
                 common_1.NgFor,
-                ng2_pagination_1.PaginationControlsCmp
+                ng2_pagination_1.PaginationControlsCmp,
+                load_page_1.LoadingIndicator
             ],
             pipes: [ng2_pagination_1.PaginatePipe],
             providers: [ng2_pagination_1.PaginationService],
@@ -74,7 +83,7 @@ var ConcursadoComponente = (function () {
         __metadata('design:paramtypes', [http_1.Http, router_1.Router, concursado_service_1.ConcursadoService])
     ], ConcursadoComponente);
     return ConcursadoComponente;
-}());
+}(load_page_1.LoadingPage));
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ConcursadoComponente;
 //# sourceMappingURL=concursado.js.map
