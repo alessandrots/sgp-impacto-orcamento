@@ -63,6 +63,28 @@ public class ConcursoRemocaoDAO extends HibernateDAOImpl<ConcursoRemocao> {
 	
 	@SuppressWarnings("unchecked")
 	/**
+	 * 
+	 * @param dataMaxima
+	 * @return List<ConcursoRemocao>
+	 */
+	public List<ConcursoRemocao> recuperarRemocoesEntreDatas(Date dataInicio, Date dataFinal) {
+		StringBuilder hql = new StringBuilder();
+		hql.append(" SELECT d ");
+		hql.append(" FROM ConcursoRemocao d ");
+		hql.append(" WHERE d.dataRemocaoGravacao BETWEEN :dataInicio AND :dataFinal");
+		hql.append(" ORDER BY d.dataRemocaoGravacao desc ");
+		
+		Query query = getSession().createQuery(hql.toString());
+		query.setParameter("dataInicio", dataInicio);
+		query.setParameter("dataFinal", dataFinal);
+		
+		List<ConcursoRemocao> lista = query.list();
+		
+		return lista;
+	}
+	
+	@SuppressWarnings("unchecked")
+	/**
 	 * http://stackoverflow.com/questions/8491796/hibernate-group-by-criteria-object
 	 * http://stackoverflow.com/questions/9734405/how-to-apply-order-on-hibernate-projection-result
 	 * 
