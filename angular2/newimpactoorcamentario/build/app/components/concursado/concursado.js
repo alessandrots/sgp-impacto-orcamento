@@ -25,25 +25,17 @@ var common_2 = require('@angular/common');
 var ConcursadoComponente = (function (_super) {
     __extends(ConcursadoComponente, _super);
     function ConcursadoComponente(http, _router, mainService, params) {
-        var _this = this;
         _super.call(this, true);
         this._router = _router;
         this.resultAll = [];
         this.p = 1;
         var me = this;
+        me.mainService = mainService;
         var fb = new common_2.FormBuilder();
         this.formModel = fb.group({
             'dataInicial': [null, common_2.Validators.required],
             'dataFinal': [null, common_2.Validators.required]
         });
-        mainService
-            .getConcursadosPorDatas('01/01/2014', '01/07/2015')
-            .subscribe(function (data) {
-            _this.resultAll = data;
-            _this.total = data.length;
-            me.getPage(1);
-            me.ready();
-        }, function (error) { return console.error(error); });
     }
     ConcursadoComponente.prototype.ngOnInit = function () {
         var me = this;

@@ -63,7 +63,7 @@ export class ConcursoRemocaoService {
   getRemocoesEntreDatas(dataInicial:string, dataFinal:string): Observable<ConcursoRemocao[]> {
     // console.log('service ::: getRemocoesPorDiaMesAno ==>  = ', diaMesAno);
     // return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/'+ vaga)
-    return this.http.get(this.urlBase + 'getRemocoesEntreDatas?dataInicial='+ dataInicial +'&dataFinal='+dataFinal)
+    return this.http.get(this.urlBase + 'recuperarRemocoesEntreDatas?dataInicial='+ dataInicial +'&dataFinal='+dataFinal)
       .map(response => response.json());
   }
 

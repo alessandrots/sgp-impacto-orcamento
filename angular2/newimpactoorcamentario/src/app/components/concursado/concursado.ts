@@ -50,29 +50,17 @@ export default class ConcursadoComponente  extends LoadingPage {
   mainService: ConcursadoService;
 
   constructor(http: Http,  private _router: Router,
-    mainService: ConcursadoService,
-    params: RouteSegment) {
+              mainService: ConcursadoService,
+              params: RouteSegment) {
     super(true);
     // console.log('ConcursadoComponente Construtor');
     var me = this;
+    me.mainService = mainService;
     const fb = new FormBuilder();
     this.formModel = fb.group({
       'dataInicial': [null, Validators.required],
       'dataFinal': [null, Validators.required]
     });
-
-    // me.standby();
-    //SUBSTITUINDO por chamada ao serviço
-    mainService
-      .getConcursadosPorDatas('01/01/2014', '01/07/2015')
-      .subscribe(
-        data => {
-          this.resultAll = data;
-          this.total = data.length;
-          me.getPage(1);
-          me.ready();
-        },
-        error => console.error(error));
   }
 
   ngOnInit() {

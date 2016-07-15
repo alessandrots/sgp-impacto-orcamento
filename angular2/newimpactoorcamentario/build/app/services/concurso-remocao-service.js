@@ -52,7 +52,7 @@ var ConcursoRemocaoService = (function () {
             .map(function (response) { return response.json(); });
     };
     ConcursoRemocaoService.prototype.getRemocoesEntreDatas = function (dataInicial, dataFinal) {
-        return this.http.get(this.urlBase + 'getRemocoesEntreDatas?dataInicial=' + dataInicial + '&dataFinal=' + dataFinal)
+        return this.http.get(this.urlBase + 'recuperarRemocoesEntreDatas?dataInicial=' + dataInicial + '&dataFinal=' + dataFinal)
             .map(function (response) { return response.json(); });
     };
     ConcursoRemocaoService.prototype.getDatasRemocoes = function () {
