@@ -84,6 +84,35 @@ public class ConcursoRemocaoFacade extends Facade {
 		return lista;
 	}
 	
+	
+	@Transactional
+	public String recuperarRemocoesEntreDatasJSon(Date dataInicialRemocao, Date dataFinalRemocao) {
+		String tmp  = "";
+		
+		List<ConcursoRemocaoJSon> lista = new ArrayList<ConcursoRemocaoJSon>();
+		
+		this.getConcursoRemocaoDAO().recuperarRemocoesEntreDatas(dataInicialRemocao, dataFinalRemocao).forEach((concursoR)->{
+			lista.add((ConcursoRemocaoJSon)convertJson(concursoR));
+		});
+		
+		tmp = EngineJson.getInstancia().serializarLista(lista);
+		
+		return tmp;
+	}
+	
+	@Transactional
+	public List<ConcursoRemocaoJSon> recuperarRemocoesEntreDatas(Date dataInicialRemocao, Date dataFinalRemocao) {
+		List<ConcursoRemocaoJSon> lista = new ArrayList<ConcursoRemocaoJSon>();
+		
+		this.getConcursoRemocaoDAO().recuperarRemocoesEntreDatas(dataInicialRemocao, dataFinalRemocao).forEach((concursoR)->{
+			lista.add((ConcursoRemocaoJSon)convertJson(concursoR));
+		});
+		
+		return lista;
+	}
+	
+	
+	
 	public ConcursoRemocaoJSon copyProperties(Domain d) {
 		ConcursoRemocao domain = (ConcursoRemocao)d;
 		ConcursoRemocaoJSon to = new ConcursoRemocaoJSon();

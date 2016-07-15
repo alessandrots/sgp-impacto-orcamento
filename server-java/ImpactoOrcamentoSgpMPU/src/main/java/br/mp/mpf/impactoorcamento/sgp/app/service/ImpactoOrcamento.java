@@ -75,7 +75,7 @@ public class ImpactoOrcamento extends BeanManager {
 		
 		List<ConcursadoJSon> listaConcursado 			= this.getConcursadoFacade().recuperarNomeacoesEntreDataInicialRemocaoEDataAtual(dtini, dtfim);
 		
-		List<ConcursoRemocaoJSon> listaConcursoRemocao 	= this.getConcursoRemocaoFacade().recuperarRemocoesAPartirDataInicialRemocao(dtini);
+		List<ConcursoRemocaoJSon> listaConcursoRemocao 	= this.getConcursoRemocaoFacade().recuperarRemocoesEntreDatas(dtini, dtfim);
 		
 		List<ConcursadoJSon> lista  = this.getImpactoOrcamentoFacade().processarImpactoNomeacoesComRemocoes(listaConcursado, listaConcursoRemocao);
 		

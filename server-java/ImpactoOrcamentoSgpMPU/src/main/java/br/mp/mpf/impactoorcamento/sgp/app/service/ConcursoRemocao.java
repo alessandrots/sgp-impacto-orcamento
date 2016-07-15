@@ -115,5 +115,28 @@ public class ConcursoRemocao extends BeanManager {
 		}
 		
 		
+		@GET
+		@Path("/recuperarRemocoesEntreDatas")
+		@Produces("text/json;charset=UTF-8")
+		/**
+		 * TOMCAT: http://localhost:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesEntreDatas?dataInicial=01/01/2014&dataFinal=01/01/2015
+		 * JETTY : http://localhost:9090/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesEntreDatas?dataInicial=01/01/2014&dataFinal=01/01/2015
+		 * 
+		 * @param dataInicialRemocao
+		 * @return Response
+		 */
+		public Response recuperarRemocoesEntreDatas(@QueryParam("dataInicial") String dataInicial, @QueryParam("dataFinal") String dataFinal) {
+			init();
+			
+			getConcursoRemocaoFacade();
+			
+			Date dtini = Util.newInstance().convertDataStringToDate(dataInicial);
+			Date dtfim = Util.newInstance().convertDataStringToDate(dataFinal);
+			
+			String output  = this.getConcursoRemocaoFacade().recuperarRemocoesEntreDatasJSon(dtini, dtfim);
+			
+			return Response.status(200).entity(output).build();
+		}
+		
 		
 }
