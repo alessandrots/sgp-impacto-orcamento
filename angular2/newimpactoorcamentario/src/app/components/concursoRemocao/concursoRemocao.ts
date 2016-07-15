@@ -6,6 +6,7 @@ import ConcursoRemocaoModel from './concurso-remocao-model';
 import { Router, RouteSegment} from '@angular/router';
 import {ConcursoRemocao, ConcursoRemocaoService} from '../../services/concurso-remocao-service';
 import {Observable} from 'rxjs';
+import {LoadingIndicator, LoadingPage} from '../loading/load-page';
 
 interface IServerResponse {
     items: ConcursoRemocaoModel[];
@@ -16,26 +17,28 @@ interface IServerResponse {
   selector: 'orc-nomeacao-paginator-page',
   directives: [
     NgFor,
-    PaginationControlsCmp
+    PaginationControlsCmp,
+    LoadingIndicator
   ],
   pipes: [PaginatePipe],
   providers: [PaginationService],
   template: require('./concursoRemocao.html')
 
 })
-export default class ConcursoRemocaoComponente {
+export default class ConcursoRemocaoComponente   extends LoadingPage {
   result: Observable<ConcursoRemocaoModel[]>;
   @Input('data') resultAll: ConcursoRemocaoModel[] = [];
   impacto: ConcursoRemocao;
   total: number;
   p: number = 1;
-  loading: boolean;
+  // loading: boolean;
   params: RouteSegment;
   mainService: ConcursoRemocaoService;
 
 
   constructor(http: Http,  private _router: Router, mainService: ConcursoRemocaoService, params: RouteSegment) {
-    console.log('ConcursoRemocaoComponente Construtor');
+    super(true);
+    // console.log('ConcursoRemocaoComponente Construtor');
     var me = this;
     this.params = params;
     this.mainService = mainService;
@@ -47,9 +50,10 @@ export default class ConcursoRemocaoComponente {
     let dia = this.params.getParam('dia');
     let mes = this.params.getParam('mes');
     let ano = this.params.getParam('ano');
-    console.log('ConcursoRemocaoComponente dia = ', dia);
-    console.log('ConcursoRemocaoComponente mes = ', mes);
-    console.log('ConcursoRemocaoComponente ano = ', ano);
+    // console.log('ConcursoRemocaoComponente dia = ', dia);
+    // console.log('ConcursoRemocaoComponente mes = ', mes);
+    // console.log('ConcursoRemocaoComponente ano = ', ano);
+    me.standby();
 
     //SUBSTITUINDO por chamada ao serviço
     this.mainService
@@ -59,8 +63,8 @@ export default class ConcursoRemocaoComponente {
         data => {
           this.resultAll = data;
           this.total = data.length;
-
           me.getPage(1);
+          me.ready();
         },
         error => console.error(error));
   }
@@ -81,7 +85,7 @@ export default class ConcursoRemocaoComponente {
   }
 
   getPage(page: number) {
-      this.loading = true;
+      // this.loading = true;
       // console.log('ConcursoRemocaoComponente ::: tamanho array  = ', this.resultAll.length);
       // console.log('ConcursoRemocaoComponente ::: page: number = ', page);
       this.result = this.serverCall(this.resultAll, page)
@@ -89,13 +93,13 @@ export default class ConcursoRemocaoComponente {
                 // console.log('getPage = ', res);
                 this.total = res.total;
                 this.p = page;
-                this.loading = false;
+                // this.loading = false;
             })
             .map(res => res.items);
   }
 
   gotoDetail(hero: ConcursoRemocaoModel) {
-    console.log('ConcursoRemocaoComponente ==> inscricao = ', hero.numeroVaga);
+    // console.log('ConcursoRemocaoComponente ==> inscricao = ', hero.numeroVaga);
     let link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
     this._router.navigate(link);
   }

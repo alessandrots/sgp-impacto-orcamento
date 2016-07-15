@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15,12 +20,14 @@ var ng2_pagination_1 = require('../../../../node_modules/ng2-pagination');
 var router_1 = require('@angular/router');
 var concurso_remocao_service_1 = require('../../services/concurso-remocao-service');
 var rxjs_1 = require('rxjs');
-var ConcursoRemocaoComponente = (function () {
+var load_page_1 = require('../loading/load-page');
+var ConcursoRemocaoComponente = (function (_super) {
+    __extends(ConcursoRemocaoComponente, _super);
     function ConcursoRemocaoComponente(http, _router, mainService, params) {
+        _super.call(this, true);
         this._router = _router;
         this.resultAll = [];
         this.p = 1;
-        console.log('ConcursoRemocaoComponente Construtor');
         var me = this;
         this.params = params;
         this.mainService = mainService;
@@ -31,15 +38,14 @@ var ConcursoRemocaoComponente = (function () {
         var dia = this.params.getParam('dia');
         var mes = this.params.getParam('mes');
         var ano = this.params.getParam('ano');
-        console.log('ConcursoRemocaoComponente dia = ', dia);
-        console.log('ConcursoRemocaoComponente mes = ', mes);
-        console.log('ConcursoRemocaoComponente ano = ', ano);
+        me.standby();
         this.mainService
             .getRemocoesPorDiaMesAno(dia, mes, ano)
             .subscribe(function (data) {
             _this.resultAll = data;
             _this.total = data.length;
             me.getPage(1);
+            me.ready();
         }, function (error) { return console.error(error); });
     };
     ConcursoRemocaoComponente.prototype.serverCall = function (meals, page) {
@@ -54,17 +60,14 @@ var ConcursoRemocaoComponente = (function () {
     };
     ConcursoRemocaoComponente.prototype.getPage = function (page) {
         var _this = this;
-        this.loading = true;
         this.result = this.serverCall(this.resultAll, page)
             .do(function (res) {
             _this.total = res.total;
             _this.p = page;
-            _this.loading = false;
         })
             .map(function (res) { return res.items; });
     };
     ConcursoRemocaoComponente.prototype.gotoDetail = function (hero) {
-        console.log('ConcursoRemocaoComponente ==> inscricao = ', hero.numeroVaga);
         var link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
         this._router.navigate(link);
     };
@@ -77,7 +80,8 @@ var ConcursoRemocaoComponente = (function () {
             selector: 'orc-nomeacao-paginator-page',
             directives: [
                 common_1.NgFor,
-                ng2_pagination_1.PaginationControlsCmp
+                ng2_pagination_1.PaginationControlsCmp,
+                load_page_1.LoadingIndicator
             ],
             pipes: [ng2_pagination_1.PaginatePipe],
             providers: [ng2_pagination_1.PaginationService],
@@ -86,7 +90,7 @@ var ConcursoRemocaoComponente = (function () {
         __metadata('design:paramtypes', [http_1.Http, router_1.Router, concurso_remocao_service_1.ConcursoRemocaoService, router_1.RouteSegment])
     ], ConcursoRemocaoComponente);
     return ConcursoRemocaoComponente;
-}());
+}(load_page_1.LoadingPage));
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ConcursoRemocaoComponente;
 //# sourceMappingURL=concursoRemocao.js.map

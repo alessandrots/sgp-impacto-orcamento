@@ -44,9 +44,9 @@ export default class ConcursadoDetailComponente {
   ngOnInit() {
     // let id = +this.params.getParam('inscricao');
     // console.log('ConcursadoDetailComponente inscricao = ', id);
-    console.log('ngOnInit this.params = ', this.params.parameters);
+    // console.log('ngOnInit this.params = ', this.params.parameters);
     let id = +this.params.parameters['inscricao'];
-    console.log('ConcursadoDetailComponente inscricao = ', id);
+    // console.log('ConcursadoDetailComponente inscricao = ', id);
 
     //SUBSTITUINDO por chamada ao serviço
     this.mainService
@@ -69,11 +69,10 @@ export default class ConcursadoDetailComponente {
                                                 null, this.dataInicial,
                                                 this.dataFinal, this.page);
 
-    console.log('this.p page = ', this.page +
-                '\n dataInicial = '+ this.dataInicial +
-                '\n dataFinal =' + this.dataFinal);
-    console.log('this.impactoInicial = ', this.impactoInicial);
-
+    // console.log('this.p page = ', this.page +
+    //             '\n dataInicial = '+ this.dataInicial +
+    //             '\n dataFinal =' + this.dataFinal);
+    // console.log('this.impactoInicial = ', this.impactoInicial);
     let link = ['/ImpactoInicialComponente2', this.concursadoModel];
     this._router.navigate(link);
   }

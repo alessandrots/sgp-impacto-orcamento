@@ -6,6 +6,8 @@ import ConcursadoModel from './concursado-model';
 import { Router } from '@angular/router';
 import {Concursado, ConcursadoService} from '../../services/concursado-service';
 import {Observable} from 'rxjs';
+import {NgSwitch, NgSwitchWhen} from '@angular/common';
+import {LoadingIndicator, LoadingPage} from '../loading/load-page';
 
 interface IServerResponse {
     items: ConcursadoModel[];
@@ -16,35 +18,38 @@ interface IServerResponse {
   selector: 'orc-nomeacao-paginator-page',
   directives: [
     NgFor,
-    PaginationControlsCmp
+    PaginationControlsCmp,
+    LoadingIndicator
   ],
   pipes: [PaginatePipe],
   providers: [PaginationService],
   template: require('./concursado.html')
 
 })
-export default class ConcursadoComponente {
+export default class ConcursadoComponente  extends LoadingPage {
   result: Observable<ConcursadoModel[]>;
   @Input('data') resultAll: ConcursadoModel[] = [];
   impacto: Concursado;
   total: number;
   p: number = 1;
-  loading: boolean;
+  // loading: boolean;
 
 
   constructor(http: Http,  private _router: Router, mainService: ConcursadoService) {
+    super(true);
     // console.log('ConcursadoComponente Construtor');
     var me = this;
 
+    // me.standby();
     //SUBSTITUINDO por chamada ao serviço
     mainService
-      .getAllConcursados()
+      .getConcursadosPorDatas('01/01/2014', '01/07/2015')
       .subscribe(
         data => {
           this.resultAll = data;
           this.total = data.length;
-
           me.getPage(1);
+          me.ready();
         },
         error => console.error(error));
   }
@@ -65,7 +70,7 @@ export default class ConcursadoComponente {
   }
 
   getPage(page: number) {
-      this.loading = true;
+      // this.loading = true;
       // console.log('ConcursadoComponente ::: tamanho array  = ', this.resultAll.length);
       // console.log('ConcursadoComponente ::: page: number = ', page);
       this.result = this.serverCall(this.resultAll, page)
