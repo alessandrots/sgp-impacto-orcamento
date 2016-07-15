@@ -48,6 +48,7 @@ var ApplicationComponent = (function () {
             { path: '/ConcursadoDetailComponenteX', component: concursado_detail_1.default },
             { path: '/RemocaoComponente', component: concursoRemocao_1.default },
             { path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: concursoRemocao_detail_1.default },
+            { path: '/ConcursoRemocaoDetailComponenteX', component: concursoRemocao_detail_1.default },
             { path: '/ImpactoInicialComponente', component: impacto_inicial_1.default },
             { path: '/ImpactoInicialComponente2', component: impacto_inicial_2.default },
             { path: '/ImpactoDetailComponente', component: impacto_detail_1.default }

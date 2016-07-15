@@ -69,9 +69,9 @@ export default class ConcursadoDetailComponente {
                                                 null, this.dataInicial,
                                                 this.dataFinal, this.page);
 
-    console.log('this.p page = ', this.page +
-                '\n dataInicial = '+ this.dataInicial +
-                '\n dataFinal =' + this.dataFinal);
+    // console.log('this.p page = ', this.page +
+    //             '\n dataInicial = '+ this.dataInicial +
+    //             '\n dataFinal =' + this.dataFinal);
     // console.log('this.impactoInicial = ', this.impactoInicial);
     let link = ['/ConcursadoComponente', this.concursadoModel];
     this._router.navigate(link);

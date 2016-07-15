@@ -99,7 +99,10 @@ var ConcursoRemocaoComponente = (function (_super) {
         }
     };
     ConcursoRemocaoComponente.prototype.gotoDetail = function (hero) {
-        var link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
+        hero.page = this.p;
+        hero.dataInicial = this.formModel._value.dataInicial;
+        hero.dataFinal = this.formModel._value.dataFinal;
+        var link = ['/ConcursoRemocaoDetailComponenteX', hero];
         this._router.navigate(link);
     };
     __decorate([

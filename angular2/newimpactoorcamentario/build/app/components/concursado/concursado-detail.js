@@ -37,9 +37,6 @@ var ConcursadoDetailComponente = (function () {
         this.dataInicial = this.params.parameters['dataInicial'];
         this.dataFinal = this.params.parameters['dataFinal'];
         this.concursadoModel = new concursado_model_1.default(null, null, null, null, null, null, null, null, null, null, null, null, null, this.dataInicial, this.dataFinal, this.page);
-        console.log('this.p page = ', this.page +
-            '\n dataInicial = ' + this.dataInicial +
-            '\n dataFinal =' + this.dataFinal);
         var link = ['/ConcursadoComponente', this.concursadoModel];
         this._router.navigate(link);
     };

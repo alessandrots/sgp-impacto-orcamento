@@ -43,6 +43,7 @@ import ImpactoDetailComponente from '../impacto2/impacto-detail';
     {path: '/ConcursadoDetailComponenteX', component: ConcursadoDetailComponente},
     {path: '/RemocaoComponente', component: ConcursoRemocaoComponente},
     {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursoRemocaoDetailComponente},
+    {path: '/ConcursoRemocaoDetailComponenteX', component: ConcursoRemocaoDetailComponente},
     {path: '/ImpactoInicialComponente', component: ImpactoInicialComponente},
     {path: '/ImpactoInicialComponente2', component: ImpactoInicialComponente2},
     {path: '/ImpactoDetailComponente', component: ImpactoDetailComponente}

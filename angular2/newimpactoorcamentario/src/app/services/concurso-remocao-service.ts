@@ -17,7 +17,10 @@ export class ConcursoRemocao {
     public motivo:string,
     public ultimoOcupante:string,
     public dataRemocaoGravacao:string,
-    public totalRemocao:string) {
+    public totalRemocao:string,
+    public dataInicial : string,
+    public dataFinal: string,
+    public page:number) {
       console.log(' Model ConcursoRemocao...');
   }
 

@@ -155,8 +155,11 @@ export default class ConcursoRemocaoComponente   extends LoadingPage {
 
 
   gotoDetail(hero: ConcursoRemocaoModel) {
+    hero.page = this.p;
+    hero.dataInicial = this.formModel._value.dataInicial;
+    hero.dataFinal = this.formModel._value.dataFinal;
     // console.log('ConcursoRemocaoComponente ==> inscricao = ', hero.numeroVaga);
-    let link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];
+    let link = ['/ConcursoRemocaoDetailComponenteX', hero];
     this._router.navigate(link);
   }
 }
