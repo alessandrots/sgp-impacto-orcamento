@@ -1,11 +1,11 @@
 import {Component, Input} from '@angular/core';
 import {NgFor} from '@angular/common';
 import {Http, Response} from '@angular/http';
-import ConcursadoModel from './concursado-model';
+import ConcursadoModel from '../concursado/concursado-model';
 import {Router, RouteSegment} from '@angular/router';
 import {Concursado, ConcursadoService} from '../../services/concursado-service';
 import {Observable} from 'rxjs';
-import ConcursadoComponente from './concursado';
+import ImpactoInicialComponente2 from '../impacto2/impacto-inicial';
 
 interface IServerResponse {
     items: ConcursadoModel[];
@@ -14,11 +14,11 @@ interface IServerResponse {
 
 @Component({
   selector: 'orc-nomeacao-paginator-page',
-  template: require('./concursado-detail.html'),
-  providers:[ConcursadoComponente]
+  template: require('./impacto-detail.html'),
+  providers:[ImpactoInicialComponente2]
 })
 
-export default class ConcursadoDetailComponente {
+export default class ImpactoDetailComponente {
   // result: Observable<ConcursadoModel[]>;
   @Input('data') obj: Concursado;
   loading: boolean;
@@ -27,18 +27,17 @@ export default class ConcursadoDetailComponente {
   page:number;
   dataInicial:string;
   dataFinal:string;
-  impactoInicial: ConcursadoComponente;
+  impactoInicial: ImpactoInicialComponente2;
   concursadoModel: ConcursadoModel;
 
   constructor(private http: Http,
     params: RouteSegment,
     private _router: Router,
     mainService: ConcursadoService,
-    impactoInicial: ConcursadoComponente) {
+    impactoInicial: ImpactoInicialComponente2) {
       this.params = params;
       this.mainService = mainService;
       this.impactoInicial = impactoInicial;
-    console.log('ConcursadoDetailComponente this.params = ', this.params);
   }
 
   ngOnInit() {
@@ -69,11 +68,7 @@ export default class ConcursadoDetailComponente {
                                                 null, this.dataInicial,
                                                 this.dataFinal, this.page);
 
-    console.log('this.p page = ', this.page +
-                '\n dataInicial = '+ this.dataInicial +
-                '\n dataFinal =' + this.dataFinal);
-    // console.log('this.impactoInicial = ', this.impactoInicial);
-    let link = ['/ConcursadoComponente', this.concursadoModel];
+    let link = ['/ImpactoInicialComponente2', this.concursadoModel];
     this._router.navigate(link);
   }
 

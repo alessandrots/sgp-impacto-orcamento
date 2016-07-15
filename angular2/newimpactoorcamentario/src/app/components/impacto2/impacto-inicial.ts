@@ -170,7 +170,7 @@ export default class ImpactoInicialComponente2 extends LoadingPage {
     hero.page = this.p;
     hero.dataInicial = this.formModel._value.dataInicial;
     hero.dataFinal = this.formModel._value.dataFinal;
-    let link = ['/ConcursadoDetailComponenteX', hero];
+    let link = ['/ImpactoDetailComponente', hero];
     this._router.navigate(link);
   }
 }

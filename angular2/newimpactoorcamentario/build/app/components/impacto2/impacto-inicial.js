@@ -101,7 +101,7 @@ var ImpactoInicialComponente2 = (function (_super) {
         hero.page = this.p;
         hero.dataInicial = this.formModel._value.dataInicial;
         hero.dataFinal = this.formModel._value.dataFinal;
-        var link = ['/ConcursadoDetailComponenteX', hero];
+        var link = ['/ImpactoDetailComponente', hero];
         this._router.navigate(link);
     };
     __decorate([

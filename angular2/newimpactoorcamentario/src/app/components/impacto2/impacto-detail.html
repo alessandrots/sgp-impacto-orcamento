@@ -1,0 +1,41 @@
+<div class="row">
+  <button type="button"
+          class="btn btn-primary btn-block"
+          (click)="gotoList()">Back</button>
+</div>
+
+<div class="row">
+    <table border="1">
+        <tr>
+            <th>inscricao</th>
+            <th>numeroEdital</th>
+            <th>ufNomeacao</th>
+            <th>cargo</th>
+            <th>cargoDescricao</th>
+            <th>nome</th>
+            <th>numeroPortaria</th>
+            <th>dataNomeacao</th>
+            <th>dataExercicio</th>
+            <th>numeroVaga</th>
+            <th>origemVaga</th>
+            <th>dataDesprovimento</th>
+            <th>leiVaga</th>
+        </tr>
+
+        <tr>
+            <td><H1>{{obj?.inscricao}}</H1></td>
+            <td>{{obj?.numeroEdital}}</td>
+            <td>{{obj?.ufNomeacao}}</td>
+            <td>{{obj?.cargo}}</td>
+            <td>{{obj?.cargoDescricao}}</td>
+            <td>{{obj?.nome}}</td>
+            <td>{{obj?.numeroPortaria}}</td>
+            <td>{{obj?.dataNomeacao}}</td>
+            <td>{{obj?.dataExercicio}}</td>
+            <td>{{obj?.numeroVaga}}</td>
+            <td>{{obj?.origemVaga}}</td>
+            <td>{{obj?.dataDesprovimento}}</td>
+            <td>{{obj?.leiVaga}}</td>
+        </tr>
+    </table>
+</div>

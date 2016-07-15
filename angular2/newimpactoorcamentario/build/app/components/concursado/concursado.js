@@ -32,6 +32,7 @@ var ConcursadoComponente = (function (_super) {
         var me = this;
         me.mainService = mainService;
         var fb = new common_2.FormBuilder();
+        this.params = params;
         this.formModel = fb.group({
             'dataInicial': [null, common_2.Validators.required],
             'dataFinal': [null, common_2.Validators.required]
@@ -65,8 +66,10 @@ var ConcursadoComponente = (function (_super) {
             .map(function (res) { return res.items; });
     };
     ConcursadoComponente.prototype.gotoDetail = function (hero) {
-        console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
-        var link = ['/ConcursadoDetailComponente', hero.inscricao];
+        hero.page = this.p;
+        hero.dataInicial = this.formModel._value.dataInicial;
+        hero.dataFinal = this.formModel._value.dataFinal;
+        var link = ['/ConcursadoDetailComponenteX', hero];
         this._router.navigate(link);
     };
     ConcursadoComponente.prototype.onSearch = function () {

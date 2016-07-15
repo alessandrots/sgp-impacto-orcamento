@@ -57,6 +57,7 @@ export default class ConcursadoComponente  extends LoadingPage {
     var me = this;
     me.mainService = mainService;
     const fb = new FormBuilder();
+    this.params = params;
     this.formModel = fb.group({
       'dataInicial': [null, Validators.required],
       'dataFinal': [null, Validators.required]
@@ -103,8 +104,11 @@ export default class ConcursadoComponente  extends LoadingPage {
   }
 
   gotoDetail(hero: ConcursadoModel) {
-    console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
-    let link = ['/ConcursadoDetailComponente', hero.inscricao];
+    hero.page = this.p;
+    hero.dataInicial = this.formModel._value.dataInicial;
+    hero.dataFinal = this.formModel._value.dataFinal;
+    // console.log('ConcursadoComponente ==> ConcursadoModel = ', hero);
+    let link = ['/ConcursadoDetailComponenteX', hero];
     this._router.navigate(link);
   }
 
