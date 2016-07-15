@@ -21,15 +21,21 @@ var router_1 = require('@angular/router');
 var concursado_service_1 = require('../../services/concursado-service');
 var rxjs_1 = require('rxjs');
 var load_page_1 = require('../loading/load-page');
+var common_2 = require('@angular/common');
 var ConcursadoComponente = (function (_super) {
     __extends(ConcursadoComponente, _super);
-    function ConcursadoComponente(http, _router, mainService) {
+    function ConcursadoComponente(http, _router, mainService, params) {
         var _this = this;
         _super.call(this, true);
         this._router = _router;
         this.resultAll = [];
         this.p = 1;
         var me = this;
+        var fb = new common_2.FormBuilder();
+        this.formModel = fb.group({
+            'dataInicial': [null, common_2.Validators.required],
+            'dataFinal': [null, common_2.Validators.required]
+        });
         mainService
             .getConcursadosPorDatas('01/01/2014', '01/07/2015')
             .subscribe(function (data) {
@@ -39,6 +45,13 @@ var ConcursadoComponente = (function (_super) {
             me.ready();
         }, function (error) { return console.error(error); });
     }
+    ConcursadoComponente.prototype.ngOnInit = function () {
+        var me = this;
+        if (this.params) {
+            console.log('ConcursoRemocaoComponente ngOnInit this.params = ', this.params.parameters);
+        }
+        this.onSearch();
+    };
     ConcursadoComponente.prototype.serverCall = function (meals, page) {
         var perPage = 10;
         var start = (page - 1) * perPage;
@@ -64,6 +77,40 @@ var ConcursadoComponente = (function (_super) {
         var link = ['/ConcursadoDetailComponente', hero.inscricao];
         this._router.navigate(link);
     };
+    ConcursadoComponente.prototype.onSearch = function () {
+        var _this = this;
+        var me = this;
+        console.log('this.params -->  = ', this.params);
+        console.log('this.formModel = ', this.formModel.value);
+        if (this.formModel.valid) {
+            me.standby();
+            this.mainService
+                .getConcursadosPorDatas(this.formModel._value.dataInicial, this.formModel._value.dataFinal)
+                .subscribe(function (data) {
+                _this.resultAll = data;
+                _this.total = data.length;
+                me.getPage(1);
+                me.ready();
+            }, function (error) { return console.error(error); });
+        }
+        else if (this.params && (this.params.parameters['dataInicial'] &&
+            this.params.parameters['dataFinal'])) {
+            me.standby();
+            this.dataInicial = this.params.parameters['dataInicial'];
+            this.dataFinal = this.params.parameters['dataFinal'];
+            this.mainService
+                .getConcursadosPorDatas(this.dataInicial, this.dataFinal)
+                .subscribe(function (data) {
+                _this.resultAll = data;
+                _this.total = data.length;
+                me.getPage(1);
+                me.ready();
+            }, function (error) { return console.error(error); });
+        }
+        else {
+            me.ready();
+        }
+    };
     __decorate([
         core_1.Input('data'), 
         __metadata('design:type', Array)
@@ -80,7 +127,7 @@ var ConcursadoComponente = (function (_super) {
             providers: [ng2_pagination_1.PaginationService],
             template: require('./concursado.html')
         }), 
-        __metadata('design:paramtypes', [http_1.Http, router_1.Router, concursado_service_1.ConcursadoService])
+        __metadata('design:paramtypes', [http_1.Http, router_1.Router, concursado_service_1.ConcursadoService, router_1.RouteSegment])
     ], ConcursadoComponente);
     return ConcursadoComponente;
 }(load_page_1.LoadingPage));

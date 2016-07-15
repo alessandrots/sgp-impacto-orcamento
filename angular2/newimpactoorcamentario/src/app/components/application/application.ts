@@ -40,7 +40,7 @@ import ImpactoInicialComponente2 from '../impacto2/impacto-inicial';
     {path: '/ConcursadoComponente', component: ConcursadoComponente},
     {path: '/ConcursadoDetailComponente/:inscricao', component: ConcursadoDetailComponente},
     {path: '/ConcursadoDetailComponenteX', component: ConcursadoDetailComponente},
-    {path: '/RemocaoComponente/:dia/:mes/:ano', component: ConcursoRemocaoComponente},
+    {path: '/RemocaoComponente', component: ConcursoRemocaoComponente},
     {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursoRemocaoDetailComponente},
     {path: '/ImpactoInicialComponente', component: ImpactoInicialComponente},
     {path: '/ImpactoInicialComponente2', component: ImpactoInicialComponente2}

@@ -7,6 +7,15 @@ import { Router, RouteSegment} from '@angular/router';
 import {ConcursoRemocao, ConcursoRemocaoService} from '../../services/concurso-remocao-service';
 import {Observable} from 'rxjs';
 import {LoadingIndicator, LoadingPage} from '../loading/load-page';
+import {
+  Control,
+  ControlGroup,
+  CORE_DIRECTIVES,
+  FORM_DIRECTIVES,
+  FORM_PROVIDERS,
+  FormBuilder,
+  Validators
+} from '@angular/common';
 
 interface IServerResponse {
     items: ConcursoRemocaoModel[];
@@ -31,42 +40,37 @@ export default class ConcursoRemocaoComponente   extends LoadingPage {
   impacto: ConcursoRemocao;
   total: number;
   p: number = 1;
-  // loading: boolean;
+  // formModel: ControlGroup;
   params: RouteSegment;
   mainService: ConcursoRemocaoService;
+  formModel: ControlGroup;
+  dataInicial:string;
+  dataFinal:string;
 
-
-  constructor(http: Http,  private _router: Router, mainService: ConcursoRemocaoService, params: RouteSegment) {
-    super(true);
-    // console.log('ConcursoRemocaoComponente Construtor');
-    var me = this;
-    this.params = params;
-    this.mainService = mainService;
+  constructor(http: Http,  private _router: Router,
+    mainService: ConcursoRemocaoService,
+    params: RouteSegment) {
+      super(false);
+      // console.log('ConcursoRemocaoComponente Construtor');
+      // const fb = new FormBuilder();
+      var me = this;
+      this.params = params;
+      this.mainService = mainService;
+      const fb = new FormBuilder();
+      this.formModel = fb.group({
+        'dataInicial': [null, Validators.required],
+        'dataFinal': [null, Validators.required]
+      });
   }
 
   ngOnInit() {
-
     var me = this;
-    let dia = this.params.getParam('dia');
-    let mes = this.params.getParam('mes');
-    let ano = this.params.getParam('ano');
-    // console.log('ConcursoRemocaoComponente dia = ', dia);
-    // console.log('ConcursoRemocaoComponente mes = ', mes);
-    // console.log('ConcursoRemocaoComponente ano = ', ano);
-    me.standby();
-
+    if (this.params){
+        console.log('ConcursoRemocaoComponente ngOnInit this.params = ',
+        this.params.parameters);
+    }
     //SUBSTITUINDO por chamada ao serviço
-    this.mainService
-      // .getAllConcursoRemocaoPorDatas(data)
-      .getRemocoesPorDiaMesAno(dia, mes, ano)
-      .subscribe(
-        data => {
-          this.resultAll = data;
-          this.total = data.length;
-          me.getPage(1);
-          me.ready();
-        },
-        error => console.error(error));
+    this.onSearch();
   }
 
   /**
@@ -81,7 +85,7 @@ export default class ConcursoRemocaoComponente   extends LoadingPage {
           .of({
               items: meals.slice(start, end),
               total: meals.length
-          });//.delay(1000);
+          });
   }
 
   getPage(page: number) {
@@ -97,6 +101,58 @@ export default class ConcursoRemocaoComponente   extends LoadingPage {
             })
             .map(res => res.items);
   }
+
+
+  onSearch() {
+    // let dataInicial, dataFinal;
+    var me=this;
+    console.log('this.params -->  = ', this.params);
+    // console.log('this.params.parameters --> dataInicial = ', this.params.parameters['dataInicial']);
+    // console.log('this.params.parameters --> dataFinal = ', this.params.parameters['dataFinal']);
+
+    console.log('this.formModel = ', this.formModel.value);
+    if (this.formModel.valid) {
+      // this.mainService.searchEvent.emit(this.formModel.value);
+
+      me.standby();
+
+      // //SUBSTITUINDO por chamada ao serviço
+      this.mainService
+        // .getAllConcursoRemocaoPorDatas(data)
+        .getRemocoesEntreDatas(this.formModel._value.dataInicial,
+                                 this.formModel._value.dataFinal)
+        .subscribe(
+          data => {
+            this.resultAll = data;
+            this.total = data.length;
+            me.getPage(1);
+            me.ready();
+          },
+          error => console.error(error));
+        } else if (this.params.parameters['dataInicial'] &&
+                   this.params.parameters['dataFinal']) {
+          // console.log('ELSE onSearch ');
+          me.standby();
+          this.dataInicial = this.params.parameters['dataInicial'];
+          this.dataFinal = this.params.parameters['dataFinal'];
+
+          this.mainService
+            // .getAllConcursoRemocaoPorDatas(data)
+            .getRemocoesEntreDatas(this.dataInicial,
+                                     this.dataFinal)
+            .subscribe(
+              data => {
+                this.resultAll = data;
+                this.total = data.length;
+                me.getPage(1);
+                me.ready();
+              },
+              error => console.error(error));
+    } else {
+      me.ready();
+    }
+  }
+
 
   gotoDetail(hero: ConcursoRemocaoModel) {
     // console.log('ConcursoRemocaoComponente ==> inscricao = ', hero.numeroVaga);

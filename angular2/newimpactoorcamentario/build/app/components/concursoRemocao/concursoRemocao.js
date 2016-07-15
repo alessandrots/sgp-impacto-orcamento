@@ -21,32 +21,29 @@ var router_1 = require('@angular/router');
 var concurso_remocao_service_1 = require('../../services/concurso-remocao-service');
 var rxjs_1 = require('rxjs');
 var load_page_1 = require('../loading/load-page');
+var common_2 = require('@angular/common');
 var ConcursoRemocaoComponente = (function (_super) {
     __extends(ConcursoRemocaoComponente, _super);
     function ConcursoRemocaoComponente(http, _router, mainService, params) {
-        _super.call(this, true);
+        _super.call(this, false);
         this._router = _router;
         this.resultAll = [];
         this.p = 1;
         var me = this;
         this.params = params;
         this.mainService = mainService;
+        var fb = new common_2.FormBuilder();
+        this.formModel = fb.group({
+            'dataInicial': [null, common_2.Validators.required],
+            'dataFinal': [null, common_2.Validators.required]
+        });
     }
     ConcursoRemocaoComponente.prototype.ngOnInit = function () {
-        var _this = this;
         var me = this;
-        var dia = this.params.getParam('dia');
-        var mes = this.params.getParam('mes');
-        var ano = this.params.getParam('ano');
-        me.standby();
-        this.mainService
-            .getRemocoesPorDiaMesAno(dia, mes, ano)
-            .subscribe(function (data) {
-            _this.resultAll = data;
-            _this.total = data.length;
-            me.getPage(1);
-            me.ready();
-        }, function (error) { return console.error(error); });
+        if (this.params) {
+            console.log('ConcursoRemocaoComponente ngOnInit this.params = ', this.params.parameters);
+        }
+        this.onSearch();
     };
     ConcursoRemocaoComponente.prototype.serverCall = function (meals, page) {
         var perPage = 10;
@@ -66,6 +63,40 @@ var ConcursoRemocaoComponente = (function (_super) {
             _this.p = page;
         })
             .map(function (res) { return res.items; });
+    };
+    ConcursoRemocaoComponente.prototype.onSearch = function () {
+        var _this = this;
+        var me = this;
+        console.log('this.params -->  = ', this.params);
+        console.log('this.formModel = ', this.formModel.value);
+        if (this.formModel.valid) {
+            me.standby();
+            this.mainService
+                .getRemocoesEntreDatas(this.formModel._value.dataInicial, this.formModel._value.dataFinal)
+                .subscribe(function (data) {
+                _this.resultAll = data;
+                _this.total = data.length;
+                me.getPage(1);
+                me.ready();
+            }, function (error) { return console.error(error); });
+        }
+        else if (this.params.parameters['dataInicial'] &&
+            this.params.parameters['dataFinal']) {
+            me.standby();
+            this.dataInicial = this.params.parameters['dataInicial'];
+            this.dataFinal = this.params.parameters['dataFinal'];
+            this.mainService
+                .getRemocoesEntreDatas(this.dataInicial, this.dataFinal)
+                .subscribe(function (data) {
+                _this.resultAll = data;
+                _this.total = data.length;
+                me.getPage(1);
+                me.ready();
+            }, function (error) { return console.error(error); });
+        }
+        else {
+            me.ready();
+        }
     };
     ConcursoRemocaoComponente.prototype.gotoDetail = function (hero) {
         var link = ['/ConcursoRemocaoDetailComponente', hero.numeroVaga];

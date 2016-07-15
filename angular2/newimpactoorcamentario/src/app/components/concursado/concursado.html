@@ -1,3 +1,43 @@
+<form [ngFormModel]="formModel"
+      (ngSubmit)="onSearch()"
+      novalidate>
+
+  <div class="form-group"
+       [class.has-error]="formModel.hasError('required', 'dataInicial')">
+    <label for="dataInicial"> Data Inicial:</label>
+    <input id="dataInicial"
+           placeholder="Data Inicial"
+           class="form-control"
+           type="date"
+           [(ngModel)]="dataInicial"
+           ngControl="dataInicial">
+    <span class="help-block"
+          [class.hidden]="!formModel.hasError('required', 'dataInicial')">
+      Campo obrigatório
+    </span>
+  </div>
+
+  <div class="form-group"
+       [class.has-error]="formModel.hasError('required', 'dataFinal')">
+    <label for="dataFinal"> Data Final:</label>
+    <input id="dataFinal"
+           placeholder="Data Final"
+           class="form-control"
+           type="date"
+           [(ngModel)]="dataFinal"
+           ngControl="dataFinal">
+    <span class="help-block"
+          [class.hidden]="!formModel.hasError('required', 'dataFinal')">
+      Campo obrigatório
+    </span>
+  </div>
+
+  <div class="form-group">
+    <button type="submit"
+            class="btn btn-primary btn-block">Pesquisar Concursados</button>
+  </div>
+</form>
+
 <div class="row" *ngIf="loading == true">
   <loading-indicator></loading-indicator>
 </div>
