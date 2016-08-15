@@ -7,7 +7,7 @@ const ProvidePlugin      = require('webpack/lib/ProvidePlugin');
 
 const ENV  = process.env.NODE_ENV = 'development';
 //const HOST = process.env.HOST || 'localhost';
-const HOST = process.env.HOST || '10.224.123.134';
+const HOST = process.env.HOST || '10.224.123.136';
 const PORT = process.env.PORT || 8081;
 
 const metadata = {

@@ -41,22 +41,22 @@ var ConcursadoService = (function () {
     }
     ConcursadoService.prototype.search = function (params) {
         console.log('ConcursadoService ==> search = ', params);
-        return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015')
+        return this.http.get('http://10.224.123.136:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015')
             .map(function (response) { return response.json(); });
     };
     ConcursadoService.prototype.getAllConcursados = function () {
         console.log('service ::: getAllConcursadoEntredatas ==>  ');
-        return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getAllConcursados')
+        return this.http.get('http://10.224.123.136:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getAllConcursados')
             .map(function (response) { return response.json(); });
     };
     ConcursadoService.prototype.getConcursadosPorDatas = function (dataInicial, dataFinal) {
         console.log('service ::: getConcursadosPorDatas ==> dataInicial= ', dataInicial + ' dataFinal= ', dataFinal);
-        return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=' + dataInicial + '&dataFinal=' + dataFinal)
+        return this.http.get('http://10.224.123.136:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=' + dataInicial + '&dataFinal=' + dataFinal)
             .map(function (response) { return response.json(); });
     };
     ConcursadoService.prototype.getConcursadoPorId = function (inscricao) {
         console.log('service ::: getConcursadoPorId ==>  ', inscricao);
-        return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/recuperarNomeacaoPorInscricao/' + inscricao)
+        return this.http.get('http://10.224.123.136:8080/impactorcamentosgpmpu/ns/rest/concursadoService/recuperarNomeacaoPorInscricao/' + inscricao)
             .map(function (response) { return response.json(); });
     };
     ConcursadoService = __decorate([

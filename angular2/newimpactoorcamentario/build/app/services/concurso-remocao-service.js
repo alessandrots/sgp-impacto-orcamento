@@ -38,7 +38,7 @@ var ConcursoRemocaoService = (function () {
     function ConcursoRemocaoService(http) {
         this.http = http;
         this.searchEvent = new core_1.EventEmitter();
-        this.urlBase = 'http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/';
+        this.urlBase = 'http://10.224.123.136:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/';
     }
     ConcursoRemocaoService.prototype.getAllConcursoRemocaoPorDatas = function (data) {
         console.log('service ::: getAllConcursoRemocaoEntredatas ==>  ');

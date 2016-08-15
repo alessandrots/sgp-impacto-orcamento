@@ -18,12 +18,12 @@ var ImpactoService = (function () {
     }
     ImpactoService.prototype.search = function (params) {
         console.log('ConcursadoService ==> search = ', params);
-        return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015')
+        return this.http.get('http://10.224.123.136:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015')
             .map(function (response) { return response.json(); });
     };
     ImpactoService.prototype.getImpactoPorDatas = function (dataInicial, dataFinal) {
         console.log('service ::: getImpactoPorDatas ==> dataInicial= ', dataInicial + ' dataFinal= ', dataFinal);
-        return this.http.get('http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/impactoOrcamentoService/realizarImpactoRemocaoComConcursadosEntreDatas?dataInicial=' + dataInicial + '&dataFinal=' + dataFinal)
+        return this.http.get('http://10.224.123.136:8080/impactorcamentosgpmpu/ns/rest/impactoOrcamentoService/realizarImpactoRemocaoComConcursadosEntreDatas?dataInicial=' + dataInicial + '&dataFinal=' + dataFinal)
             .map(function (response) { return response.json(); });
     };
     ImpactoService = __decorate([
