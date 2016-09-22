@@ -1,3 +1,4 @@
+/*
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {enableProdMode} from '@angular/core';
 import {FORM_PROVIDERS} from '@angular/common';
@@ -17,3 +18,14 @@ bootstrap(ApplicationComponent, [
   ROUTER_PROVIDERS,
   ONLINE_IMPACTO_SERVICES
 ]).catch(console.error.bind(console));
+*/
+
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule }  from './app/app.module';
+
+if (webpack.ENV === 'production') {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule);

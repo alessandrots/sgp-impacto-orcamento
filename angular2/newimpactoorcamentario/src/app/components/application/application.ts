@@ -29,24 +29,24 @@ import ImpactoDetailComponente from '../impacto2/impacto-detail';
   directives: [ROUTER_DIRECTIVES]
 })
 
-@Routes([
-    {path: '/', component: HomeComponent},
-    {path: '/HomeForm', component: HomeForm},
-    {path: '/Nomeacao', component: NomeacaoComponent},
-    {path: '/NomeacaoPaging', component: NomeacaoComponentPag},
-    {path: '/HomeFormNew', component: HomeFormNew},
-    {path: '/NomeacaoDetail/:vaga', component: NomeacaoComponentDetail},
-    {path: '/NomeacaoPagingAll', component: NomeacaoComponentPagAll},
-    {path: '/Login', component: LoginComponent},
-    {path: '/ConcursadoComponente', component: ConcursadoComponente},
-    {path: '/ConcursadoDetailComponente/:inscricao', component: ConcursadoDetailComponente},
-    {path: '/ConcursadoDetailComponenteX', component: ConcursadoDetailComponente},
-    {path: '/RemocaoComponente', component: ConcursoRemocaoComponente},
-    {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursoRemocaoDetailComponente},
-    {path: '/ConcursoRemocaoDetailComponenteX', component: ConcursoRemocaoDetailComponente},
-    {path: '/ImpactoInicialComponente', component: ImpactoInicialComponente},
-    {path: '/ImpactoInicialComponente2', component: ImpactoInicialComponente2},
-    {path: '/ImpactoDetailComponente', component: ImpactoDetailComponente}
-])
+// @Routes([
+//     {path: '/', component: HomeComponent},
+//     {path: '/HomeForm', component: HomeForm},
+//     {path: '/Nomeacao', component: NomeacaoComponent},
+//     {path: '/NomeacaoPaging', component: NomeacaoComponentPag},
+//     {path: '/HomeFormNew', component: HomeFormNew},
+//     {path: '/NomeacaoDetail/:vaga', component: NomeacaoComponentDetail},
+//     {path: '/NomeacaoPagingAll', component: NomeacaoComponentPagAll},
+//     {path: '/Login', component: LoginComponent},
+//     {path: '/ConcursadoComponente', component: ConcursadoComponente},
+//     {path: '/ConcursadoDetailComponente/:inscricao', component: ConcursadoDetailComponente},
+//     {path: '/ConcursadoDetailComponenteX', component: ConcursadoDetailComponente},
+//     {path: '/RemocaoComponente', component: ConcursoRemocaoComponente},
+//     {path: '/ConcursoRemocaoDetailComponente/:numeroVaga', component: ConcursoRemocaoDetailComponente},
+//     {path: '/ConcursoRemocaoDetailComponenteX', component: ConcursoRemocaoDetailComponente},
+//     {path: '/ImpactoInicialComponente', component: ImpactoInicialComponente},
+//     {path: '/ImpactoInicialComponente2', component: ImpactoInicialComponente2},
+//     {path: '/ImpactoDetailComponente', component: ImpactoDetailComponente}
+// ])
 
 export default class ApplicationComponent {}
