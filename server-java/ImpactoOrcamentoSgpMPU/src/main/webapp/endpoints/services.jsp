@@ -2,6 +2,59 @@
 <html>
 <head>
 	<title>Endpoints</title>
+	
+	<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+	
+	<script type="text/javascript">
+		//<![CDATA[
+	
+		    //TODO - botar num arquivo javascript - quebrar em partes
+			$(document).ready(function() {
+				console.log('Success! ');
+				
+				$('#btnRest7').click(function(){
+		        	console.log('loadContent btn7');
+		            //var url_ = "/fiesWeb/ns/rest/servicos/aditamento/validar";
+		            var url_ = "/impactorcamentosgpmpu/ns/rest/servicos/aditamento/confirmarreabertura";
+		            
+		            $.ajax({
+		                type: "POST",
+		             	// The key needs to match your method's input parameter (case-sensitive).
+		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		                contentType: "application/json; charset=UTF-8",
+		                dataType: "json",
+		                url: url_,
+
+		                //data: req.presenter,
+		                data: formToJSON3(),
+
+		                success: function (data) {
+		                    console.log('Success = ', data);
+		                    //callback(data);
+		                },
+
+		                failure: function (errMsg) {
+		                    console.log('Failure = ', errMsg);
+		                }
+		            })
+
+		        });//fim btn7
+		        
+		        
+		        function formToJSON3() {
+		            return JSON.stringify({
+		            	'nuCpf': '519.641.497-54',
+		                'coAditamento': '1',
+		                'senha': '1'
+		                });
+		        }
+				
+				
+				//end of line
+			});
+	// ]]>	
+	</script>
+	
 	<style>
 		table, th, td {
 		    border: 1px solid black;
@@ -19,6 +72,7 @@
     System.out.println("path =  " + path);
   %>  
   <br>	
+  <!-- 
   <table style="width:100%">
 	  <caption>Endpoints</caption>
 	  <tr>
@@ -66,6 +120,14 @@
 	    <td> - </td>
 	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarDatasRemocoes">recuperarDatasRemocoes</a></td>
 	  </tr>
+	  -->
+	  <div>
+         <p>
+          <ul>
+			  <li><button type="button" id="btnRest7"> Aditamento DISPONIVEL POST</button></li>
+		  </ul>
+         </p>
+      </div>
   </table>
 </body>
 </html>
