@@ -1,0 +1,61 @@
+[{
+    "id": 1,
+    "idRota": 101,
+    "descricao":"Localidade 01",
+    "endereco":"Rua 14 descendo a avenida"
+    
+},{
+    "id": 2,
+    "idRota": 101,
+    "descricao":"Localidade 02",
+    "endereco":"Rua 141 subindo a avenida"
+    
+},{
+    "id": 3,
+    "idRota": 101,
+    "descricao":"Localidade 03",
+    "endereco":"Rua 151 descendo a avenida"
+    
+},{
+    "id": 5,
+    "idRota": 101,
+    "descricao":"Localidade 04",
+    "endereco":"Rua 152 subindo a avenida"
+    
+},{
+    "id": 6,
+    "idRota": 102,
+    "descricao":"Localidade 05",
+    "endereco":"Rua 153 subindo a avenida"
+    
+},{
+    "id": 7,
+    "idRota": 102,
+    "descricao":"Localidade 06",
+    "endereco":"Rua 164 descendo a avenida"
+    
+},{
+    "id": 8,
+    "idRota": 103,
+    "descricao":"Localidade 07",
+    "endereco":"Rua 165 subindo a avenida"
+    
+},{
+    "id": 9,
+    "idRota": 103,
+    "descricao":"Localidade 08",
+    "endereco":"Rua 175 subindo a avenida"
+    
+},{
+    "id": 10,
+    "idRota": 103,
+    "descricao":"Localidade 09",
+    "endereco":"Rua 187 descendo a avenida"
+    
+},{
+    "id": 11,
+    "idRota": 103,
+    "descricao":"Localidade 10",
+    "endereco":"Rua 190 subindo a avenida"
+    
+}]

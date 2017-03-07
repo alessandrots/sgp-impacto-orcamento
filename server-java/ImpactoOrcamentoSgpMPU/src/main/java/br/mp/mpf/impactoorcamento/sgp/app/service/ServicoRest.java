@@ -16,7 +16,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.mp.mpf.impactoorcamento.sgp.app.json.ConcursadoJSon;
@@ -201,6 +200,8 @@ public class ServicoRest {
 		System.out.println("objeto ENTRADA = " + entrada);
 		List<ConcursadoJSon> lista = new ArrayList<>();
 		ConcursadoJSon json = new ConcursadoJSon();
+		
+		PGARest pgaRest = new PGARest();
 		
 		json.setInscricao(1L);
 		json.setNumeroEdital("OUTRO");

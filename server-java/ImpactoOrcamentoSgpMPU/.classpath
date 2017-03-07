@@ -6,18 +6,26 @@
   <classpathentry kind="output" path="target/classes"/>
   <classpathentry kind="var" path="M2_REPO/javax/servlet/jstl/1.2/jstl-1.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/activation/activation/1.1/activation-1.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
   <classpathentry kind="var" path="M2_REPO/junit/junit/4.11/junit-4.11.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-servlets/9.3.8.v20160314/jetty-servlets-9.3.8.v20160314.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-continuation/9.3.8.v20160314/jetty-continuation-9.3.8.v20160314.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-http/9.3.8.v20160314/jetty-http-9.3.8.v20160314.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-util/9.3.8.v20160314/jetty-util-9.3.8.v20160314.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-io/9.3.8.v20160314/jetty-io-9.3.8.v20160314.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-server/1.8/jersey-server-1.8.jar"/>
   <classpathentry kind="var" path="M2_REPO/asm/asm/3.1/asm-3.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-core/1.8/jersey-core-1.8.jar" sourcepath="M2_REPO/com/sun/jersey/jersey-core/1.8/jersey-core-1.8-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-json/1.8/jersey-json-1.8.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/stax/stax-api/1.0.1/stax-api-1.0.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-impl-2.2.3-1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-core-asl/1.7.1/jackson-core-asl-1.7.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-mapper-asl/1.7.1/jackson-mapper-asl-1.7.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-jaxrs/1.7.1/jackson-jaxrs-1.7.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-xc/1.7.1/jackson-xc-1.7.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-bundle/1.8/jersey-bundle-1.8.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-webmvc/4.3.0.RELEASE/spring-webmvc-4.3.0.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-aop/4.3.0.RELEASE/spring-aop-4.3.0.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-beans/4.3.0.RELEASE/spring-beans-4.3.0.RELEASE.jar"/>
@@ -41,7 +49,6 @@
   <classpathentry kind="var" path="M2_REPO/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-io/commons-io/2.1/commons-io-2.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/1.4/gson-1.4.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/googlecode/json-simple/json-simple/1.1/json-simple-1.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate-core/4.1.7.Final/hibernate-core-4.1.7.Final.jar"/>
   <classpathentry kind="var" path="M2_REPO/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar"/>
@@ -57,16 +64,4 @@
   <classpathentry kind="var" path="M2_REPO/org/springframework/security/spring-security-taglibs/4.1.0.RELEASE/spring-security-taglibs-4.1.0.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/security/spring-security-acl/4.1.0.RELEASE/spring-security-acl-4.1.0.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-codec/commons-codec/1.6/commons-codec-1.6.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/mockito/mockito-all/1.8.1/mockito-all-1.8.1.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-catalina/8.0.35/tomcat-catalina-8.0.35.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-servlet-api/8.0.35/tomcat-servlet-api-8.0.35.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-jsp-api/8.0.35/tomcat-jsp-api-8.0.35.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-el-api/8.0.35/tomcat-el-api-8.0.35.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-juli/8.0.35/tomcat-juli-8.0.35.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-annotations-api/8.0.35/tomcat-annotations-api-8.0.35.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-api/8.0.35/tomcat-api-8.0.35.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-jni/8.0.35/tomcat-jni-8.0.35.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-coyote/8.0.35/tomcat-coyote-8.0.35.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-util/8.0.35/tomcat-util-8.0.35.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-util-scan/8.0.35/tomcat-util-scan-8.0.35.jar"/>
 </classpath>

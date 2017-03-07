@@ -1,0 +1,123 @@
+[{
+	    "id": 1,
+	    "idLocalidade": 1,
+	    "codigoNomeCientifico":4,
+	    "codigoNomeComum":4,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 1",
+	    "codigoEstadoVegetativo":1,
+	    "latitude":-15.87991652083075,
+	    "longitude":-47.8208159287934,
+	    "offline":false
+	},{
+	    "id": 2,
+	    "idLocalidade": 1,
+	    "codigoNomeCientifico":4,
+	    "codigoNomeComum":5,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 2",
+	    "codigoEstadoVegetativo":1,
+	    "latitude":-15.855457,
+	    "longitude":-47.877618,
+	    "offline":false
+	},{
+	    "id": 3,
+	    "idLocalidade": 1,
+	    "codigoNomeCientifico":10,
+	    "codigoNomeComum":15,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 3",
+	    "codigoEstadoVegetativo":1,
+	    "latitude":-15.836219,
+	    "longitude":-47.8683084,
+	    "offline":false
+	},{
+	    "id": 4,
+	    "idLocalidade": 1,
+	    "codigoNomeCientifico":10,
+	    "codigoNomeComum":16,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 4",
+	    "codigoEstadoVegetativo":2,
+	    "latitude":-15.8466089,
+	    "longitude":-47.8818986,
+	    "offline":false
+	},{
+	    "id": 5,
+	    "idLocalidade": 1,
+	    "codigoNomeCientifico":1,
+	    "codigoNomeComum":2,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 5",
+	    "codigoEstadoVegetativo":3,
+	    "latitude":-15.8578887,
+	    "longitude":-47.8634556,
+	    "offline":false
+	},{
+	    "id": 6,
+	    "idLocalidade": 2,
+	    "codigoNomeCientifico":1,
+	    "codigoNomeComum":2,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 6",
+	    "codigoEstadoVegetativo":1,
+	    "latitude":40.76,
+	    "longitude":73.984,
+	    "offline":false
+	},{
+	    "id": 7,
+	    "idLocalidade": 2,
+	    "codigoNomeCientifico":1,
+	    "codigoNomeComum":2,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 7",
+	    "codigoEstadoVegetativo":2,
+	    "latitude":40.76,
+	    "longitude":73.984,
+	    "offline":false
+	},{
+	    "id": 8,
+	    "idLocalidade": 2,
+	    "codigoNomeCientifico":1,
+	    "codigoNomeComum":2,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 8",
+	    "codigoEstadoVegetativo":1,
+	    "latitude":40.76,
+	    "longitude":73.984,
+	    "offline":false
+	},{
+	    "id": 9,
+	    "idLocalidade": 3,
+	    "codigoNomeCientifico":1,
+	    "codigoNomeComum":2,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 9",
+	    "codigoEstadoVegetativo":3,
+	    "latitude":40.76,
+	    "longitude":73.984,
+	    "offline":false
+	},{
+	    "id": 10,
+	    "idLocalidade": 3,
+	    "codigoNomeCientifico":1,
+	    "codigoNomeComum":2,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 10",
+	    "codigoEstadoVegetativo":1,
+	    "latitude":40.76,
+	    "longitude":73.984,
+	    "offline":false
+	},{
+	    "id": 11,
+	    "idLocalidade": 3,
+	    "codigoNomeCientifico":1,
+	    "codigoNomeComum":2,
+	    "codigoSituacao":3,
+	    "detalhes":"Detalhe Hospedeiro 11",
+	    "codigoEstadoVegetativo":1,
+	    "latitude":40.76,
+	    "longitude":73.984,
+	    "offline":false
+	}
+]

@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONValue;
-
 import br.mp.mpf.impactoorcamento.sgp.core.infra.SpringManager;
 
 /**
@@ -215,7 +213,7 @@ public class ProjectServlet extends HttpServlet {
 			}
 			
 			if (jSonGerado == null){
-				jSonGerado = JSONValue.toJSONString(mpAtributos);			
+//				jSonGerado = JSONValue.toJSONString(mpAtributos);			
 			}
 		}
 		
