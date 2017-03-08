@@ -210,6 +210,94 @@
 		            })
 
 		        });//fim btn8
+		        
+		        
+		        $('#btnRest9').click(function(){
+		        	console.log('loadContent btn9');
+		            //var url_ = "/fiesWeb/ns/rest/servicos/aditamento/validar";
+		            var url_ = "/impactorcamentosgpmpu/ns/rest/pga/armadilhas/salvarArmadilha";
+		            
+		            $.ajax({
+		                type: "POST",
+		             	// The key needs to match your method's input parameter (case-sensitive).
+		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		                contentType: "application/json; charset=UTF-8",
+		                dataType: "json",
+		                url: url_,
+
+		                //data: req.presenter,
+		                data: armadilha(),
+
+		                success: function (data) {
+		                    console.log('Success = ', data);
+		                    //callback(data);
+		                },
+
+		                failure: function (errMsg) {
+		                    console.log('Failure = ', errMsg);
+		                }
+		            })
+
+		        });//fim btn9
+		      
+		        function armadilha() {
+		            return JSON.stringify({
+		            	'id': 1,
+		                'idLocalidade': 1,
+		                'codigoArmadilha': '1',
+		                'codigoTipoArmadilha': 1,
+		                'codigoSituacao': 1,
+		                'localEndereco': 'kddeieieim kkeeejj',
+		                'codigoObjetivo': 1,
+		                'codigoEspecime': 1,
+		                'idHospedeiro': 1,
+		                'dataUltimaVisita': 18383929,
+		                'offline': true,
+		            });
+		        }
+		        
+		        $('#btnRest10').click(function(){
+		        	console.log('loadContent btn9');
+		            //var url_ = "/fiesWeb/ns/rest/servicos/aditamento/validar";
+		            var url_ = "/impactorcamentosgpmpu/ns/rest/pga/hospedeiros/salvarHospedeiro";
+		            
+		            $.ajax({
+		                type: "POST",
+		             	// The key needs to match your method's input parameter (case-sensitive).
+		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		                contentType: "application/json; charset=UTF-8",
+		                dataType: "json",
+		                url: url_,
+
+		                //data: req.presenter,
+		                data: hospedeiro(),
+
+		                success: function (data) {
+		                    console.log('Success = ', data);
+		                    //callback(data);
+		                },
+
+		                failure: function (errMsg) {
+		                    console.log('Failure = ', errMsg);
+		                }
+		            })
+
+		        });//fim btn10
+		        
+		        function hospedeiro() {
+		            return JSON.stringify({
+		            	'id': 1,
+		                'idLocalidade': 1,
+		                'codigoNomeCientifico': 1,
+		                'codigoNomeComum': 1,
+		                'codigoSituacao': 1,
+		                'detalhes': 'ejreijriejecmdj kkeeejj',
+		                'codigoEstadoVegetativo': 1,
+		                'latitude': 17.8909,
+		                'longitude': 45.922020,
+		                'offline': true,
+		            });
+		        }
 				
 				//end of line
 			});
@@ -233,55 +321,7 @@
     System.out.println("path =  " + path);
   %>  
   <br>	
-  <!-- 
-  <table style="width:100%">
-	  <caption>Endpoints</caption>
-	  <tr>
-	    <th>Funcionalidade</th>
-	    <th>Método</th>
-	    <th>Parâmetros</th>
-	    <th>URL</th>
-	  </tr>
-	  
-	  <tr>
-	    <td colspan="4"><a href="http://10.224.123.134:8080/impactorcamentosgpmpu">Impacto Orçamento</a></td>
-	  </tr>
-	  
-	  <tr>
-	    <td>Listagem de Concursados</td>
-	    <td>GET by QueryParam</td>
-	    <td>?dataInicial (dd/mm/yyyy)&dataFinal(dd/mm/yyyy)</td>
-	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015">getConcursadoPorDatas?dataInicial=01/01/2015&dataFinal=31/05/2015</a></td>
-	  </tr>
-	  
-	  <tr>
-	    <td>Concursado Por Inscricao</td>
-	    <td>GET by PathParam</td>
-	    <td>/inscricao (codigo)</td>
-	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/RecuperarNomeacaoPorInscricao/10107111">RecuperarNomeacaoPorInscricao/10107111</a></td>
-	  </tr>
-	  
-	  <tr>
-	    <td>Listagem de Concursos de Remoção</td>
-	    <td>GET by QueryParam</td>
-	    <td>?dataMaxima (dd/mm/yyyy)</td>
-	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/getRemocoesPorDataInicialCompleta?dataInicialRemocao=01/01/2015">getRemocoesPorDataInicialCompleta?dataInicialRemocao=01/01/2015</a></td>
-	  </tr>
-	  
-	  <tr>
-	    <td>Concurso de Remoção por Número Vaga</td>
-	    <td>GET by PathParam</td>
-	    <td>/numeroVaga (codigo)</td>
-	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/RecuperarRemocoesPorVaga/61742">RecuperarRemocoesPorVaga/61742</a></td>
-	  </tr>
-	  
-	  <tr>
-	    <td>Datas dos Concursos de Remoção Por Quantitativo Vaga</td>
-	    <td> - </td>
-	    <td> - </td>
-	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/RecuperarDatasRemocoes">RecuperarDatasRemocoes</a></td>
-	  </tr>
-	  -->
+  
 	  <div>
          <p>
           <ul>
@@ -293,6 +333,8 @@
 			  <li><button type="button" id="btnRest5"> Recuperar Hospedeiro Por ID </button></li>
 			  <li><button type="button" id="btnRest6"> Recuperar Armadilhas Por Localidade </button></li>
 			  <li><button type="button" id="btnRest8"> Recuperar Armadilha Por ID </button></li>
+			  <li><button type="button" id="btnRest9"> Salvar Armadilha </button></li>
+			  <li><button type="button" id="btnRest10"> Salvar Hospedeiro </button></li>
 		  </ul>
          </p>
       </div>

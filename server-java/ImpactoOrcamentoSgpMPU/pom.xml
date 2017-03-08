@@ -226,6 +226,14 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.6</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.thetransactioncompany.wso2/cors-filter -->
+		<!-- <dependency>
+		    <groupId>com.thetransactioncompany.wso2</groupId>
+		    <artifactId>cors-filter</artifactId>
+		    <version>1.7.0.wso2v1</version>
+		</dependency> -->
+				
 
 		<!-- Mockito -->
 		<!-- <dependency>

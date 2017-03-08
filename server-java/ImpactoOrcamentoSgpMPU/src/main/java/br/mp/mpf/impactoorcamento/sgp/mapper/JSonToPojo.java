@@ -80,7 +80,7 @@ public class JSonToPojo {
 		
 		if (null != url) {
 			File file = new File(url.getPath());
-			System.out.println(" object mapper = " + file.exists());
+//			System.out.println(" object mapper = " + file.exists());
 			
 			try {
 				listaObjetos = mapper.readValue(file, new TypeReference<List<Rota>>() {});
@@ -104,7 +104,7 @@ public class JSonToPojo {
 		
 		if (null != url) {
 			File file = new File(url.getPath());
-			System.out.println(" object mapper = " + file.exists());
+//			System.out.println(" object mapper = " + file.exists());
 			
 			try {
 				listaObjetos = mapper.readValue(file, new TypeReference<List<Localidade>>() {});
@@ -129,7 +129,7 @@ public class JSonToPojo {
 		
 		if (null != url) {
 			File file = new File(url.getPath());
-			System.out.println(" object mapper = " + file.exists());
+//			System.out.println(" object mapper = " + file.exists());
 			
 			try {
 				listaObjetos = mapper.readValue(file, new TypeReference<List<Hospedeiro>>() {});
@@ -154,7 +154,7 @@ public class JSonToPojo {
 		
 		if (null != url) {
 			File file = new File(url.getPath());
-			System.out.println(" object mapper = " + file.exists());
+//			System.out.println(" object mapper = " + file.exists());
 			
 			try {
 				listaObjetos = mapper.readValue(file, new TypeReference<List<Armadilha>>() {});

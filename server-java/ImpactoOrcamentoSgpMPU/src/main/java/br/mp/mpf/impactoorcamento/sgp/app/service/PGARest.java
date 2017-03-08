@@ -3,7 +3,9 @@ package br.mp.mpf.impactoorcamento.sgp.app.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -11,8 +13,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.mp.mpf.impactoorcamento.sgp.app.json.Armadilha;
+import br.mp.mpf.impactoorcamento.sgp.app.json.Entrada;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Hospedeiro;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Localidade;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Rota;
@@ -71,7 +75,7 @@ public class PGARest extends ParentRest {
 			}
 		}
 		
-		System.out.println("Listagem de Rotas Filtrados = " + listaFiltrado);
+//		System.out.println("Listagem de Rotas Filtrados = " + listaFiltrado);
 		
 		String output = EngineJson.getInstancia().serializarLista(listaFiltrado);
 
@@ -100,7 +104,7 @@ public class PGARest extends ParentRest {
 			}
 		}
 		
-		System.out.println("Rota Encontrada = " + rotaFiltrada);
+//		System.out.println("Rota Encontrada = " + rotaFiltrada);
 		
 		String output = EngineJson.getInstancia().serializarObjeto(rotaFiltrada);
 
@@ -131,7 +135,7 @@ public class PGARest extends ParentRest {
 			}
 		}
 		
-		System.out.println("Listagem de Localidades Filtrados = " + listaFiltrado);
+//		System.out.println("Listagem de Localidades Filtrados = " + listaFiltrado);
 		
 		String output = EngineJson.getInstancia().serializarLista(listaFiltrado);
 
@@ -162,7 +166,7 @@ public class PGARest extends ParentRest {
 			}
 		}
 		
-		System.out.println("Listagem de Hospedeiros Filtrados = " + listaFiltrado);
+//		System.out.println("Listagem de Hospedeiros Filtrados = " + listaFiltrado);
 		
 		String output = EngineJson.getInstancia().serializarLista(listaFiltrado);
 
@@ -192,7 +196,7 @@ public class PGARest extends ParentRest {
 			}
 		}
 		
-		System.out.println("Hospedeiro Encontrado = " + objetoRetorno);
+//		System.out.println("Hospedeiro Encontrado = " + objetoRetorno);
 		
 		String output = EngineJson.getInstancia().serializarObjeto(objetoRetorno);
 
@@ -223,7 +227,7 @@ public class PGARest extends ParentRest {
 			}
 		}
 		
-		System.out.println("Listagem de Armadilhas Filtradas = " + listaFiltrado);
+//		System.out.println("Listagem de Armadilhas Filtradas = " + listaFiltrado);
 		
 		String output = EngineJson.getInstancia().serializarLista(listaFiltrado);
 
@@ -253,9 +257,37 @@ public class PGARest extends ParentRest {
 			}
 		}
 		
-		System.out.println("Armadilha Encontrada = " + objetoRetorno);
+//		System.out.println("Armadilha Encontrada = " + objetoRetorno);
 		
 		String output = EngineJson.getInstancia().serializarObjeto(objetoRetorno);
+
+		return Response.status(200).entity(output).build();
+	}
+	
+	@Path("/armadilhas/salvarArmadilha")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	/**
+	 * http://localhost:8080/impactorcamentosgpmpu/ns/rest/pga/armadilhas/salvarArmadilha
+	 * @return Response
+	 */
+	public Response salvarArmadilha(@RequestParam Armadilha armadilha){
+		String output = EngineJson.getInstancia().serializarObjeto(armadilha);
+
+		return Response.status(200).entity(output).build();
+	}
+	
+	@Path("/hospedeiros/salvarHospedeiro")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	/**
+	 * http://localhost:8080/impactorcamentosgpmpu/ns/rest/pga/hospedeiros/salvarHospedeiro
+	 * @return Response
+	 */
+	public Response salvarHospedeiro(@RequestParam Hospedeiro hospedeiro){
+		String output = EngineJson.getInstancia().serializarObjeto(hospedeiro);
 
 		return Response.status(200).entity(output).build();
 	}

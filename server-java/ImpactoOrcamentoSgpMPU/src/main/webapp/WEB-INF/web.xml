@@ -57,6 +57,22 @@ Spring Security para lidar com a seguranca de requisicoes.
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   
+<!--   
+	http://hasanthipurnima.blogspot.com.br/2016/05/applying-cors-filter-to-wso2-identity.html
+  <filter>
+        <filter-name>CORS</filter-name>
+        <filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+
+        <init-param>
+                <param-name>cors.allowOrigin</param-name>
+                <param-value>http://example.com</param-value>
+        </init-param>
+</filter>
+<filter-mapping>
+  <filter-name>CORS</filter-name>
+  <url-pattern>/example.html</url-pattern>
+</filter-mapping>
+   -->
 
   <!-- JETTY CORS  -->
   <!-- <filter>
