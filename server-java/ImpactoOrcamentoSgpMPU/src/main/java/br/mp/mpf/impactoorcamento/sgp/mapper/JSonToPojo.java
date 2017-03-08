@@ -3,26 +3,31 @@ package br.mp.mpf.impactoorcamento.sgp.mapper;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
-import br.mp.mpf.impactoorcamento.sgp.app.json.JSon;
+import br.mp.mpf.impactoorcamento.sgp.app.json.Armadilha;
+import br.mp.mpf.impactoorcamento.sgp.app.json.Hospedeiro;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Localidade;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Rota;
 
 public class JSonToPojo {
 	
-	private Map<String, List<JSon>> mapaJsonToPojo;
+	private Map<String, List> mapaJsonToPojo;
 	private List<String> nomesDosArquivos = new ArrayList<>();
+	private ObjectMapper mapper = new ObjectMapper();
+	String sufixo = ".json";
 	
 	public JSonToPojo() {
 		nomesDosArquivos.add("rotas");
 		nomesDosArquivos.add("localidades");
 		nomesDosArquivos.add("hospedeiros");
 		nomesDosArquivos.add("armadilhas");
+		mapaJsonToPojo = new HashMap<>();
 	}
 
 	public void generatePojos() {
@@ -33,6 +38,15 @@ public class JSonToPojo {
 		
 		this.convertRotasJsonFileToList();
 		this.convertLocalidadesJsonFileToList();
+		this.convertHospedeirosJsonFileToList();
+		this.convertArmadilhasJsonFileToList();
+		
+		URL url = getClass().getResource(".");
+		
+		System.out.println("url = " + url);
+		
+		
+		System.out.println("mapaJsonToPojo = " + mapaJsonToPojo);
 	}
 	
 //	private List<JSon> convertJsonFileToList(String arquivo) {
@@ -57,18 +71,22 @@ public class JSonToPojo {
 //	}
 	
 	private List<Rota> convertRotasJsonFileToList() {
-		ObjectMapper mapper = new ObjectMapper();
 		List<Rota> listaObjetos = null;
 		
-		URL url = getClass().getResource("rotas.json");
+		String nome = nomesDosArquivos.get(0);	
+		
+		URL url = getClass().getResource(nome + sufixo);
 		
 		if (null != url) {
 			File file = new File(url.getPath());
 			System.out.println(" object mapper = " + file.exists());
 			
 			try {
-				listaObjetos =mapper.readValue(file, new TypeReference<List<Rota>>() {});
-				System.out.println("listaObjetos = " + listaObjetos);
+				listaObjetos = mapper.readValue(file, new TypeReference<List<Rota>>() {});
+				
+				if (null != listaObjetos && listaObjetos.size() > 0) {
+					this.mapaJsonToPojo.put(nome, listaObjetos);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -78,18 +96,21 @@ public class JSonToPojo {
 	}
 	
 	private List<Localidade> convertLocalidadesJsonFileToList() {
-		ObjectMapper mapper = new ObjectMapper();
 		List<Localidade> listaObjetos = null;
-		
-		URL url = getClass().getResource("localidades.json");
+		String nome = nomesDosArquivos.get(1);	
+				
+		URL url = getClass().getResource(nome + sufixo);
 		
 		if (null != url) {
 			File file = new File(url.getPath());
 			System.out.println(" object mapper = " + file.exists());
 			
 			try {
-				listaObjetos =mapper.readValue(file, new TypeReference<List<Localidade>>() {});
-				System.out.println("listaObjetos = " + listaObjetos);
+				listaObjetos = mapper.readValue(file, new TypeReference<List<Localidade>>() {});
+				
+				if (null != listaObjetos && listaObjetos.size() > 0) {
+					this.mapaJsonToPojo.put(nome, listaObjetos);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -97,4 +118,55 @@ public class JSonToPojo {
 		
 		return listaObjetos;
 	}
+	
+	private List<Hospedeiro> convertHospedeirosJsonFileToList() {
+		List<Hospedeiro> listaObjetos = null;
+		
+		String nome = nomesDosArquivos.get(2);	
+		
+		URL url = getClass().getResource(nome + sufixo);
+		
+		if (null != url) {
+			File file = new File(url.getPath());
+			System.out.println(" object mapper = " + file.exists());
+			
+			try {
+				listaObjetos = mapper.readValue(file, new TypeReference<List<Hospedeiro>>() {});
+				
+				if (null != listaObjetos && listaObjetos.size() > 0) {
+					this.mapaJsonToPojo.put(nome, listaObjetos);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return listaObjetos;
+	}
+	
+	private List<Armadilha> convertArmadilhasJsonFileToList() {
+		List<Armadilha> listaObjetos = null;
+		
+		String nome = nomesDosArquivos.get(3);	
+		
+		URL url = getClass().getResource(nome + sufixo);
+		
+		if (null != url) {
+			File file = new File(url.getPath());
+			System.out.println(" object mapper = " + file.exists());
+			
+			try {
+				listaObjetos = mapper.readValue(file, new TypeReference<List<Armadilha>>() {});
+				
+				if (null != listaObjetos && listaObjetos.size() > 0) {
+					this.mapaJsonToPojo.put(nome, listaObjetos);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return listaObjetos;
+	}
+	
 }
