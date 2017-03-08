@@ -165,7 +165,51 @@
 		        });//fim btn5
 		        
 		        
-				
+		        $('#btnRest6').click(function(){
+		        	var url_ = "/impactorcamentosgpmpu/ns/rest/pga/armadilhasPorLocalidade/1";
+		            
+		            $.ajax({
+		                type: "GET",
+		             	// The key needs to match your method's input parameter (case-sensitive).
+		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		                contentType: "application/json; charset=UTF-8",
+		                dataType: "json",
+		                url: url_,
+		                
+		                success: function (data) {
+		                    console.log('Success = ', data);
+		                    //callback(data);
+		                },
+
+		                failure: function (errMsg) {
+		                    console.log('Failure = ', errMsg);
+		                }
+		            })
+
+		        });//fim btn6
+		        
+		        $('#btnRest8').click(function(){
+		        	var url_ = "/impactorcamentosgpmpu/ns/rest/pga/armadilhas/detalhePorId/1";
+		            
+		            $.ajax({
+		                type: "GET",
+		             	// The key needs to match your method's input parameter (case-sensitive).
+		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		                contentType: "application/json; charset=UTF-8",
+		                dataType: "json",
+		                url: url_,
+		                
+		                success: function (data) {
+		                    console.log('Success = ', data);
+		                    //callback(data);
+		                },
+
+		                failure: function (errMsg) {
+		                    console.log('Failure = ', errMsg);
+		                }
+		            })
+
+		        });//fim btn8
 				
 				//end of line
 			});
@@ -247,6 +291,8 @@
 			  <li><button type="button" id="btnRest3"> Recuperar Localidades Por Rota </button></li>
 			  <li><button type="button" id="btnRest4"> Recuperar Hospedeiros Por Localidade </button></li>
 			  <li><button type="button" id="btnRest5"> Recuperar Hospedeiro Por ID </button></li>
+			  <li><button type="button" id="btnRest6"> Recuperar Armadilhas Por Localidade </button></li>
+			  <li><button type="button" id="btnRest8"> Recuperar Armadilha Por ID </button></li>
 		  </ul>
          </p>
       </div>

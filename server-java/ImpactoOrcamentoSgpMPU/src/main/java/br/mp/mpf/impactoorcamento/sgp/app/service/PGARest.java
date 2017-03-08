@@ -12,6 +12,7 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
+import br.mp.mpf.impactoorcamento.sgp.app.json.Armadilha;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Hospedeiro;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Localidade;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Rota;
@@ -161,7 +162,7 @@ public class PGARest extends ParentRest {
 			}
 		}
 		
-		System.out.println("Listagem de Localidades Filtrados = " + listaFiltrado);
+		System.out.println("Listagem de Hospedeiros Filtrados = " + listaFiltrado);
 		
 		String output = EngineJson.getInstancia().serializarLista(listaFiltrado);
 
@@ -191,7 +192,68 @@ public class PGARest extends ParentRest {
 			}
 		}
 		
-		System.out.println("Rota Encontrada = " + objetoRetorno);
+		System.out.println("Hospedeiro Encontrado = " + objetoRetorno);
+		
+		String output = EngineJson.getInstancia().serializarObjeto(objetoRetorno);
+
+		return Response.status(200).entity(output).build();
+	}
+	
+	@GET
+	@Path("/armadilhasPorLocalidade/{idLocalidade}")
+	@Produces(MediaType.APPLICATION_JSON)
+	/**
+	 * http://localhost:8080/impactorcamentosgpmpu/ns/rest/pga/armadilhasPorLocalidade/:idLocalidade
+	 * 
+	 * @param idLocalidade
+	 * @return Response
+	 */
+	public Response recuperarArmadilhaPoLocalidade(@PathParam("idLocalidade") Long idLocalidade) {
+		List<Armadilha> listaFiltrado = null;
+		
+		System.out.println("idLocalidade = "+ idLocalidade);
+		
+		if (null != listaArmadilha && listaArmadilha.size() > 0) {
+			listaFiltrado = new ArrayList<>();
+			
+			for (Armadilha objeto : listaArmadilha) {
+				if (objeto.getIdLocalidade() == idLocalidade) {
+					listaFiltrado.add(objeto);
+				}
+			}
+		}
+		
+		System.out.println("Listagem de Armadilhas Filtradas = " + listaFiltrado);
+		
+		String output = EngineJson.getInstancia().serializarLista(listaFiltrado);
+
+		return Response.status(200).entity(output).build();
+	}
+	
+	@GET
+	@Path("/armadilhas/detalhePorId/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	/**
+	 * http://localhost:8080/impactorcamentosgpmpu/ns/rest/pga/armadilhas/detalhePorId/:id
+	 * 
+	 * @param id
+	 * @return Response
+	 */
+	public Response recuperarDetalheArmadilha(@PathParam("id") Long id) {
+		Armadilha objetoRetorno = null;
+		
+		System.out.println("id hospedeiro = "+ id);
+		
+		if (null != listaArmadilha && listaArmadilha.size() > 0) {
+			
+			for (Armadilha objeto : listaArmadilha) {
+				if (objeto.getId() == id) {
+					objetoRetorno= objeto;
+				}
+			}
+		}
+		
+		System.out.println("Armadilha Encontrada = " + objetoRetorno);
 		
 		String output = EngineJson.getInstancia().serializarObjeto(objetoRetorno);
 
