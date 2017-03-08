@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import br.mp.mpf.impactoorcamento.sgp.app.json.ConcursadoJSon;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Entrada;
 import br.mp.mpf.impactoorcamento.sgp.core.infra.SpringManager;
-import br.mp.mpf.impactoorcamento.sgp.mapper.JSonToPojo;
 import br.mp.mpf.impactoorcamento.sgp.util.EngineJson;
 
 @Path("/servicos")
@@ -202,7 +201,14 @@ public class ServicoRest {
 		List<ConcursadoJSon> lista = new ArrayList<>();
 		ConcursadoJSon json = new ConcursadoJSon();
 		
-		new JSonToPojo().generatePojos();
+//		JSonToPojo jSonToPojo = new JSonToPojo();
+//		jSonToPojo.generatePojos();
+//		
+//		System.out.println("Listagem de Rotas = " + jSonToPojo.getMapaJsonToPojo().get(Constantes.MAPA_CHAVE_POJO_FILE_ROTAS));
+//		System.out.println("Listagem de Localidades = " + jSonToPojo.getMapaJsonToPojo().get(Constantes.MAPA_CHAVE_POJO_FILE_LOCALIDADES));
+//		System.out.println("Listagem de Hospedeiros = " + jSonToPojo.getMapaJsonToPojo().get(Constantes.MAPA_CHAVE_POJO_FILE_HOSPEDEIROS));
+//		System.out.println("Listagem de Armadilhas = " + jSonToPojo.getMapaJsonToPojo().get(Constantes.MAPA_CHAVE_POJO_FILE_ARMADILHAS));
+		
 		
 //		PGARest pgaRest = new PGARest();
 		

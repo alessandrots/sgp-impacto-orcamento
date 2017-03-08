@@ -40,6 +40,52 @@
 
 		        });//fim btn7
 		        
+		        $('#btnRest1').click(function(){
+		        	var url_ = "/impactorcamentosgpmpu/ns/rest/pga/rotas/completa/1/101";
+		            
+		            $.ajax({
+		                type: "GET",
+		             	// The key needs to match your method's input parameter (case-sensitive).
+		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		                contentType: "application/json; charset=UTF-8",
+		                dataType: "json",
+		                url: url_,
+		                
+		                success: function (data) {
+		                    console.log('Success = ', data);
+		                    //callback(data);
+		                },
+
+		                failure: function (errMsg) {
+		                    console.log('Failure = ', errMsg);
+		                }
+		            })
+
+		        });//fim btn1
+		        
+		        
+		        $('#btnRest2').click(function(){
+		        	var url_ = "/impactorcamentosgpmpu/ns/rest/pga/rotas/detalhe/101";
+		            
+		            $.ajax({
+		                type: "GET",
+		             	// The key needs to match your method's input parameter (case-sensitive).
+		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		                contentType: "application/json; charset=UTF-8",
+		                dataType: "json",
+		                url: url_,
+		                
+		                success: function (data) {
+		                    console.log('Success = ', data);
+		                    //callback(data);
+		                },
+
+		                failure: function (errMsg) {
+		                    console.log('Failure = ', errMsg);
+		                }
+		            })
+
+		        });//fim btn2
 		        
 		        function formToJSON3() {
 		            return JSON.stringify({
@@ -125,6 +171,8 @@
          <p>
           <ul>
 			  <li><button type="button" id="btnRest7"> Aditamento DISPONIVEL POST</button></li>
+			  <li><button type="button" id="btnRest1"> recuperarRotasPorAgenteCampo </button></li>
+			  <li><button type="button" id="btnRest2"> recuperarRotasPorID </button></li>
 		  </ul>
          </p>
       </div>

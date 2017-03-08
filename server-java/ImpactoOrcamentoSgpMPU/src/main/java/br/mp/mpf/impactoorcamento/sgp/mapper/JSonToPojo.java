@@ -14,6 +14,7 @@ import br.mp.mpf.impactoorcamento.sgp.app.json.Armadilha;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Hospedeiro;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Localidade;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Rota;
+import br.mp.mpf.impactoorcamento.sgp.util.Constantes;
 
 public class JSonToPojo {
 	
@@ -23,10 +24,10 @@ public class JSonToPojo {
 	String sufixo = ".json";
 	
 	public JSonToPojo() {
-		nomesDosArquivos.add("rotas");
-		nomesDosArquivos.add("localidades");
-		nomesDosArquivos.add("hospedeiros");
-		nomesDosArquivos.add("armadilhas");
+		nomesDosArquivos.add(Constantes.MAPA_CHAVE_POJO_FILE_ROTAS);
+		nomesDosArquivos.add(Constantes.MAPA_CHAVE_POJO_FILE_LOCALIDADES);
+		nomesDosArquivos.add(Constantes.MAPA_CHAVE_POJO_FILE_HOSPEDEIROS);
+		nomesDosArquivos.add(Constantes.MAPA_CHAVE_POJO_FILE_ARMADILHAS);
 		mapaJsonToPojo = new HashMap<>();
 	}
 
@@ -41,12 +42,12 @@ public class JSonToPojo {
 		this.convertHospedeirosJsonFileToList();
 		this.convertArmadilhasJsonFileToList();
 		
-		URL url = getClass().getResource(".");
+//		URL url = getClass().getResource(".");
 		
-		System.out.println("url = " + url);
+//		System.out.println("url = " + url);
 		
 		
-		System.out.println("mapaJsonToPojo = " + mapaJsonToPojo);
+//		System.out.println("mapaJsonToPojo = " + mapaJsonToPojo.get());
 	}
 	
 //	private List<JSon> convertJsonFileToList(String arquivo) {
@@ -168,5 +169,11 @@ public class JSonToPojo {
 		
 		return listaObjetos;
 	}
+
+	public Map<String, List> getMapaJsonToPojo() {
+		return mapaJsonToPojo;
+	}
+	
+	
 	
 }
