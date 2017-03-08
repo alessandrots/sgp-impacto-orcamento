@@ -40,6 +40,14 @@
 
 		        });//fim btn7
 		        
+		        function formToJSON3() {
+		            return JSON.stringify({
+		            	'nuCpf': '519.641.497-54',
+		                'coAditamento': '1',
+		                'senha': '1'
+		                });
+		        }
+		        
 		        $('#btnRest1').click(function(){
 		        	var url_ = "/impactorcamentosgpmpu/ns/rest/pga/rotas/completa/1/101";
 		            
@@ -87,13 +95,76 @@
 
 		        });//fim btn2
 		        
-		        function formToJSON3() {
-		            return JSON.stringify({
-		            	'nuCpf': '519.641.497-54',
-		                'coAditamento': '1',
-		                'senha': '1'
-		                });
-		        }
+		        $('#btnRest3').click(function(){
+		        	var url_ = "/impactorcamentosgpmpu/ns/rest/pga/localidadesPorRota/101";
+		            
+		            $.ajax({
+		                type: "GET",
+		             	// The key needs to match your method's input parameter (case-sensitive).
+		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		                contentType: "application/json; charset=UTF-8",
+		                dataType: "json",
+		                url: url_,
+		                
+		                success: function (data) {
+		                    console.log('Success = ', data);
+		                    //callback(data);
+		                },
+
+		                failure: function (errMsg) {
+		                    console.log('Failure = ', errMsg);
+		                }
+		            })
+
+		        });//fim btn3
+		        
+		        $('#btnRest4').click(function(){
+		        	var url_ = "/impactorcamentosgpmpu/ns/rest/pga/hospedeirosPorLocalidade/1";
+		            
+		            $.ajax({
+		                type: "GET",
+		             	// The key needs to match your method's input parameter (case-sensitive).
+		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		                contentType: "application/json; charset=UTF-8",
+		                dataType: "json",
+		                url: url_,
+		                
+		                success: function (data) {
+		                    console.log('Success = ', data);
+		                    //callback(data);
+		                },
+
+		                failure: function (errMsg) {
+		                    console.log('Failure = ', errMsg);
+		                }
+		            })
+
+		        });//fim btn4
+		        
+		        $('#btnRest5').click(function(){
+		        	var url_ = "/impactorcamentosgpmpu/ns/rest/pga/hospedeiros/detalhePorId/1";
+		            
+		            $.ajax({
+		                type: "GET",
+		             	// The key needs to match your method's input parameter (case-sensitive).
+		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		                contentType: "application/json; charset=UTF-8",
+		                dataType: "json",
+		                url: url_,
+		                
+		                success: function (data) {
+		                    console.log('Success = ', data);
+		                    //callback(data);
+		                },
+
+		                failure: function (errMsg) {
+		                    console.log('Failure = ', errMsg);
+		                }
+		            })
+
+		        });//fim btn5
+		        
+		        
 				
 				
 				//end of line
@@ -143,7 +214,7 @@
 	    <td>Concursado Por Inscricao</td>
 	    <td>GET by PathParam</td>
 	    <td>/inscricao (codigo)</td>
-	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/recuperarNomeacaoPorInscricao/10107111">recuperarNomeacaoPorInscricao/10107111</a></td>
+	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursadoService/RecuperarNomeacaoPorInscricao/10107111">RecuperarNomeacaoPorInscricao/10107111</a></td>
 	  </tr>
 	  
 	  <tr>
@@ -157,22 +228,25 @@
 	    <td>Concurso de Remoção por Número Vaga</td>
 	    <td>GET by PathParam</td>
 	    <td>/numeroVaga (codigo)</td>
-	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarRemocoesPorVaga/61742">recuperarRemocoesPorVaga/61742</a></td>
+	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/RecuperarRemocoesPorVaga/61742">RecuperarRemocoesPorVaga/61742</a></td>
 	  </tr>
 	  
 	  <tr>
 	    <td>Datas dos Concursos de Remoção Por Quantitativo Vaga</td>
 	    <td> - </td>
 	    <td> - </td>
-	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/recuperarDatasRemocoes">recuperarDatasRemocoes</a></td>
+	    <td><a href="http://10.224.123.134:8080/impactorcamentosgpmpu/ns/rest/concursoRemocaoService/RecuperarDatasRemocoes">RecuperarDatasRemocoes</a></td>
 	  </tr>
 	  -->
 	  <div>
          <p>
           <ul>
 			  <li><button type="button" id="btnRest7"> Aditamento DISPONIVEL POST</button></li>
-			  <li><button type="button" id="btnRest1"> recuperarRotasPorAgenteCampo </button></li>
-			  <li><button type="button" id="btnRest2"> recuperarRotasPorID </button></li>
+			  <li><button type="button" id="btnRest1"> Recuperar Rotas Por AgenteCampo </button></li>
+			  <li><button type="button" id="btnRest2"> Recuperar Rotas Por ID </button></li>
+			  <li><button type="button" id="btnRest3"> Recuperar Localidades Por Rota </button></li>
+			  <li><button type="button" id="btnRest4"> Recuperar Hospedeiros Por Localidade </button></li>
+			  <li><button type="button" id="btnRest5"> Recuperar Hospedeiro Por ID </button></li>
 		  </ul>
          </p>
       </div>

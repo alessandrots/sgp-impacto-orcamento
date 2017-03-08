@@ -12,6 +12,8 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
+import br.mp.mpf.impactoorcamento.sgp.app.json.Hospedeiro;
+import br.mp.mpf.impactoorcamento.sgp.app.json.Localidade;
 import br.mp.mpf.impactoorcamento.sgp.app.json.Rota;
 import br.mp.mpf.impactoorcamento.sgp.util.EngineJson;
 
@@ -53,15 +55,11 @@ public class PGARest extends ParentRest {
 	 * @return Response
 	 */
 	public Response recuperarRotasPorAgenteCampo(@PathParam("codigoAgenteCampo") Long codigoAgenteCampo, @PathParam("idMunicipio") Long idMunicipio) {
-		
 		List<Rota> listaFiltrado = null;
 		
 		System.out.println("codigoAgenteCampo = "+ codigoAgenteCampo);
 		System.out.println("idMunicipio = "+ idMunicipio);
 				
-//		List<Rota> listaRotas = jSonToPojo.getMapaJsonToPojo().get(Constantes.MAPA_CHAVE_POJO_FILE_ROTAS);
-//		System.out.println("Listagem de Rotas = " + listaRotas);
-		
 		if (null != listaRotas && listaRotas.size() > 0) {
 			listaFiltrado = new ArrayList<>();
 			
@@ -89,7 +87,6 @@ public class PGARest extends ParentRest {
 	 * @return Response
 	 */
 	public Response recuperarRotasPorId(@PathParam("id") Long id) {
-		
 		Rota rotaFiltrada = null;
 		
 		System.out.println("id = "+ id);
@@ -105,6 +102,98 @@ public class PGARest extends ParentRest {
 		System.out.println("Rota Encontrada = " + rotaFiltrada);
 		
 		String output = EngineJson.getInstancia().serializarObjeto(rotaFiltrada);
+
+		return Response.status(200).entity(output).build();
+	}
+	
+	@GET
+	@Path("/localidadesPorRota/{idRota}")
+	@Produces(MediaType.APPLICATION_JSON)
+	/**
+	 * http://localhost:8080/impactorcamentosgpmpu/ns/rest/pga/localidadesPorRota/:idRota
+	 * 
+	 * @param idRota
+	 * @return Response
+	 */
+	public Response recuperarLocalidadesPorRota(@PathParam("idRota") Long idRota) {
+		List<Localidade> listaFiltrado = null;
+		
+		System.out.println("idRota = "+ idRota);
+				
+		if (null != listaLocalidades && listaLocalidades.size() > 0) {
+			listaFiltrado = new ArrayList<>();
+			
+			for (Localidade objeto : listaLocalidades) {
+				if (objeto.getIdRota() == idRota) {
+					listaFiltrado.add(objeto);
+				}
+			}
+		}
+		
+		System.out.println("Listagem de Localidades Filtrados = " + listaFiltrado);
+		
+		String output = EngineJson.getInstancia().serializarLista(listaFiltrado);
+
+		return Response.status(200).entity(output).build();
+	}
+	
+	@GET
+	@Path("/hospedeirosPorLocalidade/{idLocalidade}")
+	@Produces(MediaType.APPLICATION_JSON)
+	/**
+	 * http://localhost:8080/impactorcamentosgpmpu/ns/rest/pga/hospedeirosPorLocalidade/:idLocalidade
+	 * 
+	 * @param idLocalidade
+	 * @return Response
+	 */
+	public Response recuperarHospedeirosPoLocalidade(@PathParam("idLocalidade") Long idLocalidade) {
+		List<Hospedeiro> listaFiltrado = null;
+		
+		System.out.println("idLocalidade = "+ idLocalidade);
+		
+		if (null != listaHospedeiros && listaHospedeiros.size() > 0) {
+			listaFiltrado = new ArrayList<>();
+			
+			for (Hospedeiro objeto : listaHospedeiros) {
+				if (objeto.getIdLocalidade() == idLocalidade) {
+					listaFiltrado.add(objeto);
+				}
+			}
+		}
+		
+		System.out.println("Listagem de Localidades Filtrados = " + listaFiltrado);
+		
+		String output = EngineJson.getInstancia().serializarLista(listaFiltrado);
+
+		return Response.status(200).entity(output).build();
+	}
+	
+	@GET
+	@Path("/hospedeiros/detalhePorId/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	/**
+	 * http://localhost:8080/impactorcamentosgpmpu/ns/rest/pga/hospedeiros/detalhePorId/:id
+	 * 
+	 * @param id
+	 * @return Response
+	 */
+	public Response recuperarDetalheHospedeiro(@PathParam("id") Long id) {
+		Hospedeiro objetoRetorno = null;
+		
+		System.out.println("id hospedeiro = "+ id);
+		
+		if (null != listaHospedeiros && listaHospedeiros.size() > 0) {
+			
+			for (Hospedeiro objeto : listaHospedeiros) {
+				if (objeto.getId() == id) {
+					objetoRetorno= objeto;
+				}
+			}
+		}
+		
+		System.out.println("Rota Encontrada = " + objetoRetorno);
+		
+		String output = EngineJson.getInstancia().serializarObjeto(objetoRetorno);
 
 		return Response.status(200).entity(output).build();
 	}
