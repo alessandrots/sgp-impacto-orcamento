@@ -216,12 +216,13 @@
 		        	console.log('loadContent btn9');
 		            //var url_ = "/fiesWeb/ns/rest/servicos/aditamento/validar";
 		            var url_ = "/impactorcamentosgpmpu/ns/rest/pga/armadilhas/salvarArmadilha";
+		            //var url_ ="http://192.168.10.178:8280/mapaHomologacao/ns/rest/pga/armadilhas/salvarArmadilha"
 		            
 		            $.ajax({
 		                type: "POST",
 		             	// The key needs to match your method's input parameter (case-sensitive).
 		                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-		                contentType: "application/json; charset=UTF-8",
+		                contentType: "application/json",
 		                dataType: "json",
 		                url: url_,
 

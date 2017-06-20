@@ -29,10 +29,10 @@ public class ParentRest {
 			listaHospedeiros = jSonToPojo.getMapaJsonToPojo().get(Constantes.MAPA_CHAVE_POJO_FILE_HOSPEDEIROS);
 			listaArmadilha = jSonToPojo.getMapaJsonToPojo().get(Constantes.MAPA_CHAVE_POJO_FILE_ARMADILHAS);
 			
-			System.out.println("Listagem de Rotas = " 		+ listaRotas);
-			System.out.println("Listagem de Localidades = " + listaLocalidades);
-			System.out.println("Listagem de Hospedeiros = " + listaHospedeiros);
-			System.out.println("Listagem de Armadilhas = " 	+ listaArmadilha);
+//			System.out.println("Listagem de Rotas = " 		+ listaRotas);
+//			System.out.println("Listagem de Localidades = " + listaLocalidades);
+//			System.out.println("Listagem de Hospedeiros = " + listaHospedeiros);
+//			System.out.println("Listagem de Armadilhas = " 	+ listaArmadilha);
 		}
 	}
 
